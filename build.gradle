@@ -1,0 +1,32 @@
+//TODO:license
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    //TODO:add build plugins and libraries to the classpath
+  }
+}
+
+allprojects {
+  repositories {
+    mavenLocal()
+    mavenCentral()
+  }
+}
+
+subprojects {
+  apply plugin: 'java'
+
+  group = "setools"
+
+  dependencies {
+    //compile "org.apache.logging.log4j:log4j-api:$log4jVersion"
+    //compile "org.apache.logging.log4j:log4j-core:$log4jVersion"
+    //compile "org.apache.logging.log4j:log4j-slf4j-impl:$log4jVersion"
+
+    testCompile 'junit:junit:4.12'
+  }
+
+}
