@@ -39,8 +39,12 @@ public class GradleFunctionalTest {
 	}
 	
 	protected void copyProjectResources(String path) throws MalformedURLException {
-		for(URL resource : getResourcesRecursively(path))
+		System.out.println("WTF1");
+		for(URL resource : getResourcesRecursively(path)) {
+			System.out.println("WTF2");
 			copyResourceWithPath(path,resource,testProjectDir.getRoot());
+			System.out.println("WTF3");
+		}
 	}
 
 	protected void copyResourceWithPath(String path,URL resource, File root) {
@@ -59,12 +63,16 @@ public class GradleFunctionalTest {
 	}
 
 	protected Set<URL> getResourcesRecursively(String path) throws MalformedURLException {
+		System.out.println("WTF A");
 		Set<URL> results = new HashSet<URL>();
 		ClassLoader classloader = getClass().getClassLoader();
 		String basePath = getClass().getPackage().getName().replace(".", "/") + "/" + path;
+		System.out.printf("BASE: %s%n",basePath);
 		URL baseRoot = classloader.getResource(basePath + "/build.gradle");
+		System.out.printf("BASE URL: %s%n",baseRoot);
 		if(baseRoot!=null) {
 			String protocol = baseRoot.getProtocol();
+			System.out.printf("PROTOCOL: %s%n",protocol);
 			if(protocol.startsWith("jar:")) {
 				//handle resources inside jar files
 			} else if(protocol.startsWith("file:")) {
@@ -83,6 +91,7 @@ public class GradleFunctionalTest {
 	}
 
 	public static Set<File> search(File root) {
+		System.out.printf("SEARCH: %s%n", root);
 		Set<File> results = new HashSet<File>();
 		for(File file : root.listFiles()) {
 			if(file.isDirectory())
