@@ -85,8 +85,11 @@ public class GradleFunctionalTest {
 	
 	protected static Set<URL> convertFilesToUrl(URL baseRoot, Set<File> files) throws MalformedURLException {
 		Set<URL> results = new HashSet<URL>();
-		for(File file : files)
-			results.add(new URL(baseRoot,file.getPath()));
+		for(File file : files) {
+			URL url = new URL(baseRoot,file.getPath());
+			System.out.printf("Convert %s to %s", file,url);
+			results.add(url);
+		}
 		return results;
 	}
 
