@@ -4,16 +4,14 @@
 package setools.gradle.test.utils;
 
 import java.io.File;
-import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Set;
-import java.util.Collection;
 import java.util.HashSet;
 
-import org.gradle.internal.impldep.org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -38,7 +36,7 @@ public class GradleFunctionalTest {
 		testProjectDir.delete();
 	}
 	
-	protected void copyProjectResources(String path) throws MalformedURLException {
+	protected void copyProjectResources(String path) throws MalformedURLException, UnsupportedEncodingException {
 		System.out.println("WTF1");
 		for(URL resource : getResourcesRecursively(path)) {
 			System.out.println("WTF2");
@@ -62,7 +60,7 @@ public class GradleFunctionalTest {
 		return null;
 	}
 
-	protected Set<URL> getResourcesRecursively(String path) throws MalformedURLException {
+	protected Set<URL> getResourcesRecursively(String path) throws MalformedURLException, UnsupportedEncodingException {
 		System.out.println("WTF A");
 		Set<URL> results = new HashSet<URL>();
 		ClassLoader classloader = getClass().getClassLoader();
@@ -76,7 +74,8 @@ public class GradleFunctionalTest {
 			if(protocol.startsWith("jar:")) {
 				//handle resources inside jar files
 			} else if(protocol.startsWith("file")) {
-				File dir = new File(baseRoot.getPath()).getParentFile();
+				String decoded = URLDecoder.decode(baseRoot.getPath(),"UTF-8");
+				File dir = new File(decoded).getParentFile();
 				results.addAll(convertFilesToUrl(baseRoot,search(dir)));
 			}
 		}
