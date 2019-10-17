@@ -75,7 +75,7 @@ public class GradleFunctionalTest {
 			System.out.printf("PROTOCOL: %s%n",protocol);
 			if(protocol.startsWith("jar:")) {
 				//handle resources inside jar files
-			} else if(protocol.startsWith("file:")) {
+			} else if(protocol.startsWith("file")) {
 				File dir = new File(baseRoot.getPath()).getParentFile();
 				results.addAll(convertFilesToUrl(baseRoot,search(dir)));
 			}
