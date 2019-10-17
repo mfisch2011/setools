@@ -29,9 +29,16 @@ allprojects {
     mavenLocal()
     mavenCentral()
   }
+  
+  apply plugin: 'java'
+  
 }
 
 subprojects {
+
+	configurations {
+		ecj
+	}
 
   //configure plugins by project type
   if(project.name.endsWith('-api')) {
@@ -40,7 +47,6 @@ subprojects {
   	
   } else if(project.name.endsWith('-app')) {
   	//configure project for application build
-  	apply plugin: 'java'
   	apply plugin: 'application'
   	
   } else if(project.name.endsWith('-plugin')) {
@@ -54,9 +60,36 @@ subprojects {
     //compile "org.apache.logging.log4j:log4j-api:$log4jVersion"
     //compile "org.apache.logging.log4j:log4j-core:$log4jVersion"
     //compile "org.apache.logging.log4j:log4j-slf4j-impl:$log4jVersion"
-
-    testCompile 'junit:junit:4.12'
+		ecj 'org.eclipse.jdt.core.compiler:ecj:4.6.1'
+		testCompile 'junit:junit:4.12'
+		testCompile gradleApi()
   }
 
-  //TODO:configure javadoc
+  	configurations {
+		ecj
+	}
+	
+	compileJava {
+		options.fork = true
+		options.forkOptions.with {
+			executable = 'java'
+			jvmArgs = ['-classpath', project.configurations.ecj.asPath, 'org.eclipse.jdt.internal.compiler.batch.Main', '-nowarn']
+		}
+	}
+	
+	compileTestJava {
+		options.fork = true
+		options.forkOptions.with {
+			executable = 'java'
+			jvmArgs = ['-classpath', project.configurations.ecj.asPath, 'org.eclipse.jdt.internal.compiler.batch.Main', '-nowarn']
+		}
+	}
+	
+	//turn off compiling javadoc
+	tasks.withType(Javadoc).all { enabled = false }
+	
+	test {
+    	dependsOn cleanTest
+    	testLogging.showStandardStreams = true
+    }
 }

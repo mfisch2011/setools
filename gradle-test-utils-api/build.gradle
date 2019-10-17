@@ -1,0 +1,6 @@
+//TODO:license
+
+dependencies {
+	api 'junit:junit:4.12'
+	api gradleApi()
+}
