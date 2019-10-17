@@ -1,2 +1,4 @@
+//TODO:license
 rootProject.name = 'setools'
 
+include 'mbse-plugin'
