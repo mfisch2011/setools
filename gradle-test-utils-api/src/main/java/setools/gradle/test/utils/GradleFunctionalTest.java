@@ -97,6 +97,7 @@ public class GradleFunctionalTest {
 		System.out.printf("SEARCH: %s%n", root);
 		Set<File> results = new HashSet<File>();
 		for(File file : root.listFiles()) {
+			System.out.printf("Adding %s%n",file);
 			if(file.isDirectory())
 				results.addAll(search(file));
 			else
