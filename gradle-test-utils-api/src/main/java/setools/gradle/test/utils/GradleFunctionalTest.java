@@ -27,7 +27,7 @@ public class GradleFunctionalTest {
 		testProjectDir.delete();
 	}
 	
-	protected void copyResourcesRecursively(String path) {
+	protected void copyProjectResources(String path) {
 		//TODO:stub...
 	}
 }
