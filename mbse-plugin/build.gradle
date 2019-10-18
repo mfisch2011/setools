@@ -1,0 +1,14 @@
+//TODO:license
+
+gradlePlugin {
+	plugins {
+		mbsePlugin {
+			id = 'mbse-plugin'
+			implementationClass = 'setools.gradle.mbse.MBSEPlugin'
+		}
+	}
+}
+
+dependencies {
+	testCompile project(':gradle-test-utils-api')
+}
