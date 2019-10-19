@@ -3,15 +3,11 @@
  */
 package setools.gradle.velocity;
 
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.util.Map.Entry;
 import java.util.Properties;
 
 import javax.inject.Inject;
 
-import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 import org.gradle.api.DefaultTask;
@@ -19,6 +15,9 @@ import org.gradle.api.Task;
 import org.gradle.api.internal.project.ProjectInternal;
 import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.tasks.TaskAction;
+
+import setools.velocity.VelocityContextLoaderService;
+import setools.velocity.VelocityMergeThread;
 
 /**
  * @author matt
@@ -80,9 +79,10 @@ public class VelocityMergeTask extends DefaultTask {
 	 */
 	@TaskAction
 	public void run() {
-		VelocityEngine engine = getEngine()
+		VelocityEngine engine = getEngine();
 		VelocityContext context = getContext();
 		VelocityMergeThread thread = new VelocityMergeThread(taskExtension.getTemplate(),taskExtension.getOutput(),context,engine);
+		thread.run();
 	}
 
 	/** TODO:

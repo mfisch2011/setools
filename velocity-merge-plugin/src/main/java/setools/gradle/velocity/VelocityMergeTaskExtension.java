@@ -22,12 +22,6 @@ public interface VelocityMergeTaskExtension {
 	/** TODO:
 	 * @return
 	 */
-	@Internal
-	public VelocityContext getContext();
-
-	/** TODO:
-	 * @return
-	 */
 	@InputFile
 	public String getTemplate();
 	

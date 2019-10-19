@@ -27,6 +27,10 @@ public class VelocityMergePlugin implements Plugin<ProjectInternal> {
 	 */
 	protected VelocityMergePluginExtension pluginExtension = null;
 
+	/** TODO: 
+	 */
+	protected VelocityMergeTask taskVelocityMerge = null;
+
 	/** TODO:
 	 * @param objectFactory
 	 */
@@ -38,11 +42,11 @@ public class VelocityMergePlugin implements Plugin<ProjectInternal> {
 	@Override
 	public void apply(ProjectInternal project) {
 		configureExtension(project);
-		taskVelocityMerge = VelocityMergeTask.configureTask(project,null,objectFactory,pluginExtension);
+		taskVelocityMerge  = VelocityMergeTask.configureTask(project,null,objectFactory,pluginExtension);
 	}
 
 	protected void configureExtension(ProjectInternal project) {
-		pluginExtension = project.getExtensions().create(PLUGIN_EXT_NAME, DefaultGradleDevelopmentPluginExtension.class, project,objectFactory);
+		pluginExtension = project.getExtensions().create(PLUGIN_EXT_NAME, DefaultVelocityMergePluginExtension.class, project,objectFactory);
 	}
 
 }
