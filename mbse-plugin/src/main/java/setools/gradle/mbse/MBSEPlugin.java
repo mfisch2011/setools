@@ -16,7 +16,43 @@ import org.gradle.api.model.ObjectFactory;
  */
 public class MBSEPlugin implements Plugin<ProjectInternal> {
 
+	/** TODO:
+	 */
+	public static final String DOCUMENT_TASK_NAME = "document";
+
+	/** TODO:
+	 */
+	public static final String REPORT_TASK_NAME = "report";
+
+	/** TODO:
+	 */
+	public static final String SIMULATE_TASK_NAME = "simulate";
+
+	/** TODO:
+	 */
+	public static final String MODEL_TASK_NAME = "model";
+
+	/** TODO: 
+	 */
 	protected final ObjectFactory objectFactory;
+	
+	protected MBSEPluginExtension pluginExtension = null;
+	
+	/** TODO:
+	 */
+	protected Task taskModel = null;
+	
+	/** TODO:
+	 */
+	protected Task taskSimulate = null;
+	
+	/** TODO:
+	 */
+	protected Task taskReport = null;
+	
+	/** TODO:
+	 */
+	protected Task taskDocument = null;
 	
 	@Inject
 	public MBSEPlugin(ObjectFactory objectFactory) {
@@ -25,30 +61,34 @@ public class MBSEPlugin implements Plugin<ProjectInternal> {
 	
 	@Override
 	public void apply(ProjectInternal project) {
-		MBSEPluginExtension extension = project.getExtensions().create("mbse", MBSEPluginExtension.class, project,objectFactory);
-		configureModel(project,extension);
-		configureSimulation(project,extension);
-		configureReport(project,extension);
-		configureDocument(project,extension);
+		configureExtnesion(project);
+		configureModel(project);
+		configureSimulation(project);
+		configureReport(project);
+		configureDocument(project);
 	}
 
-	protected void configureDocument(ProjectInternal project, MBSEPluginExtension extension) {
-		Task document = project.getTasks().create("document");
+	protected void configureExtnesion(ProjectInternal project) {
+		pluginExtension = project.getExtensions().create("mbse", DefaultMBSEPluginExtension.class, project,objectFactory);
+	}
+
+	protected void configureDocument(ProjectInternal project) {
+		taskDocument = project.getTasks().create(DOCUMENT_TASK_NAME);
 		//TODO:create other document tasks...
 	}
 
-	protected void configureReport(ProjectInternal project, MBSEPluginExtension extension) {
-		Task report = project.getTasks().create("report");
+	protected void configureReport(ProjectInternal project) {
+		taskReport = project.getTasks().create(REPORT_TASK_NAME);
 		//TODO:create other report tasks
 	}
 
-	protected void configureSimulation(ProjectInternal project, MBSEPluginExtension extension) {
-		Task simulate = project.getTasks().create("simulate");
+	protected void configureSimulation(ProjectInternal project) {
+		taskSimulate = project.getTasks().create(SIMULATE_TASK_NAME);
 		//TODO:create other simulate tasks
 	}
 
-	protected void configureModel(ProjectInternal project, MBSEPluginExtension extension) {
-		Task model = project.getTasks().findByName("model");
+	protected void configureModel(ProjectInternal project) {
+		taskModel = project.getTasks().findByName(MODEL_TASK_NAME);
 		//TODO:how to handle a null model event
 	}
 
