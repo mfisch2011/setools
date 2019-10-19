@@ -3,3 +3,4 @@ rootProject.name = 'setools'
 
 include 'mbse-plugin'
 include 'gradle-test-utils-api'
+include 'gradle-devel-plugin'
