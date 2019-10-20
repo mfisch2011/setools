@@ -6,11 +6,9 @@ package setools.gradle.velocity;
 import java.util.List;
 import java.util.Properties;
 
-import org.apache.velocity.VelocityContext;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.InputFile;
 import org.gradle.api.tasks.InputFiles;
-import org.gradle.api.tasks.Internal;
 import org.gradle.api.tasks.OutputFile;
 
 /**
