@@ -1,0 +1,9 @@
+plugins {
+	id 'setools-velocity-merge'
+}
+
+velocityMerge {
+	template = 'helloWorld.vm'
+	output = 'helloWorld.txt'
+	inputValue = '{ "you" : "World", "me", "Gradle" }'
+}

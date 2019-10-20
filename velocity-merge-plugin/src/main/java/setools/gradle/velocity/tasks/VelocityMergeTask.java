@@ -1,7 +1,7 @@
 /**
  * 
  */
-package setools.gradle.velocity;
+package setools.gradle.velocity.tasks;
 
 import java.util.Map.Entry;
 import java.util.Properties;
@@ -16,6 +16,8 @@ import org.gradle.api.internal.project.ProjectInternal;
 import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.tasks.TaskAction;
 
+import setools.gradle.velocity.VelocityMergePluginExtension;
+import setools.gradle.velocity.tasks.internal.DefaultVelocityMergeTaskExtension;
 import setools.velocity.VelocityContextLoaderService;
 import setools.velocity.VelocityMergeThread;
 

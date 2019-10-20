@@ -1,7 +1,7 @@
 /**
  * 
  */
-package setools.gradle.velocity;
+package setools.gradle.velocity.tasks.internal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +11,9 @@ import javax.inject.Inject;
 
 import org.gradle.api.internal.project.ProjectInternal;
 import org.gradle.api.model.ObjectFactory;
+
+import setools.gradle.velocity.VelocityMergePluginExtension;
+import setools.gradle.velocity.tasks.VelocityMergeTaskExtension;
 
 /**
  * @author matt

@@ -1,11 +1,13 @@
 /**
  * 
  */
-package setools.gradle.velocity;
+package setools.gradle.velocity.internal;
 
 import java.util.Properties;
 
 import org.apache.velocity.VelocityContext;
+
+import setools.gradle.velocity.VelocityMergePluginExtension;
 
 /**
  * @author matt

@@ -26,4 +26,6 @@ gradlePlugin {
 dependencies {
 	implementation 'org.apache.velocity:velocity:[1.7,2.0)'
 	implementation project(':velocity-api')
+	testCompile project(':gradle-test-utils-api')
+	testCompile project(':velocity-json-api')
 }

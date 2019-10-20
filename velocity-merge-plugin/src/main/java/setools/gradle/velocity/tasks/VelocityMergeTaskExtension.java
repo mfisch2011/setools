@@ -1,7 +1,7 @@
 /**
  * 
  */
-package setools.gradle.velocity;
+package setools.gradle.velocity.tasks;
 
 import java.util.List;
 import java.util.Properties;

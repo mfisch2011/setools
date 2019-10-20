@@ -9,6 +9,9 @@ import org.gradle.api.Plugin;
 import org.gradle.api.internal.project.ProjectInternal;
 import org.gradle.api.model.ObjectFactory;
 
+import setools.gradle.velocity.internal.DefaultVelocityMergePluginExtension;
+import setools.gradle.velocity.tasks.VelocityMergeTask;
+
 /**
  * @author matt
  *
