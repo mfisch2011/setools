@@ -1,0 +1,5 @@
+[
+	{ 'name' : 'Horse', 'price' : '$10.00' },
+	{ 'name' : 'Dog', 'price' : '$9.00' },
+	{ 'name' : 'Bear', 'price' : '$0.99' },
+]
