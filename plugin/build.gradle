@@ -1,0 +1,55 @@
+/*
+   Copyright 2019 Matt Fischer <mfish2011@gmail.com>
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+subprojects {
+
+	project.ext.implementationClass = "qualifiedName"
+
+	apply plugin: "java"
+	apply plugin: "java-gradle-plugin"
+  	apply plugin: "maven-publish"
+  	
+  	dependencies {
+  		implementation gradleApi()
+    	testCompile "junit:junit:4.12"
+    	testCompile("mfisch2011.gradle:gradle-test-utils-api") {
+    		version {
+    			branch = "development"
+    		}
+    	}
+    }
+    
+    gradlePlugin {
+    	plugins {
+    		plugin {
+    			id = project.implementationClass
+    			implementationClass = project.implementationClass
+    		}
+    	}
+    }
+	
+	test {
+		dependsOn cleanTest
+		testLogging.showStandardStreams = true
+	}
+	
+	publishing {
+		publications {
+			maven(MavenPublication) {
+				from components.java
+			}
+		}
+	}
+}
