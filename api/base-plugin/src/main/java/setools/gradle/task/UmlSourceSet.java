@@ -1,4 +1,4 @@
-/*
+/**
    Copyright 2019 Matt Fischer <mfish2011@gmail.com>
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +13,25 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-dependencies {
-	api gradleApi()
-	api project(":api:uml")
+package setools.gradle.task;
+
+import org.gradle.api.Action;
+import org.gradle.api.file.SourceDirectorySet;
+import groovy.lang.Closure;
+
+/**
+ * @author matt
+ *
+ */
+public interface UmlSourceSet {
+
+	public SourceDirectorySet uml();
+	
+	public SourceDirectorySet allUml();
+	
+	public UmlSourceSet uml(@SuppressWarnings("rawtypes") Closure closure);
+	
+	
+	public UmlSourceSet uml(Action<SourceDirectorySet> action);
+	
 }

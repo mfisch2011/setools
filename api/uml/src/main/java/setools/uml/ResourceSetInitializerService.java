@@ -32,7 +32,7 @@ public class ResourceSetInitializerService {
 	//implement as static singleton only
 	private ResourceSetInitializerService() { }
 	
-	synchronized public void initialize(ResourceSet resourceSet) {
+	synchronized public static void initialize(ResourceSet resourceSet) {
 		Iterator<ResourceSetInitializer> iter = serviceLoader.iterator();
 		while(iter.hasNext()) {
 			ResourceSetInitializer initializer = iter.next();
