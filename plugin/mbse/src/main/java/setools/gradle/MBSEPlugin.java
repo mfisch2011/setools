@@ -30,7 +30,7 @@ public class MBSEPlugin implements Plugin<Project> {
 
 	@Override
 	public void apply(Project project) {
-		//TODO:apply base plugin???
+		project.getPluginManager().apply(MBSEBasePlugin.class);
 		configurePluginExtension(project);
 		configureSourceSets(project);
 		configureTasks(project);

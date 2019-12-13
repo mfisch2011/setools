@@ -15,7 +15,7 @@
 */
 project.implementationClass = "setools.gradle.MBSEPlugin"
 dependencies {
-	implementation project(":api:uml")
+	implementation project(":api:base-plugin")
 	implementation project(":api:sysml14")
 	implementation project(":api:sysml16")
 }
