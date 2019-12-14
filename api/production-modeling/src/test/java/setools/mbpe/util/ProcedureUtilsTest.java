@@ -62,22 +62,27 @@ public class ProcedureUtilsTest {
 		assertNotNull(object);
 		assertEquals("_Zo-kYB54EeqDIN6nE1xWqg",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals(null,ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		assertEquals("_cvm-IB54EeqDIN6nE1xWqg",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals("Simple test activity step 1.",ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		assertEquals("_dr1V0B54EeqDIN6nE1xWqg",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals("Simple test activity step 2.",ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		assertEquals("_eX2HQB54EeqDIN6nE1xWqg",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals("Simple test activity step 3.",ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		assertEquals("_aTT60B54EeqDIN6nE1xWqg",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals(null,ProcedureUtils.getActionText(object));
 	}
 	
 	@Test
@@ -89,27 +94,34 @@ public class ProcedureUtilsTest {
 		assertNotNull(object);
 		assertEquals("_GQsu0B59EeqDIN6nE1xWqg",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals(null,ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		assertEquals("_Ha4qAB59EeqDIN6nE1xWqg",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals("Decision test activity $step.name.",ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		assertEquals("_KMbkkB59EeqDIN6nE1xWqg",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals("If done looping, then goto Step 3.  If not done looping, then goto Step 4.",ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		//TODO:how to handle this since edge ordering is not guarenteed?
 		assertEquals("_I_78QB59EeqDIN6nE1xWqg",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals("Decision test activity $step.name.",ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
-		assertEquals("_Gw7HAB59EeqDIN6nE1xWqg",resource.getID(object));object = iter.next();
+		assertEquals("_Gw7HAB59EeqDIN6nE1xWqg",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals(null,ProcedureUtils.getActionText(object));
+		object = iter.next();
 		assertNotNull(object);
 		//TODO:how to handle this since edge ordering is not guarenteed?
 		assertEquals("_T0_aQB59EeqDIN6nE1xWqg",resource.getID(object));
-		assertEquals(1,iter.getDepth());		
+		assertEquals(1,iter.getDepth());
+		assertEquals("Decision test activity $step.name.",ProcedureUtils.getActionText(object));
 	}
 	
 	@Test
@@ -121,38 +133,47 @@ public class ProcedureUtilsTest {
 		assertNotNull(object);
 		assertEquals("_1N450B6XEeqeifCYBsjUOA",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals(null,ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		assertEquals("_5HQ_IB6XEeqeifCYBsjUOA",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals("Step 1.",ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		assertEquals("_7sCB8B6XEeqeifCYBsjUOA",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals("",ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		assertEquals("_D6cN0B6YEeqeifCYBsjUOA",resource.getID(object));
 		assertEquals(2,iter.getDepth());
+		assertEquals(null,ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		assertEquals("__zlGIB6XEeqeifCYBsjUOA",resource.getID(object));
 		assertEquals(2,iter.getDepth());
+		assertEquals("Step 2A.",ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		assertEquals("_BC28sB6YEeqeifCYBsjUOA",resource.getID(object));
 		assertEquals(2,iter.getDepth());
+		assertEquals("Step 2B.",ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		assertEquals("_FNFhcB6YEeqeifCYBsjUOA",resource.getID(object));
 		assertEquals(2,iter.getDepth());
+		assertEquals(null,ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		assertEquals("_5wb38B6XEeqeifCYBsjUOA",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals("Step 3.",ProcedureUtils.getActionText(object));
 		object = iter.next();
 		assertNotNull(object);
 		assertEquals("_15HoIB6XEeqeifCYBsjUOA",resource.getID(object));
 		assertEquals(1,iter.getDepth());
+		assertEquals(null,ProcedureUtils.getActionText(object));
 	}
 	
 	@Test

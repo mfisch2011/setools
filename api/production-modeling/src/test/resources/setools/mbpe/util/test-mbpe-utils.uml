@@ -59,15 +59,27 @@
       <edge xmi:type="uml:ControlFlow" xmi:id="_7iTBsB6YEeqeifCYBsjUOA" target="__zlGIB6XEeqeifCYBsjUOA" source="_D6cN0B6YEeqeifCYBsjUOA"/>
       <edge xmi:type="uml:ControlFlow" xmi:id="_843zEB6YEeqeifCYBsjUOA" target="_BC28sB6YEeqeifCYBsjUOA" source="__zlGIB6XEeqeifCYBsjUOA"/>
       <edge xmi:type="uml:ControlFlow" xmi:id="_-G8vwB6YEeqeifCYBsjUOA" target="_FNFhcB6YEeqeifCYBsjUOA" source="_BC28sB6YEeqeifCYBsjUOA"/>
-      <node xmi:type="uml:OpaqueAction" xmi:id="__zlGIB6XEeqeifCYBsjUOA" name="Step 2A" incoming="_7iTBsB6YEeqeifCYBsjUOA" outgoing="_843zEB6YEeqeifCYBsjUOA"/>
-      <node xmi:type="uml:OpaqueAction" xmi:id="_BC28sB6YEeqeifCYBsjUOA" name="Step 2B" incoming="_843zEB6YEeqeifCYBsjUOA" outgoing="_-G8vwB6YEeqeifCYBsjUOA"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="__zlGIB6XEeqeifCYBsjUOA" name="Step 2A" incoming="_7iTBsB6YEeqeifCYBsjUOA" outgoing="_843zEB6YEeqeifCYBsjUOA">
+        <language>Natural language</language>
+        <body>Step 2A.</body>
+      </node>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_BC28sB6YEeqeifCYBsjUOA" name="Step 2B" incoming="_843zEB6YEeqeifCYBsjUOA" outgoing="_-G8vwB6YEeqeifCYBsjUOA">
+        <language>Natural language</language>
+        <body>Step 2B.</body>
+      </node>
       <node xmi:type="uml:InitialNode" xmi:id="_D6cN0B6YEeqeifCYBsjUOA" name="InitialNodeLoopNode" outgoing="_7iTBsB6YEeqeifCYBsjUOA"/>
       <node xmi:type="uml:ActivityFinalNode" xmi:id="_FNFhcB6YEeqeifCYBsjUOA" name="ActivityFinalNode4" incoming="_-G8vwB6YEeqeifCYBsjUOA"/>
     </structuredNode>
     <node xmi:type="uml:InitialNode" xmi:id="_1N450B6XEeqeifCYBsjUOA" name="InitialNodeLoopTestActivity" outgoing="_LzChwB6YEeqeifCYBsjUOA"/>
     <node xmi:type="uml:ActivityFinalNode" xmi:id="_15HoIB6XEeqeifCYBsjUOA" name="ActivityFinalNode2" incoming="_Bpkh8B6ZEeqeifCYBsjUOA"/>
-    <node xmi:type="uml:OpaqueAction" xmi:id="_5HQ_IB6XEeqeifCYBsjUOA" name="Step 1" incoming="_LzChwB6YEeqeifCYBsjUOA" outgoing="_6FBycB6YEeqeifCYBsjUOA"/>
-    <node xmi:type="uml:OpaqueAction" xmi:id="_5wb38B6XEeqeifCYBsjUOA" name="Step3" incoming="_aSaf8B6ZEeqeifCYBsjUOA" outgoing="_Bpkh8B6ZEeqeifCYBsjUOA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_5HQ_IB6XEeqeifCYBsjUOA" name="Step 1" incoming="_LzChwB6YEeqeifCYBsjUOA" outgoing="_6FBycB6YEeqeifCYBsjUOA">
+      <language>Natural language</language>
+      <body>Step 1.</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_5wb38B6XEeqeifCYBsjUOA" name="Step3" incoming="_aSaf8B6ZEeqeifCYBsjUOA" outgoing="_Bpkh8B6ZEeqeifCYBsjUOA">
+      <language>Natural language</language>
+      <body>Step 3.</body>
+    </node>
   </packagedElement>
   <packagedElement xmi:type="uml:Activity" xmi:id="_QNDuoB6bEeqeifCYBsjUOA" name="Call Test Activity" node="_T9ghcB6bEeqeifCYBsjUOA _U5MGkB6bEeqeifCYBsjUOA _V6LpgB6bEeqeifCYBsjUOA _WqUF8B6bEeqeifCYBsjUOA _ap0ocB6bEeqeifCYBsjUOA">
     <edge xmi:type="uml:ControlFlow" xmi:id="_g8eSQB6bEeqeifCYBsjUOA" target="_V6LpgB6bEeqeifCYBsjUOA" source="_T9ghcB6bEeqeifCYBsjUOA"/>
