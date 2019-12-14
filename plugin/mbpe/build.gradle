@@ -13,8 +13,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-project.implementationClass = "setools.gradle.ProcedurePlugin"
+project.implementationClass = "setools.gradle.MBPEPlugin"
 dependencies {
-	implementation project(":plugin:mbse")
+	implementation project(":api:production-modeling")
 	//TODO: modeling api...
 }
