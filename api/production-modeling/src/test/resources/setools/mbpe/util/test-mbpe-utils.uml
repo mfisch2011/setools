@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_TYqc4B54EeqDIN6nE1xWqg" name="test-mbpe-utils">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_TfKtgB54EeqDIN6nE1xWqg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_Tb9BcB54EeqDIN6nE1xWqg" name="Simple Test Activity" node="_Zo-kYB54EeqDIN6nE1xWqg _aTT60B54EeqDIN6nE1xWqg _cvm-IB54EeqDIN6nE1xWqg _dr1V0B54EeqDIN6nE1xWqg _eX2HQB54EeqDIN6nE1xWqg">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_i07WkB54EeqDIN6nE1xWqg" target="_cvm-IB54EeqDIN6nE1xWqg" source="_Zo-kYB54EeqDIN6nE1xWqg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_kWXUIB54EeqDIN6nE1xWqg" target="_dr1V0B54EeqDIN6nE1xWqg" source="_cvm-IB54EeqDIN6nE1xWqg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_liYbUB54EeqDIN6nE1xWqg" target="_eX2HQB54EeqDIN6nE1xWqg" source="_dr1V0B54EeqDIN6nE1xWqg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_nMkFMB54EeqDIN6nE1xWqg" target="_aTT60B54EeqDIN6nE1xWqg" source="_eX2HQB54EeqDIN6nE1xWqg"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_Zo-kYB54EeqDIN6nE1xWqg" name="InitialNodeSimpleTestActivity" outgoing="_i07WkB54EeqDIN6nE1xWqg"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_aTT60B54EeqDIN6nE1xWqg" name="ActivityFinalNode2" incoming="_nMkFMB54EeqDIN6nE1xWqg"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_cvm-IB54EeqDIN6nE1xWqg" name="Step 1" incoming="_i07WkB54EeqDIN6nE1xWqg" outgoing="_kWXUIB54EeqDIN6nE1xWqg">
+      <language>Natural language</language>
+      <body>Simple test activity step 1.</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_dr1V0B54EeqDIN6nE1xWqg" name="Step 2" incoming="_kWXUIB54EeqDIN6nE1xWqg" outgoing="_liYbUB54EeqDIN6nE1xWqg">
+      <language>Natural language</language>
+      <body>Simple test activity step 2.</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_eX2HQB54EeqDIN6nE1xWqg" name="Step 3" incoming="_liYbUB54EeqDIN6nE1xWqg" outgoing="_nMkFMB54EeqDIN6nE1xWqg">
+      <language>Natural language</language>
+      <body>Simple test activity step 3.</body>
+    </node>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_BsNP8B59EeqDIN6nE1xWqg" name="Decision Test Activity" node="_GQsu0B59EeqDIN6nE1xWqg _Gw7HAB59EeqDIN6nE1xWqg _Ha4qAB59EeqDIN6nE1xWqg _I_78QB59EeqDIN6nE1xWqg _KMbkkB59EeqDIN6nE1xWqg _T0_aQB59EeqDIN6nE1xWqg">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_SHk2MB59EeqDIN6nE1xWqg" target="_Ha4qAB59EeqDIN6nE1xWqg" source="_GQsu0B59EeqDIN6nE1xWqg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_WGCP0B59EeqDIN6nE1xWqg" target="_KMbkkB59EeqDIN6nE1xWqg" source="_Ha4qAB59EeqDIN6nE1xWqg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_baek8B59EeqDIN6nE1xWqg" target="_I_78QB59EeqDIN6nE1xWqg" source="_KMbkkB59EeqDIN6nE1xWqg">
+      <guard xmi:type="uml:LiteralString" xmi:id="_sG7UIB59EeqDIN6nE1xWqg" value="done looping"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_eSCn8B59EeqDIN6nE1xWqg" target="_T0_aQB59EeqDIN6nE1xWqg" source="_KMbkkB59EeqDIN6nE1xWqg">
+      <guard xmi:type="uml:LiteralString" xmi:id="_of0DgB59EeqDIN6nE1xWqg" value="not done looping"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_hT_WAB59EeqDIN6nE1xWqg" target="_Ha4qAB59EeqDIN6nE1xWqg" source="_T0_aQB59EeqDIN6nE1xWqg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_jhIjAB59EeqDIN6nE1xWqg" target="_Gw7HAB59EeqDIN6nE1xWqg" source="_I_78QB59EeqDIN6nE1xWqg"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_GQsu0B59EeqDIN6nE1xWqg" name="InitialNodeDecisionTestActivity" outgoing="_SHk2MB59EeqDIN6nE1xWqg"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_Gw7HAB59EeqDIN6nE1xWqg" name="ActivityFinalNode2" incoming="_jhIjAB59EeqDIN6nE1xWqg"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_Ha4qAB59EeqDIN6nE1xWqg" name="Step 1" incoming="_SHk2MB59EeqDIN6nE1xWqg _hT_WAB59EeqDIN6nE1xWqg" outgoing="_WGCP0B59EeqDIN6nE1xWqg">
+      <language>Velocity</language>
+      <body>Decision test activity $step.name.</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_I_78QB59EeqDIN6nE1xWqg" name="Step 3" incoming="_baek8B59EeqDIN6nE1xWqg" outgoing="_jhIjAB59EeqDIN6nE1xWqg">
+      <language>Velocity</language>
+      <body>Decision test activity $step.name.</body>
+    </node>
+    <node xmi:type="uml:DecisionNode" xmi:id="_KMbkkB59EeqDIN6nE1xWqg" name="DecisionNode6" incoming="_WGCP0B59EeqDIN6nE1xWqg" outgoing="_baek8B59EeqDIN6nE1xWqg _eSCn8B59EeqDIN6nE1xWqg"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_T0_aQB59EeqDIN6nE1xWqg" name="Step 4" incoming="_eSCn8B59EeqDIN6nE1xWqg" outgoing="_hT_WAB59EeqDIN6nE1xWqg">
+      <language>Velocity</language>
+      <body>Decision test activity $step.name.</body>
+    </node>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_vDyIAB6XEeqeifCYBsjUOA" name="Loop Test Activity" node="_1N450B6XEeqeifCYBsjUOA _15HoIB6XEeqeifCYBsjUOA _5HQ_IB6XEeqeifCYBsjUOA _5wb38B6XEeqeifCYBsjUOA _7sCB8B6XEeqeifCYBsjUOA" group="_7sCB8B6XEeqeifCYBsjUOA">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_LzChwB6YEeqeifCYBsjUOA" target="_5HQ_IB6XEeqeifCYBsjUOA" source="_1N450B6XEeqeifCYBsjUOA"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_6FBycB6YEeqeifCYBsjUOA" target="_7sCB8B6XEeqeifCYBsjUOA" source="_5HQ_IB6XEeqeifCYBsjUOA"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_Bpkh8B6ZEeqeifCYBsjUOA" target="_15HoIB6XEeqeifCYBsjUOA" source="_5wb38B6XEeqeifCYBsjUOA"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_aSaf8B6ZEeqeifCYBsjUOA" target="_5wb38B6XEeqeifCYBsjUOA" source="_7sCB8B6XEeqeifCYBsjUOA"/>
+    <structuredNode xmi:type="uml:LoopNode" xmi:id="_7sCB8B6XEeqeifCYBsjUOA" name="LoopNode5" incoming="_6FBycB6YEeqeifCYBsjUOA" outgoing="_aSaf8B6ZEeqeifCYBsjUOA">
+      <edge xmi:type="uml:ControlFlow" xmi:id="_7iTBsB6YEeqeifCYBsjUOA" target="__zlGIB6XEeqeifCYBsjUOA" source="_D6cN0B6YEeqeifCYBsjUOA"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_843zEB6YEeqeifCYBsjUOA" target="_BC28sB6YEeqeifCYBsjUOA" source="__zlGIB6XEeqeifCYBsjUOA"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_-G8vwB6YEeqeifCYBsjUOA" target="_FNFhcB6YEeqeifCYBsjUOA" source="_BC28sB6YEeqeifCYBsjUOA"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="__zlGIB6XEeqeifCYBsjUOA" name="Step 2A" incoming="_7iTBsB6YEeqeifCYBsjUOA" outgoing="_843zEB6YEeqeifCYBsjUOA"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_BC28sB6YEeqeifCYBsjUOA" name="Step 2B" incoming="_843zEB6YEeqeifCYBsjUOA" outgoing="_-G8vwB6YEeqeifCYBsjUOA"/>
+      <node xmi:type="uml:InitialNode" xmi:id="_D6cN0B6YEeqeifCYBsjUOA" name="InitialNodeLoopNode" outgoing="_7iTBsB6YEeqeifCYBsjUOA"/>
+      <node xmi:type="uml:ActivityFinalNode" xmi:id="_FNFhcB6YEeqeifCYBsjUOA" name="ActivityFinalNode4" incoming="_-G8vwB6YEeqeifCYBsjUOA"/>
+    </structuredNode>
+    <node xmi:type="uml:InitialNode" xmi:id="_1N450B6XEeqeifCYBsjUOA" name="InitialNodeLoopTestActivity" outgoing="_LzChwB6YEeqeifCYBsjUOA"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_15HoIB6XEeqeifCYBsjUOA" name="ActivityFinalNode2" incoming="_Bpkh8B6ZEeqeifCYBsjUOA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_5HQ_IB6XEeqeifCYBsjUOA" name="Step 1" incoming="_LzChwB6YEeqeifCYBsjUOA" outgoing="_6FBycB6YEeqeifCYBsjUOA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_5wb38B6XEeqeifCYBsjUOA" name="Step3" incoming="_aSaf8B6ZEeqeifCYBsjUOA" outgoing="_Bpkh8B6ZEeqeifCYBsjUOA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_QNDuoB6bEeqeifCYBsjUOA" name="Call Test Activity" node="_T9ghcB6bEeqeifCYBsjUOA _U5MGkB6bEeqeifCYBsjUOA _V6LpgB6bEeqeifCYBsjUOA _WqUF8B6bEeqeifCYBsjUOA _ap0ocB6bEeqeifCYBsjUOA">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_g8eSQB6bEeqeifCYBsjUOA" target="_V6LpgB6bEeqeifCYBsjUOA" source="_T9ghcB6bEeqeifCYBsjUOA"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_iKvcMB6bEeqeifCYBsjUOA" target="_ap0ocB6bEeqeifCYBsjUOA" source="_V6LpgB6bEeqeifCYBsjUOA"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_jVEhUB6bEeqeifCYBsjUOA" target="_WqUF8B6bEeqeifCYBsjUOA" source="_ap0ocB6bEeqeifCYBsjUOA"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_kzXrUB6bEeqeifCYBsjUOA" target="_U5MGkB6bEeqeifCYBsjUOA" source="_WqUF8B6bEeqeifCYBsjUOA"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_T9ghcB6bEeqeifCYBsjUOA" name="InitialNodeCallTestActivity" outgoing="_g8eSQB6bEeqeifCYBsjUOA"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_U5MGkB6bEeqeifCYBsjUOA" name="ActivityFinalNode2" incoming="_kzXrUB6bEeqeifCYBsjUOA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_V6LpgB6bEeqeifCYBsjUOA" name="Step 1" incoming="_g8eSQB6bEeqeifCYBsjUOA" outgoing="_iKvcMB6bEeqeifCYBsjUOA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_WqUF8B6bEeqeifCYBsjUOA" name="Step 3" incoming="_jVEhUB6bEeqeifCYBsjUOA" outgoing="_kzXrUB6bEeqeifCYBsjUOA"/>
+    <node xmi:type="uml:CallBehaviorAction" xmi:id="_ap0ocB6bEeqeifCYBsjUOA" name="Step 2" incoming="_iKvcMB6bEeqeifCYBsjUOA" outgoing="_jVEhUB6bEeqeifCYBsjUOA" behavior="_deZB0B6bEeqeifCYBsjUOA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_deZB0B6bEeqeifCYBsjUOA" name="Test Behavior" node="_rXanIB6bEeqeifCYBsjUOA _r8BwEB6bEeqeifCYBsjUOA _tlUCEB6bEeqeifCYBsjUOA _uLqQYB6bEeqeifCYBsjUOA">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_kb6_MB6cEeqeifCYBsjUOA" target="_tlUCEB6bEeqeifCYBsjUOA" source="_rXanIB6bEeqeifCYBsjUOA"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_l0etkB6cEeqeifCYBsjUOA" target="_uLqQYB6bEeqeifCYBsjUOA" source="_tlUCEB6bEeqeifCYBsjUOA"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_m9oG8B6cEeqeifCYBsjUOA" target="_r8BwEB6bEeqeifCYBsjUOA" source="_uLqQYB6bEeqeifCYBsjUOA"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_rXanIB6bEeqeifCYBsjUOA" name="InitialNode11" outgoing="_kb6_MB6cEeqeifCYBsjUOA"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_r8BwEB6bEeqeifCYBsjUOA" name="ActivityFinalNode12" incoming="_m9oG8B6cEeqeifCYBsjUOA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_tlUCEB6bEeqeifCYBsjUOA" name="Step A" incoming="_kb6_MB6cEeqeifCYBsjUOA" outgoing="_l0etkB6cEeqeifCYBsjUOA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_uLqQYB6bEeqeifCYBsjUOA" name="Step B" incoming="_l0etkB6cEeqeifCYBsjUOA" outgoing="_m9oG8B6cEeqeifCYBsjUOA"/>
+  </packagedElement>
+</uml:Model>
