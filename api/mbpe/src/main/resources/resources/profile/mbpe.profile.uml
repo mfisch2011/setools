@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_M44bkC_HEeqNnrwg7H4iEQ" name="mbpe" URI="http://setools/mbpe/0.1" metaclassReference="_TbkFcC_HEeqNnrwg7H4iEQ _TbksgC_HEeqNnrwg7H4iEQ">
+  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7EC_KEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7uD8EC_LEeqNnrwg7H4iEQ" source="PapyrusVersion">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7uD8ES_LEeqNnrwg7H4iEQ" key="Version" value="0.0.0"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7uD8Ei_LEeqNnrwg7H4iEQ" key="Comment" value="&lt;undefined>"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7uD8Ey_LEeqNnrwg7H4iEQ" key="Copyright" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7uD8FC_LEeqNnrwg7H4iEQ" key="Date" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7uD8FS_LEeqNnrwg7H4iEQ" key="Author" value="&lt;undefined>"/>
+    </eAnnotations>
+    <contents xmi:type="ecore:EPackage" xmi:id="__XlAcC_LEeqNnrwg7H4iEQ" name="mbpe" nsURI="http://setools/mbpe/0.1" nsPrefix="mbpe">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XmOlS_LEeqNnrwg7H4iEQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__XmOli_LEeqNnrwg7H4iEQ" key="Version" value="0.1.0"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__XmOly_LEeqNnrwg7H4iEQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__XmOmC_LEeqNnrwg7H4iEQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__XmOmS_LEeqNnrwg7H4iEQ" key="Date" value="2020-01-05"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__XmOmi_LEeqNnrwg7H4iEQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__XlAcS_LEeqNnrwg7H4iEQ" name="Procedure" abstract="true">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlAci_LEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_VTnzQC_HEeqNnrwg7H4iEQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__XlAcy_LEeqNnrwg7H4iEQ" name="base_Behavior" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Behavior"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__XlAdS_LEeqNnrwg7H4iEQ" name="equipment" ordered="false" upperBound="-1" eType="__XlAey_LEeqNnrwg7H4iEQ" changeable="false" volatile="true" transient="true" derived="true">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlAdi_LEeqNnrwg7H4iEQ" source="union"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__XlAeC_LEeqNnrwg7H4iEQ" name="material" ordered="false" upperBound="-1" eType="__XlAlC_LEeqNnrwg7H4iEQ" changeable="false" volatile="true" transient="true" derived="true">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlAeS_LEeqNnrwg7H4iEQ" source="union"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__XlAey_LEeqNnrwg7H4iEQ" name="Equipment" eSuperTypes="__XlAgy_LEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlAfC_LEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ogmlgC_HEeqNnrwg7H4iEQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__XlAfS_LEeqNnrwg7H4iEQ" name="operating_procedure" ordered="false" upperBound="-1" eType="__XlAjC_LEeqNnrwg7H4iEQ" changeable="false" volatile="true" transient="true" derived="true">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlAfi_LEeqNnrwg7H4iEQ" source="union"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__XlAgC_LEeqNnrwg7H4iEQ" name="maintenance_procedure" ordered="false" upperBound="-1" eType="__XlAkC_LEeqNnrwg7H4iEQ"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__XlAgy_LEeqNnrwg7H4iEQ" name="ManufacturedMaterial" abstract="true">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlAhC_LEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_zA5fAC_IEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__XlAhS_LEeqNnrwg7H4iEQ" key="originalName" value="Manufactured Material"/>
+        </eAnnotations>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__XlAhi_LEeqNnrwg7H4iEQ" name="base_Class" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="__XlAiC_LEeqNnrwg7H4iEQ" name="manfacturer" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="__XlAii_LEeqNnrwg7H4iEQ" name="part_number" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__XlAjC_LEeqNnrwg7H4iEQ" name="OperatingProcedure" eSuperTypes="__XlAcS_LEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlAjS_LEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_dk4e0C_HEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__XlAji_LEeqNnrwg7H4iEQ" key="originalName" value="Operating Procedure"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__XlAkC_LEeqNnrwg7H4iEQ" name="MaintenanceProcedure" eSuperTypes="__XlAjC_LEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlAkS_LEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_efTfsC_HEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__XlAki_LEeqNnrwg7H4iEQ" key="originalName" value="Maintenance Procedure"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__XlAlC_LEeqNnrwg7H4iEQ" name="Material" eSuperTypes="__XlAgy_LEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlAlS_LEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_k3r-EC_HEeqNnrwg7H4iEQ"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__XlAly_LEeqNnrwg7H4iEQ" name="AssemblyProcedure" eSuperTypes="__XlAmy_LEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlAmC_LEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Wi1YYC_HEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__XlAmS_LEeqNnrwg7H4iEQ" key="originalName" value="Assembly Procedure"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__XlAmy_LEeqNnrwg7H4iEQ" name="CreationProcedure" abstract="true" eSuperTypes="__XlAcS_LEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlAnC_LEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_IeWpoC_KEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__XlAnS_LEeqNnrwg7H4iEQ" key="originalName" value="Creation Procedure"/>
+        </eAnnotations>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__XlAni_LEeqNnrwg7H4iEQ" name="end_item" ordered="false" upperBound="-1" eType="__XlAgy_LEeqNnrwg7H4iEQ" changeable="false"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__XlAoS_LEeqNnrwg7H4iEQ" name="FabricationProcedure" eSuperTypes="__XlAmy_LEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlAoi_LEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_XlnrEC_HEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__XlAoy_LEeqNnrwg7H4iEQ" key="originalName" value="Fabrication Procedure"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__XlApS_LEeqNnrwg7H4iEQ" name="InstallationProcedure" eSuperTypes="__XlAmy_LEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlApi_LEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Y7R2cC_HEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__XlApy_LEeqNnrwg7H4iEQ" key="originalName" value="Installation Procedure"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__XlAqS_LEeqNnrwg7H4iEQ" name="CalibrationProcedure" eSuperTypes="__XlAkC_LEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlAqi_LEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_bwyD8C_HEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__XlAqy_LEeqNnrwg7H4iEQ" key="originalName" value="Calibration Procedure"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="__XlArS_LEeqNnrwg7H4iEQ" name="SupportEquipment" eSuperTypes="__XlAey_LEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__XlAri_LEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_p-_2IC_HEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__XlAry_LEeqNnrwg7H4iEQ" key="originalName" value="Support Equipment"/>
+        </eAnnotations>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="__XlAsC_LEeqNnrwg7H4iEQ" name="fabrication_procedure" ordered="false" upperBound="-1" eType="__XlAmy_LEeqNnrwg7H4iEQ"/>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_8gf7ES_KEeqNnrwg7H4iEQ" name="mbpe" nsURI="http:///schemas/mbpe/_8gde0C_KEeqNnrwg7H4iEQ/0" nsPrefix="mbpe">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8ghJNy_KEeqNnrwg7H4iEQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8ghJOC_KEeqNnrwg7H4iEQ" key="Version" value="0.0.1"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8ghJOS_KEeqNnrwg7H4iEQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8ghJOi_KEeqNnrwg7H4iEQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8ghJOy_KEeqNnrwg7H4iEQ" key="Date" value="2020-01-05"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8ghJPC_KEeqNnrwg7H4iEQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_8gf7Ei_KEeqNnrwg7H4iEQ" name="Procedure" abstract="true">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7Ey_KEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_VTnzQC_HEeqNnrwg7H4iEQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_8gf7FC_KEeqNnrwg7H4iEQ" name="base_Behavior" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Behavior"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_8gf7Fi_KEeqNnrwg7H4iEQ" name="equipment" ordered="false" upperBound="-1" eType="_8gf7HC_KEeqNnrwg7H4iEQ" changeable="false" volatile="true" transient="true" derived="true">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7Fy_KEeqNnrwg7H4iEQ" source="union"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_8gf7GS_KEeqNnrwg7H4iEQ" name="material" ordered="false" upperBound="-1" eType="_8gf7NS_KEeqNnrwg7H4iEQ" changeable="false" volatile="true" transient="true" derived="true">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7Gi_KEeqNnrwg7H4iEQ" source="union"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_8gf7HC_KEeqNnrwg7H4iEQ" name="Equipment" eSuperTypes="_8gf7JC_KEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7HS_KEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ogmlgC_HEeqNnrwg7H4iEQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_8gf7Hi_KEeqNnrwg7H4iEQ" name="operating_procedure" ordered="false" upperBound="-1" eType="_8gf7LS_KEeqNnrwg7H4iEQ" changeable="false" volatile="true" transient="true" derived="true">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7Hy_KEeqNnrwg7H4iEQ" source="union"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_8gf7IS_KEeqNnrwg7H4iEQ" name="maintenance_procedure" ordered="false" upperBound="-1" eType="_8gf7MS_KEeqNnrwg7H4iEQ"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_8gf7JC_KEeqNnrwg7H4iEQ" name="ManufacturedMaterial" abstract="true">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7JS_KEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_zA5fAC_IEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8gf7Ji_KEeqNnrwg7H4iEQ" key="originalName" value="Manufactured Material"/>
+        </eAnnotations>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_8gf7Jy_KEeqNnrwg7H4iEQ" name="base_Class" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_8gf7KS_KEeqNnrwg7H4iEQ" name="manfacturer" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_8gf7Ky_KEeqNnrwg7H4iEQ" name="part_number" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_8gf7LS_KEeqNnrwg7H4iEQ" name="OperatingProcedure" eSuperTypes="_8gf7Ei_KEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7Li_KEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_dk4e0C_HEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8gf7Ly_KEeqNnrwg7H4iEQ" key="originalName" value="Operating Procedure"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_8gf7MS_KEeqNnrwg7H4iEQ" name="MaintenanceProcedure" eSuperTypes="_8gf7LS_KEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7Mi_KEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_efTfsC_HEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8gf7My_KEeqNnrwg7H4iEQ" key="originalName" value="Maintenance Procedure"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_8gf7NS_KEeqNnrwg7H4iEQ" name="Material" eSuperTypes="_8gf7JC_KEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7Ni_KEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_k3r-EC_HEeqNnrwg7H4iEQ"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_8gf7OC_KEeqNnrwg7H4iEQ" name="AssemblyProcedure" eSuperTypes="_8gf7PC_KEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7OS_KEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Wi1YYC_HEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8gf7Oi_KEeqNnrwg7H4iEQ" key="originalName" value="Assembly Procedure"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_8gf7PC_KEeqNnrwg7H4iEQ" name="CreationProcedure" abstract="true" eSuperTypes="_8gf7Ei_KEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7PS_KEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_IeWpoC_KEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8gf7Pi_KEeqNnrwg7H4iEQ" key="originalName" value="Creation Procedure"/>
+        </eAnnotations>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_8gf7Py_KEeqNnrwg7H4iEQ" name="end_item" ordered="false" upperBound="-1" eType="_8gf7JC_KEeqNnrwg7H4iEQ" changeable="false"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_8gf7Qi_KEeqNnrwg7H4iEQ" name="FabricationProcedure" eSuperTypes="_8gf7PC_KEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7Qy_KEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_XlnrEC_HEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8gf7RC_KEeqNnrwg7H4iEQ" key="originalName" value="Fabrication Procedure"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_8gf7Ri_KEeqNnrwg7H4iEQ" name="InstallationProcedure" eSuperTypes="_8gf7PC_KEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7Ry_KEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Y7R2cC_HEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8gf7SC_KEeqNnrwg7H4iEQ" key="originalName" value="Installation Procedure"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_8gf7Si_KEeqNnrwg7H4iEQ" name="CalibrationProcedure" eSuperTypes="_8gf7MS_KEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7Sy_KEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_bwyD8C_HEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8gf7TC_KEeqNnrwg7H4iEQ" key="originalName" value="Calibration Procedure"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_8gf7Ti_KEeqNnrwg7H4iEQ" name="SupportEquipment" eSuperTypes="_8gf7HC_KEeqNnrwg7H4iEQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8gf7Ty_KEeqNnrwg7H4iEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_p-_2IC_HEeqNnrwg7H4iEQ">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8ggiIC_KEeqNnrwg7H4iEQ" key="originalName" value="Support Equipment"/>
+        </eAnnotations>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_8ggiIS_KEeqNnrwg7H4iEQ" name="fabrication_procedure" ordered="false" upperBound="-1" eType="_8gf7PC_KEeqNnrwg7H4iEQ"/>
+      </eClassifiers>
+    </contents>
+  </eAnnotations>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_6UlvEC_IEeqNnrwg7H4iEQ" annotatedElement="_p-_2IC_HEeqNnrwg7H4iEQ">
+    <body>How to indicate that this is NOT procurable, i.e. remove manufacturer/seller???</body>
+  </ownedComment>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_TbkFcC_HEeqNnrwg7H4iEQ" alias="Class">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_TbksgC_HEeqNnrwg7H4iEQ" alias="Behavior">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Behavior"/>
+  </elementImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_M8eiIC_HEeqNnrwg7H4iEQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_M8eiIS_HEeqNnrwg7H4iEQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_VTnzQC_HEeqNnrwg7H4iEQ" name="Procedure" isAbstract="true">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_y8CCkC_HEeqNnrwg7H4iEQ" name="base_Behavior" association="_y8ANYC_HEeqNnrwg7H4iEQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Behavior"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y8CCkS_HEeqNnrwg7H4iEQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_dFXmYC_JEeqNnrwg7H4iEQ" name="equipment" type="_ogmlgC_HEeqNnrwg7H4iEQ" isReadOnly="true" isDerived="true" isDerivedUnion="true">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xe514C_KEeqNnrwg7H4iEQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xe85MC_KEeqNnrwg7H4iEQ" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_eVjb4C_JEeqNnrwg7H4iEQ" name="material" type="_k3r-EC_HEeqNnrwg7H4iEQ" isReadOnly="true" isDerived="true" isDerivedUnion="true">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0T7iQC_KEeqNnrwg7H4iEQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0UCP8C_KEeqNnrwg7H4iEQ" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_Wi1YYC_HEeqNnrwg7H4iEQ" name="Assembly Procedure">
+    <generalization xmi:type="uml:Generalization" xmi:id="_XwXbIC_KEeqNnrwg7H4iEQ" general="_IeWpoC_KEeqNnrwg7H4iEQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_XlnrEC_HEeqNnrwg7H4iEQ" name="Fabrication Procedure">
+    <generalization xmi:type="uml:Generalization" xmi:id="_YL-ZEC_KEeqNnrwg7H4iEQ" general="_IeWpoC_KEeqNnrwg7H4iEQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_Y7R2cC_HEeqNnrwg7H4iEQ" name="Installation Procedure">
+    <generalization xmi:type="uml:Generalization" xmi:id="_Yq5JsC_KEeqNnrwg7H4iEQ" general="_IeWpoC_KEeqNnrwg7H4iEQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_bwyD8C_HEeqNnrwg7H4iEQ" name="Calibration Procedure">
+    <generalization xmi:type="uml:Generalization" xmi:id="__wtO8C_HEeqNnrwg7H4iEQ" general="_efTfsC_HEeqNnrwg7H4iEQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_dk4e0C_HEeqNnrwg7H4iEQ" name="Operating Procedure">
+    <generalization xmi:type="uml:Generalization" xmi:id="_AqQGEC_IEeqNnrwg7H4iEQ" general="_VTnzQC_HEeqNnrwg7H4iEQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_efTfsC_HEeqNnrwg7H4iEQ" name="Maintenance Procedure">
+    <generalization xmi:type="uml:Generalization" xmi:id="__XnZgC_HEeqNnrwg7H4iEQ" general="_dk4e0C_HEeqNnrwg7H4iEQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_k3r-EC_HEeqNnrwg7H4iEQ" name="Material">
+    <generalization xmi:type="uml:Generalization" xmi:id="_5DwZUC_IEeqNnrwg7H4iEQ" general="_zA5fAC_IEeqNnrwg7H4iEQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_ogmlgC_HEeqNnrwg7H4iEQ" name="Equipment">
+    <generalization xmi:type="uml:Generalization" xmi:id="_5jiFkC_IEeqNnrwg7H4iEQ" general="_zA5fAC_IEeqNnrwg7H4iEQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_NyU6IC_JEeqNnrwg7H4iEQ" name="operating_procedure" type="_dk4e0C_HEeqNnrwg7H4iEQ" isReadOnly="true" isDerived="true" isDerivedUnion="true">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6oqsMC_JEeqNnrwg7H4iEQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6otIcC_JEeqNnrwg7H4iEQ" value="*"/>
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="__C6C4C_JEeqNnrwg7H4iEQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_YdUdMC_JEeqNnrwg7H4iEQ" name="maintenance_procedure" type="_efTfsC_HEeqNnrwg7H4iEQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ADnR8C_KEeqNnrwg7H4iEQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ADvNwC_KEeqNnrwg7H4iEQ" value="*"/>
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_-Pr2MC_JEeqNnrwg7H4iEQ"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_p-_2IC_HEeqNnrwg7H4iEQ" name="Support Equipment">
+    <generalization xmi:type="uml:Generalization" xmi:id="_zlEYgC_HEeqNnrwg7H4iEQ" general="_ogmlgC_HEeqNnrwg7H4iEQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Rw3MQC_JEeqNnrwg7H4iEQ" name="fabrication_procedure" type="_IeWpoC_KEeqNnrwg7H4iEQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lDA88C_KEeqNnrwg7H4iEQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lDDZMC_KEeqNnrwg7H4iEQ" value="*"/>
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_kxJJ0C_KEeqNnrwg7H4iEQ"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_y8ANYC_HEeqNnrwg7H4iEQ" name="E_Procedure_Behavior1" memberEnd="_y8BbgC_HEeqNnrwg7H4iEQ _y8CCkC_HEeqNnrwg7H4iEQ">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_y8BbgC_HEeqNnrwg7H4iEQ" name="extension_Procedure" type="_VTnzQC_HEeqNnrwg7H4iEQ" aggregation="composite" association="_y8ANYC_HEeqNnrwg7H4iEQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_zA5fAC_IEeqNnrwg7H4iEQ" name="Manufactured Material" isAbstract="true">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_2l-vUC_IEeqNnrwg7H4iEQ" name="base_Class" association="_2l86IC_IEeqNnrwg7H4iEQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2l-vUS_IEeqNnrwg7H4iEQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_B30P8C_JEeqNnrwg7H4iEQ" name="manfacturer">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_1QxacC_JEeqNnrwg7H4iEQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_G8o0sC_JEeqNnrwg7H4iEQ" name="part_number">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_20blkC_JEeqNnrwg7H4iEQ"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_2l86IC_IEeqNnrwg7H4iEQ" name="E_Manufactured Material_Class1" memberEnd="_2l-IQC_IEeqNnrwg7H4iEQ _2l-vUC_IEeqNnrwg7H4iEQ">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_2l-IQC_IEeqNnrwg7H4iEQ" name="extension_Manufactured Material" type="_zA5fAC_IEeqNnrwg7H4iEQ" aggregation="composite" association="_2l86IC_IEeqNnrwg7H4iEQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_IeWpoC_KEeqNnrwg7H4iEQ" name="Creation Procedure" isAbstract="true">
+    <generalization xmi:type="uml:Generalization" xmi:id="_QSKkMC_KEeqNnrwg7H4iEQ" general="_VTnzQC_HEeqNnrwg7H4iEQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Z42KkC_KEeqNnrwg7H4iEQ" name="end_item" type="_zA5fAC_IEeqNnrwg7H4iEQ" isReadOnly="true">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gpSjoC_KEeqNnrwg7H4iEQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gpVm8C_KEeqNnrwg7H4iEQ" value="*"/>
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_gKyCsC_KEeqNnrwg7H4iEQ"/>
+    </ownedAttribute>
+  </packagedElement>
+</uml:Profile>

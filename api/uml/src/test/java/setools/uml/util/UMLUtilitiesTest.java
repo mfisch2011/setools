@@ -51,7 +51,6 @@ public class UMLUtilitiesTest {
 	 */
 	@Test
 	public void testGetStepsEObject() {
-		System.out.println("String testGetStepsEObject");
 		EObject object = resource.getEObject("_C_uIICTREeqH_rjszRWaSw");
 		assertNotNull("Missing Test Activity 1",object);
 		assertTrue("Test Activity 1 is not an Activity",object instanceof Activity);
@@ -67,7 +66,30 @@ public class UMLUtilitiesTest {
 		assertActivityNode("Action 3",tst.next(),"_OsAwICTREeqH_rjszRWaSw");
 		assertTrue("Empty iterator",tst.hasNext());
 		assertActivityNode("Final node",tst.next(),"_L8a9YCTREeqH_rjszRWaSw");
-		System.out.println("End testGetStepsEObject");
+	}
+	
+	/**
+	 * Test method for {@link setools.uml.util.UMLUtilities#getSteps(org.eclipse.emf.ecore.EObject)}.
+	 */
+	@Test
+	public void testDepthAwareTreeIteratorDecision() {
+		EObject object = resource.getEObject("_e02OsC_DEeqNnrwg7H4iEQ");
+		assertNotNull("Missing Test Activity 1",object);
+		assertTrue("Test Activity 1 is not an Activity",object instanceof Activity);
+		DepthAwareTreeIterator<EObject> tst = UMLUtilities.getSteps(object);
+		assertNotNull("Returned null iterator",tst);
+		assertTrue("Empty iterator",tst.hasNext());
+		assertActivityNode("Initial node",tst.next(),"_jNEMIC_DEeqNnrwg7H4iEQ");
+		assertTrue("Empty iterator",tst.hasNext());
+		assertActivityNode("Action 1",tst.next(),"_lQ99kC_DEeqNnrwg7H4iEQ");
+		assertTrue("Empty iterator",tst.hasNext());
+		assertActivityNode("Decision",tst.next(),"_o32ksC_DEeqNnrwg7H4iEQ");
+		assertTrue("Empty iterator",tst.hasNext());
+		assertActivityNode("Action 2",tst.next(),"_l2qroC_DEeqNnrwg7H4iEQ");
+		assertTrue("Empty iterator",tst.hasNext());
+		assertActivityNode("Action 3",tst.next(),"_m3--sC_DEeqNnrwg7H4iEQ");
+		assertTrue("Empty iterator",tst.hasNext());
+		assertActivityNode("Final node",tst.next(),"_kEMBYC_DEeqNnrwg7H4iEQ");
 	}
 	
 	/**

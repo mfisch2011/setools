@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/gmfdiag/style">
+  <notation:Diagram xmi:id="_oWAiQC_LEeqNnrwg7H4iEQ" type="PapyrusUMLClassDiagram" name="Basic Equipment Types" measurementUnit="Pixel">
+    <styles xsi:type="notation:StringValueStyle" xmi:id="_oWAiQS_LEeqNnrwg7H4iEQ" name="diagram_compatibility_version" stringValue="1.4.0"/>
+    <styles xsi:type="notation:DiagramStyle" xmi:id="_oWAiQi_LEeqNnrwg7H4iEQ"/>
+    <styles xsi:type="style:PapyrusDiagramStyle" xmi:id="_oWAiQy_LEeqNnrwg7H4iEQ" diagramKindId="org.eclipse.papyrus.uml.diagram.class">
+      <owner href="standard-types.uml#_Itjt0C_LEeqNnrwg7H4iEQ"/>
+    </styles>
+    <element href="standard-types.uml#_Itjt0C_LEeqNnrwg7H4iEQ"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_qY94gC_LEeqNnrwg7H4iEQ" type="PapyrusUMLClassDiagram" name="Basic Material Types" measurementUnit="Pixel">
+    <styles xsi:type="notation:StringValueStyle" xmi:id="_qY94gS_LEeqNnrwg7H4iEQ" name="diagram_compatibility_version" stringValue="1.4.0"/>
+    <styles xsi:type="notation:DiagramStyle" xmi:id="_qY94gi_LEeqNnrwg7H4iEQ"/>
+    <styles xsi:type="style:PapyrusDiagramStyle" xmi:id="_qY94gy_LEeqNnrwg7H4iEQ" diagramKindId="org.eclipse.papyrus.uml.diagram.class">
+      <owner href="standard-types.uml#_NtGJ8C_LEeqNnrwg7H4iEQ"/>
+    </styles>
+    <element href="standard-types.uml#_NtGJ8C_LEeqNnrwg7H4iEQ"/>
+  </notation:Diagram>
+</xmi:XMI>

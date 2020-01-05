@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mbpe" nsURI="http://setools/mbpe/0.1" nsPrefix="mbpe">
+  <eClassifiers xsi:type="ecore:EClass" name="SupportEquipment" eSuperTypes="#//Equipment">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="Support Equipment"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="How to indicate that this is NOT procurable, i.e. remove manufacturer/seller???"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fabrication_procedure"
+        ordered="false" upperBound="-1" eType="#//CreationProcedure"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Equipment" eSuperTypes="#//ManufacturedMaterial">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operating_procedure" ordered="false"
+        upperBound="-1" eType="#//OperatingProcedure" changeable="false" volatile="true"
+        transient="true" derived="true">
+      <eAnnotations source="union"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maintenance_procedure"
+        ordered="false" upperBound="-1" eType="#//MaintenanceProcedure"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ManufacturedMaterial" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="Manufactured Material"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+        eType="ecore:EClass ../../../../../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="manfacturer" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../../../../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="part_number" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../../../../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperatingProcedure" eSuperTypes="#//Procedure">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="Operating Procedure"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Procedure" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Behavior" ordered="false"
+        eType="ecore:EClass ../../../../../../org.eclipse.uml2.uml/model/UML.ecore#//Behavior"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="equipment" ordered="false"
+        upperBound="-1" eType="#//Equipment" changeable="false" volatile="true" transient="true"
+        derived="true">
+      <eAnnotations source="union"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="material" ordered="false"
+        upperBound="-1" eType="#//Material" changeable="false" volatile="true" transient="true"
+        derived="true">
+      <eAnnotations source="union"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Material" eSuperTypes="#//ManufacturedMaterial"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MaintenanceProcedure" eSuperTypes="#//OperatingProcedure">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="Maintenance Procedure"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CreationProcedure" abstract="true" eSuperTypes="#//Procedure">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="Creation Procedure"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="end_item" ordered="false"
+        upperBound="-1" eType="#//ManufacturedMaterial" changeable="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssemblyProcedure" eSuperTypes="#//CreationProcedure">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="Assembly Procedure"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FabricationProcedure" eSuperTypes="#//CreationProcedure">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="Fabrication Procedure"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InstallationProcedure" eSuperTypes="#//CreationProcedure">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="Installation Procedure"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CalibrationProcedure" eSuperTypes="#//MaintenanceProcedure">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="Calibration Procedure"/>
+    </eAnnotations>
+  </eClassifiers>
+</ecore:EPackage>

@@ -38,4 +38,22 @@
       <subvertex xmi:type="uml:State" xmi:id="_K4OpkC6iEeq-TL4VVf6KcA" name="State5"/>
     </region>
   </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_e02OsC_DEeqNnrwg7H4iEQ" name="Activity Decision Test" node="_jNEMIC_DEeqNnrwg7H4iEQ _kEMBYC_DEeqNnrwg7H4iEQ _lQ99kC_DEeqNnrwg7H4iEQ _l2qroC_DEeqNnrwg7H4iEQ _m3--sC_DEeqNnrwg7H4iEQ _o32ksC_DEeqNnrwg7H4iEQ">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_tXmGcC_DEeqNnrwg7H4iEQ" target="_lQ99kC_DEeqNnrwg7H4iEQ" source="_jNEMIC_DEeqNnrwg7H4iEQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ESKkwC_EEeqNnrwg7H4iEQ" target="_o32ksC_DEeqNnrwg7H4iEQ" source="_lQ99kC_DEeqNnrwg7H4iEQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_FyYaUC_EEeqNnrwg7H4iEQ" target="_l2qroC_DEeqNnrwg7H4iEQ" source="_o32ksC_DEeqNnrwg7H4iEQ">
+      <guard xmi:type="uml:LiteralString" xmi:id="_ORnQcC_EEeqNnrwg7H4iEQ" value="Not Done"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_HXFuUC_EEeqNnrwg7H4iEQ" target="_lQ99kC_DEeqNnrwg7H4iEQ" source="_l2qroC_DEeqNnrwg7H4iEQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_J3iR0C_EEeqNnrwg7H4iEQ" target="_m3--sC_DEeqNnrwg7H4iEQ" source="_o32ksC_DEeqNnrwg7H4iEQ">
+      <guard xmi:type="uml:LiteralString" xmi:id="_QEMoYC_EEeqNnrwg7H4iEQ" value="Done"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_LcfdcC_EEeqNnrwg7H4iEQ" target="_kEMBYC_DEeqNnrwg7H4iEQ" source="_m3--sC_DEeqNnrwg7H4iEQ"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_jNEMIC_DEeqNnrwg7H4iEQ" name="InitialNode1" outgoing="_tXmGcC_DEeqNnrwg7H4iEQ"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_kEMBYC_DEeqNnrwg7H4iEQ" name="ActivityFinalNode2" incoming="_LcfdcC_EEeqNnrwg7H4iEQ"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_lQ99kC_DEeqNnrwg7H4iEQ" name="Action 1" incoming="_tXmGcC_DEeqNnrwg7H4iEQ _HXFuUC_EEeqNnrwg7H4iEQ" outgoing="_ESKkwC_EEeqNnrwg7H4iEQ"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_l2qroC_DEeqNnrwg7H4iEQ" name="Action 2" incoming="_FyYaUC_EEeqNnrwg7H4iEQ" outgoing="_HXFuUC_EEeqNnrwg7H4iEQ"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_m3--sC_DEeqNnrwg7H4iEQ" name="Action 3" incoming="_J3iR0C_EEeqNnrwg7H4iEQ" outgoing="_LcfdcC_EEeqNnrwg7H4iEQ"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_o32ksC_DEeqNnrwg7H4iEQ" name="DecisionNode6" incoming="_ESKkwC_EEeqNnrwg7H4iEQ" outgoing="_FyYaUC_EEeqNnrwg7H4iEQ _J3iR0C_EEeqNnrwg7H4iEQ"/>
+  </packagedElement>
 </uml:Model>
