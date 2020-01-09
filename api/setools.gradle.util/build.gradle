@@ -15,5 +15,5 @@
 */
 dependencies {
 	api gradleApi()
-	api project(":api:uml")
+	api project(":api:setools.uml")
 }

@@ -13,8 +13,16 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-project.implementationClass = "setools.gradle.ProcedurePlugin"
+gradlePlugin {
+	plugins {
+		plugin {
+			id = "setools.gradle.ProjectManagementPlugin"
+			implementationClass = "setools.gradle.RiskManagementPlugin"
+		}
+	}
+}
+
 dependencies {
-	implementation project(":plugin:mbse")
-	//TODO: modeling api...
+	implementation project(":plugin:setools.gradle.mbse")
+	implementation project(":api:setools.coras")
 }

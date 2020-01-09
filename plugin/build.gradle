@@ -15,8 +15,6 @@
 */
 subprojects {
 
-	project.ext.implementationClass = "qualifiedName"
-
 	apply plugin: "java"
 	apply plugin: "java-gradle-plugin"
   	apply plugin: "maven-publish"
@@ -24,20 +22,7 @@ subprojects {
   	dependencies {
   		implementation gradleApi()
     	testCompile "junit:junit:4.12"
-    	testCompile("com.github.mfisch2011.gradle:gradle-test-utils-api") {
-    		version {
-    			branch = "development"
-    		}
-    	}
-    }
-    
-    gradlePlugin {
-    	plugins {
-    		plugin {
-    			id = project.implementationClass
-    			implementationClass = project.implementationClass
-    		}
-    	}
+    	testCompile "com.github.mfisch2011:gradle-test-utils-api:0.0.0.1"
     }
 	
 	test {

@@ -13,9 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-project.implementationClass = "setools.gradle.MBSEPlugin"
 dependencies {
-	implementation project(":api:base-plugin")
-	implementation project(":api:sysml14")
-	implementation project(":api:sysml16")
+	api project(":api:setools.uml")
+	api "org.eclipse.papyrus:org.eclipse.papyrus.sysml14:[1.3.0,2.0.0)"
 }

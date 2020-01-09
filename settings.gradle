@@ -29,6 +29,7 @@ projectGroup("app")
 projectGroup("plugin")
 projectGroup("sandbox")
 
+/* TODO: WTFF is this not working properly!!??
 sourceControl {
     gitRepository("https://github.com/mfisch2011/gradle-tools.git") {
         producesModule("com.github.mfisch2011.gradle:gradle-test-utils-api")
@@ -36,3 +37,4 @@ sourceControl {
         producesModule("com.github.mfisch2011.gradle:velocity-merge-plugin")
     }
 }
+*/

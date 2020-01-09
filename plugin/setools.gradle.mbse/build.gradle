@@ -13,8 +13,17 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-project.implementationClass = "setools.gradle.ProjectManagementPlugin"
+gradlePlugin {
+	plugins {
+		plugin {
+			id = "setools.gradle.MBSEPlugin"
+			implementationClass = "setools.gradle.MBSEPlugin"
+		}
+	}
+}
+
 dependencies {
-	implementation project(":plugin:mbse")
-	//TODO: modeling api...
+	implementation project(":api:setools.gradle.util")
+	implementation project(":api:setools.sysml14")
+	implementation project(":api:setools.sysml16")
 }

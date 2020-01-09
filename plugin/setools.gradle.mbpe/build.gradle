@@ -13,8 +13,15 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+gradlePlugin {
+	plugins {
+		plugin {
+			id = "setools.gradle.ProcedurePlugin"
+			implementationClass = "setools.gradle.ProcedurePlugin"
+		}
+	}
+}
+
 dependencies {
-	api "org.eclipse.emf:org.eclipse.emf.ecore:[2.18.0,3.0.0)"
-	api "org.eclipse.uml2.plugins:org.eclipse.uml2.uml.resources:[5.5.0,6.0.0)"
-	api project(":api:uml")
+	implementation project(":plugin:setools.gradle.mbse")
 }
