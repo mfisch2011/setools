@@ -19,6 +19,9 @@ subprojects {
 	apply plugin: "java-gradle-plugin"
   	apply plugin: "maven-publish"
   	
+  	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+	
   	dependencies {
   		implementation gradleApi()
     	testCompile "junit:junit:4.12"

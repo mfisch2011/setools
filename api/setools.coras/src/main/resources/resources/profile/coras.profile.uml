@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_uoQFIDJ4EeqFgrFueqS5eg" name="coras">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_uzj9QDJ4EeqFgrFueqS5eg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_uzlLYDJ4EeqFgrFueqS5eg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Profile" xmi:id="_VLL_cDJ5EeqFgrFueqS5eg" name="State Machines"/>
+  <packagedElement xmi:type="uml:Profile" xmi:id="_YVXccDJ5EeqFgrFueqS5eg" name="Data Types"/>
+  <packagedElement xmi:type="uml:Profile" xmi:id="_bTcXIDJ5EeqFgrFueqS5eg" name="Core"/>
+  <packagedElement xmi:type="uml:Profile" xmi:id="_eqcvMDJ5EeqFgrFueqS5eg" name="Use Cases"/>
+</uml:Profile>

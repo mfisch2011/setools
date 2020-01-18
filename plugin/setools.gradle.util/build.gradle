@@ -13,18 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-gradlePlugin {
-	plugins {
-		plugin {
-			id = "setools.gradle.MBSEPlugin"
-			implementationClass = "setools.gradle.MBSEPlugin"
-		}
-	}
-}
-
 dependencies {
-	implementation project(":api:setools.sysml14")
-	implementation project(":api:setools.sysml16")
-	implementation project(":plugin:setools.gradle.util")
-	
+	implementation project(":api:setools.uml"); //TODO: probably should split these plugins...
+	implementation "com.github.mfisch2011:velocity-api:0.0.0.1"
 }

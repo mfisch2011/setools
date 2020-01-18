@@ -1,4 +1,4 @@
-/*
+/**
    Copyright 2019 Matt Fischer <mfish2011@gmail.com>
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,18 +13,28 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-gradlePlugin {
-	plugins {
-		plugin {
-			id = "setools.gradle.MBSEPlugin"
-			implementationClass = "setools.gradle.MBSEPlugin"
-		}
-	}
-}
+package setools.gradle;
 
-dependencies {
-	implementation project(":api:setools.sysml14")
-	implementation project(":api:setools.sysml16")
-	implementation project(":plugin:setools.gradle.util")
+import org.gradle.api.internal.project.ProjectInternal;
+
+/**
+ * @author matt
+ *
+ */
+public class MeetingsLifecyclePlugin extends AbstractPlugin {
+	
+	public static final String AGENDA_TASK = "agenda";
+	
+	public static final String PRESENTATION_TASK = "presentation";
+
+	public static final String MINUTES_TASK = "minutes";
+
+	@Override
+	protected void configureTasks(ProjectInternal project) {
+		project.getTasks().create(AGENDA_TASK);
+		project.getTasks().create(PRESENTATION_TASK);
+		project.getTasks().create(MINUTES_TASK);
+		//TODO:how to handle publish????
+	}
 	
 }

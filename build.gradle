@@ -36,7 +36,7 @@ allprojects {
 	
 	group = "setools"
 	version = "0.0.0.1"
-	
+		
 	//configure the eclipse compiler if we aren't using a native compiler
 	configurations {
 		ecj

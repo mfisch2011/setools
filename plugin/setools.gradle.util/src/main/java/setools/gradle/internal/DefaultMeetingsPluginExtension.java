@@ -1,4 +1,4 @@
-/*
+/**
    Copyright 2019 Matt Fischer <mfish2011@gmail.com>
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,18 +13,24 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-gradlePlugin {
-	plugins {
-		plugin {
-			id = "setools.gradle.MBSEPlugin"
-			implementationClass = "setools.gradle.MBSEPlugin"
-		}
-	}
-}
+package setools.gradle.internal;
 
-dependencies {
-	implementation project(":api:setools.sysml14")
-	implementation project(":api:setools.sysml16")
-	implementation project(":plugin:setools.gradle.util")
-	
+import javax.inject.Inject;
+
+import org.gradle.api.Project;
+
+import setools.gradle.MeetingsPluginExtension;
+
+/**
+ * @author matt
+ *
+ */
+public class DefaultMeetingsPluginExtension implements MeetingsPluginExtension {
+
+	protected final Project project;
+
+	@Inject
+	public DefaultMeetingsPluginExtension(Project project) {
+		this.project = project;
+	}
 }
