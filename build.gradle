@@ -37,13 +37,15 @@ allprojects {
 	group = "setools"
 	version = "0.0.0.1"
 		
-	//configure the eclipse compiler if we aren't using a native compiler
-	configurations {
-		ecj
-	}
+	if(project.property('compiler.native') == 'false') {
 		
-	dependencies {
-		ecj 'org.eclipse.jdt.core.compiler:ecj:4.6.1'
+		configurations {
+			ecj
+		}
+		
+		dependencies {
+			ecj 'org.eclipse.jdt.core.compiler:ecj:4.6.1'
+		}
 	}
 	
 	//turn off compiling javadoc

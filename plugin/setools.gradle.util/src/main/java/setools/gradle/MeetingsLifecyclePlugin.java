@@ -15,13 +15,14 @@
 */
 package setools.gradle;
 
+import org.gradle.api.Plugin;
 import org.gradle.api.internal.project.ProjectInternal;
 
 /**
  * @author matt
  *
  */
-public class MeetingsLifecyclePlugin extends AbstractPlugin {
+public class MeetingsLifecyclePlugin implements Plugin<ProjectInternal>  {
 	
 	public static final String AGENDA_TASK = "agenda";
 	
@@ -30,11 +31,11 @@ public class MeetingsLifecyclePlugin extends AbstractPlugin {
 	public static final String MINUTES_TASK = "minutes";
 
 	@Override
-	protected void configureTasks(ProjectInternal project) {
+	public void apply(ProjectInternal project) {
 		project.getTasks().create(AGENDA_TASK);
 		project.getTasks().create(PRESENTATION_TASK);
 		project.getTasks().create(MINUTES_TASK);
-		//TODO:how to handle publish????
+		//TODO:how to handle publish???
 	}
 	
 }

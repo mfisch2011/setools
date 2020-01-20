@@ -15,6 +15,7 @@
 */
 package setools.gradle;
 
+import org.gradle.api.Plugin;
 import org.gradle.api.Task;
 import org.gradle.api.internal.project.ProjectInternal;
 
@@ -25,24 +26,25 @@ import setools.gradle.task.InitMeeting;
  * @author matt
  *
  */
-public class MeetingsPlugin extends AbstractPlugin {
+public class MeetingsPlugin implements Plugin<ProjectInternal> {
 
 	public static final String PLUGIN_EXT = "meetings";
 	
-	protected static final Class<?> EXTENSION_TYPE = DefaultMeetingsPluginExtension.class;
-	
-	private MeetingsPluginExtension pluginExtension = null;
-
-	public MeetingsPluginExtension getExtension() {
-		return pluginExtension;
+	@Override
+	public void apply(ProjectInternal project) {
+		applyBasePlugins(project);
+		configureExtension(project);
+		configureTasks(project);
 	}
 	
-	@Override
+	protected void configureExtension(ProjectInternal project) {
+		project.getExtensions().create(PLUGIN_EXT,DefaultMeetingsPluginExtension.class,project);
+	}
+
 	protected void applyBasePlugins(ProjectInternal project) {
 		project.getPluginManager().apply(MeetingsLifecyclePlugin.class);
 	}
 
-	@Override
 	protected void configureTasks(ProjectInternal project) {
 		configureInitMeetingTask(project);
 		configureGeneratePresentationTask(project);
@@ -84,4 +86,5 @@ public class MeetingsPlugin extends AbstractPlugin {
 	protected Task getMinutesTask(ProjectInternal project) {
 		return findTaskByName(project,MeetingsLifecyclePlugin.MINUTES_TASK);
 	}
+	
 }

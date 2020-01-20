@@ -13,6 +13,15 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+gradlePlugin {
+	plugins {
+		plugin {
+			id = "setools.gradle.MeetingsPlugin"
+			implementationClass = "setools.gradle.MeetingsPlugin"
+		}
+	}
+}
+
 dependencies {
 	implementation project(":api:setools.uml"); //TODO: probably should split these plugins...
 	implementation "com.github.mfisch2011:velocity-api:0.0.0.1"

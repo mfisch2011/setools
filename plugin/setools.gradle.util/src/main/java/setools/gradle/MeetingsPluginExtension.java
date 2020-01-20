@@ -21,4 +21,8 @@ package setools.gradle;
  */
 public interface MeetingsPluginExtension {
 
+	public String getDateFormat();
+
+	public void setDateFormat(String format);
+	
 }

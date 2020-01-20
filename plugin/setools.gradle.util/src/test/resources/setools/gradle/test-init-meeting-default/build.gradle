@@ -13,37 +13,6 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-package setools.gradle.internal;
-
-import javax.inject.Inject;
-
-import org.gradle.api.Project;
-
-import setools.gradle.MeetingsPluginExtension;
-
-/**
- * @author matt
- *
- */
-public class DefaultMeetingsPluginExtension implements MeetingsPluginExtension {
-
-	protected final Project project;
-
-	@Inject
-	public DefaultMeetingsPluginExtension(Project project) {
-		this.project = project;
-	}
-
-	protected String dateFormat = "YYYY-MM-dd";
-	
-	@Override
-	public String getDateFormat() {
-		return dateFormat;
-	}
-
-	@Override
-	public void setDateFormat(String format) {
-		//TODO: validate format
-		dateFormat = format;
-	}
+plugins {
+	id "setools.gradle.MeetingsPlugin"
 }
