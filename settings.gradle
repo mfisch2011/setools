@@ -13,26 +13,27 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-rootProject.name = "setools"
-
-def projectGroup(group) {
-	include group
-	file(group).eachDir { sub ->
-		def name = sub.name
-		if(!name.startsWith(".") && !name.equals("build") && !name.equals("bin"))
-			include group + ":" + name
+buildscript {
+	repositories {
+		mavenLocal()
+		mavenCentral()
+		jcenter()
+	}
+	
+	dependencies {
+		classpath "com.github.mfisch2011:gradle-multi-project-support:0.0.0-development-rc.4"
 	}
 }
 
-projectGroup("api")
-projectGroup("app")
-projectGroup("plugin")
-projectGroup("sandbox")
+apply plugin: "multi-project-support"
 
+rootProject.name = "setools"
+
+/*
 sourceControl {
     gitRepository("https://github.com/mfisch2011/gradle-tools.git") {
         producesModule("mfisch2011.gradle:gradle-test-utils-api")
         producesModule("mfisch2011.gradle:velocity-api")
         producesModule("mfisch2011.gradle:velocity-merge-plugin")
     }
-}
+}*/
