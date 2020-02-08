@@ -1,9 +1,0 @@
-#if($meeting_group == false)
-apply plugin: "setools.gradle.MeetingsPlugin"
-#end
-
-meeting {
-	date = $date
-	name = $name
-	attendees = [#foreach($attendee in $attendees) "$attended",#end]
-}

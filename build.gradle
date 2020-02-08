@@ -13,43 +13,5 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-buildscript {
-	repositories {
-		mavenLocal()
-		mavenCentral()
-		jcenter()
-		maven { url = "https://raw.githubusercontent.com/mfisch2011/gradle-tools/maven/" }
-	}
-	
-	dependencies {
-		
-	}
-}
 
-allprojects {
-	repositories {
-		mavenLocal()
-		mavenCentral()
-		maven { url = "https://repo.gradle.org/gradle/libs-releases-local/" }
-		maven { url = "https://raw.githubusercontent.com/mfisch2011/gradle-tools/maven/" }
-	}
-	
-	group = "setools"
-	version = "0.0.0.1"
-		
-	if(project.property('compiler.native') == 'false') {
-		
-		configurations {
-			ecj
-		}
-		
-		dependencies {
-			ecj 'org.eclipse.jdt.core.compiler:ecj:4.6.1'
-		}
-	}
-	
-	//turn off compiling javadoc
-	tasks.withType(Javadoc).all { 
-		enabled = project.property("compile.javadoc")=="true"
-	}
-}
+group = "setools"
