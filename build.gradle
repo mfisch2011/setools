@@ -62,26 +62,15 @@ configure(projectsWithFlags("java","app")) {
 	
 }
 
-configure(projectsWithFlags("java","plugin","publish")) {
+configure(projectsWithFlags("java","plugin")) {
 	
 	apply plugin: "java"
 	apply plugin: "java-gradle-plugin"
-	apply plugin: "maven-publish"
 	
 	dependencies {
 		testCompile "junit:junit:4.12"
 		testCompile gradleApi()
-	}
-	
-	publishing {
-		publications {
-			pluginPublication (MavenPublication) {
-				from    components.java
-				groupId    project.group
-				artifactId project.name
-				version    project.version
-			}
-		}
+		testCompile "com.github.mfisch2011:gradle-test-utils-api:0.0.0-rc.29"
 	}
 }
 
@@ -101,4 +90,20 @@ configure(projectsWithFlags("java","publish")) {
             }
         }
     }
+}
+
+configure(projectsWithFlags("java","plugin","publish")) {
+
+	apply plugin: "maven-publish"
+	
+	publishing {
+		publications {
+			pluginPublication (MavenPublication) {
+				from    components.java
+				groupId    project.group
+				artifactId project.name
+				version    project.version
+			}
+		}
+	}
 }
