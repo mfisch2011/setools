@@ -21,13 +21,15 @@ buildscript {
 	}
 	
 	dependencies {
-		classpath "com.github.mfisch2011:gradle-multi-project-support:0.0.0-development-rc.4"
+		classpath "com.github.mfisch2011:gradle-multi-project-support:0.0.0-development-rc.8"
 	}
 }
 
 apply plugin: "multi-project-support"
 
 rootProject.name = "setools"
+
+includeWithFlags ":test-plugin", "java", "plugin"
 
 /*
 sourceControl {
