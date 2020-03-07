@@ -17,7 +17,9 @@ buildscript {
 	repositories {
 		mavenLocal()
 		mavenCentral()
-		jcenter()
+		
+		//GitHub repository for Gradle Multi-Project Support
+		maven { url "https://raw.githubusercontent.com/mfisch2011/gradle-multi-project-support/master/releases" }
 	}
 	
 	dependencies {

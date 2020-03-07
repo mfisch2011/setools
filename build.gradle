@@ -38,7 +38,7 @@ allprojects {
   apply plugin: "uk.co.probablyfine.gradle.test-commit-revert"
   
   versioner {
-  	pattern { pattern = "%M.%m.%p(-rc.%c)" }
+  	pattern { pattern = "%M.%m.%p(.%c)" }
   }
   
 }
