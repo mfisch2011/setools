@@ -16,8 +16,8 @@
 gradlePlugin {
 	plugins {
 	    ooxmlMeetingsPlugin {
-	    	id = ""
-	    	implementationClass = "setools.gradle.plugins.OOMLMeetingsPlugin"
+	    	id = "ooxml-meetings-plugin"
+	    	implementationClass = "setools.gradle.plugins.OOXMLMeetingsPlugin"
 	    }
 	}
 }
