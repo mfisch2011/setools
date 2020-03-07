@@ -118,37 +118,49 @@ public class AbstractMeetingsPlugin implements Plugin<Project> {
 	}
 
 	protected Task configurePublishMinutes(Project project) {
-		Task result = project.getTasks().create(DRAFT_AGENDA,draftAgendaType);
+		Task result = (publishMinutesType!=null) ?
+				project.getTasks().create(PUBLISH_MINUTES,publishMinutesType) :
+				project.getTasks().create(PUBLISH_MINUTES);
 		result.setDescription("Generic meeting publishMinutes lifecycle phase.");
 		return result;
 	}
 
 	protected Task configurePublishPresentation(Project project) {
-		Task result = project.getTasks().create(DRAFT_AGENDA,draftAgendaType);
+		Task result = (publishPresentationType!=null) ?
+				project.getTasks().create(PUBLISH_PRESENTATION,publishPresentationType) :
+				project.getTasks().create(PUBLISH_PRESENTATION);
 		result.setDescription("Generic meeting publishPresentation lifecycle phase.");
 		return result;
 	}
 
 	protected Task configureAssemblePresentation(Project project) {
-		Task result = project.getTasks().create(DRAFT_AGENDA,draftAgendaType);
+		Task result = (assemblePresentationType!=null) ?
+				project.getTasks().create(ASSEMBLE_PRESENTATION,assemblePresentationType) :
+				project.getTasks().create(ASSEMBLE_PRESENTATION);
 		result.setDescription("Generic meeting assemblePresentation lifecycle phase.");
 		return result;
 	}
 
 	protected Task configureDraftPresentation(Project project) {
-		Task result = project.getTasks().create(DRAFT_AGENDA,draftAgendaType);
+		Task result = (draftPresentationType!=null) ?
+				project.getTasks().create(DRAFT_PRESENTATION,draftPresentationType) :
+				project.getTasks().create(DRAFT_PRESENTATION);
 		result.setDescription("Generic meeting draftPresentation lifecycle phase.");
 		return result;
 	}
 
 	protected Task configureDraftMinutes(Project project) {
-		Task result = project.getTasks().create(DRAFT_AGENDA,draftAgendaType);
+		Task result = (draftMinutesType!=null) ?
+				project.getTasks().create(DRAFT_MINUTES,draftMinutesType) :
+				project.getTasks().create(DRAFT_MINUTES);
 		result.setDescription("Generic meeting draftMinutes lifecycle phase.");
 		return result;
 	}
 
 	protected Task configureDraftAgenda(Project project) {
-		Task result = project.getTasks().create(DRAFT_AGENDA,draftAgendaType);
+		Task result = (draftAgendaType!=null) ?
+				project.getTasks().create(DRAFT_AGENDA,draftAgendaType) :
+				project.getTasks().create(DRAFT_AGENDA);
 		result.setDescription("Generic meeting draftAgenda lifecycle phase.");
 		return result;
 	}
