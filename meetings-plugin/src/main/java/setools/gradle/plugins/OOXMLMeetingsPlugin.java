@@ -13,9 +13,12 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-package setools.gradle.tasks;
+package setools.gradle.plugins;
 
-import setools.gradle.plugins.AbstractMeetingsPlugin;
+import setools.gradle.tasks.OOXMLAssemblePresentation;
+import setools.gradle.tasks.OOXMLDraftAgenda;
+import setools.gradle.tasks.OOXMLDraftMinutes;
+import setools.gradle.tasks.OOXMLDraftPresentation;
 
 /**
  * @author matt
