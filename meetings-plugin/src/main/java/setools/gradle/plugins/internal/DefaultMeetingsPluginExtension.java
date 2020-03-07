@@ -1,5 +1,5 @@
-/*
-   Copyright 2020 Matt Fischer <mfish2011@gmail.com>
+/**
+   Copyright 2019 Matt Fischer <mfish2011@gmail.com>
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -13,16 +13,24 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-gradlePlugin {
-	plugins {
-	    ooxmlMeetingsPlugin {
-	    	id = ""
-	    	implementationClass = "setools.gradle.plugins.OOMLMeetingsPlugin"
-	    }
-	}
-}
+package setools.gradle.plugins.internal;
 
-dependencies {
-//	compile "org.apache.poi:poi-ooxml:4.1.0"
-	
+import javax.inject.Inject;
+
+import org.gradle.api.Project;
+
+import setools.gradle.plugins.MeetingsPluginExtension;
+
+/**
+ * @author matt
+ *
+ */
+public class DefaultMeetingsPluginExtension implements MeetingsPluginExtension {
+
+	protected final Project project;
+
+	@Inject
+	public DefaultMeetingsPluginExtension(Project project) {
+		this.project = project;
+	}
 }
