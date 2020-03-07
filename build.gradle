@@ -72,7 +72,7 @@ configure(projectsWithFlags("java","plugin")) {
 	dependencies {
 		testCompile "junit:junit:4.12"
 		testCompile gradleApi()
-		testCompile "com.github.mfisch2011:gradle-test-utils-api:0.0.0-rc.29"
+		testCompile "com.github.mfisch2011:gradle-test-utils-api:0.1.1"
 	}
 }
 
