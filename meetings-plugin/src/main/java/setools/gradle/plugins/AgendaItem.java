@@ -42,6 +42,8 @@ public class AgendaItem {
 	
 	protected String duration = null;
 	
+	protected String layout = null;
+	
 	protected NamedDomainObjectContainer<AgendaItem> subItems = null;
 	
 	@Inject
@@ -96,5 +98,13 @@ public class AgendaItem {
 			subItems = objectFactory.domainObjectContainer(AgendaItem.class);
 		}
 		subItems.configure(closure);
+	}
+	
+	public String getLayout() {
+		return layout;
+	}
+	
+	public void setLayout(String layout) {
+		this.layout = layout;
 	}
 }
