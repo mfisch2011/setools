@@ -49,7 +49,7 @@ public class DefaultMeetingsPluginExtension implements MeetingsPluginExtension {
 	
 	protected NamedDomainObjectContainer<AgendaItem> meetingAgenda;
 	
-	protected String dateFormat = "dd/mm/yyyy";
+	protected String dateFormat = "MM/dd/yyyy";
 	
 	protected String timeFormat = "HH:mm";
 	

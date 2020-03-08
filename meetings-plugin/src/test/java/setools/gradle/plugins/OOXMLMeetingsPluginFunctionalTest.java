@@ -22,6 +22,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
@@ -110,11 +112,16 @@ public class OOXMLMeetingsPluginFunctionalTest extends GradleFunctionalTest {
 		iStream = new FileInputStream(minutes);
 		document = new XWPFDocument(iStream);
 		iStream.close();
+		assertEquals("Incorrect number of minutes paragraphs",6,document.getParagraphs().size());
 		assertParagraph("Title Paragraph",document,0,"Title","");
 		assertParagraph("Title Paragraph",document,1,"Subtitle","Minutes of Meeting");
-		assertParagraph("Title Paragraph",document,2,"Text Body","");
+		Date timestamp = new Date();
+		String date = new SimpleDateFormat("MM/dd/yyyy").format(timestamp);
+		String time = new SimpleDateFormat("HH:mm").format(timestamp);
+		String tst = String.format("A meeting was held on %s at %s.",date,time);
+		assertParagraph("Title Paragraph",document,2,"TextBody",tst);
 		assertParagraph("Title Paragraph",document,3,"Subtitle","Present");
-		assertParagraph("Title Paragraph",document,4,"Text Body","");
+		assertParagraph("Title Paragraph",document,4,"TextBody","");
 		assertParagraph("Title Paragraph",document,5,"Subtitle","Notes");
 		document.close();
 		
@@ -123,6 +130,11 @@ public class OOXMLMeetingsPluginFunctionalTest extends GradleFunctionalTest {
 		//TODO:validate assembled presentation
 		File presentation = new File(publishDir,"presentation.docx");
 		assertTrue("Missing presentation file.",presentation.exists());
+	}
+
+	private SimpleDateFormat SimpleDateFormat(String string) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	protected void assertParagraph(String msg, XWPFDocument document, int index, String style, String text) {

@@ -20,7 +20,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.math.BigInteger;
 import java.net.URI;
 import java.net.URL;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
@@ -28,7 +27,6 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
 import org.apache.poi.xwpf.usermodel.XWPFTableCell;
 import org.apache.poi.xwpf.usermodel.XWPFTableRow;
-import org.apache.xmlbeans.XmlCursor;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.OutputFile;
 import org.gradle.api.tasks.TaskAction;
@@ -94,14 +92,9 @@ public class OOXMLDraftAgenda extends AbstractDraftAgenda {
 	}
 	
 	protected void insertAgendaItems(XWPFDocument document) {
-		XmlCursor cursor = getInsertAgendaCursor();
+		XWPFTable table = document.getTables().get(1);
 		for(AgendaItem agendaItem : getMeetingsExtension().getAgenda())
-			insertAgendaItem(document,0,cursor,agendaItem);
-	}
-
-	protected XmlCursor getInsertAgendaCursor() {
-		// TODO Auto-generated method stub
-		return null;
+			insertAgendaItem(table,0,agendaItem);
 	}
 
 	@Input //TODO:how to support files on classpath???
@@ -144,15 +137,26 @@ public class OOXMLDraftAgenda extends AbstractDraftAgenda {
 		return result;
 	}
 
-	protected void insertAgendaItem(XWPFDocument document,int level,XmlCursor cursor,AgendaItem agendaItem) {
-		XWPFParagraph para = document.insertNewParagraph(cursor);
-		String text = agendaItem.getText();
-		//TODO:add other information to heading
-		para.createRun().setText(text);
-		para.setNumILvl(BigInteger.valueOf(level));
+	protected void insertAgendaItem(XWPFTable table,int level,AgendaItem agendaItem) {
+		XWPFTableRow row = table.insertNewTableRow(table.getRows().size()-1);
+		//item number
+		row.createCell().addParagraph().createRun().setText(""); //TODO: item number...
+		
+		//text
+		row.createCell().addParagraph().createRun().setText(agendaItem.getText());
+		
+		//presenter
+		XWPFParagraph para = row.createCell().addParagraph();
+		if(agendaItem.getPresenter()!=null)
+			para.createRun().setText(agendaItem.getPresenter());
+		
+		//duration
+		para = row.createCell().addParagraph();
+		if(agendaItem.getDuration()!=null)
+			para.createRun().setText(agendaItem.getDuration());
 		if(agendaItem.getSubItems()!=null) {
 			for(AgendaItem subItem : agendaItem.getSubItems())
-				insertAgendaItem(document,level+1,cursor,subItem);
+				insertAgendaItem(table,level+1,subItem);
 		}
 	}
 }

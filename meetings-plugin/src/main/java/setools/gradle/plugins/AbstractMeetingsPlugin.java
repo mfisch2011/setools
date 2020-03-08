@@ -110,7 +110,7 @@ public class AbstractMeetingsPlugin implements Plugin<Project> {
 		draftMinutes.getDependsOn().add(draftAgenda);
 		draftPresentation = configureDraftPresentation(project);
 		draftPresentation.setGroup(GROUP_NAME);
-		draftPresentation.getDependsOn().add(draftAgenda);
+		draftPresentation.getDependsOn().add(draftMinutes);
 		assemblePresentation = configureAssemblePresentation(project);
 		assemblePresentation.setGroup(GROUP_NAME);
 		assemblePresentation.getDependsOn().add(draftPresentation);
