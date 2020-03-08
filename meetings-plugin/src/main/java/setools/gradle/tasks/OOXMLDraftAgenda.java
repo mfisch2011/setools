@@ -62,32 +62,25 @@ public class OOXMLDraftAgenda extends AbstractDraftAgenda {
 	}
 	
 	protected void insertDateAndTime(XWPFDocument document) {
-		System.out.println("ENTER insertDateAndTime");
 		XWPFTable table = document.getTableArray(0);
 		XWPFTableRow row = table.getRow(2);
 		XWPFTableCell cell = row.getCell(1);
 		XWPFParagraph para = cell.getParagraphs().get(0);
-		//para.getRuns().clear();
 		String text = getMeetingsExtension().getDate();
 		if(getMeetingsExtension().getTime()!=null)
 			text += " at " + getMeetingsExtension().getTime();
 		para.createRun().setText(text);
-		System.out.println("EXIT insertDateAndTime");
 	}
 
 	protected void insertLocation(XWPFDocument document) {
-		System.out.println("ENTER insertLocation");
 		XWPFTable table = document.getTableArray(0);
 		XWPFTableRow row = table.getRow(2);
 		XWPFTableCell cell = row.getCell(1);
 		XWPFParagraph para = cell.getParagraphs().get(0);
-		//para.getRuns().clear();
 		para.createRun().setText(getMeetingsExtension().getLocation());
-		System.out.println("EXIT insertLocation");
 	}
 
 	protected void insertAttendees(XWPFDocument document) {
-		System.out.println("ENTER insertAttendees");
 		XWPFTable table = document.getTableArray(0);
 		XWPFTableRow row = table.getRow(2);
 		XWPFTableCell cell = row.getCell(1);
@@ -97,9 +90,7 @@ public class OOXMLDraftAgenda extends AbstractDraftAgenda {
 			text += ", " + attendee;
 		if(!text.isEmpty())
 			text = text.substring(2);
-		//para.getRuns().clear();
 		para.createRun().setText(text);	
-		System.out.println("EXIT insertAttendees");
 	}
 	
 	protected void insertAgendaItems(XWPFDocument document) {
