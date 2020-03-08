@@ -60,4 +60,15 @@ public class OOXMLMeetingsPlugin extends AbstractMeetingsPlugin {
 		task.setDescription("Generates draft docx agenda from the meeting agenda.");
 		return task;
 	}
+
+	@Override
+	protected MeetingsPluginExtension configureExtension(Project project) {
+		MeetingsPluginExtension extension = super.configureExtension(project);
+		//configure default templates if not set
+		if(extension.getAgendaTemplate()==null)
+			extension.setAgendaTemplate("classpath:setools/gradle/tasks/ooxml-agenda-template.docx");
+		if(extension.getMinutesTemplate()==null)
+			extension.setMinutesTemplate("classpath:setools/gradle/tasks/ooxml-minutes-template.docx");
+		return extension;
+	}
 }

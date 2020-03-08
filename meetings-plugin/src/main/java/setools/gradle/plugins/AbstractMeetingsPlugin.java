@@ -92,9 +92,14 @@ public class AbstractMeetingsPlugin implements Plugin<Project> {
 
 	@Override
 	public void apply(Project project) {
+		configureSettings(project);
 		applyPlugins(project);
 		extension = configureExtension(project);
 		configureTasks(project);
+	}
+
+	protected void configureSettings(Project project) {
+		project.setBuildDir(project.getProjectDir());
 	}
 
 	protected void configureTasks(Project project) {
