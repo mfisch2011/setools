@@ -13,12 +13,22 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-rootProject.name = "setools"
+subprojects {
 
-include "api"
-
-include "app"
-
-include "plugin"
-
-include "models"
+	apply plugin: "java"
+	apply plugin: "application"
+	
+	dependencies {
+		implementation "info.picocli:picocli:4.1.0"
+		
+		testCompile "junit:junit:4.12"
+	}
+	
+	publishing {
+    	publications {
+    		maven(MavenPublication) {
+            	from components.java
+            }
+        }
+    }
+}

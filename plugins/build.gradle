@@ -13,12 +13,24 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-rootProject.name = "setools"
-
-include "api"
-
-include "app"
-
-include "plugin"
-
-include "models"
+subprojects {
+	apply plugin: "java-gradle-plugin"
+	
+	dependencies {
+		implementation gradleApi()
+		//TODO:testCompile "com.github.mfisch2011:gradle-test-utils-api:0.0.0-rc.29"
+		
+		testCompile "junit:junit:4.12"
+	}
+	
+	publishing {
+		publications {
+			pluginPublication (MavenPublication) {
+				from    components.java
+				groupId    project.group
+				artifactId project.name
+				version    project.version
+			}
+		}
+	}
+}

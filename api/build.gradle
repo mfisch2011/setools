@@ -13,12 +13,18 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-rootProject.name = "setools"
-
-include "api"
-
-include "app"
-
-include "plugin"
-
-include "models"
+subprojects {
+	apply plugin: "java-library"
+	
+	dependencies {
+		testCompile "junit:junit:4.12"
+	}
+	
+	publishing {
+    	publications {
+    		maven(MavenPublication) {
+            	from components.java
+            }
+        }
+    }
+}
