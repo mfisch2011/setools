@@ -13,8 +13,23 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-dependencies {
-	api gradleApi()
-	api project(":api:classpath-utils")
-	api "junit:junit:4.12"
+package setools.gradle.plugins;
+
+import org.gradle.api.Plugin;
+import org.gradle.api.internal.project.ProjectInternal;
+
+import setools.uml.ResourceSetInitializerService;
+
+/**
+ * TODO:
+ */
+public class UmlPlugin implements Plugin<ProjectInternal> {
+
+	@Override
+	public void apply(ProjectInternal project) {
+		project.getPluginManager().apply(UmlBasePlugin.class);
+		ResourceSetInitializerService.reload(project.
+				getClassLoaderScope().getLocalClassLoader());
+	}
+
 }

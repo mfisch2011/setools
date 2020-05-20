@@ -13,8 +13,15 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+gradlePlugin {
+	plugins {
+		umlPlugin {
+			id = "setools.gradle.plugins.UmlPlugin"
+			implementationClass = "setools.gradle.plugins.UmlPlugin"
+		}
+	}
+}
+
 dependencies {
-	api gradleApi()
-	api project(":api:classpath-utils")
-	api "junit:junit:4.12"
+	implementation project(":api:modeling:uml-api")
 }

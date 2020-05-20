@@ -13,8 +13,18 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-dependencies {
-	api gradleApi()
-	api project(":api:classpath-utils")
-	api "junit:junit:4.12"
+package setools.uml;
+
+import org.eclipse.emf.ecore.resource.ResourceSet;
+
+/**
+ * TODO:
+ */
+public interface ResourceSetInitializer {
+
+	/** TODO:
+	 * @param resourceSet
+	 */
+	public void initialize(ResourceSet resourceSet);
+	
 }

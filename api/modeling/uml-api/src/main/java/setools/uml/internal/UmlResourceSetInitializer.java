@@ -13,8 +13,21 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-dependencies {
-	api gradleApi()
-	api project(":api:classpath-utils")
-	api "junit:junit:4.12"
+package setools.uml.internal;
+
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.uml2.uml.resources.util.UMLResourcesUtil;
+
+import setools.uml.ResourceSetInitializer;
+
+/**
+ * TODO:
+ */
+public class UmlResourceSetInitializer implements ResourceSetInitializer {
+
+	@Override
+	public void initialize(ResourceSet resourceSet) {
+		UMLResourcesUtil.init(resourceSet); //defer to maintain compatibility
+	}
+
 }

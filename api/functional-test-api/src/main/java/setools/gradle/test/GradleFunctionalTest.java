@@ -18,6 +18,8 @@ package setools.gradle.test;
 import org.junit.Rule;
 import org.junit.rules.TemporaryFolder;
 
+import setools.util.ClasspathUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -27,6 +29,8 @@ import java.util.jar.JarFile;
 
 import org.junit.After;
 import org.junit.Before;
+
+import org.gradle.testfixtures.ProjectBuilder;
 
 /**
  * TODO:
@@ -42,14 +46,14 @@ public class GradleFunctionalTest {
 	/**
 	 * TODO:
 	 */
-	protected File dir = folder.getRoot();
+	protected File dir = null;
 	
 	/**
 	 * TODO:
 	 */
 	@Before
 	public void setup() {
-		//TODO:
+		dir = folder.getRoot();
 	}
 	
 	/**
@@ -64,16 +68,11 @@ public class GradleFunctionalTest {
 	 * @param pathname
 	 * @throws IOException
 	 */
+	@SuppressWarnings("rawtypes")
 	protected void copyProjectResources(String pathname) throws IOException {
-		try {
-			URL url = getClass().getProtectionDomain().getCodeSource().getLocation();
-			JarFile jarFile = new JarFile(url.getPath());
-			Enumeration<JarEntry> enumOfJar = jarFile.entries();   
-			while (enumOfJar.hasMoreElements()) {
-				System.out.println(enumOfJar.nextElement().getName());   
-			} 
-		} catch(IOException ioe) {
-			System.out.println("IOException: " + ioe);
-		}
+		Class root = getClass();
+		String fullPath = root.getPackage().getName()
+				.replace('.', '/') + "/" + pathname;
+		ClasspathUtils.copyResources(root,fullPath,dir);
 	}
 }
