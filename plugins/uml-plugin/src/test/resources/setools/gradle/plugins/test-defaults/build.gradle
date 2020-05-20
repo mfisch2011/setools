@@ -16,3 +16,5 @@
 plugins {
 	id "setools.gradle.plugins.UmlPlugin"
 }
+
+//TODO:add task to test DefaultModelTask and ResourceSetInitializerService...
