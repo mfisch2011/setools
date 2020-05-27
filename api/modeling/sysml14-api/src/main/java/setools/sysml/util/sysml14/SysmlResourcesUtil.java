@@ -187,10 +187,9 @@ public class SysmlResourcesUtil extends UML2Util {
 	 * 
 	 */
 	public static Map<URI, URI> initURIConverterURIMap(Map<URI, URI> uriMap) {
-		URI umlURI = getBaseRiskURI();
-		URI umlResourcesURI = getBaseRiskResourcesURI();
-		mapURIs(uriMap, SysMLResource.PROFILE_PATH,
-			umlResourcesURI.appendSegment("profile"), //$NON-NLS-1$
+		URI umlURI = getBaseSysMLURI();
+		mapURIs(uriMap, SysMLResource.PROFILES_PATHMAP,
+				umlURI.appendSegment("profile"), //$NON-NLS-1$
 			ResourcesPlugin.PLUGIN_ID);
 		return uriMap;
 	}
@@ -210,12 +209,11 @@ public class SysmlResourcesUtil extends UML2Util {
 	public static Map<String, URI> initEPackageNsURIToProfileLocationMap(
 			Map<String, URI> ePackageNsURIToProfileLocationMap) {
 		ePackageNsURIToProfileLocationMap.put(SysMLResource.PROFILE_URI,
-			URI.createURI("pathmap://SYSML_PROFILE/SysML.profile.uml#SysML")); //$NON-NLS-1$
-		
+			URI.createURI(SysMLResource.PROFILE_PATH + "#SysML")); //$NON-NLS-1$
 		return ePackageNsURIToProfileLocationMap;
 	}
 
-	private static URI getBaseRiskURI() {
+	private static URI getBaseSysMLURI() {
 		String url = String.format("resources/profile/%s", "sysml.ecore");
 		URL resultURL = SysMLResource.class.getClassLoader()
 			.getResource(url); //$NON-NLS-1$ //$NON-NLS-2$
@@ -245,7 +243,7 @@ public class SysmlResourcesUtil extends UML2Util {
 		return result;
 	}
 
-	private static URI getBaseRiskResourcesURI() {
+	private static URI getBaseSysMLResourcesURI() {
 		URI umlMetamodel = URI.createURI(SysMLResource.PROFILE_PATH);
 		URL resultURL = UMLResourcesUtil.class.getClassLoader().getResource(
 			String.format("resources/profile/%s", umlMetamodel.lastSegment())); //$NON-NLS-1$
