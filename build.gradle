@@ -28,7 +28,9 @@ allprojects {
 	
 	repositories {
 		mavenLocal()
-		mavenCentral()
+	    mavenCentral()
+	    //maven { url "https://repo.eclipse.org/content/repositories/papyrus-releases/" } //for papyrus TODO: need more update to date repo...
+		
 	}
 	
 	group = "setools"

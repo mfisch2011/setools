@@ -1,5 +1,5 @@
 /**
-   Copyright 2020 Matt Fischer <mfish2011@gmail.com>
+   Copyright 2019 Matt Fischer <mfish2011@gmail.com>
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package setools.uml.internal;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.uml2.uml.resources.util.UMLResourcesUtil;
 
-import setools.uml.ResourceSetInitializer;
+import setools.uml.util.ResourceSetInitializer;
 
 /**
  * TODO:

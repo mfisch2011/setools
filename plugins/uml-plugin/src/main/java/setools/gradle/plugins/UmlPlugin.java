@@ -18,7 +18,7 @@ package setools.gradle.plugins;
 import org.gradle.api.Plugin;
 import org.gradle.api.internal.project.ProjectInternal;
 
-import setools.uml.ResourceSetInitializerService;
+import setools.uml.util.ResourceSetInitializerService;
 
 /**
  * TODO:

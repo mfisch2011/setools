@@ -13,18 +13,21 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-rootProject.name = "setools"
+package setools.sysml.sysml16.internal;
 
-include "api"
-include "api:functional-test-api"
-include "api:classpath-utils"
-include "api:modeling:uml-api"
-include "api:modeling:sysml14-api"
-include "api:modeling:sysml16-api"
+import org.eclipse.emf.ecore.resource.ResourceSet;
 
-include "app"
+import setools.sysml.util.sysml16.SysmlResourcesUtil;
+import setools.uml.util.ResourceSetInitializer;
 
-include "plugins"
-include "plugins:uml-plugin"
+/**
+ * TODO:
+ */
+public class SysmlResourceSetInitializer implements ResourceSetInitializer {
 
-include "models"
+	@Override
+	public void initialize(ResourceSet resourceSet) {
+		SysmlResourcesUtil.init(resourceSet);
+	}
+
+}
