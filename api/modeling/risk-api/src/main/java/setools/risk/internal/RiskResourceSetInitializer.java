@@ -13,19 +13,21 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-rootProject.name = "setools"
+package setools.risk.internal;
 
-include "api"
-include "api:functional-test-api"
-include "api:classpath-utils"
-include "api:modeling:uml-api"
-include "api:modeling:sysml14-api"
-include "api:modeling:sysml16-api"
-include "api:modeling:risk-api"
+import org.eclipse.emf.ecore.resource.ResourceSet;
 
-include "app"
+import setools.risk.util.RiskResourcesUtil;
+import setools.uml.util.ResourceSetInitializer;
 
-include "plugins"
-include "plugins:uml-plugin"
+/**
+ * TODO:
+ */
+public class RiskResourceSetInitializer implements ResourceSetInitializer {
 
-include "models"
+	@Override
+	public void initialize(ResourceSet resourceSet) {
+		RiskResourcesUtil.init(resourceSet); //defer to maintain compatibility
+	}
+
+}
