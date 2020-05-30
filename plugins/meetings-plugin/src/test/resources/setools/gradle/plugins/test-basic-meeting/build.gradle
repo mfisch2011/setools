@@ -1,5 +1,5 @@
 /**
-   Copyright 2019 Matt Fischer <mfish2011@gmail.com>
+   Copyright 2020 Matt Fischer <mfish2011@gmail.com>
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -13,20 +13,19 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-rootProject.name = "setools"
+plugins {
+	id "setools.gradle.plugins.MeetingsPlugin"
+}
 
-include "api"
-include "api:functional-test-api"
-include "api:classpath-utils"
-include "api:modeling:uml-api"
-include "api:modeling:sysml14-api"
-include "api:modeling:sysml16-api"
-include "api:modeling:risk-api"
-
-include "app"
-
-include "plugins"
-include "plugins:uml-plugin"
-include "plugins:meetings-plugin"
-
-include "models"
+meetingsPlugin {
+	meetings {
+		meeting {
+			name = "Test Meeting"
+			description = "Create a fake meeting to test basic settings."
+			date = "1/1/2020"
+			time = "14:00"
+			attendees = ["Billy Joe Bob","Pinky","Brain"]
+			location = "Super Secret Conference Room"
+		}
+	}
+}

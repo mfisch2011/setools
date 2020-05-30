@@ -13,20 +13,22 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-rootProject.name = "setools"
+package setools.gradle.plugins;
 
-include "api"
-include "api:functional-test-api"
-include "api:classpath-utils"
-include "api:modeling:uml-api"
-include "api:modeling:sysml14-api"
-include "api:modeling:sysml16-api"
-include "api:modeling:risk-api"
+import java.util.Collection;
 
-include "app"
+import groovy.lang.Closure;
+import setools.gradle.meeting.api.Meeting;
 
-include "plugins"
-include "plugins:uml-plugin"
-include "plugins:meetings-plugin"
+/**
+ * @author matt
+ *
+ */
+public interface MeetingsPluginExtension {
 
-include "models"
+	public Collection<Meeting> getMeetings();
+	
+	@SuppressWarnings("rawtypes")
+	public void meetings(Closure closure);
+	
+}

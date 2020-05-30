@@ -1,0 +1,64 @@
+%%
+%% This is file `./samples/minutes.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% meetingmins.dtx  (with options: `minutes')
+%% ----------------------------------------------------------------------
+%% 
+%% meetingmins - A LaTeX class for formatting minutes of meetings
+%% 
+%% Copyright (C) 2011-2013 by Brian D. Beitzel <brian@beitzel.com>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License (LPPL), either
+%% version 1.3c of this license or (at your option) any later
+%% version.  The latest version of this license is in the file:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% Users may freely modify these files without permission, as long as the
+%% copyright line and this statement are maintained intact.
+%% 
+%% ----------------------------------------------------------------------
+%% 
+\documentclass[11pt]{meetingmins}
+
+\setcommittee{$meeting.getName()}
+
+\setmembers{
+%% TODO: mod Meeting API to allow designating meeting roles...
+%%  \chair{B.~Smart},
+
+#foreach($attendee in $meeting.getAttendees())
+  $attendee,
+#end
+}
+
+\setdate{$meeting.date}
+
+\setpresent{
+%% TODO: update in minutes to indicidate actual attendees
+}
+
+%% TODO: \absent{B.~Gone \textit{(sabbatical)}}
+%% TODO: \alsopresent{B.~There}
+
+\begin{document}
+\maketitle
+
+\section{Announcements}
+\begin{hiddenitems}
+
+%% TODO: add tree iterator enabling infinite levels for agenda items
+#foreach($topic in $meeting.getAgendaItems())
+
+\section{$topic.getName()}
+#foreach($subtopic in $topic.getSubtopics())
+\item
+$subtopic.getDescription()
+#end
+#end
+\vspace{1em}
+\end{document}

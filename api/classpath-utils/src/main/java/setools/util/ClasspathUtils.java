@@ -33,7 +33,7 @@ import java.util.zip.ZipEntry;
 public class ClasspathUtils {
 
 	@SuppressWarnings("rawtypes")
-	public static void copyResources(Class resource, String pathname,File dir) throws IOException {
+	public static void copyResources(Class resource, String pathname,final File dir) throws IOException {
 		URL url = resource.getProtectionDomain().getCodeSource().getLocation();
 		switch(getFileExtension(url)) {
 		case "jar":
@@ -69,13 +69,13 @@ public class ClasspathUtils {
 		
 	}
 
-	private static void copyRecursive(File source, File dir) throws IOException {
-		for(File file : dir.listFiles()) {
+	private static void copyRecursive(File source,final File dir) throws IOException {
+		for(File file : source.listFiles()) {
 			if(file.isFile() ) {
 				Path srcPath = file.toPath();
+				Path relative = source.toPath().relativize(srcPath);
 				Path destPath = Paths.get(dir.getAbsolutePath())
-						.resolve(srcPath);
-				System.out.printf("Copying %s to %s%n", srcPath,destPath);
+						.resolve(relative);
 				Files.copy(srcPath,destPath);
 			} else if(file.isDirectory())
 				copyRecursive(file,dir);

@@ -13,20 +13,21 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-rootProject.name = "setools"
+package setools.doc.util;
 
-include "api"
-include "api:functional-test-api"
-include "api:classpath-utils"
-include "api:modeling:uml-api"
-include "api:modeling:sysml14-api"
-include "api:modeling:sysml16-api"
-include "api:modeling:risk-api"
+/**
+ * @author matt
+ *
+ */
+public class OOXMLException extends Exception {
 
-include "app"
+	public OOXMLException(String msg) {
+		super(msg);
+	}
 
-include "plugins"
-include "plugins:uml-plugin"
-include "plugins:meetings-plugin"
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 247039281539812486L;
 
-include "models"
+}
