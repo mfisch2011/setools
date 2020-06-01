@@ -29,7 +29,7 @@ subprojects {
 				from    components.java
 				groupId    project.group
 				artifactId project.name
-				version    project.version
+				//TODO: verify everything works properly before removing this...   version    project.version
 			}
 		}
 	}

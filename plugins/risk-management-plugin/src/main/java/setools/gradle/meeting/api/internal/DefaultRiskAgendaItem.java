@@ -13,21 +13,19 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-rootProject.name = "setools"
+package setools.gradle.meeting.api.internal;
 
-include "api"
-include "api:functional-test-api"
-include "api:classpath-utils"
-include "api:modeling:uml-api"
-include "api:modeling:sysml14-api"
-include "api:modeling:sysml16-api"
-include "api:modeling:risk-api"
+import setools.gradle.meeting.api.AgendaItem;
 
-include "app"
+/**
+ * @author matt
+ *
+ */
+public class DefaultRiskAgendaItem extends DefaultAgendaItem implements AgendaItem {
+	
+	public DefaultRiskAgendaItem() {
+		super();
+		this.setFormatter("setools.gradle.tasks.DraftRiskDetails");
+	}
 
-include "plugins"
-include "plugins:uml-plugin"
-include "plugins:meetings-plugin"
-include "plugins:risk-management-plugin"
-
-include "models"
+}

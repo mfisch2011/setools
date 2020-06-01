@@ -13,21 +13,23 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-rootProject.name = "setools"
+package setools.gradle.tasks;
 
-include "api"
-include "api:functional-test-api"
-include "api:classpath-utils"
-include "api:modeling:uml-api"
-include "api:modeling:sysml14-api"
-include "api:modeling:sysml16-api"
-include "api:modeling:risk-api"
+import javax.inject.Inject;
 
-include "app"
+import setools.gradle.meeting.api.AgendaItem;
+import setools.gradle.meeting.api.Meeting;
 
-include "plugins"
-include "plugins:uml-plugin"
-include "plugins:meetings-plugin"
-include "plugins:risk-management-plugin"
+/**
+ * @author matt
+ *
+ */
+public class DraftRiskOverview extends DraftRiskDetails {
 
-include "models"
+	@Inject
+	public DraftRiskOverview(Meeting meeting,AgendaItem topic) {
+		super(meeting,topic);
+		overview = true; //TODO: there must be a better way!!!
+	}
+
+}
