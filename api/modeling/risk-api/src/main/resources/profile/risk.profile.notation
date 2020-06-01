@@ -50,7 +50,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Pxe9uGuOEeqBl7EbFmJ-pg"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Pxe9uWuOEeqBl7EbFmJ-pg"/>
     </children>
-    <element xmi:type="ecore:EObject" href="risk.profile.uml#_PxYQAGuOEeqBl7EbFmJ-pg"/>
+    <element xmi:type="uml:Stereotype" href="risk.profile.uml#_PxYQAGuOEeqBl7EbFmJ-pg"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PxdIgWuOEeqBl7EbFmJ-pg" x="20" y="160"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_gszPUGuOEeqBl7EbFmJ-pg" type="Enumeration_Shape">
@@ -81,30 +81,30 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_gsz2ZGuOEeqBl7EbFmJ-pg"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gsz2ZWuOEeqBl7EbFmJ-pg"/>
     </children>
-    <element xmi:type="ecore:EObject" href="risk.profile.uml#_gsxaIGuOEeqBl7EbFmJ-pg"/>
+    <element xmi:type="uml:Enumeration" href="risk.profile.uml#_gsxaIGuOEeqBl7EbFmJ-pg"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gszPUWuOEeqBl7EbFmJ-pg" x="960" y="180" height="181"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_iInGAGuOEeqBl7EbFmJ-pg" type="Enumeration_Shape">
     <children xmi:type="notation:DecorationNode" xmi:id="_iIntEGuOEeqBl7EbFmJ-pg" type="Enumeration_NameLabel"/>
     <children xmi:type="notation:BasicCompartment" xmi:id="_iIntEWuOEeqBl7EbFmJ-pg" type="Enumeration_LiteralCompartment">
       <children xmi:type="notation:Shape" xmi:id="_6owbAGuOEeqBl7EbFmJ-pg" type="EnumerationLiteral_LiteralLabel">
-        <element xmi:type="ecore:EObject" href="risk.profile.uml#_6optUGuOEeqBl7EbFmJ-pg"/>
+        <element xmi:type="uml:EnumerationLiteral" href="risk.profile.uml#_6optUGuOEeqBl7EbFmJ-pg"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_6owbAWuOEeqBl7EbFmJ-pg"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_8_zx8GuOEeqBl7EbFmJ-pg" type="EnumerationLiteral_LiteralLabel">
-        <element xmi:type="ecore:EObject" href="risk.profile.uml#_8_nksGuOEeqBl7EbFmJ-pg"/>
+        <element xmi:type="uml:EnumerationLiteral" href="risk.profile.uml#_8_nksGuOEeqBl7EbFmJ-pg"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_8_zx8WuOEeqBl7EbFmJ-pg"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_-WzaEGuOEeqBl7EbFmJ-pg" type="EnumerationLiteral_LiteralLabel">
-        <element xmi:type="ecore:EObject" href="risk.profile.uml#_-WfRAGuOEeqBl7EbFmJ-pg"/>
+        <element xmi:type="uml:EnumerationLiteral" href="risk.profile.uml#_-WfRAGuOEeqBl7EbFmJ-pg"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_-WzaEWuOEeqBl7EbFmJ-pg"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_ARbTsGuPEeqBl7EbFmJ-pg" type="EnumerationLiteral_LiteralLabel">
-        <element xmi:type="ecore:EObject" href="risk.profile.uml#_ARUmAGuPEeqBl7EbFmJ-pg"/>
+        <element xmi:type="uml:EnumerationLiteral" href="risk.profile.uml#_ARUmAGuPEeqBl7EbFmJ-pg"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_ARbTsWuPEeqBl7EbFmJ-pg"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_BflI4GuPEeqBl7EbFmJ-pg" type="EnumerationLiteral_LiteralLabel">
-        <element xmi:type="ecore:EObject" href="risk.profile.uml#_Bfd0IGuPEeqBl7EbFmJ-pg"/>
+        <element xmi:type="uml:EnumerationLiteral" href="risk.profile.uml#_Bfd0IGuPEeqBl7EbFmJ-pg"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_BflI4WuPEeqBl7EbFmJ-pg"/>
       </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_iIntEmuOEeqBl7EbFmJ-pg"/>
@@ -112,7 +112,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_iIntFGuOEeqBl7EbFmJ-pg"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iIntFWuOEeqBl7EbFmJ-pg"/>
     </children>
-    <element xmi:type="ecore:EObject" href="risk.profile.uml#_iIkpwGuOEeqBl7EbFmJ-pg"/>
+    <element xmi:type="uml:Enumeration" href="risk.profile.uml#_iIkpwGuOEeqBl7EbFmJ-pg"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iInGAWuOEeqBl7EbFmJ-pg" x="840" y="20"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_jKHmUGuOEeqBl7EbFmJ-pg" type="Enumeration_Shape">
@@ -135,7 +135,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_jKHmVmuOEeqBl7EbFmJ-pg"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jKHmV2uOEeqBl7EbFmJ-pg"/>
     </children>
-    <element xmi:type="ecore:EObject" href="risk.profile.uml#_jKFxIGuOEeqBl7EbFmJ-pg"/>
+    <element xmi:type="uml:Enumeration" href="risk.profile.uml#_jKFxIGuOEeqBl7EbFmJ-pg"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jKHmUWuOEeqBl7EbFmJ-pg" x="1020" y="20"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_DpyUUG0IEeqqr77BTkJTDA" type="Stereotype_Shape">
@@ -176,7 +176,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Dp0wmG0IEeqqr77BTkJTDA"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Dp0wmW0IEeqqr77BTkJTDA"/>
     </children>
-    <element xmi:type="ecore:EObject" href="risk.profile.uml#_CP2s8G0IEeqqr77BTkJTDA"/>
+    <element xmi:type="uml:Stereotype" href="risk.profile.uml#_CP2s8G0IEeqqr77BTkJTDA"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DpyUUW0IEeqqr77BTkJTDA" x="320" y="160"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_e7gCwHQ_EeqXJsas7lWR3w" type="StereotypeComment">
@@ -222,7 +222,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_BrDLA3RAEeqXJsas7lWR3w"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BrDLBHRAEeqXJsas7lWR3w"/>
     </children>
-    <element xmi:type="ecore:EObject" href="risk.profile.uml#_-z6l0HQ_EeqXJsas7lWR3w"/>
+    <element xmi:type="uml:Stereotype" href="risk.profile.uml#_-z6l0HQ_EeqXJsas7lWR3w"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BrCj8XRAEeqXJsas7lWR3w" x="620" y="340"/>
   </children>
   <styles xmi:type="notation:StringValueStyle" xmi:id="_9N34kWuNEeqBl7EbFmJ-pg" name="diagram_compatibility_version" stringValue="1.4.0"/>
@@ -233,14 +233,14 @@
   <element xmi:type="ecore:EObject" href="risk.profile.uml#_88AsgGuNEeqBl7EbFmJ-pg"/>
   <edges xmi:type="notation:Connector" xmi:id="_DH7lwGuaEeqBl7EbFmJ-pg" type="Extension_Edge" source="_PxdIgGuOEeqBl7EbFmJ-pg" target="_NcA7IGuOEeqBl7EbFmJ-pg">
     <styles xmi:type="notation:FontStyle" xmi:id="_DH7lwWuaEeqBl7EbFmJ-pg"/>
-    <element xmi:type="ecore:EObject" href="risk.profile.uml#_DG4c4GuaEeqBl7EbFmJ-pg"/>
+    <element xmi:type="uml:Extension" href="risk.profile.uml#_DG4c4GuaEeqBl7EbFmJ-pg"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DH7lwmuaEeqBl7EbFmJ-pg" points="[140, 120, -643984, -643984]$[120, 70, -643984, -643984]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DJvjoGuaEeqBl7EbFmJ-pg" id="(0.42016806722689076,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DJwKsGuaEeqBl7EbFmJ-pg" id="(0.2,1.0)"/>
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_Or3i4G0iEeqqr77BTkJTDA" type="Extension_Edge" source="_DpyUUG0IEeqqr77BTkJTDA" target="_NcA7IGuOEeqBl7EbFmJ-pg">
     <styles xmi:type="notation:FontStyle" xmi:id="_Or3i4W0iEeqqr77BTkJTDA"/>
-    <element xmi:type="ecore:EObject" href="risk.profile.uml#_OrUJQG0iEeqqr77BTkJTDA"/>
+    <element xmi:type="uml:Extension" href="risk.profile.uml#_OrUJQG0iEeqqr77BTkJTDA"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Or3i4m0iEeqqr77BTkJTDA" points="[380, 160, -643984, -643984]$[340, 70, -643984, -643984]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OsIooG0iEeqqr77BTkJTDA" id="(0.37037037037037035,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OsIooW0iEeqqr77BTkJTDA" id="(0.6,1.0)"/>
@@ -267,7 +267,7 @@
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_CuaFcHRAEeqXJsas7lWR3w" type="Extension_Edge" source="_BrCj8HRAEeqXJsas7lWR3w" target="_5XpKYHQ_EeqXJsas7lWR3w">
     <styles xmi:type="notation:FontStyle" xmi:id="_CuaFcXRAEeqXJsas7lWR3w"/>
-    <element xmi:type="ecore:EObject" href="risk.profile.uml#_Ct5vIHRAEeqXJsas7lWR3w"/>
+    <element xmi:type="uml:Extension" href="risk.profile.uml#_Ct5vIHRAEeqXJsas7lWR3w"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_CuaFcnRAEeqXJsas7lWR3w" points="[720, 335, -643984, -643984]$[700, 210, -643984, -643984]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Cu1jQHRAEeqXJsas7lWR3w" id="(0.4,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Cu1jQXRAEeqXJsas7lWR3w" id="(0.2,1.0)"/>

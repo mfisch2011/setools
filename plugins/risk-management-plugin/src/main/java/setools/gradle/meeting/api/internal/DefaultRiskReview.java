@@ -64,6 +64,7 @@ public class DefaultRiskReview extends DefaultMeeting implements RiskReview {
 	@Inject
 	public DefaultRiskReview(Project project) throws URISyntaxException {
 		super(project);
+		this.name = "Risk Review"; //TODO:to include or not include the project name in the Risk Review name???
 		this.presentationTemplate = new URI("classpath:///resources/ooxml-risk-review-template.pptx");
 		actionItems = new DefaultAgendaItem();
 		actionItems.setText("Action Item Review");
@@ -134,15 +135,6 @@ public class DefaultRiskReview extends DefaultMeeting implements RiskReview {
 	@SuppressWarnings("rawtypes")
 	public void closingComments(Closure closure) {
 		ConfigureUtil.configure(closure, closing);
-	}
-
-	@Override
-	public String getName() {
-		if(name!=null) {
-			return name;
-		} else {
-			return project.getName() + " Risk Review";
-		}
 	}
 
 }

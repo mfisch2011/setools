@@ -416,7 +416,7 @@
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6optUGuOEeqBl7EbFmJ-pg" name="MINIMAL_IMPACT"/>
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_8_nksGuOEeqBl7EbFmJ-pg" name="LOW_IMPACT"/>
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_-WfRAGuOEeqBl7EbFmJ-pg" name="MODERATE_IMPACT"/>
-    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ARUmAGuPEeqBl7EbFmJ-pg" name="SIGNIFIACNT_IMPACT"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ARUmAGuPEeqBl7EbFmJ-pg" name="SIGNIFICANT_IMPACT"/>
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Bfd0IGuPEeqBl7EbFmJ-pg" name="CATASTROPHIC_IMPACT"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Enumeration" xmi:id="_jKFxIGuOEeqBl7EbFmJ-pg" name="Risk Level">

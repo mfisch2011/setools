@@ -20,13 +20,13 @@ import org.gradle.api.Action;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.Task;
+import org.gradle.api.tasks.SourceTask;
 
 import setools.gradle.meeting.api.RiskReview;
 import setools.gradle.tasks.ImportJsonRisks;
 
 /**
- * @author matt
- *
+ * TODO:
  */
 public class RiskManagementPlugin implements Plugin<Project> {
 
@@ -37,8 +37,7 @@ public class RiskManagementPlugin implements Plugin<Project> {
 		project.getPluginManager().apply(RiskManagementLifecyclePlugin.class);
 		project.getPluginManager().apply(RiskReviewPlugin.class);
 		
-		project.getTasks().create("importJsonRisks",ImportJsonRisks.class);
-		
+		SourceTask task = project.getTasks().create("importJsonRisks",ImportJsonRisks.class);
 		Task identify = project.getTasks().findByName("riskIdentification");
 		identify.dependsOn("importJsonRisks");
 		

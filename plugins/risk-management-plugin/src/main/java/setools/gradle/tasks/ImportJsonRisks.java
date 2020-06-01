@@ -57,8 +57,8 @@ public class ImportJsonRisks extends SourceTask {
 
 	public ImportJsonRisks() {
 		super();
-		this.setSource("src/project/json");
-		this.include("**/*.risk.json");
+		this.setSource("src/project/risk"); //TODO:more gradle way using sourceSets...
+		this.include("**/*.json");
 	}
 	
 	@TaskAction
@@ -111,27 +111,31 @@ public class ImportJsonRisks extends SourceTask {
 		setRiskStatement(umlRisk,jsonRisk);
 		
 		//add mitigations
-		JSONArray jsonMitigations = jsonRisk.getJSONArray("mitigations");
-		if(jsonMitigations!=null) {
-			Iterator<Object> iter = jsonMitigations.iterator();
-			while(iter.hasNext()) {
-				Object object = iter.next();
-				if(object instanceof JSONObject) {
-					JSONObject jsonMitigation = (JSONObject)object;
-					importMitigation(resource,model,umlRisk,jsonMitigation);
+		if(jsonRisk.has("mitigations")) {
+			JSONArray jsonMitigations = jsonRisk.getJSONArray("mitigations");
+			if(jsonMitigations!=null) {
+				Iterator<Object> iter = jsonMitigations.iterator();
+				while(iter.hasNext()) {
+					Object object = iter.next();
+					if(object instanceof JSONObject) {
+						JSONObject jsonMitigation = (JSONObject)object;
+						importMitigation(resource,model,umlRisk,jsonMitigation);
+					}
 				}
 			}
 		}
 		
 		//add status updates
-		JSONArray jsonStatus = jsonRisk.getJSONArray("status");
-		if(jsonStatus!=null) {
-			Iterator<Object> iter = jsonStatus.iterator();
-			while(iter.hasNext()) {
-				Object object = iter.next();
-				if(object instanceof JSONObject) {
-					JSONObject jsonUpdate = (JSONObject)object;
-					importStatusUpdate(resource,model,umlRisk,jsonUpdate);
+		if(jsonRisk.has("status")) {
+			JSONArray jsonStatus = jsonRisk.getJSONArray("status");
+			if(jsonStatus!=null) {
+				Iterator<Object> iter = jsonStatus.iterator();
+				while(iter.hasNext()) {
+					Object object = iter.next();
+					if(object instanceof JSONObject) {
+						JSONObject jsonUpdate = (JSONObject)object;
+						importStatusUpdate(resource,model,umlRisk,jsonUpdate);
+					}
 				}
 			}
 		}

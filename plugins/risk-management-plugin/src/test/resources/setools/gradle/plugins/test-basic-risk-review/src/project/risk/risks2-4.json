@@ -1,0 +1,25 @@
+[
+	{
+		id : '2',
+		name : "Test Risk 2",
+		statement : "If Test Risk 2 occurs, then I will get pretty annoyed.",
+		likelihood : "HIGHLY_LIKELY",
+		consequence : "SIGNIFICANT_IMPACT"
+	},
+	
+	{
+		id : '3',
+		name : "Test Risk 3",
+		statement : "If Test Risk 3 occurs, then annoying stuff may happen.",
+		likelihood : "LOW_LIKELIHOOD",
+		consequence : "LOW_IMPACT"
+	},
+	
+	{
+		id : '4',
+		name : "Test Issue 4",
+		statement : "Test Issue 4 has happended, which is causing me to get annoyed.",
+		likelihood : "NEAR_CERTAINTY",
+		consequence : "LOW_IMPACT"
+	},
+]

@@ -18,6 +18,7 @@ package setools.gradle.meeting.util;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.Project;
 import org.gradle.api.Task;
+import org.gradle.api.specs.Spec;
 
 import setools.gradle.meeting.api.AgendaItem;
 import setools.gradle.meeting.api.RiskReview;
@@ -57,6 +58,7 @@ public class RegisterRiskReview extends RegisterMeetingLifecycle {
 			task.setDescription("Draft the " + topic.getText() + " slides for the " + meeting.getName());
 			task.setDestination(getOutput(meeting.getName(),topic.getText() + " Slides.pptx"));
 			getDraftSlides(project).dependsOn(name);
+			//TODO: topics with section title slides really need to be split into two tasks, so that title slide is generated even if there is no source for section content...
 		}
 		
 		//add tasks to draft slides for sub-topics

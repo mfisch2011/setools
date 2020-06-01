@@ -548,7 +548,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 		addEEnumLiteral(consequenceEEnum, Consequence.MINIMAL_IMPACT);
 		addEEnumLiteral(consequenceEEnum, Consequence.LOW_IMPACT);
 		addEEnumLiteral(consequenceEEnum, Consequence.MODERATE_IMPACT);
-		addEEnumLiteral(consequenceEEnum, Consequence.SIGNIFIACNT_IMPACT);
+		addEEnumLiteral(consequenceEEnum, Consequence.SIGNIFICANT_IMPACT);
 		addEEnumLiteral(consequenceEEnum, Consequence.CATASTROPHIC_IMPACT);
 
 		initEEnum(riskLevelEEnum, RiskLevel.class, "RiskLevel");

@@ -30,6 +30,7 @@ import javax.inject.Inject;
 import org.apache.poi.xslf.usermodel.XMLSlideShow;
 import org.apache.poi.xslf.usermodel.XSLFSlide;
 import org.gradle.api.tasks.Input;
+import org.gradle.api.tasks.Internal;
 import org.gradle.api.tasks.Optional;
 import org.gradle.api.tasks.TaskAction;
 
@@ -128,7 +129,7 @@ public abstract class AbstractTopicSlides extends GenerateTask {
 	/** TODO:
 	 * @return
 	 */
-	@Input
+	@Internal
 	public AgendaItem getTopic() {
 		return topic;
 	}

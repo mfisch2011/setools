@@ -48,6 +48,9 @@ public class ClasspathUtils {
 					ZipEntry zipEntry = jarFile.getEntry(name);
 					InputStream stream = jarFile.getInputStream(zipEntry);
 					Path destPath = basePath.resolve(name);
+					File parent = destPath.toFile().getParentFile();
+					if(!parent.exists())
+						Files.createDirectories(parent.toPath());
 					Files.copy(stream, destPath);
 					stream.close();
 				}
@@ -58,27 +61,33 @@ public class ClasspathUtils {
 			path = Paths.get(path.toString().replace("classes/java","resources")); //TODO:how to handle where Gradle puts resources...
 			File source = path.resolve(pathname).toFile();
 			if(source.isDirectory()) {
-				copyRecursive(source,dir);
+				copyRecursive(source,source,dir);
 			} else {
 				Path srcPath = source.toPath();
 				Path destPath = Paths.get(dir.getAbsolutePath())
 						.resolve(srcPath);
+				File parent = destPath.toFile().getParentFile();
+				if(!parent.exists())
+					Files.createDirectories(parent.toPath());
 				Files.copy(srcPath,destPath);
 			}
 		}
 		
 	}
 
-	private static void copyRecursive(File source,final File dir) throws IOException {
+	private static void copyRecursive(File root,File source,final File dir) throws IOException {
 		for(File file : source.listFiles()) {
 			if(file.isFile() ) {
 				Path srcPath = file.toPath();
-				Path relative = source.toPath().relativize(srcPath);
+				Path relative = root.toPath().relativize(srcPath);
 				Path destPath = Paths.get(dir.getAbsolutePath())
 						.resolve(relative);
+				File parent = destPath.toFile().getParentFile();
+				if(!parent.exists())
+					Files.createDirectories(parent.toPath());
 				Files.copy(srcPath,destPath);
 			} else if(file.isDirectory())
-				copyRecursive(file,dir);
+				copyRecursive(root,file,dir);
 		}
 	}
 

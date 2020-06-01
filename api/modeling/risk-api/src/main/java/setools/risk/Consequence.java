@@ -69,7 +69,7 @@ public enum Consequence implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SIGNIFIACNT_IMPACT(3, "SIGNIFIACNT_IMPACT", "SIGNIFIACNT_IMPACT"),
+	SIGNIFICANT_IMPACT(3, "SIGNIFICANT_IMPACT", "SIGNIFICANT_IMPACT"),
 
 	/**
 	 * The '<em><b>CATASTROPHIC IMPACT</b></em>' literal object. <!-- begin-user-doc
@@ -143,7 +143,7 @@ public enum Consequence implements Enumerator {
 	 * @generated
 	 */
 	private static final Consequence[] VALUES_ARRAY = new Consequence[] { MINIMAL_IMPACT, LOW_IMPACT, MODERATE_IMPACT,
-			SIGNIFIACNT_IMPACT, CATASTROPHIC_IMPACT, };
+			SIGNIFICANT_IMPACT, CATASTROPHIC_IMPACT, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Consequence</b></em>' enumerators.
@@ -206,7 +206,7 @@ public enum Consequence implements Enumerator {
 		case MODERATE_IMPACT_VALUE:
 			return MODERATE_IMPACT;
 		case SIGNIFIACNT_IMPACT_VALUE:
-			return SIGNIFIACNT_IMPACT;
+			return SIGNIFICANT_IMPACT;
 		case CATASTROPHIC_IMPACT_VALUE:
 			return CATASTROPHIC_IMPACT;
 		}
