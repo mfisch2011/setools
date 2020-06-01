@@ -49,14 +49,14 @@ public class MeetingsPluginTest extends GradleFunctionalTest {
 		String output = results.getOutput();
 		assertNotNull(output);
 		assertTrue("Missing draftAgenda task",output.contains("draftTestMeetingAgenda"));
-		assertTrue("Missing draftAgenda task",output.contains("draftTestMeetingMinutes"));
-		assertTrue("Missing draftAgenda task",output.contains("draftTestMeetingSlides"));
-		assertTrue("Missing draftAgenda task",output.contains("draftTestMeetingTitleSlide"));
-		assertTrue("Missing draftAgenda task",output.contains("draftTestMeetingAgendaSlide"));
-		assertTrue("Missing draftAgenda task",output.contains("draftTestMeetingBackupsSlide"));
-		assertTrue("Missing draftAgenda task",output.contains("assembleTestMeetingPresentation"));
-		assertTrue("Missing draftAgenda task",output.contains("publishTestMeetingPresentation"));
-		assertTrue("Missing draftAgenda task",output.contains("publishTestMeetingMinutes"));
+		assertTrue("Missing draftMinutes task",output.contains("draftTestMeetingMinutes"));
+		assertTrue("Missing draftSlides task",output.contains("draftTestMeetingSlides"));
+		assertTrue("Missing draftTitleSlide task",output.contains("draftTestMeetingTitleSlide"));
+		assertTrue("Missing draftAgendaSlide task",output.contains("draftTestMeetingAgendaSlide"));
+		assertTrue("Missing draftBackupsSlide task",output.contains("draftTestMeetingBackupsSlide"));
+		assertTrue("Missing assemblePresentation task",output.contains("assembleTestMeetingPresentation"));
+		assertTrue("Missing publishPresentation task",output.contains("publishTestMeetingPresentation"));
+		assertTrue("Missing publishMinutes task",output.contains("publishTestMeetingMinutes"));
 	}
 	
 	/**
