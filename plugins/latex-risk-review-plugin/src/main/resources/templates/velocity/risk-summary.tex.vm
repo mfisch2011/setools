@@ -13,45 +13,37 @@
           \end{enumerate}
         \end{tcolorbox}
       \end{block}
+
     \column{.5\textwidth}
       \begin{tcolorbox}[enhanced,boxsep=0pt,left=0pt,right=0pt,top=0pt,bottom=0pt,frame hidden]
         \center
-        %% TODO: figure out how to put this into an environment to hide all this mess...
-        \begin{tabular}{| c | c | c | c | c | c | c |}
-          \hline
-          & 5  & \cellcolor{green}  %% TODO: get list of risks that are 5x1
-               & \cellcolor{yellow} %% TODO: get list of risks that are 5x2
-               & \cellcolor{red}    %% TODO: get list of risks that are 5x3
-               & \cellcolor{red}    %% TODO: get list of risks that are 5x4
-               & \cellcolor{red}    %% TODO: get list of risks that are 5x5
-          \\ \cline{2-7}
-          & 4  & \cellcolor{green}  %% TODO: get list of risks that are 4x1
-               & \cellcolor{yellow} %% TODO: get list of risks that are 4x2
-               & \cellcolor{yellow} %% TODO: get list of risks that are 4x3
-               & \cellcolor{red}    %% TODO: get list of risks that are 4x4
-               & \cellcolor{red}    %% TODO: get list of risks that are 4x5
-          \\ \cline{2-7}
-          & 3  & \cellcolor{green}  %% TODO: get list of risks that are 3x1
-               & \cellcolor{green}  %% TODO: get list of risks that are 3x2
-               & \cellcolor{yellow} %% TODO: get list of risks that are 3x3
-               & \cellcolor{yellow} %% TODO: get list of risks that are 3x4
-               & \cellcolor{red}    %% TODO: get list of risks that are 3x5
-          \\ \cline{2-7}
-          & 2  & \cellcolor{green}  %% TODO: get list of risks that are 2x1
-               & \cellcolor{green}  %% TODO: get list of risks that are 2x2
-               & \cellcolor{green}  %% TODO: get list of risks that are 2x3
-               & \cellcolor{yellow} %% TODO: get list of risks that are 2x4
-               & \cellcolor{yellow} %% TODO: get list of risks that are 2x5
-          \\ \cline{2-7}
-          & 1  & \cellcolor{green}  %% TODO: get list of risks that are 1x1
-               & \cellcolor{green}  %% TODO: get list of risks that are 1x2
-               & \cellcolor{green}  %% TODO: get list of risks that are 1x3
-               & \cellcolor{green}  %% TODO: get list of risks that are 1x4
-               & \cellcolor{yellow} %% TODO: get list of risks that are 1x5
-          \\ \cline{2-7}
-          \rot{\rlap{~Likelihood}} & & 1 & 2 & 3 & 4 & 5 \\ \hline
-          \multicolumn{7}{|c|}{Consequence}  \\ \hline
-        \end{tabular}
+        %% TODO: is there a cleaner way to do this?  maybe by passing an array?
+        #set($cell_5_1 = $LatexUtils.getSummaryIndecies($monitored_risks,5,1))
+        #set($cell_5_2 = $LatexUtils.getSummaryIndecies($monitored_risks,5,2))
+        #set($cell_5_3 = $LatexUtils.getSummaryIndecies($monitored_risks,5,3))
+        #set($cell_5_4 = $LatexUtils.getSummaryIndecies($monitored_risks,5,4))
+        #set($cell_5_5 = $LatexUtils.getSummaryIndecies($monitored_risks,5,5))
+        #set($cell_4_1 = $LatexUtils.getSummaryIndecies($monitored_risks,4,1))
+        #set($cell_4_2 = $LatexUtils.getSummaryIndecies($monitored_risks,4,2))
+        #set($cell_4_3 = $LatexUtils.getSummaryIndecies($monitored_risks,4,3))
+        #set($cell_4_4 = $LatexUtils.getSummaryIndecies($monitored_risks,4,4))
+        #set($cell_4_5 = $LatexUtils.getSummaryIndecies($monitored_risks,4,5))
+        #set($cell_3_1 = $LatexUtils.getSummaryIndecies($monitored_risks,3,1))
+        #set($cell_3_2 = $LatexUtils.getSummaryIndecies($monitored_risks,3,2))
+        #set($cell_3_3 = $LatexUtils.getSummaryIndecies($monitored_risks,3,3))
+        #set($cell_3_4 = $LatexUtils.getSummaryIndecies($monitored_risks,3,4))
+        #set($cell_3_5 = $LatexUtils.getSummaryIndecies($monitored_risks,3,5))
+        #set($cell_2_1 = $LatexUtils.getSummaryIndecies($monitored_risks,2,1))
+        #set($cell_2_2 = $LatexUtils.getSummaryIndecies($monitored_risks,2,2))
+        #set($cell_2_3 = $LatexUtils.getSummaryIndecies($monitored_risks,2,3))
+        #set($cell_2_4 = $LatexUtils.getSummaryIndecies($monitored_risks,2,4))
+        #set($cell_2_5 = $LatexUtils.getSummaryIndecies($monitored_risks,2,5))
+        #set($cell_1_1 = $LatexUtils.getSummaryIndecies($monitored_risks,1,1))
+        #set($cell_1_2 = $LatexUtils.getSummaryIndecies($monitored_risks,1,2))
+        #set($cell_1_3 = $LatexUtils.getSummaryIndecies($monitored_risks,1,3))
+        #set($cell_1_4 = $LatexUtils.getSummaryIndecies($monitored_risks,1,4))
+        #set($cell_1_5 = $LatexUtils.getSummaryIndecies($monitored_risks,1,5))
+        #parse("templates/velocity/risk-cube.tex.vm")
       \end{tcolorbox}
   \end{columns}
 \end{frame}

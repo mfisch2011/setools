@@ -24,7 +24,7 @@ import org.gradle.api.tasks.Exec;
 
 import setools.gradle.meeting.api.RiskReview;
 import setools.gradle.meeting.api.internal.DefaultRiskReview;
-import setools.gradle.task.DraftRiskReview;
+import setools.gradle.tasks.DraftRiskReview;
 import setools.gradle.tasks.VelocityTask;
 
 /**

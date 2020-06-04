@@ -40,6 +40,7 @@
 
 %% define new macros used
 \def\rot#1{\rotatebox{90}{#1}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 
 %% set document properties
 #if($!{$title})
@@ -78,31 +79,22 @@
 
 
 \section{Action Item Review}
-#if(${$action_items})
-  #parse("templates/velocity/action-items-report.tex.vm")
-#end
-
+#parse("templates/velocity/action-items-report.tex.vm")
 
 \section{New Risks}
-#if(${$new_risks})
-  #foreach($risk in $new_risks)
-    #parse("templates/velocity/risk-details.tex.vm")
-  #end
+#foreach($risk in $new_risks)
+  #parse("templates/velocity/risk-details.tex.vm")
 #end
 
 \section{Monitored Risks}
-#if(${$monitored_risks})
-  #parse("templates/velocity/risk-summary.tex.vm")
-  #foreach($risk in $monitored_risks)
-    #parse("templates/velocity/risk-details.tex.vm")
-  #end
+#parse("templates/velocity/risk-summary.tex.vm")
+#foreach($risk in $monitored_risks)
+  #parse("templates/velocity/risk-details.tex.vm")
 #end
 
 \section{Risk Closures}
-#if(${$risk_closures})
-  #foreach($risk in $risk_closures)
-    #parse("templates/velocity/risk-details.tex.vm")
-  #end
+#foreach($risk in $risk_closures)
+  #parse("templates/velocity/risk-details.tex.vm")
 #end
 
 \section{Closing Comments}

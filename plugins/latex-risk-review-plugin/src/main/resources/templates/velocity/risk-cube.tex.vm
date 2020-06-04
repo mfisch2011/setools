@@ -1,0 +1,37 @@
+%% TODO: figure out how to put this into an environment to hide all this mess...
+\setlength{\tabcolsep}{0.01pt}
+\begin{tabular}{| P{0.1\columnwidth} | P{0.15\columnwidth} | P{0.15\columnwidth} | P{0.15\columnwidth} | P{0.15\columnwidth} | P{0.15\columnwidth} | P{0.15\columnwidth} |}
+  \hline
+  & 5  & \cellcolor{green}  \resizebox{0.1\columnwidth}{!}{ #if($cell_5_1) $cell_5_1 #end }
+       & \cellcolor{yellow} \resizebox{0.1\columnwidth}{!}{ #if($cell_5_2) $cell_5_2 #end }
+       & \cellcolor{red}    \resizebox{0.1\columnwidth}{!}{ #if($cell_5_3) $cell_5_3 #end }
+       & \cellcolor{red}    \resizebox{0.1\columnwidth}{!}{ #if($cell_5_4) $cell_5_4 #end }
+       & \cellcolor{red}    \resizebox{0.1\columnwidth}{!}{ #if($cell_5_5) $cell_5_5 #end }
+  \\ \cline{2-7}
+  & 4  & \cellcolor{green}  \resizebox{0.1\columnwidth}{!}{ #if($cell_4_1) $cell_4_1 #end }
+       & \cellcolor{yellow} \resizebox{0.1\columnwidth}{!}{ #if($cell_4_2) $cell_4_2 #end }
+       & \cellcolor{yellow} \resizebox{0.1\columnwidth}{!}{ #if($cell_4_3) $cell_4_3 #end }
+       & \cellcolor{red}    \resizebox{0.1\columnwidth}{!}{ #if($cell_4_4) $cell_4_4 #end }
+       & \cellcolor{red}    \resizebox{0.1\columnwidth}{!}{ #if($cell_4_5) $cell_4_5 #end }
+  \\ \cline{2-7}
+  & 3  & \cellcolor{green}  \resizebox{0.1\columnwidth}{!}{ #if($cell_3_1) $cell_3_1 #end }
+       & \cellcolor{green}  \resizebox{0.1\columnwidth}{!}{ #if($cell_3_2) $cell_3_2 #end }
+       & \cellcolor{yellow} \resizebox{0.1\columnwidth}{!}{ #if($cell_3_3) $cell_3_3 #end }
+       & \cellcolor{yellow} \resizebox{0.1\columnwidth}{!}{ #if($cell_3_4) $cell_3_4 #end }
+       & \cellcolor{red}    \resizebox{0.1\columnwidth}{!}{ #if($cell_3_5) $cell_3_5 #end }
+  \\ \cline{2-7}
+  & 2  & \cellcolor{green}  \resizebox{0.1\columnwidth}{!}{ #if($cell_2_1) $cell_2_1 #end }
+       & \cellcolor{green}  \resizebox{0.1\columnwidth}{!}{ #if($cell_2_2) $cell_2_2 #end }
+       & \cellcolor{green}  \resizebox{0.1\columnwidth}{!}{ #if($cell_2_3) $cell_2_3 #end }
+       & \cellcolor{yellow} \resizebox{0.1\columnwidth}{!}{ #if($cell_2_4) $cell_2_4 #end }
+       & \cellcolor{yellow} \resizebox{0.1\columnwidth}{!}{ #if($cell_2_5) $cell_2_5 #end }
+  \\ \cline{2-7}
+  & 1  & \cellcolor{green}  \resizebox{0.1\columnwidth}{!}{ #if($cell_1_1) $cell_1_1 #end }
+       & \cellcolor{green}  \resizebox{0.1\columnwidth}{!}{ #if($cell_1_2) $cell_1_2 #end }
+       & \cellcolor{green}  \resizebox{0.1\columnwidth}{!}{ #if($cell_1_3) $cell_1_3 #end }
+       & \cellcolor{green}  \resizebox{0.1\columnwidth}{!}{ #if($cell_1_4) $cell_1_4 #end }
+       & \cellcolor{yellow} \resizebox{0.1\columnwidth}{!}{ #if($cell_1_5) $cell_1_5 #end }
+  \\ \cline{2-7}
+  \rot{\rlap{~Likelihood}} & & 1 & 2 & 3 & 4 & 5 \\ \hline
+  \multicolumn{7}{|c|}{Consequence}  \\ \hline
+\end{tabular}

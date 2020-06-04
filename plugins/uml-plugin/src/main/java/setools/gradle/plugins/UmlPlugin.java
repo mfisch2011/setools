@@ -50,7 +50,6 @@ public class UmlPlugin implements Plugin<ProjectInternal> {
 	 * @param initializer
 	 */
 	public synchronized void register(ResourceSetInitializer initializer) {
-		System.out.printf("REGISTER: %s%n", initializer);
 		initializers.add(initializer);
 	}
 	
@@ -60,7 +59,6 @@ public class UmlPlugin implements Plugin<ProjectInternal> {
 	 */
 	public synchronized void initialize(ResourceSet resourceSet) {
 		for(ResourceSetInitializer initializer : initializers) {
-			System.out.printf("INITIALIZING: %s%n", initializer);
 			initializer.initialize(resourceSet);
 		}
 	}

@@ -13,16 +13,17 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-package setools.gradle.task;
+package setools.gradle.tasks;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Properties;
-import java.util.TreeSet;
+import java.util.Set;
 
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -44,6 +45,7 @@ import org.gradle.util.ConfigureUtil;
 
 import groovy.lang.Closure;
 import setools.gradle.plugins.UmlPlugin;
+import setools.gradle.tasks.util.LatexUtilities;
 import setools.risk.Risk;
 import setools.risk.util.RiskResourcesUtil;
 import setools.uml.util.ResourceSetInitializerService;
@@ -81,9 +83,8 @@ public class DraftRiskReview extends SourceTask {
 	public DraftRiskReview() {
 		//configure resourceSet
 		resourceSet = new ResourceSetImpl();
-		//UmlPlugin umlPlugin = getProject().getPlugins().getPlugin(UmlPlugin.class);
-		//umlPlugin.initialize(resourceSet); //TODO:WTFF IS THIS NOT WORKING!!!!!!
-		RiskResourcesUtil.init(resourceSet);
+		UmlPlugin umlPlugin = getProject().getPlugins().getPlugin(UmlPlugin.class);
+		umlPlugin.initialize(resourceSet); //TODO:WTFF IS THIS NOT WORKING!!!!!!
 		
 		//configure velocity engine
 		engineProperties.put("resource.loader","relative.file,absolute.file,classpath");
@@ -144,13 +145,15 @@ public class DraftRiskReview extends SourceTask {
 	 * TODO:
 	 * @return
 	 */
-	@Input
+	@Internal //TODO:make this @Input once we solve the serialization/storage problem with UML objects....
 	public Properties getContextProperties() {
 		Properties results = new Properties();
 		for(Entry<Object, Object> entry : contextProperties.entrySet()) {
 			results.put(entry.getKey(), entry.getValue());
 		}
 		
+		//utilities
+		results.put("LatexUtils",new LatexUtilities());
 		//action items
 		results.put("action_items",getActionItems());
 		
@@ -167,8 +170,8 @@ public class DraftRiskReview extends SourceTask {
 	}
 	
 	@Internal //TODO:convert to input and make this serializable somehow...
-	protected TreeSet<Risk> getRiskClosures() {
-		TreeSet<Risk> results = new TreeSet<Risk>(); //TODO:change Comparator
+	protected Set<Risk> getRiskClosures() {
+		Set<Risk> results = new HashSet<Risk>(); //TODO:change to TreeSet when we have Comparator
 		for(Risk risk : getRisks()) {
 			//TODO:filter
 			results.add(risk);
@@ -179,13 +182,11 @@ public class DraftRiskReview extends SourceTask {
 	@Internal
 	protected Collection<Risk> getRisks() {
 		//TODO:is there a way to cache this to improve performance?
-		TreeSet<Risk> results = new TreeSet<Risk>();
+		Set<Risk> results = new HashSet<Risk>(); //TODO:change this to TreeSet when we have a comparator...
 		for(Resource resource : getResources()) {
 			//assumes all stereotype applications are at root level, which they seem to be...
 			for(EObject object : resource.getContents()) {
-				System.out.printf("TEST OBJECT: %s%n", object);
 				if(object instanceof Risk) {
-					System.out.printf("ADD RISK: %s%n",object);
 					results.add((Risk)object);
 				}
 			}
@@ -203,8 +204,8 @@ public class DraftRiskReview extends SourceTask {
 	}
 
 	@Internal //TODO:convert to input and make this serializable somehow...
-	protected TreeSet<Risk> getMonitoredRisks() {
-		TreeSet<Risk> results = new TreeSet<Risk>(); //TODO:change Comparator
+	protected Set<Risk> getMonitoredRisks() {
+		Set<Risk> results = new HashSet<Risk>(); //TODO:change to TreeSet when we have comparator
 		for(Risk risk : getRisks()) {
 			//TODO:filter
 			results.add(risk);
@@ -213,8 +214,8 @@ public class DraftRiskReview extends SourceTask {
 	}
 	
 	@Internal //TODO:convert to input and make this serializable somehow...
-	protected TreeSet<Risk> getNewRisks() {
-		TreeSet<Risk> results = new TreeSet<Risk>(); //TODO:change Comparator
+	protected Set<Risk> getNewRisks() {
+		Set<Risk> results = new HashSet<Risk>(); //TODO:change to TreeSet when we have comparator
 		for(Risk risk : getRisks()) {
 			//TODO:filter
 			results.add(risk);
@@ -223,8 +224,8 @@ public class DraftRiskReview extends SourceTask {
 	}
 
 	@Internal //TODO:convert to input and make this serializable somehow...
-	protected TreeSet<Object> getActionItems() {
-		TreeSet<Object> results = new TreeSet<Object>();
+	protected Set<Object> getActionItems() {
+		Set<Object> results = new HashSet<Object>(); //TODO:change to TreeSet when we have comparator...
 		//TODO:get action items... (and change type)
 		return results;
 	}

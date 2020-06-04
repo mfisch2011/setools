@@ -11,5 +11,6 @@
     $action_item.getStatus() &
     $action_item.getDateClosed() \\ \hline
   #end
-  \end{supertabular}
+\end{supertabular} ## TODO: why is this inset necessary to make it line up with \begin{supertabular}???
+
 \end{frame}
