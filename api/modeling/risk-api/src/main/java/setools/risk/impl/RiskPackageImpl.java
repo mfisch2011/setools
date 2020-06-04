@@ -1,32 +1,20 @@
 /**
-   Copyright 2019 Matt Fischer <mfish2011@gmail.com>
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-*/
+ */
 package setools.risk.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.uml2.types.TypesPackage;
 
 import org.eclipse.uml2.uml.UMLPackage;
+
 import setools.risk.Consequence;
 import setools.risk.Likelihood;
 import setools.risk.Risk;
@@ -162,7 +150,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EClass getRisk() {
 		return riskEClass;
 	}
@@ -172,7 +159,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EAttribute getRisk_Id() {
 		return (EAttribute) riskEClass.getEStructuralFeatures().get(0);
 	}
@@ -182,7 +168,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EAttribute getRisk_Statement() {
 		return (EAttribute) riskEClass.getEStructuralFeatures().get(1);
 	}
@@ -192,7 +177,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EAttribute getRisk_Likelihood() {
 		return (EAttribute) riskEClass.getEStructuralFeatures().get(2);
 	}
@@ -202,7 +186,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EAttribute getRisk_Consequence() {
 		return (EAttribute) riskEClass.getEStructuralFeatures().get(3);
 	}
@@ -212,7 +195,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EAttribute getRisk_Risk() {
 		return (EAttribute) riskEClass.getEStructuralFeatures().get(4);
 	}
@@ -222,7 +204,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EReference getRisk_Base_Class() {
 		return (EReference) riskEClass.getEStructuralFeatures().get(5);
 	}
@@ -232,7 +213,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EReference getRisk_Mitigations() {
 		return (EReference) riskEClass.getEStructuralFeatures().get(6);
 	}
@@ -242,7 +222,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EClass getRiskMitigation() {
 		return riskMitigationEClass;
 	}
@@ -252,7 +231,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EAttribute getRiskMitigation_Planned() {
 		return (EAttribute) riskMitigationEClass.getEStructuralFeatures().get(0);
 	}
@@ -262,7 +240,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EReference getRiskMitigation_Base_Class() {
 		return (EReference) riskMitigationEClass.getEStructuralFeatures().get(1);
 	}
@@ -272,7 +249,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EAttribute getRiskMitigation_Id() {
 		return (EAttribute) riskMitigationEClass.getEStructuralFeatures().get(2);
 	}
@@ -282,7 +258,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EAttribute getRiskMitigation_Statement() {
 		return (EAttribute) riskMitigationEClass.getEStructuralFeatures().get(3);
 	}
@@ -292,7 +267,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EAttribute getRiskMitigation_Likelihood() {
 		return (EAttribute) riskMitigationEClass.getEStructuralFeatures().get(4);
 	}
@@ -302,7 +276,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EAttribute getRiskMitigation_Consequence() {
 		return (EAttribute) riskMitigationEClass.getEStructuralFeatures().get(5);
 	}
@@ -312,7 +285,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EAttribute getRiskMitigation_Risk() {
 		return (EAttribute) riskMitigationEClass.getEStructuralFeatures().get(6);
 	}
@@ -322,7 +294,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EClass getStatusUpdate() {
 		return statusUpdateEClass;
 	}
@@ -332,7 +303,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EReference getStatusUpdate_Base_Comment() {
 		return (EReference) statusUpdateEClass.getEStructuralFeatures().get(0);
 	}
@@ -342,7 +312,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EAttribute getStatusUpdate_Date() {
 		return (EAttribute) statusUpdateEClass.getEStructuralFeatures().get(1);
 	}
@@ -352,7 +321,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EAttribute getStatusUpdate_Source() {
 		return (EAttribute) statusUpdateEClass.getEStructuralFeatures().get(2);
 	}
@@ -362,7 +330,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EEnum getLikelihood() {
 		return likelihoodEEnum;
 	}
@@ -372,7 +339,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EEnum getConsequence() {
 		return consequenceEEnum;
 	}
@@ -382,7 +348,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public EEnum getRiskLevel() {
 		return riskLevelEEnum;
 	}
@@ -392,7 +357,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
-	@Override
 	public RiskFactory getRiskFactory() {
 		return (RiskFactory) getEFactoryInstance();
 	}
@@ -548,7 +512,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 		addEEnumLiteral(consequenceEEnum, Consequence.MINIMAL_IMPACT);
 		addEEnumLiteral(consequenceEEnum, Consequence.LOW_IMPACT);
 		addEEnumLiteral(consequenceEEnum, Consequence.MODERATE_IMPACT);
-		addEEnumLiteral(consequenceEEnum, Consequence.SIGNIFIACNT_IMPACT);
+		addEEnumLiteral(consequenceEEnum, Consequence.SIGNIFICACT_IMPACT);
 		addEEnumLiteral(consequenceEEnum, Consequence.CATASTROPHIC_IMPACT);
 
 		initEEnum(riskLevelEEnum, RiskLevel.class, "RiskLevel");

@@ -45,6 +45,8 @@ public class RiskResourceSetInitializerTest {
 		URI uri = URI.createFileURI("src/test/resources/test-riskml.uml"); //TODO:classloader getResource()...
 		Resource resource = resourceSet.getResource(uri, true);
 		assertNotNull(resource);
+		for(EObject object : resource.getContents())
+			System.out.println(object);
 		
 		//Test Risk1
 		EObject eObject = resource.getEObject("_GSrwkKBKEeq_dMA2i4Hq1A");
