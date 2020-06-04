@@ -49,15 +49,14 @@ public enum Consequence implements Enumerator {
 	MODERATE_IMPACT(2, "MODERATE_IMPACT", "MODERATE_IMPACT"),
 
 	/**
-	 * The '<em><b>SIGNIFICACT IMPACT</b></em>' literal object. <!-- begin-user-doc
+	 * The '<em><b>SIGNIFICANT IMPACT</b></em>' literal object. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
-	 * @see #SIGNIFICACT_IMPACT_VALUE
+	 * @see #SIGNIFICANT_IMPACT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	SIGNIFICACT_IMPACT(3, "SIGNIFICACT_IMPACT", "SIGNIFICACT_IMPACT"),
-
+	SIGNIFICANT_IMPACT(3, "SIGNIFICANT_IMPACT", "SIGNIFICANT_IMPACT"),
 	/**
 	 * The '<em><b>CATASTROPHIC IMPACT</b></em>' literal object. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -102,15 +101,15 @@ public enum Consequence implements Enumerator {
 	public static final int MODERATE_IMPACT_VALUE = 2;
 
 	/**
-	 * The '<em><b>SIGNIFICACT IMPACT</b></em>' literal value. <!-- begin-user-doc
+	 * The '<em><b>SIGNIFICANT IMPACT</b></em>' literal value. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
-	 * @see #SIGNIFICACT_IMPACT
+	 * @see #SIGNIFICANT_IMPACT
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SIGNIFICACT_IMPACT_VALUE = 3;
+	public static final int SIGNIFICANT_IMPACT_VALUE = 3;
 
 	/**
 	 * The '<em><b>CATASTROPHIC IMPACT</b></em>' literal value. <!-- begin-user-doc
@@ -130,7 +129,7 @@ public enum Consequence implements Enumerator {
 	 * @generated
 	 */
 	private static final Consequence[] VALUES_ARRAY = new Consequence[] { MINIMAL_IMPACT, LOW_IMPACT, MODERATE_IMPACT,
-			SIGNIFICACT_IMPACT, CATASTROPHIC_IMPACT, };
+			SIGNIFICANT_IMPACT, CATASTROPHIC_IMPACT, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Consequence</b></em>' enumerators.
@@ -192,8 +191,8 @@ public enum Consequence implements Enumerator {
 			return LOW_IMPACT;
 		case MODERATE_IMPACT_VALUE:
 			return MODERATE_IMPACT;
-		case SIGNIFICACT_IMPACT_VALUE:
-			return SIGNIFICACT_IMPACT;
+		case SIGNIFICANT_IMPACT_VALUE:
+			return SIGNIFICANT_IMPACT;
 		case CATASTROPHIC_IMPACT_VALUE:
 			return CATASTROPHIC_IMPACT;
 		}
@@ -238,6 +237,7 @@ public enum Consequence implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -247,6 +247,7 @@ public enum Consequence implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -256,6 +257,7 @@ public enum Consequence implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}

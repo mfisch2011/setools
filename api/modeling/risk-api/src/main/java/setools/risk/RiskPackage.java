@@ -37,7 +37,7 @@ public interface RiskPackage extends EPackage {
 	 * 
 	 * @generated
 	 */
-	String eNS_URI = "http://setools/setools/risk/0.0.7/RiskML";
+	String eNS_URI = "http://setools/setools/risk/0.0.8/RiskML";
 
 	/**
 	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->

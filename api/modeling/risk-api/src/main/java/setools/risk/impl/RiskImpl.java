@@ -169,6 +169,7 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -178,6 +179,7 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
@@ -190,6 +192,7 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getStatement() {
 		return statement;
 	}
@@ -199,6 +202,7 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setStatement(String newStatement) {
 		String oldStatement = statement;
 		statement = newStatement;
@@ -212,6 +216,7 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Likelihood getLikelihood() {
 		return likelihood;
 	}
@@ -221,6 +226,7 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setLikelihood(Likelihood newLikelihood) {
 		Likelihood oldLikelihood = likelihood;
 		likelihood = newLikelihood == null ? LIKELIHOOD_EDEFAULT : newLikelihood;
@@ -234,6 +240,7 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Consequence getConsequence() {
 		return consequence;
 	}
@@ -243,6 +250,7 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setConsequence(Consequence newConsequence) {
 		Consequence oldConsequence = consequence;
 		consequence = newConsequence == null ? CONSEQUENCE_EDEFAULT : newConsequence;
@@ -256,6 +264,7 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public RiskLevel getRisk() {
 		// TODO: implement this method to return the 'Risk' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -267,6 +276,7 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public org.eclipse.uml2.uml.Class getBase_Class() {
 		if (base_Class != null && base_Class.eIsProxy()) {
 			InternalEObject oldBase_Class = (InternalEObject) base_Class;
@@ -294,6 +304,7 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setBase_Class(org.eclipse.uml2.uml.Class newBase_Class) {
 		org.eclipse.uml2.uml.Class oldBase_Class = base_Class;
 		base_Class = newBase_Class;
@@ -307,29 +318,19 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * 
 	 * @generated false
 	 */
+	@Override
 	public EList<RiskMitigation> getMitigations() {
-		System.out.println("WTF 1");
 		EList<RiskMitigation> mitigations = new BasicEList<RiskMitigation>();
-		System.out.printf("MITIGATIONS: %s%n",mitigations);
-		if(getBase_Class()!=null) {
-			System.out.println("WTF 2");
+		if (getBase_Class() != null) {
 			Iterator<DirectedRelationship> iter = getBase_Class().getTargetDirectedRelationships().iterator();
-			System.out.printf("RELS: %s%n",iter);
-			while(iter.hasNext()) {
-				System.out.println("WTF 1");
+			while (iter.hasNext()) {
 				DirectedRelationship rel = iter.next();
-				System.out.printf("REL: %s%n",rel);
 				Iterator<Element> sources = rel.getSources().iterator();
-				System.out.printf("SOURCES: %s%n",sources);
-				while(sources.hasNext()) {
-					System.out.println("WTF 4");
+				while (sources.hasNext()) {
 					Element element = sources.next();
-					System.out.printf("ELEMENT: %s%n",element);
-					if(element!=null) {
-						System.out.println("WTF 5");
+					if (element != null) {
 						RiskMitigation mitigation = UMLUtil.getStereotypeApplication(element, RiskMitigation.class);
-						System.out.printf("MITIGATION: %s%n",mitigation);
-						if(mitigation!=null)
+						if (mitigation != null)
 							mitigations.add(mitigation);
 					}
 				}

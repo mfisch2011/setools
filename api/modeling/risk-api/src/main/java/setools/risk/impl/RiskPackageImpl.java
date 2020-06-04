@@ -150,6 +150,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getRisk() {
 		return riskEClass;
 	}
@@ -159,6 +160,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRisk_Id() {
 		return (EAttribute) riskEClass.getEStructuralFeatures().get(0);
 	}
@@ -168,6 +170,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRisk_Statement() {
 		return (EAttribute) riskEClass.getEStructuralFeatures().get(1);
 	}
@@ -177,6 +180,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRisk_Likelihood() {
 		return (EAttribute) riskEClass.getEStructuralFeatures().get(2);
 	}
@@ -186,6 +190,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRisk_Consequence() {
 		return (EAttribute) riskEClass.getEStructuralFeatures().get(3);
 	}
@@ -195,6 +200,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRisk_Risk() {
 		return (EAttribute) riskEClass.getEStructuralFeatures().get(4);
 	}
@@ -204,6 +210,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getRisk_Base_Class() {
 		return (EReference) riskEClass.getEStructuralFeatures().get(5);
 	}
@@ -213,6 +220,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getRisk_Mitigations() {
 		return (EReference) riskEClass.getEStructuralFeatures().get(6);
 	}
@@ -222,6 +230,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getRiskMitigation() {
 		return riskMitigationEClass;
 	}
@@ -231,6 +240,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRiskMitigation_Planned() {
 		return (EAttribute) riskMitigationEClass.getEStructuralFeatures().get(0);
 	}
@@ -240,6 +250,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getRiskMitigation_Base_Class() {
 		return (EReference) riskMitigationEClass.getEStructuralFeatures().get(1);
 	}
@@ -249,6 +260,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRiskMitigation_Id() {
 		return (EAttribute) riskMitigationEClass.getEStructuralFeatures().get(2);
 	}
@@ -258,6 +270,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRiskMitigation_Statement() {
 		return (EAttribute) riskMitigationEClass.getEStructuralFeatures().get(3);
 	}
@@ -267,6 +280,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRiskMitigation_Likelihood() {
 		return (EAttribute) riskMitigationEClass.getEStructuralFeatures().get(4);
 	}
@@ -276,6 +290,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRiskMitigation_Consequence() {
 		return (EAttribute) riskMitigationEClass.getEStructuralFeatures().get(5);
 	}
@@ -285,6 +300,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRiskMitigation_Risk() {
 		return (EAttribute) riskMitigationEClass.getEStructuralFeatures().get(6);
 	}
@@ -294,6 +310,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getStatusUpdate() {
 		return statusUpdateEClass;
 	}
@@ -303,6 +320,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getStatusUpdate_Base_Comment() {
 		return (EReference) statusUpdateEClass.getEStructuralFeatures().get(0);
 	}
@@ -312,6 +330,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStatusUpdate_Date() {
 		return (EAttribute) statusUpdateEClass.getEStructuralFeatures().get(1);
 	}
@@ -321,6 +340,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStatusUpdate_Source() {
 		return (EAttribute) statusUpdateEClass.getEStructuralFeatures().get(2);
 	}
@@ -330,6 +350,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EEnum getLikelihood() {
 		return likelihoodEEnum;
 	}
@@ -339,6 +360,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EEnum getConsequence() {
 		return consequenceEEnum;
 	}
@@ -348,6 +370,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EEnum getRiskLevel() {
 		return riskLevelEEnum;
 	}
@@ -357,6 +380,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public RiskFactory getRiskFactory() {
 		return (RiskFactory) getEFactoryInstance();
 	}
@@ -512,7 +536,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 		addEEnumLiteral(consequenceEEnum, Consequence.MINIMAL_IMPACT);
 		addEEnumLiteral(consequenceEEnum, Consequence.LOW_IMPACT);
 		addEEnumLiteral(consequenceEEnum, Consequence.MODERATE_IMPACT);
-		addEEnumLiteral(consequenceEEnum, Consequence.SIGNIFICACT_IMPACT);
+		addEEnumLiteral(consequenceEEnum, Consequence.SIGNIFICANT_IMPACT);
 		addEEnumLiteral(consequenceEEnum, Consequence.CATASTROPHIC_IMPACT);
 
 		initEEnum(riskLevelEEnum, RiskLevel.class, "RiskLevel");

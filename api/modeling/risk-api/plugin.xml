@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated risk.profile -->
       <package
-            uri="http://setools/setools/risk/0.0.7/RiskML"
+            uri="http://setools/setools/risk/0.0.8/RiskML"
             class="setools.risk.RiskPackage"
             genModel="src/main/resources/profile/risk.profile.genmodel"/>
    </extension>

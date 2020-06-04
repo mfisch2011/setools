@@ -46,7 +46,7 @@
       <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="risk.ecore#//Consequence/MINIMAL_IMPACT"/>
       <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="risk.ecore#//Consequence/LOW_IMPACT"/>
       <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="risk.ecore#//Consequence/MODERATE_IMPACT"/>
-      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="risk.ecore#//Consequence/SIGNIFICACT_IMPACT"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="risk.ecore#//Consequence/SIGNIFICANT_IMPACT"/>
       <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="risk.ecore#//Consequence/CATASTROPHIC_IMPACT"/>
     </genEnums>
     <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="risk.ecore#//RiskLevel">
