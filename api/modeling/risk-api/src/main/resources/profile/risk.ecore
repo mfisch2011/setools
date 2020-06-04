@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="risk" nsURI="http://setools/setools/risk/0.0.6/RiskML" nsPrefix="risk">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="risk" nsURI="http://setools/setools/risk/0.0.8/RiskML" nsPrefix="risk">
   <eClassifiers xsi:type="ecore:EClass" name="Risk">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
         eType="ecore:EDataType ../../../../../org.eclipse.uml2.types/model/Types.ecore#//String"/>

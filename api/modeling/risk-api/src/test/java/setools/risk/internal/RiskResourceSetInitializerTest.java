@@ -26,16 +26,14 @@ import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Stereotype;
 import org.junit.Test;
 
-import junit.framework.TestCase;
 import setools.risk.Risk;
 import setools.risk.RiskMitigation;
-import setools.risk.util.RiskResourcesUtil;
 import setools.uml.util.ResourceSetInitializerService;
 
 /**
  * TODO:
  */
-public class RiskResourceSetInitializerTests {
+public class RiskResourceSetInitializerTest {
 
 	/**
 	 * Test method for {@link setools.risk.internal.RiskResourceSetInitializer#initialize(org.eclipse.emf.ecore.resource.ResourceSet)}.
@@ -44,7 +42,6 @@ public class RiskResourceSetInitializerTests {
 	public void testInitialize() {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		ResourceSetInitializerService.initialize(resourceSet);
-		RiskResourcesUtil.init(resourceSet);
 		URI uri = URI.createFileURI("src/test/resources/test-riskml.uml"); //TODO:classloader getResource()...
 		Resource resource = resourceSet.getResource(uri, true);
 		assertNotNull(resource);
@@ -95,7 +92,6 @@ public class RiskResourceSetInitializerTests {
 		mitigation = (RiskMitigation)eObject;
 		assertEquals(mitigation.getBase_Class(),mitigation2);
 		assertTrue(risk.getMitigations().contains(mitigation));
-		fail("I need the link");
 	}
 
 }

@@ -1,18 +1,5 @@
 /**
-   Copyright 2019 Matt Fischer <mfish2011@gmail.com>
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-*/
+ */
 package setools.risk.impl;
 
 import java.util.Iterator;
@@ -20,15 +7,15 @@ import java.util.Iterator;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.Dependency;
+import org.eclipse.uml2.uml.DirectedRelationship;
 import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.Relationship;
-import org.eclipse.uml2.uml.Stereotype;
+import org.eclipse.uml2.uml.util.UMLUtil;
 
 import setools.risk.Consequence;
 import setools.risk.Likelihood;
@@ -58,17 +45,6 @@ import setools.risk.RiskPackage;
  * @generated
  */
 public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
-
-	/**
-	 * TODO:
-	 */
-	protected static final RiskLevel[][] RISK_MATRIX = {
-			{ RiskLevel.LOW, RiskLevel.LOW, RiskLevel.LOW, RiskLevel.LOW, RiskLevel.MEDIUM },
-			{ RiskLevel.LOW, RiskLevel.LOW, RiskLevel.LOW, RiskLevel.MEDIUM, RiskLevel.MEDIUM },
-			{ RiskLevel.LOW, RiskLevel.LOW, RiskLevel.MEDIUM, RiskLevel.MEDIUM, RiskLevel.HIGH },
-			{ RiskLevel.LOW, RiskLevel.MEDIUM, RiskLevel.MEDIUM, RiskLevel.HIGH, RiskLevel.HIGH },
-			{ RiskLevel.LOW, RiskLevel.MEDIUM, RiskLevel.HIGH, RiskLevel.HIGH, RiskLevel.HIGH }, };
-
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -286,16 +262,13 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated false
+	 * @generated
 	 */
 	@Override
 	public RiskLevel getRisk() {
-		Likelihood likelihood = getLikelihood();
-		Consequence consequence = getConsequence();
-		if (likelihood != null && consequence != null)
-			return RISK_MATRIX[likelihood.getValue()][consequence.getValue()];
-		else
-			return null;
+		// TODO: implement this method to return the 'Risk' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -347,27 +320,23 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 */
 	@Override
 	public EList<RiskMitigation> getMitigations() {
-		EList<RiskMitigation> results = new BasicEList<RiskMitigation>();
-		Class baseClass = getBase_Class();
-		if (baseClass != null) {
-			// TODO: need to make DirectedRelationships work...
-			Iterator<Relationship> relationships = baseClass.getRelationships().iterator();
-			while (relationships.hasNext()) {
-				Relationship relationship = relationships.next();
-				if (relationship instanceof Dependency) {
-					Dependency dependency = (Dependency) relationship;
-					Iterator<Element> sources = dependency.getSources().iterator();
-					while (sources.hasNext()) {
-						Element source = sources.next();
-						Stereotype stereotype = source.getAppliedStereotype("risk::Risk Mitigation");
-						RiskMitigation mitigation = (RiskMitigation) source.getStereotypeApplication(stereotype);
+		EList<RiskMitigation> mitigations = new BasicEList<RiskMitigation>();
+		if (getBase_Class() != null) {
+			Iterator<DirectedRelationship> iter = getBase_Class().getTargetDirectedRelationships().iterator();
+			while (iter.hasNext()) {
+				DirectedRelationship rel = iter.next();
+				Iterator<Element> sources = rel.getSources().iterator();
+				while (sources.hasNext()) {
+					Element element = sources.next();
+					if (element != null) {
+						RiskMitigation mitigation = UMLUtil.getStereotypeApplication(element, RiskMitigation.class);
 						if (mitigation != null)
-							results.add(mitigation);
+							mitigations.add(mitigation);
 					}
 				}
 			}
 		}
-		return results; // TODO:make unmodifiable...
+		return mitigations;
 	}
 
 	/**

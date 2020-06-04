@@ -8,6 +8,7 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+<<<<<<< HEAD
 Export-Package: setools.risk,
  setools.risk.impl,
  setools.risk.tests,
@@ -17,5 +18,20 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.uml2.types;visibility:=reexport,
  org.eclipse.uml2.uml;visibility:=reexport,
+=======
+Export-Package: risk,
+ risk.impl,
+ risk.tests,
+ risk.util,
+ setools.risk,
+ setools.risk.impl,
+ setools.risk.tests,
+ setools.risk.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.uml2.types;visibility:=reexport,
+ org.eclipse.uml2.uml;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+>>>>>>> refs/heads/fixing_risk_api
  org.junit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
