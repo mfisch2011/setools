@@ -1,0 +1,57 @@
+\begin{frame}
+\frametitle{Risk Summary}
+  %% main content
+  \begin{columns}[t]
+    \column{.5\textwidth}
+      \begin{block}{Risk Mitigations}
+        %% TODO: remove border and padding...
+        \begin{tcolorbox}[enhanced,frame hidden,fit to height=0.65\paperheight]
+          \begin{enumerate}
+            #foreach($risk in $monitored_risks)
+              \item $risk.getBase_Class().getName()
+            #end
+          \end{enumerate}
+        \end{tcolorbox}
+      \end{block}
+    \column{.5\textwidth}
+      \begin{tcolorbox}[enhanced,boxsep=0pt,left=0pt,right=0pt,top=0pt,bottom=0pt,frame hidden]
+        \center
+        %% TODO: figure out how to put this into an environment to hide all this mess...
+        \begin{tabular}{| c | c | c | c | c | c | c |}
+          \hline
+          & 5  & \cellcolor{green}  %% TODO: get list of risks that are 5x1
+               & \cellcolor{yellow} %% TODO: get list of risks that are 5x2
+               & \cellcolor{red}    %% TODO: get list of risks that are 5x3
+               & \cellcolor{red}    %% TODO: get list of risks that are 5x4
+               & \cellcolor{red}    %% TODO: get list of risks that are 5x5
+          \\ \cline{2-7}
+          & 4  & \cellcolor{green}  %% TODO: get list of risks that are 4x1
+               & \cellcolor{yellow} %% TODO: get list of risks that are 4x2
+               & \cellcolor{yellow} %% TODO: get list of risks that are 4x3
+               & \cellcolor{red}    %% TODO: get list of risks that are 4x4
+               & \cellcolor{red}    %% TODO: get list of risks that are 4x5
+          \\ \cline{2-7}
+          & 3  & \cellcolor{green}  %% TODO: get list of risks that are 3x1
+               & \cellcolor{green}  %% TODO: get list of risks that are 3x2
+               & \cellcolor{yellow} %% TODO: get list of risks that are 3x3
+               & \cellcolor{yellow} %% TODO: get list of risks that are 3x4
+               & \cellcolor{red}    %% TODO: get list of risks that are 3x5
+          \\ \cline{2-7}
+          & 2  & \cellcolor{green}  %% TODO: get list of risks that are 2x1
+               & \cellcolor{green}  %% TODO: get list of risks that are 2x2
+               & \cellcolor{green}  %% TODO: get list of risks that are 2x3
+               & \cellcolor{yellow} %% TODO: get list of risks that are 2x4
+               & \cellcolor{yellow} %% TODO: get list of risks that are 2x5
+          \\ \cline{2-7}
+          & 1  & \cellcolor{green}  %% TODO: get list of risks that are 1x1
+               & \cellcolor{green}  %% TODO: get list of risks that are 1x2
+               & \cellcolor{green}  %% TODO: get list of risks that are 1x3
+               & \cellcolor{green}  %% TODO: get list of risks that are 1x4
+               & \cellcolor{yellow} %% TODO: get list of risks that are 1x5
+          \\ \cline{2-7}
+          \rot{\rlap{~Likelihood}} & & 1 & 2 & 3 & 4 & 5 \\ \hline
+          \multicolumn{7}{|c|}{Consequence}  \\ \hline
+        \end{tabular}
+      \end{tcolorbox}
+  \end{columns}
+\end{frame}

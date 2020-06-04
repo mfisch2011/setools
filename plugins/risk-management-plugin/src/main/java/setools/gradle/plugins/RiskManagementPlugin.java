@@ -15,14 +15,11 @@
 */
 package setools.gradle.plugins;
 
-import org.apache.commons.text.CaseUtils;
-import org.gradle.api.Action;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.Task;
 import org.gradle.api.tasks.SourceTask;
 
-import setools.gradle.meeting.api.RiskReview;
 import setools.gradle.tasks.ImportJsonRisks;
 
 /**
@@ -35,29 +32,12 @@ public class RiskManagementPlugin implements Plugin<Project> {
 		project.getPluginManager().apply(UmlPlugin.class);
 		//TODO:what was included here??? project.getPluginManager().apply(RiskBasePlugin.class);
 		project.getPluginManager().apply(RiskManagementLifecyclePlugin.class);
-		project.getPluginManager().apply(RiskReviewPlugin.class);
+		
+		//TODO:project.getPluginManager().apply(OOXMLRiskReviewPlugin.class);
 		
 		SourceTask task = project.getTasks().create("importJsonRisks",ImportJsonRisks.class);
 		Task identify = project.getTasks().findByName("riskIdentification");
 		identify.dependsOn("importJsonRisks");
-		
-		project.afterEvaluate(new Action<Project>() {
-
-			@Override
-			public void execute(Project project) {
-				RiskReview riskReview = (RiskReview) project.
-						getExtensions().findByName("riskReview");
-				if(riskReview!=null) {
-					String taskName = CaseUtils.toCamelCase("Publish " + 
-							riskReview.getName() + " Minutes", false, null);
-					Task monitor = project.getTasks().getByName(
-							RiskManagementLifecyclePlugin.
-							RISK_MONITORING_TASK_NAME);
-					monitor.dependsOn(taskName);
-				}
-			}
-			
-		});
 	}
 
 	protected void configureRiskReview(Project project) {

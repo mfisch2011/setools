@@ -29,7 +29,7 @@
     <eLiterals name="MINIMAL_IMPACT"/>
     <eLiterals name="LOW_IMPACT" value="1"/>
     <eLiterals name="MODERATE_IMPACT" value="2"/>
-    <eLiterals name="SIGNIFIACNT_IMPACT" value="3"/>
+    <eLiterals name="SIGNIFICANT_IMPACT" value="3"/>
     <eLiterals name="CATASTROPHIC_IMPACT" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="RiskLevel">

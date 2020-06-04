@@ -63,7 +63,7 @@ public interface RiskResource extends XMIResource {
 
 	public static final String PROFILE_PATH = PROFILES_PATHMAP + "risk.profile.uml"; //$NON-NLS-1$
 
-	public static final String PROFILE_URI = "http://setools/setools/risk/0.0.6/RiskML"; //$NON-NLS-1$
+	public static final String PROFILE_URI = "http://setools/setools/risk/0.0.7/RiskML"; //$NON-NLS-1$
 
 	// public static final String LIBRARIES_PATHMAP = "pathmap://RISK_LIBRARIES/";
 	// //$NON-NLS-1$

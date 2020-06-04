@@ -1,0 +1,15 @@
+\begin{frame}[t,allowframebreaks]
+  \frametitle{Action Item Review}
+  \tablehead{\hline Date Opened & Action Item & Resolution & Status & Date Last Updated \\ \hline}
+  \tabletail{\hline}
+  \tablelasttail{}
+  \begin{supertabular}{| p{0.10\linewidth} | p{0.23\linewidth} | p{0.22\linewidth} | p{0.09\linewidth} | p{0.15\linewidth} |}
+  #foreach($action_item in $action_items)
+    $action_item.getDateOpened() & 
+    $action_item.getDescription() & 
+    $action_item.getUpdates() &
+    $action_item.getStatus() &
+    $action_item.getDateClosed() \\ \hline
+  #end
+  \end{supertabular}
+\end{frame}

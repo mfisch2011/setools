@@ -21,7 +21,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -361,8 +360,8 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 					while (sources.hasNext()) {
 						Element source = sources.next();
 						Stereotype stereotype = source.getAppliedStereotype("risk::Risk Mitigation");
-						RiskMitigation mitigation = (RiskMitigation)source.getStereotypeApplication(stereotype);
-						if(mitigation!=null)
+						RiskMitigation mitigation = (RiskMitigation) source.getStereotypeApplication(stereotype);
+						if (mitigation != null)
 							results.add(mitigation);
 					}
 				}

@@ -68,4 +68,16 @@ public class GradleFunctionalTest {
 				.replace('.', '/') + "/" + pathname;
 		ClasspathUtils.copyResources(root,fullPath,dir);
 	}
+	
+	protected void printDirectory(File buildDir) {
+		if(buildDir!=null) {
+			System.out.println(buildDir);
+			for(File file : buildDir.listFiles()) {
+				if(file.isDirectory())
+					printDirectory(file);
+				else
+					System.out.println(file);
+			}
+		}
+	}
 }

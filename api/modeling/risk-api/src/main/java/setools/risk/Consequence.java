@@ -62,10 +62,10 @@ public enum Consequence implements Enumerator {
 	MODERATE_IMPACT(2, "MODERATE_IMPACT", "MODERATE_IMPACT"),
 
 	/**
-	 * The '<em><b>SIGNIFIACNT IMPACT</b></em>' literal object. <!-- begin-user-doc
+	 * The '<em><b>SIGNIFICANT IMPACT</b></em>' literal object. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
-	 * @see #SIGNIFIACNT_IMPACT_VALUE
+	 * @see #SIGNIFICANT_IMPACT_VALUE
 	 * @generated
 	 * @ordered
 	 */
@@ -115,15 +115,15 @@ public enum Consequence implements Enumerator {
 	public static final int MODERATE_IMPACT_VALUE = 2;
 
 	/**
-	 * The '<em><b>SIGNIFIACNT IMPACT</b></em>' literal value. <!-- begin-user-doc
+	 * The '<em><b>SIGNIFICANT IMPACT</b></em>' literal value. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
-	 * @see #SIGNIFIACNT_IMPACT
+	 * @see #SIGNIFICANT_IMPACT
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SIGNIFIACNT_IMPACT_VALUE = 3;
+	public static final int SIGNIFICANT_IMPACT_VALUE = 3;
 
 	/**
 	 * The '<em><b>CATASTROPHIC IMPACT</b></em>' literal value. <!-- begin-user-doc
@@ -205,7 +205,7 @@ public enum Consequence implements Enumerator {
 			return LOW_IMPACT;
 		case MODERATE_IMPACT_VALUE:
 			return MODERATE_IMPACT;
-		case SIGNIFIACNT_IMPACT_VALUE:
+		case SIGNIFICANT_IMPACT_VALUE:
 			return SIGNIFICANT_IMPACT;
 		case CATASTROPHIC_IMPACT_VALUE:
 			return CATASTROPHIC_IMPACT;

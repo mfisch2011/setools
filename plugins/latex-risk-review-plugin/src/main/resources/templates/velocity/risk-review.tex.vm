@@ -1,0 +1,113 @@
+%%
+%%   Copyright 2020 Matt Fischer <mfish2011@gmail.com>
+%%
+%%   Licensed under the Apache License, Version 2.0 (the "License");
+%%   you may not use this file except in compliance with the License.
+%%   You may obtain a copy of the License at
+%%
+%%       http://www.apache.org/licenses/LICENSE-2.0
+%%
+%%   Unless required by applicable law or agreed to in writing, software
+%%   distributed under the License is distributed on an "AS IS" BASIS,
+%%   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+%%   See the License for the specific language governing permissions and
+%%   limitations under the License.
+
+#if($!{$notes})
+%% default to frames only
+\documentclass[$notes]{beamer} 
+#else
+%% "notes" prints both, "notes=only" prints only the notes
+\documentclass{beamer}
+#end
+
+%% presentation theme
+#if($!{$theme})
+%% TODO:why do we need progressbar=frametitle again?
+%% \usetheme[progressbar=frametitle]{AnnArbor}
+\usetheme{$theme}
+#else
+%% default to simple metropolis theme
+\usetheme[progressbar=frametitle]{metropolis}
+#end
+
+%% packages used
+\usepackage[most]{tcolorbox}
+\usepackage{supertabular}
+\usepackage{tikz}
+\usepackage{datetime}
+\usepackage{xcolor,colortbl}
+
+%% define new macros used
+\def\rot#1{\rotatebox{90}{#1}}
+
+%% set document properties
+#if($!{$title})
+\title{$title}
+#else
+\title{<Enter Project Name>}
+#end
+
+#if($!{$subtitle})
+\subtitle{$subtitle}
+#else
+\subtitle{Risk Review}
+#end
+
+#if($!{$date})
+\date{$date}
+#else
+\date{\today} %% TODO: format date?
+#end
+
+#if($!{$author})
+\author{$author}
+#end
+
+#if($!{$organization})
+\institute{$organization}
+#end
+
+%%TODO: enable logos
+%%\titlegraphic{\small\center Organization Logo}
+
+\begin{document}
+\frame{\titlepage} 
+
+\frame{\frametitle{Table of contents}\tableofcontents} 
+
+
+\section{Action Item Review}
+#if(${$action_items})
+  #parse("templates/velocity/action-items-report.tex.vm")
+#end
+
+
+\section{New Risks}
+#if(${$new_risks})
+  #foreach($risk in $new_risks)
+    #parse("templates/velocity/risk-details.tex.vm")
+  #end
+#end
+
+\section{Monitored Risks}
+#if(${$monitored_risks})
+  #parse("templates/velocity/risk-summary.tex.vm")
+  #foreach($risk in $monitored_risks)
+    #parse("templates/velocity/risk-details.tex.vm")
+  #end
+#end
+
+\section{Risk Closures}
+#if(${$risk_closures})
+  #foreach($risk in $risk_closures)
+    #parse("templates/velocity/risk-details.tex.vm")
+  #end
+#end
+
+\section{Closing Comments}
+
+\section{Backups}
+
+\end{document}
+
