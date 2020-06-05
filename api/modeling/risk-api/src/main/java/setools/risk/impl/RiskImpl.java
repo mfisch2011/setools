@@ -3,6 +3,7 @@
 package setools.risk.impl;
 
 import java.util.Iterator;
+import java.util.TreeSet;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
@@ -23,6 +24,7 @@ import setools.risk.Risk;
 import setools.risk.RiskLevel;
 import setools.risk.RiskMitigation;
 import setools.risk.RiskPackage;
+import setools.risk.util.RiskMitigationComparator;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -350,8 +352,8 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * @generated false
 	 */
 	@Override
-	public EList<RiskMitigation> getMitigations() {
-		EList<RiskMitigation> mitigations = new BasicEList<RiskMitigation>();
+	public TreeSet<RiskMitigation> getMitigations() {
+		TreeSet<RiskMitigation> mitigations = new TreeSet<RiskMitigation>(new RiskMitigationComparator());
 		if (getBase_Class() != null) {
 			Iterator<DirectedRelationship> iter = getBase_Class().getTargetDirectedRelationships().iterator();
 			while (iter.hasNext()) {

@@ -24,6 +24,7 @@ import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -47,6 +48,7 @@ import groovy.lang.Closure;
 import setools.gradle.plugins.UmlPlugin;
 import setools.gradle.tasks.util.LatexUtilities;
 import setools.risk.Risk;
+import setools.risk.util.RiskComparator;
 import setools.risk.util.RiskResourcesUtil;
 import setools.uml.util.ResourceSetInitializerService;
 
@@ -170,8 +172,8 @@ public class DraftRiskReview extends SourceTask {
 	}
 	
 	@Internal //TODO:convert to input and make this serializable somehow...
-	protected Set<Risk> getRiskClosures() {
-		Set<Risk> results = new HashSet<Risk>(); //TODO:change to TreeSet when we have Comparator
+	protected Collection<Risk> getRiskClosures() {
+		TreeSet<Risk> results = new TreeSet<Risk>(new RiskComparator());
 		for(Risk risk : getRisks()) {
 			//TODO:filter
 			results.add(risk);
@@ -182,7 +184,7 @@ public class DraftRiskReview extends SourceTask {
 	@Internal
 	protected Collection<Risk> getRisks() {
 		//TODO:is there a way to cache this to improve performance?
-		Set<Risk> results = new HashSet<Risk>(); //TODO:change this to TreeSet when we have a comparator...
+		TreeSet<Risk> results = new TreeSet<Risk>(new RiskComparator());
 		for(Resource resource : getResources()) {
 			//assumes all stereotype applications are at root level, which they seem to be...
 			for(EObject object : resource.getContents()) {
@@ -205,7 +207,7 @@ public class DraftRiskReview extends SourceTask {
 
 	@Internal //TODO:convert to input and make this serializable somehow...
 	protected Set<Risk> getMonitoredRisks() {
-		Set<Risk> results = new HashSet<Risk>(); //TODO:change to TreeSet when we have comparator
+		TreeSet<Risk> results = new TreeSet<Risk>(new RiskComparator());
 		for(Risk risk : getRisks()) {
 			//TODO:filter
 			results.add(risk);
@@ -215,7 +217,7 @@ public class DraftRiskReview extends SourceTask {
 	
 	@Internal //TODO:convert to input and make this serializable somehow...
 	protected Set<Risk> getNewRisks() {
-		Set<Risk> results = new HashSet<Risk>(); //TODO:change to TreeSet when we have comparator
+		TreeSet<Risk> results = new TreeSet<Risk>(new RiskComparator());
 		for(Risk risk : getRisks()) {
 			//TODO:filter
 			results.add(risk);

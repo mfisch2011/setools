@@ -2,6 +2,8 @@
  */
 package setools.risk;
 
+import java.util.TreeSet;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -205,8 +207,8 @@ public interface Risk extends EObject {
 	 * @see setools.risk.RiskPackage#getRisk_Mitigations()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 *        ordered="false"
-	 * @generated
+	 * @generated false
 	 */
-	EList<RiskMitigation> getMitigations();
+	TreeSet<RiskMitigation> getMitigations();
 
 } // Risk
