@@ -73,10 +73,10 @@ public class LatexUtilities {
 	 * @return
 	 */
 	public String getFormattedStartDate(Risk risk) {
-		Date end = getEndDate(risk);
+		Date end = getStartDate(risk);
 		Calendar c = Calendar.getInstance(); 
 		c.setTime(end); 
-		c.add(Calendar.MONTH,- 3); //backup for visibility
+		c.add(Calendar.MONTH,-3); //backup for visibility
 	    SimpleDateFormat formatter = new SimpleDateFormat("MM/YY");
 	    return formatter.format(c.getTime());
 	}
