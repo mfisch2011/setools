@@ -145,6 +145,8 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 */
 	protected org.eclipse.uml2.uml.Class base_Class;
 
+	protected final RiskLevel[][] risk_matrix;
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -152,6 +154,32 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 */
 	protected RiskImpl() {
 		super();
+		risk_matrix = new RiskLevel[5][5];
+		risk_matrix[4][0] = RiskLevel.LOW;
+		risk_matrix[4][1] = RiskLevel.MEDIUM;
+		risk_matrix[4][2] = RiskLevel.HIGH;
+		risk_matrix[4][3] = RiskLevel.HIGH;
+		risk_matrix[4][4] = RiskLevel.HIGH;
+		risk_matrix[4][0] = RiskLevel.LOW;
+		risk_matrix[3][1] = RiskLevel.MEDIUM;
+		risk_matrix[3][2] = RiskLevel.MEDIUM;
+		risk_matrix[3][3] = RiskLevel.HIGH;
+		risk_matrix[3][4] = RiskLevel.HIGH;
+		risk_matrix[2][0] = RiskLevel.LOW;
+		risk_matrix[2][1] = RiskLevel.LOW;
+		risk_matrix[2][2] = RiskLevel.MEDIUM;
+		risk_matrix[2][3] = RiskLevel.MEDIUM;
+		risk_matrix[2][4] = RiskLevel.HIGH;
+		risk_matrix[1][0] = RiskLevel.LOW;
+		risk_matrix[1][1] = RiskLevel.LOW;
+		risk_matrix[1][2] = RiskLevel.LOW;
+		risk_matrix[1][3] = RiskLevel.MEDIUM;
+		risk_matrix[1][4] = RiskLevel.MEDIUM;
+		risk_matrix[0][0] = RiskLevel.LOW;
+		risk_matrix[0][1] = RiskLevel.LOW;
+		risk_matrix[0][2] = RiskLevel.LOW;
+		risk_matrix[0][3] = RiskLevel.LOW;
+		risk_matrix[0][4] = RiskLevel.MEDIUM;
 	}
 
 	/**
@@ -258,7 +286,7 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 			eNotify(new ENotificationImpl(this, Notification.SET, RiskPackage.RISK__CONSEQUENCE, oldConsequence,
 					consequence));
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -266,9 +294,12 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 */
 	@Override
 	public RiskLevel getRisk() {
-		// TODO: implement this method to return the 'Risk' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if(getLikelihood()!=null && getConsequence()!=null) {
+			int likelihood = getLikelihood().getValue();
+			int consequence = getConsequence().getValue();
+			return risk_matrix[likelihood][consequence];
+		} else
+			return null;
 	}
 
 	/**

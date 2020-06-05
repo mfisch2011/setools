@@ -71,23 +71,27 @@
   \end{minipage}
 
   %% risk burn down
-##  \begin{minipage}[t]{1.00\linewidth}
-##    \begin{tikzpicture}
-##      \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=\textwidth,height=0.15\paperheight]{risk-burndown-bars}};
-##      #set($start = "Start") %% TODO: get start date from risk identification date, which is not yet supported...
-##      #set($end = "End") %% TODO: get end date from last risk mitigation date, which is not yet supported...
-##      \node[align=left,font={\tiny}] at (0,0) {$start}; %%start date
-##      \node[align=left,font={\tiny}] at (\textwidth,0) {$end}; %%end date
-##      #set($current_percent = "0.2") %% TODO:get the percentage of plan for the current date, need start and end first...
-##      \node[align=left,font={\tiny}] at ($current_percent\textwidth,0) {\mmyydate{\today}}; %%todays date
-##      \draw[dashed, black] ($current_percent\textwidth,0) -- +(0,1.5);
-##      
-##      %%risk mitigation implementations...
-##      #foreach($mitigation in $risk.getMitigations())
-##        #set($percent = 0.1) %% TODO:get the percentage of plan for mitigation date, need start and end first...
-##        \node[align=left,font={\tiny}] at ($percent\textwidth,1.2) {$foreach.count}; %%start date
-##      #end
-##    \end{tikzpicture}
-##  \end{minipage}
+  %% risk burn down
+  \begin{minipage}[t]{1.00\linewidth}
+    \begin{tikzpicture}
+      %%color bars
+      \fill[red] (0,0.10\textheight) rectangle (\textwidth,0.15\textheight);
+      \fill[yellow] (0,0.05\textheight) rectangle (\textwidth,0.10\textheight);
+      \fill[green] (0,0.0\textheight) rectangle (\textwidth,0.05\textheight);
+      
+      %%start and end dates
+      \node[align=left,font={\tiny}] at (0,0) {$LatexUtils.getFormattedStartDate($risk)}; %%start date TODO:get risk identification date
+      \node[align=left,font={\tiny}] at (\textwidth,0) {$LatexUtils.getFormattedEndDate($risk)}; %%end date TODO:get planned risk end date
+      \node[align=left,font={\tiny}] at ($LatexUtils.getPercentage($risk,null)\textwidth,0) {\dashdate\today}; %%todays date
+      \draw[dashed, black] ($LatexUtils.getPercentage($risk,null)\textwidth,0) -- +(0,1.5); %%current date line
 
+      %%mitigation icons TODO:enable incremental risk levels (i.e. 75% moderate, 25% moderate...)
+      \node[align=left,font={\tiny}] at (0.01\textwidth, #if($risk.getRisk().getValue() == 2) 0.12\textheight #elseif($risk.getRisk().getValue() == 1) 0.08\textheight #else 0.04\textheight #end) {\textbf{X}}; %%starting level
+      
+      %% add mitigation waterfall
+      #foreach($mitigation in $risk.getMitigations())
+        \node[align=left,font={\tiny}] at ($LatexUtils.getPercentage($risk,$mitigation)\textwidth, #if($mitigation.getRisk().getValue() == 2) 0.12\textheight #elseif($mitigation.getRisk().getValue() == 1) 0.08\textheight #else 0.04\textheight #end) {\textbf{$foreach.count}}; %%mitigation 1
+      #end
+    \end{tikzpicture}
+  \end{minipage}
 \end{frame}

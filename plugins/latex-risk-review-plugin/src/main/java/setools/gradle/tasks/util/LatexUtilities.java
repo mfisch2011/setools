@@ -15,9 +15,12 @@
 */
 package setools.gradle.tasks.util;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 
 import setools.risk.Risk;
+import setools.risk.RiskMitigation;
 
 /**
  * TODO:
@@ -61,5 +64,70 @@ public class LatexUtilities {
 			return result.substring(1);
 		else
 			return "";
+	}
+	
+	/**
+	 * TODO:
+	 * @param risk
+	 * @return
+	 */
+	public String getFormattedStartDate(Risk risk) {
+		SimpleDateFormat formatter = new SimpleDateFormat("MM/YY");
+	    return formatter.format(getStartDate(risk));
+	}
+	
+	/**
+	 * TODO:
+	 * @param risk
+	 * @return
+	 */
+	public Date getStartDate(Risk risk) {
+		//TODO:how to get the identification date, duh need to add to risk or implement git???
+		Date result = new Date();
+		result.setYear(result.getYear()-1);
+		result.setMonth(10);
+		return result;
+	}
+	
+	/**
+	 * TODO:
+	 * @param risk
+	 * @return
+	 */
+	public Date getEndDate(Risk risk) {
+		//default to a year after identified
+		Date result = getStartDate(risk);
+		result.setYear(result.getYear()+1);
+		
+		//check the mitigations plan
+		for(RiskMitigation mitigation : risk.getMitigations()) {
+			Date date = mitigation.getPlanned();
+			if(date!=null && date.after(result))
+				result = date;
+		}
+		return result;
+	}
+	
+	/**
+	 * TODO:
+	 * @param risk
+	 * @return
+	 */
+	public String getFormattedEndDate(Risk risk) {
+		Date current = new Date();
+		current.setYear(current.getYear()+1);
+		current.setMonth(10);
+	    SimpleDateFormat formatter = new SimpleDateFormat("MM/YY");
+	    return formatter.format(getEndDate(risk));
+	}
+	
+	public float getPercentage(Risk risk,RiskMitigation mitigation) {
+		Date start = getStartDate(risk);
+		Date end = getEndDate(risk);
+		Date planned = (mitigation!=null && mitigation.getPlanned()!=null) ?
+				mitigation.getPlanned() : new Date();
+		long total = end.getTime() - start.getTime();
+		long width = planned.getTime() - start.getTime();
+		return (float)width / (float)total;
 	}
 }

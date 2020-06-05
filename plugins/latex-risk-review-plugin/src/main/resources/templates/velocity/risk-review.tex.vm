@@ -41,6 +41,7 @@
 %% define new macros used
 \def\rot#1{\rotatebox{90}{#1}}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newdateformat{dashdate}{\twodigit{\THEMONTH}-\twodigit{\THEYEAR}}
 
 %% set document properties
 #if($!{$title})
