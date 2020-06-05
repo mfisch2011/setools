@@ -16,6 +16,7 @@
 package setools.gradle.tasks.util;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 
@@ -72,12 +73,16 @@ public class LatexUtilities {
 	 * @return
 	 */
 	public String getFormattedStartDate(Risk risk) {
-		SimpleDateFormat formatter = new SimpleDateFormat("MM/YY");
-	    return formatter.format(getStartDate(risk));
+		Date end = getEndDate(risk);
+		Calendar c = Calendar.getInstance(); 
+		c.setTime(end); 
+		c.add(Calendar.MONTH,- 3); //backup for visibility
+	    SimpleDateFormat formatter = new SimpleDateFormat("MM/YY");
+	    return formatter.format(c.getTime());
 	}
 	
 	/**
-	 * TODO:
+	 * TODO: really should go into risk library as utility
 	 * @param risk
 	 * @return
 	 */
@@ -90,7 +95,7 @@ public class LatexUtilities {
 	}
 	
 	/**
-	 * TODO:
+	 * TODO: really should go into risk library as utility
 	 * @param risk
 	 * @return
 	 */
@@ -102,8 +107,9 @@ public class LatexUtilities {
 		//check the mitigations plan
 		for(RiskMitigation mitigation : risk.getMitigations()) {
 			Date date = mitigation.getPlanned();
-			if(date!=null && date.after(result))
+			if(date!=null && date.after(result)) {
 				result = date;
+			}
 		}
 		return result;
 	}
@@ -114,16 +120,31 @@ public class LatexUtilities {
 	 * @return
 	 */
 	public String getFormattedEndDate(Risk risk) {
-		Date current = new Date();
-		current.setYear(current.getYear()+1);
-		current.setMonth(10);
+		Date end = getEndDate(risk);
+		Calendar c = Calendar.getInstance(); 
+		c.setTime(end); 
+		c.add(Calendar.MONTH,+3); //push out 3 months to improve visibility
 	    SimpleDateFormat formatter = new SimpleDateFormat("MM/YY");
-	    return formatter.format(getEndDate(risk));
+	    return formatter.format(c.getTime());
 	}
 	
+	/**
+	 * TODO:
+	 * @param risk
+	 * @param mitigation
+	 * @return
+	 */
 	public float getPercentage(Risk risk,RiskMitigation mitigation) {
 		Date start = getStartDate(risk);
+		Calendar c = Calendar.getInstance(); 
+		c.setTime(start); 
+		c.add(Calendar.MONTH,- 3); //backup for visibility
+		start = c.getTime();
 		Date end = getEndDate(risk);
+		c.setTime(end); 
+		c.add(Calendar.MONTH,+3); //fast forward for visibility
+	    end = c.getTime();
+	    
 		Date planned = (mitigation!=null && mitigation.getPlanned()!=null) ?
 				mitigation.getPlanned() : new Date();
 		long total = end.getTime() - start.getTime();
