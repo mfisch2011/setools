@@ -16,6 +16,7 @@
 rootProject.name = "setools"
 
 include "api"
+include "api:base-utils"
 include "api:functional-test-api"
 include "api:classpath-utils"
 include "api:modeling:uml-api"

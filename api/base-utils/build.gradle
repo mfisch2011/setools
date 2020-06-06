@@ -13,24 +13,3 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-package setools.risk.util;
-
-import java.util.Comparator;
-
-import setools.risk.Risk;
-
-/**
- * Reverse order (i.e. high to low)
- * TODO:
- */
-public class RiskComparator implements Comparator<Risk> {
-
-	@Override
-	public int compare(Risk risk0, Risk risk1) {
-		if(risk0.getRisk()!=null && risk1.getRisk()!=null) {
-			return risk1.getRisk().compareTo(risk0.getRisk());
-		} else
-			return -1; //TODO:how to actually handle null case?
-	}
-
-}

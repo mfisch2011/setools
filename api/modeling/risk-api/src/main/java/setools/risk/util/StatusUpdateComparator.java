@@ -1,5 +1,5 @@
 /**
-   Copyright 2019 Matt Fischer <mfish2011@gmail.com>
+   Copyright 2020 Matt Fischer <mfish2011@gmail.com>
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -20,20 +20,19 @@ package setools.risk.util;
 
 import java.util.Comparator;
 
-import setools.risk.RiskMitigation;
+import setools.risk.StatusUpdate;
 
 /**
  * TODO:
  */
-public class RiskMitigationComparator implements Comparator<RiskMitigation> {
+public class StatusUpdateComparator implements Comparator<StatusUpdate> {
 
 	@Override
-	public int compare(RiskMitigation arg0, RiskMitigation arg1) {
-		if(arg0.getPlanned()!=null && arg1.getPlanned()!=null) {
-			return arg0.getPlanned().compareTo(arg1.getPlanned());
-		}
-		else
-			return -1; //TODO: how to really compare when one or the other is null?
+	public int compare(StatusUpdate update0, StatusUpdate update1) {
+		if(update0.getDate()!=null && update1.getDate()!=null) {
+			return update0.getDate().compareTo(update1.getDate());
+		} else
+			return -1; //TODO:how to actually handle the null case?
 	}
 
 }

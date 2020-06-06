@@ -5,7 +5,6 @@ package setools.risk.impl;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -13,7 +12,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.uml2.uml.Comment;
-
 import setools.risk.RiskPackage;
 import setools.risk.StatusUpdate;
 
@@ -107,6 +105,7 @@ public class StatusUpdateImpl extends MinimalEObjectImpl.Container implements St
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Comment getBase_Comment() {
 		if (base_Comment != null && base_Comment.eIsProxy()) {
 			InternalEObject oldBase_Comment = (InternalEObject) base_Comment;
@@ -134,6 +133,7 @@ public class StatusUpdateImpl extends MinimalEObjectImpl.Container implements St
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setBase_Comment(Comment newBase_Comment) {
 		Comment oldBase_Comment = base_Comment;
 		base_Comment = newBase_Comment;
@@ -147,6 +147,7 @@ public class StatusUpdateImpl extends MinimalEObjectImpl.Container implements St
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Date getDate() {
 		return date;
 	}
@@ -156,6 +157,7 @@ public class StatusUpdateImpl extends MinimalEObjectImpl.Container implements St
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setDate(Date newDate) {
 		Date oldDate = date;
 		date = newDate;
@@ -168,6 +170,7 @@ public class StatusUpdateImpl extends MinimalEObjectImpl.Container implements St
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getSource() {
 		return source;
 	}
@@ -177,6 +180,7 @@ public class StatusUpdateImpl extends MinimalEObjectImpl.Container implements St
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setSource(String newSource) {
 		String oldSource = source;
 		source = newSource;

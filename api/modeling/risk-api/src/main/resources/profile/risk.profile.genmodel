@@ -63,8 +63,6 @@
           ecoreFeature="ecore:EAttribute risk.ecore#//Risk/risk"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference risk.ecore#//Risk/base_Class"/>
-      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
-          createChild="false" ecoreFeature="ecore:EReference risk.ecore#//Risk/mitigations"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="risk.ecore#//RiskMitigation">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute risk.ecore#//RiskMitigation/planned"/>

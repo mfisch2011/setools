@@ -2,7 +2,9 @@
  */
 package setools.risk;
 
+import java.util.Collection;
 import java.util.Date;
+import java.util.TreeSet;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -222,5 +224,19 @@ public interface RiskMitigation extends EObject {
 	 * @generated
 	 */
 	RiskLevel getRisk();
+	
+	/**
+	 * Returns the associated status updates.  The list contents are of type 
+	 * {@link setools.risk.StatusUpdate}. <!--begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>status updates</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the set of associated status updates
+	 * @generated false
+	 */
+	Collection<StatusUpdate> getStatusUpdates();
 
 } // RiskMitigation

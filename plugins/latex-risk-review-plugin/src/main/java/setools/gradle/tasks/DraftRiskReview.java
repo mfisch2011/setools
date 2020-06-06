@@ -51,6 +51,7 @@ import setools.risk.Risk;
 import setools.risk.util.RiskComparator;
 import setools.risk.util.RiskResourcesUtil;
 import setools.uml.util.ResourceSetInitializerService;
+import setools.util.BaseUtils;
 
 /**
  * TODO:
@@ -156,6 +157,8 @@ public class DraftRiskReview extends SourceTask {
 		
 		//utilities
 		results.put("LatexUtils",new LatexUtilities());
+		results.put("BaseUtils",new BaseUtils());
+		
 		//action items
 		results.put("action_items",getActionItems());
 		

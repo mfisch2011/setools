@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated risk.profile -->
+      <package
+            uri="http://setools/setools/risk/0.0.11/RiskML"
+            class="setools.risk.RiskPackage"
+            genModel="src/main/resources/profile/risk.profile.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated risk.profile -->
+      <parser
+            type="uml"
+            class="setools.risk.util.RiskResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

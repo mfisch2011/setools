@@ -23,9 +23,10 @@ gradlePlugin {
 }
 
 dependencies {
+	implementation project(":api:base-utils")
 	implementation project(":plugins:risk-base-plugin")
 	implementation project(":api:modeling:risk-api")
-	//implementation project(":api:modeling:uml-api")
+	implementation project(":api:modeling:uml-api") //TOOD:why is this not included as a requirement of risk-api?
 	implementation project(":plugins:uml-plugin")
 	implementation project(":plugins:risk-review-plugin")
 	implementation project(":plugins:meetings-plugin") //TODO:move OOXMLUtils to an API instead...

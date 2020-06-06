@@ -2,10 +2,8 @@
  */
 package setools.risk;
 
+import java.util.Collection;
 import java.util.TreeSet;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -22,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link setools.risk.Risk#getConsequence <em>Consequence</em>}</li>
  * <li>{@link setools.risk.Risk#getRisk <em>Risk</em>}</li>
  * <li>{@link setools.risk.Risk#getBase_Class <em>Base Class</em>}</li>
- * <li>{@link setools.risk.Risk#getMitigations <em>Mitigations</em>}</li>
  * </ul>
  *
  * @see setools.risk.RiskPackage#getRisk()
@@ -209,6 +206,23 @@ public interface Risk extends EObject {
 	 *        ordered="false"
 	 * @generated false
 	 */
-	TreeSet<RiskMitigation> getMitigations();
+	Collection<RiskMitigation> getMitigations(); // TODO:how to keep this set when we re-generate from the model
+												// (@generated
+												// false does not seem to work here...)
+	
+	/**
+	 * Returns the associated status updates.  The list contents are of type 
+	 * {@link setools.risk.StatusUpdate}. <!--begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>status updates</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the set of associated status updates
+	 * @generated false
+	 */
+	Collection<StatusUpdate> getStatusUpdates();
+	
 
 } // Risk

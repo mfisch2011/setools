@@ -3,7 +3,6 @@
 package setools.risk;
 
 import java.util.Date;
-
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.uml2.uml.Comment;

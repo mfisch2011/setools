@@ -6,6 +6,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import org.eclipse.emf.ecore.xmi.XMIResource;
 
+import setools.risk.RiskPackage;
+
 /**
  * <!-- begin-user-doc --> The resource associated with the
  * '<em><b>risk</b></em>' package. <!-- end-user-doc -->
@@ -50,7 +52,7 @@ public interface RiskResource extends XMIResource {
 
 	public static final String PROFILE_PATH = PROFILES_PATHMAP + "risk.profile.uml"; //$NON-NLS-1$
 
-	public static final String PROFILE_URI = "http://setools/setools/risk/0.0.8/RiskML"; //$NON-NLS-1$
+	public static final String PROFILE_URI = RiskPackage.eNS_URI; // since it is the one and only URI...
 
 	// public static final String LIBRARIES_PATHMAP = "pathmap://RISK_LIBRARIES/";
 	// //$NON-NLS-1$

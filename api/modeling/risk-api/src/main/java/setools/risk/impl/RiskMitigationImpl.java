@@ -2,21 +2,34 @@
  */
 package setools.risk.impl;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.uml2.uml.Comment;
+import org.eclipse.uml2.uml.util.UMLUtil;
 
 import setools.risk.Consequence;
 import setools.risk.Likelihood;
 import setools.risk.RiskLevel;
 import setools.risk.RiskMitigation;
 import setools.risk.RiskPackage;
+import setools.risk.StatusUpdate;
+import setools.risk.util.StatusUpdateComparator;
+import setools.uml.util.UMLUtils;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -166,11 +179,11 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 	 * TODO:
 	 */
 	protected final RiskLevel[][] risk_matrix;
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated false
 	 */
 	protected RiskMitigationImpl() {
 		super();
@@ -180,7 +193,7 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 		risk_matrix[4][2] = RiskLevel.HIGH;
 		risk_matrix[4][3] = RiskLevel.HIGH;
 		risk_matrix[4][4] = RiskLevel.HIGH;
-		risk_matrix[4][0] = RiskLevel.LOW;
+		risk_matrix[3][0] = RiskLevel.LOW;
 		risk_matrix[3][1] = RiskLevel.MEDIUM;
 		risk_matrix[3][2] = RiskLevel.MEDIUM;
 		risk_matrix[3][3] = RiskLevel.HIGH;
@@ -217,6 +230,7 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Date getPlanned() {
 		return planned;
 	}
@@ -226,6 +240,7 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setPlanned(Date newPlanned) {
 		Date oldPlanned = planned;
 		planned = newPlanned;
@@ -239,6 +254,7 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public org.eclipse.uml2.uml.Class getBase_Class() {
 		if (base_Class != null && base_Class.eIsProxy()) {
 			InternalEObject oldBase_Class = (InternalEObject) base_Class;
@@ -266,6 +282,7 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setBase_Class(org.eclipse.uml2.uml.Class newBase_Class) {
 		org.eclipse.uml2.uml.Class oldBase_Class = base_Class;
 		base_Class = newBase_Class;
@@ -279,6 +296,7 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -288,6 +306,7 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
@@ -300,6 +319,7 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getStatement() {
 		return statement;
 	}
@@ -309,6 +329,7 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setStatement(String newStatement) {
 		String oldStatement = statement;
 		statement = newStatement;
@@ -322,6 +343,7 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Likelihood getLikelihood() {
 		return likelihood;
 	}
@@ -331,6 +353,7 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setLikelihood(Likelihood newLikelihood) {
 		Likelihood oldLikelihood = likelihood;
 		likelihood = newLikelihood == null ? LIKELIHOOD_EDEFAULT : newLikelihood;
@@ -344,6 +367,7 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Consequence getConsequence() {
 		return consequence;
 	}
@@ -353,6 +377,7 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setConsequence(Consequence newConsequence) {
 		Consequence oldConsequence = consequence;
 		consequence = newConsequence == null ? CONSEQUENCE_EDEFAULT : newConsequence;
@@ -364,10 +389,11 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated false
 	 */
+	@Override
 	public RiskLevel getRisk() {
-		if(getLikelihood()!=null && getConsequence()!=null) {
+		if (getLikelihood() != null && getConsequence() != null) {
 			int likelihood = getLikelihood().getValue();
 			int consequence = getConsequence().getValue();
 			return risk_matrix[likelihood][consequence];
@@ -512,6 +538,18 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 		result.append(consequence);
 		result.append(')');
 		return result.toString();
+	}
+	
+	@Override
+	public Collection<StatusUpdate> getStatusUpdates() {
+		List<StatusUpdate> updates = new ArrayList<StatusUpdate>();
+		for(Comment comment : UMLUtils.getAppliedComments(getBase_Class())) {
+			StatusUpdate update = UMLUtils.getStereotypeApplication(comment,StatusUpdate.class);
+			if(update!=null)
+				updates.add(update);
+		}
+		Collections.sort(updates,new StatusUpdateComparator());
+		return updates;
 	}
 
 } // RiskMitigationImpl

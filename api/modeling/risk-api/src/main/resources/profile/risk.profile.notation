@@ -35,10 +35,6 @@
         <element xmi:type="uml:Property" href="risk.profile.uml#_Wc1bYGuOEeqBl7EbFmJ-pg"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_Wc7iAWuOEeqBl7EbFmJ-pg"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_nrjSYG0IEeqqr77BTkJTDA" type="Property_ClassAttributeLabel">
-        <element xmi:type="uml:Property" href="risk.profile.uml#_nrXsMG0IEeqqr77BTkJTDA"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_nrjSYW0IEeqqr77BTkJTDA"/>
-      </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_Pxe9sWuOEeqBl7EbFmJ-pg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_Pxe9smuOEeqBl7EbFmJ-pg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Pxe9s2uOEeqBl7EbFmJ-pg"/>

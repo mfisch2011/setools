@@ -37,7 +37,7 @@ public interface RiskPackage extends EPackage {
 	 * 
 	 * @generated
 	 */
-	String eNS_URI = "http://setools/setools/risk/0.0.8/RiskML";
+	String eNS_URI = "http://setools/setools/risk/0.0.11/RiskML";
 
 	/**
 	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -119,22 +119,13 @@ public interface RiskPackage extends EPackage {
 	int RISK__BASE_CLASS = 5;
 
 	/**
-	 * The feature id for the '<em><b>Mitigations</b></em>' reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int RISK__MITIGATIONS = 6;
-
-	/**
 	 * The number of structural features of the '<em>Risk</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int RISK_FEATURE_COUNT = 7;
+	int RISK_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Risk</em>' class. <!-- begin-user-doc
@@ -402,18 +393,6 @@ public interface RiskPackage extends EPackage {
 	EReference getRisk_Base_Class();
 
 	/**
-	 * Returns the meta object for the reference list
-	 * '{@link setools.risk.Risk#getMitigations <em>Mitigations</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the reference list '<em>Mitigations</em>'.
-	 * @see setools.risk.Risk#getMitigations()
-	 * @see #getRisk()
-	 * @generated
-	 */
-	EReference getRisk_Mitigations();
-
-	/**
 	 * Returns the meta object for class '{@link setools.risk.RiskMitigation
 	 * <em>Mitigation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -663,14 +642,6 @@ public interface RiskPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RISK__BASE_CLASS = eINSTANCE.getRisk_Base_Class();
-
-		/**
-		 * The meta object literal for the '<em><b>Mitigations</b></em>' reference list
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference RISK__MITIGATIONS = eINSTANCE.getRisk_Mitigations();
 
 		/**
 		 * The meta object literal for the '{@link setools.risk.impl.RiskMitigationImpl
