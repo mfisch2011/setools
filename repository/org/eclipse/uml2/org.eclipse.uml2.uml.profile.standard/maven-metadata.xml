@@ -1,0 +1,11 @@
+<metadata>
+	<groupId>org.eclipse.uml2</groupId>
+	<artifactId>org.eclipse.uml2.uml.profile.standard</artifactId>
+	<versioning>
+		<latest>1.5.0</latest>
+		<release>1.5.0</release>
+		<versions>
+			<version>1.5.0</version>
+		</versions>
+	</versioning>
+</metadata>

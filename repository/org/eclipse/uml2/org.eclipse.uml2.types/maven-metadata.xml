@@ -1,0 +1,11 @@
+<metadata>
+	<groupId>org.eclipse.uml2</groupId>
+	<artifactId>org.eclipse.uml2.types</artifactId>
+	<versioning>
+		<latest>2.5.0</latest>
+		<release>2.5.0</release>
+		<versions>
+			<version>2.5.0</version>
+		</versions>
+	</versioning>
+</metadata>
