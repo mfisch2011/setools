@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:risk="http://setools/setools/risk/0.0.11/RiskML" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:risk="http://setools/setools/risk/0.0.12/RiskML" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://setools/setools/risk/0.0.12/RiskML ../../main/resources/profile/risk.profile.uml#_6zzJUKmHEeq969cpnYHkug">
   <uml:Model xmi:id="__TQgUKBJEeq_dMA2i4Hq1A" name="test-riskml">
-    <ownedComment xmi:id="_9v9fMKdoEeq85JCXTYHCoQ" annotatedElement="_GSrwkKBKEeq_dMA2i4Hq1A">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_9v9fMKdoEeq85JCXTYHCoQ" annotatedElement="_GSrwkKBKEeq_dMA2i4Hq1A">
       <body>Update 1.</body>
     </ownedComment>
-    <ownedComment xmi:id="__Lr2UKdoEeq85JCXTYHCoQ" annotatedElement="_GSrwkKBKEeq_dMA2i4Hq1A">
+    <ownedComment xmi:type="uml:Comment" xmi:id="__Lr2UKdoEeq85JCXTYHCoQ" annotatedElement="_GSrwkKBKEeq_dMA2i4Hq1A">
       <body>Update 2.</body>
     </ownedComment>
-    <ownedComment xmi:id="_DVKNIKdpEeq85JCXTYHCoQ" annotatedElement="_IABcIKBKEeq_dMA2i4Hq1A">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_DVKNIKdpEeq85JCXTYHCoQ" annotatedElement="_IABcIKBKEeq_dMA2i4Hq1A">
       <body>Update 3</body>
     </ownedComment>
-    <ownedComment xmi:id="_EVqn4KdpEeq85JCXTYHCoQ" annotatedElement="_JLuaQKBKEeq_dMA2i4Hq1A">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_EVqn4KdpEeq85JCXTYHCoQ" annotatedElement="_JLuaQKBKEeq_dMA2i4Hq1A">
       <body>Update 4</body>
     </ownedComment>
-    <packageImport xmi:id="__TrXEKBJEeq_dMA2i4Hq1A">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="__TrXEKBJEeq_dMA2i4Hq1A">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
     </packageImport>
     <packagedElement xmi:type="uml:Class" xmi:id="_GSrwkKBKEeq_dMA2i4Hq1A" name="Risk1"/>
@@ -21,18 +21,18 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_JLuaQKBKEeq_dMA2i4Hq1A" name="Mitigation2"/>
     <packagedElement xmi:type="uml:Abstraction" xmi:id="_M40XEKBKEeq_dMA2i4Hq1A" client="_IABcIKBKEeq_dMA2i4Hq1A" supplier="_GSrwkKBKEeq_dMA2i4Hq1A"/>
     <packagedElement xmi:type="uml:Abstraction" xmi:id="_NuO8IKBKEeq_dMA2i4Hq1A" client="_JLuaQKBKEeq_dMA2i4Hq1A" supplier="_GSrwkKBKEeq_dMA2i4Hq1A"/>
-    <profileApplication xmi:id="_Ej0bAKBKEeq_dMA2i4Hq1A">
-      <eAnnotations xmi:id="_R8uH4KdzEeq85JCXTYHCoQ" source="PapyrusVersion">
-        <details xmi:id="_R8uH4adzEeq85JCXTYHCoQ" key="Version" value="0.0.11"/>
-        <details xmi:id="_R8uH4qdzEeq85JCXTYHCoQ" key="Comment" value=""/>
-        <details xmi:id="_R8uH46dzEeq85JCXTYHCoQ" key="Copyright" value=""/>
-        <details xmi:id="_R8uH5KdzEeq85JCXTYHCoQ" key="Date" value="2020-06-05"/>
-        <details xmi:id="_R8uH5adzEeq85JCXTYHCoQ" key="Author" value=""/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Ej0bAKBKEeq_dMA2i4Hq1A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_R8uH4KdzEeq85JCXTYHCoQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_R8uH4adzEeq85JCXTYHCoQ" key="Version" value="0.0.11"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_R8uH4qdzEeq85JCXTYHCoQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_R8uH46dzEeq85JCXTYHCoQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_R8uH5KdzEeq85JCXTYHCoQ" key="Date" value="2020-06-05"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_R8uH5adzEeq85JCXTYHCoQ" key="Author" value=""/>
       </eAnnotations>
-      <eAnnotations xmi:id="_Ej1pIKBKEeq_dMA2i4Hq1A" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../../main/resources/profile/risk.profile.uml#_G-VHsKdzEeq85JCXTYHCoQ"/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Ej1pIKBKEeq_dMA2i4Hq1A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../../main/resources/profile/risk.profile.uml#_6zzJUKmHEeq969cpnYHkug"/>
       </eAnnotations>
-      <appliedProfile href="../../main/resources/profile/risk.profile.uml#_0"/>
+      <appliedProfile xmi:type="uml:Profile" href="../../main/resources/profile/risk.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
   <risk:Risk xmi:id="_HYaCgKBKEeq_dMA2i4Hq1A" base_Class="_GSrwkKBKEeq_dMA2i4Hq1A"/>

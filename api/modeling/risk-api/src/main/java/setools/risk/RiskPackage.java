@@ -37,7 +37,7 @@ public interface RiskPackage extends EPackage {
 	 * 
 	 * @generated
 	 */
-	String eNS_URI = "http://setools/setools/risk/0.0.11/RiskML";
+	String eNS_URI = "http://setools/setools/risk/0.0.12/RiskML";
 
 	/**
 	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -119,13 +119,22 @@ public interface RiskPackage extends EPackage {
 	int RISK__BASE_CLASS = 5;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RISK__DESCRIPTION = 6;
+
+	/**
 	 * The number of structural features of the '<em>Risk</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int RISK_FEATURE_COUNT = 6;
+	int RISK_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Risk</em>' class. <!-- begin-user-doc
@@ -393,6 +402,18 @@ public interface RiskPackage extends EPackage {
 	EReference getRisk_Base_Class();
 
 	/**
+	 * Returns the meta object for the attribute
+	 * '{@link setools.risk.Risk#getDescription <em>Description</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see setools.risk.Risk#getDescription()
+	 * @see #getRisk()
+	 * @generated
+	 */
+	EAttribute getRisk_Description();
+
+	/**
 	 * Returns the meta object for class '{@link setools.risk.RiskMitigation
 	 * <em>Mitigation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -642,6 +663,14 @@ public interface RiskPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RISK__BASE_CLASS = eINSTANCE.getRisk_Base_Class();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute RISK__DESCRIPTION = eINSTANCE.getRisk_Description();
 
 		/**
 		 * The meta object literal for the '{@link setools.risk.impl.RiskMitigationImpl

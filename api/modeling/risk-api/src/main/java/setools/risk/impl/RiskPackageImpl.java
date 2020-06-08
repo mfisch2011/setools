@@ -221,6 +221,16 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getRisk_Description() {
+		return (EAttribute) riskEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getRiskMitigation() {
 		return riskMitigationEClass;
 	}
@@ -402,6 +412,7 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 		createEAttribute(riskEClass, RISK__CONSEQUENCE);
 		createEAttribute(riskEClass, RISK__RISK);
 		createEReference(riskEClass, RISK__BASE_CLASS);
+		createEAttribute(riskEClass, RISK__DESCRIPTION);
 
 		riskMitigationEClass = createEClass(RISK_MITIGATION);
 		createEAttribute(riskMitigationEClass, RISK_MITIGATION__PLANNED);
@@ -474,6 +485,9 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 		initEReference(getRisk_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 0, 1, Risk.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRisk_Description(), theTypesPackage.getString(), "description", null, 0, 1, Risk.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				!IS_ORDERED);
 
 		initEClass(riskMitigationEClass, RiskMitigation.class, "RiskMitigation", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

@@ -5,16 +5,10 @@ package setools.risk.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -31,7 +25,6 @@ import setools.risk.RiskLevel;
 import setools.risk.RiskMitigation;
 import setools.risk.RiskPackage;
 import setools.risk.StatusUpdate;
-import setools.risk.util.RiskMitigationComparator;
 import setools.risk.util.StatusUpdateComparator;
 import setools.uml.util.UMLUtils;
 
@@ -49,6 +42,8 @@ import setools.uml.util.UMLUtils;
  * <em>Consequence</em>}</li>
  * <li>{@link setools.risk.impl.RiskImpl#getRisk <em>Risk</em>}</li>
  * <li>{@link setools.risk.impl.RiskImpl#getBase_Class <em>Base Class</em>}</li>
+ * <li>{@link setools.risk.impl.RiskImpl#getDescription
+ * <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -153,6 +148,26 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * @ordered
 	 */
 	protected org.eclipse.uml2.uml.Class base_Class;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	protected final RiskLevel[][] risk_matrix;
 
@@ -356,6 +371,30 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
+	 * @generated
+	 */
+	@Override
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RiskPackage.RISK__DESCRIPTION, oldDescription,
+					description));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated false
 	 */
 	@Override
@@ -401,6 +440,8 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 			if (resolve)
 				return getBase_Class();
 			return basicGetBase_Class();
+		case RiskPackage.RISK__DESCRIPTION:
+			return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -427,6 +468,9 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 			return;
 		case RiskPackage.RISK__BASE_CLASS:
 			setBase_Class((org.eclipse.uml2.uml.Class) newValue);
+			return;
+		case RiskPackage.RISK__DESCRIPTION:
+			setDescription((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -455,6 +499,9 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 		case RiskPackage.RISK__BASE_CLASS:
 			setBase_Class((org.eclipse.uml2.uml.Class) null);
 			return;
+		case RiskPackage.RISK__DESCRIPTION:
+			setDescription(DESCRIPTION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -479,6 +526,8 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 			return getRisk() != RISK_EDEFAULT;
 		case RiskPackage.RISK__BASE_CLASS:
 			return base_Class != null;
+		case RiskPackage.RISK__DESCRIPTION:
+			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -502,6 +551,8 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 		result.append(likelihood);
 		result.append(", consequence: ");
 		result.append(consequence);
+		result.append(", description: ");
+		result.append(description);
 		result.append(')');
 		return result.toString();
 	}
@@ -509,14 +560,14 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	@Override
 	public Collection<StatusUpdate> getStatusUpdates() {
 		List<StatusUpdate> updates = new ArrayList<StatusUpdate>();
-		for(Comment comment : UMLUtils.getAppliedComments(getBase_Class())) {
-			StatusUpdate update = UMLUtils.getStereotypeApplication(comment,StatusUpdate.class);
-			if(update!=null)
+		for (Comment comment : UMLUtils.getAppliedComments(getBase_Class())) {
+			StatusUpdate update = UMLUtils.getStereotypeApplication(comment, StatusUpdate.class);
+			if (update != null)
 				updates.add(update);
 		}
-		for(RiskMitigation mitigation : getMitigations())
+		for (RiskMitigation mitigation : getMitigations())
 			updates.addAll(mitigation.getStatusUpdates());
-		Collections.sort(updates,new StatusUpdateComparator());
+		Collections.sort(updates, new StatusUpdateComparator());
 		return updates;
 	}
 

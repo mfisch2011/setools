@@ -6,22 +6,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.uml2.uml.Comment;
-import org.eclipse.uml2.uml.util.UMLUtil;
-
 import setools.risk.Consequence;
 import setools.risk.Likelihood;
 import setools.risk.RiskLevel;
@@ -539,16 +531,16 @@ public class RiskMitigationImpl extends MinimalEObjectImpl.Container implements 
 		result.append(')');
 		return result.toString();
 	}
-	
+
 	@Override
 	public Collection<StatusUpdate> getStatusUpdates() {
 		List<StatusUpdate> updates = new ArrayList<StatusUpdate>();
-		for(Comment comment : UMLUtils.getAppliedComments(getBase_Class())) {
-			StatusUpdate update = UMLUtils.getStereotypeApplication(comment,StatusUpdate.class);
-			if(update!=null)
+		for (Comment comment : UMLUtils.getAppliedComments(getBase_Class())) {
+			StatusUpdate update = UMLUtils.getStereotypeApplication(comment, StatusUpdate.class);
+			if (update != null)
 				updates.add(update);
 		}
-		Collections.sort(updates,new StatusUpdateComparator());
+		Collections.sort(updates, new StatusUpdateComparator());
 		return updates;
 	}
 
