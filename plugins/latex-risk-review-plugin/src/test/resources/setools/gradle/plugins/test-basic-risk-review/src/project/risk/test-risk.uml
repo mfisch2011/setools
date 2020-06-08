@@ -63,12 +63,12 @@
       <appliedProfile xmi:type="uml:Profile" href="../../../../../../../../../../../api/modeling/risk-api/src/main/resources/profile/risk.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <risk:Risk xmi:id="_BTg1sKXNEeqpydbDhdizKA" id="1" statement="If something happens, then I will lose my mind." likelihood="LIKELY" consequence="SIGNIFICANT_IMPACT" base_Class="__8_usKXMEeqpydbDhdizKA"/>
-  <risk:Risk xmi:id="_Qzw3gKXNEeqpydbDhdizKA" id="2" statement="If something else happens, then I will get annoyed." likelihood="NEAR_CERTAINTY" consequence="MODERATE_IMPACT" base_Class="_GNUdQKXNEeqpydbDhdizKA"/>
+  <risk:Risk xmi:id="_BTg1sKXNEeqpydbDhdizKA" id="1" statement="If something happens, then I will lose my mind." likelihood="LIKELY" consequence="SIGNIFICANT_IMPACT" base_Class="__8_usKXMEeqpydbDhdizKA" description="Risk 1 test description..."/>
+  <risk:Risk xmi:id="_Qzw3gKXNEeqpydbDhdizKA" id="2" statement="If something else happens, then I will get annoyed." likelihood="NEAR_CERTAINTY" consequence="MODERATE_IMPACT" base_Class="_GNUdQKXNEeqpydbDhdizKA" description="Risk 2 test description..."/>
   <risk:RiskMitigation xmi:id="_VYj4YKXNEeqpydbDhdizKA" planned="2020-10-01T00:00:00.000-0400" base_Class="_JTvboKXNEeqpydbDhdizKA" id="A" statement="Prevent something from happening." likelihood="LOW_LIKELIHOOD" consequence="SIGNIFICANT_IMPACT"/>
   <risk:RiskMitigation xmi:id="_bfjr0KXNEeqpydbDhdizKA" planned="2020-12-12T00:00:00.000-0500" base_Class="_KMV3kKXNEeqpydbDhdizKA" id="B" statement="Stay calm." likelihood="LOW_LIKELIHOOD" consequence="LOW_IMPACT"/>
   <risk:RiskMitigation xmi:id="_gdb7EKXNEeqpydbDhdizKA" planned="2020-11-11T00:00:00.000-0500" base_Class="_LicH0KXNEeqpydbDhdizKA" id="C" statement="Make it someone else's problem." likelihood="NEAR_CERTAINTY"/>
-  <risk:Risk xmi:id="_GmEZ4KeNEeq85JCXTYHCoQ" id="3" statement="If I have to work with this any longer, I will go crazy." base_Class="_-UdwEKeMEeq85JCXTYHCoQ"/>
+  <risk:Risk xmi:id="_GmEZ4KeNEeq85JCXTYHCoQ" id="3" statement="If I have to work with this any longer, I will go crazy." base_Class="_-UdwEKeMEeq85JCXTYHCoQ" description="Risk 3 test description"/>
   <risk:RiskMitigation xmi:id="_HVivAKeNEeq85JCXTYHCoQ" base_Class="_AvIbsKeNEeq85JCXTYHCoQ" id="D" statement="Embrace the crazy."/>
   <risk:StatusUpdate xmi:id="_Uyli8KeNEeq85JCXTYHCoQ" base_Comment="_MrxM0KeNEeq85JCXTYHCoQ"/>
   <risk:StatusUpdate xmi:id="_Vn1v8KeNEeq85JCXTYHCoQ" base_Comment="_KooQYKeNEeq85JCXTYHCoQ"/>

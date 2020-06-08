@@ -14,12 +14,9 @@
         \begin{minipage}[t][0.35\paperheight]{1.00\textwidth}
           \begin{block}{Risk Description and Status}
             \begin{tcolorbox}[enhanced,frame hidden,fit to height=.30\paperheight]
+              $risk.getDescription()
               #if($risk.getStatusUpdates().isEmpty() == false)
-              \begin{enumerate}
-                #foreach($update in $risk.getStatusUpdates())
-                \item $update.getBase_Comment().getBody()
-                #end
-              \end{enumerate}
+              $risk.getStatusUpdates().get(0).getBase_Comment().getBody()
               #end
             \end{tcolorbox}
           \end{block}
@@ -100,4 +97,20 @@
       #end
     \end{tikzpicture}
   \end{minipage}
+  \note{
+     %% Risk statement
+     \textbf{Risk Statement:} $risk.getStatement()
+     
+     \textbf{Risk Description:} $risk.getDescription()
+     
+     \textbf{Risk Status}
+     
+     #if($risk.getStatusUpdates().isEmpty() == false)
+     \begin{enumerate}
+     #foreach($update in $risk.getStatusUpdates())
+       \item $update.getBase_Comment().getBody()
+     #end
+     \end{enumerate}
+     #end
+   }
 \end{frame}
