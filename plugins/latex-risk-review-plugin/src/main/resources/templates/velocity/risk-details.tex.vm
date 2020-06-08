@@ -14,7 +14,11 @@
         \begin{minipage}[t][0.35\paperheight]{1.00\textwidth}
           \begin{block}{Risk Description and Status}
             \begin{tcolorbox}[enhanced,frame hidden,fit to height=.30\paperheight]
-              $risk.getDescription()
+              #if($risk.getDescription().isEmpty() == false)
+              $risk.getDescription().get(0)
+              \linebreak
+              #end
+              
               #if($risk.getStatusUpdates().isEmpty() == false)
               $risk.getStatusUpdates().get(0).getBase_Comment().getBody()
               #end
@@ -101,7 +105,8 @@
      %% Risk statement
      \textbf{Risk Statement:} $risk.getStatement()
      
-     \textbf{Risk Description:} $risk.getDescription()
+     \textbf{Risk Description:} #if($risk.getDescription().isEmpty() == false) #foreach($description in $risk.getDescription())  $description #end #end
+     
      
      \textbf{Risk Status}
      
