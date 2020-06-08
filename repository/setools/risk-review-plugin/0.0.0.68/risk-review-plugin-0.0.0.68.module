@@ -1,0 +1,98 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "risk-review-plugin",
+    "version": "0.0.0.68",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.0",
+      "buildId": "brn73jfvojbm5jc4naynp4txka"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "risk-review-plugin-0.0.0.68.jar",
+          "url": "risk-review-plugin-0.0.0.68.jar",
+          "size": 3744,
+          "sha512": "9245a33517e38d6f3c4b890d2e6fa26f9f967f3d14b9f2e23b491bbc7fa4adf5a55a99ad138234dd7cd4f805a78a9b215b7fe85327e51d93803a9bba1a6289a3",
+          "sha256": "421e044dbd4826caad50db609d25a5d5461e9667720730d61d033aee49de9588",
+          "sha1": "20bdfa5c940f869b0f358633bf99adb6ce446b2c",
+          "md5": "fe05201603d241fc6558595c2ec20fa0"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "risk-base-plugin",
+          "version": {
+            "requires": "0.0.0.68"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "risk-api",
+          "version": {
+            "requires": "0.0.0.68"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "uml-plugin",
+          "version": {
+            "requires": "0.0.0.68"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "meetings-plugin",
+          "version": {
+            "requires": "0.0.0.68"
+          }
+        },
+        {
+          "group": "org.apache.commons",
+          "module": "commons-text",
+          "version": {
+            "requires": "1.8"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "risk-review-plugin-0.0.0.68.jar",
+          "url": "risk-review-plugin-0.0.0.68.jar",
+          "size": 3744,
+          "sha512": "9245a33517e38d6f3c4b890d2e6fa26f9f967f3d14b9f2e23b491bbc7fa4adf5a55a99ad138234dd7cd4f805a78a9b215b7fe85327e51d93803a9bba1a6289a3",
+          "sha256": "421e044dbd4826caad50db609d25a5d5461e9667720730d61d033aee49de9588",
+          "sha1": "20bdfa5c940f869b0f358633bf99adb6ce446b2c",
+          "md5": "fe05201603d241fc6558595c2ec20fa0"
+        }
+      ]
+    }
+  ]
+}
