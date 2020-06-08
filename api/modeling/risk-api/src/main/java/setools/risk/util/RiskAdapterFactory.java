@@ -72,13 +72,13 @@ public class RiskAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseRiskMitigation(RiskMitigation object) {
-			return createRiskMitigationAdapter();
+		public Adapter caseStatusUpdate(StatusUpdate object) {
+			return createStatusUpdateAdapter();
 		}
 
 		@Override
-		public Adapter caseStatusUpdate(StatusUpdate object) {
-			return createStatusUpdateAdapter();
+		public Adapter caseRiskMitigation(RiskMitigation object) {
+			return createRiskMitigationAdapter();
 		}
 
 		@Override

@@ -71,16 +71,16 @@ public class RiskSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case RiskPackage.RISK_MITIGATION: {
-			RiskMitigation riskMitigation = (RiskMitigation) theEObject;
-			T result = caseRiskMitigation(riskMitigation);
+		case RiskPackage.STATUS_UPDATE: {
+			StatusUpdate statusUpdate = (StatusUpdate) theEObject;
+			T result = caseStatusUpdate(statusUpdate);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case RiskPackage.STATUS_UPDATE: {
-			StatusUpdate statusUpdate = (StatusUpdate) theEObject;
-			T result = caseStatusUpdate(statusUpdate);
+		case RiskPackage.RISK_MITIGATION: {
+			RiskMitigation riskMitigation = (RiskMitigation) theEObject;
+			T result = caseRiskMitigation(riskMitigation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;

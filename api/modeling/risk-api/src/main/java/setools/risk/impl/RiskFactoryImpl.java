@@ -58,10 +58,10 @@ public class RiskFactoryImpl extends EFactoryImpl implements RiskFactory {
 		switch (eClass.getClassifierID()) {
 		case RiskPackage.RISK:
 			return createRisk();
-		case RiskPackage.RISK_MITIGATION:
-			return createRiskMitigation();
 		case RiskPackage.STATUS_UPDATE:
 			return createStatusUpdate();
+		case RiskPackage.RISK_MITIGATION:
+			return createRiskMitigation();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -110,6 +110,7 @@ public class RiskFactoryImpl extends EFactoryImpl implements RiskFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Risk createRisk() {
 		RiskImpl risk = new RiskImpl();
 		return risk;
@@ -120,6 +121,7 @@ public class RiskFactoryImpl extends EFactoryImpl implements RiskFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public RiskMitigation createRiskMitigation() {
 		RiskMitigationImpl riskMitigation = new RiskMitigationImpl();
 		return riskMitigation;
@@ -130,6 +132,7 @@ public class RiskFactoryImpl extends EFactoryImpl implements RiskFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public StatusUpdate createStatusUpdate() {
 		StatusUpdateImpl statusUpdate = new StatusUpdateImpl();
 		return statusUpdate;
@@ -206,6 +209,7 @@ public class RiskFactoryImpl extends EFactoryImpl implements RiskFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public RiskPackage getRiskPackage() {
 		return (RiskPackage) getEPackage();
 	}

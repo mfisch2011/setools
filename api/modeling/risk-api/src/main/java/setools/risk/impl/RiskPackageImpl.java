@@ -231,6 +231,36 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getRisk_EndDate() {
+		return (EAttribute) riskEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRisk_StartDate() {
+		return (EAttribute) riskEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getRisk_StatusUpdates() {
+		return (EReference) riskEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getRiskMitigation() {
 		return riskMitigationEClass;
 	}
@@ -413,6 +443,14 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 		createEAttribute(riskEClass, RISK__RISK);
 		createEReference(riskEClass, RISK__BASE_CLASS);
 		createEAttribute(riskEClass, RISK__DESCRIPTION);
+		createEAttribute(riskEClass, RISK__END_DATE);
+		createEAttribute(riskEClass, RISK__START_DATE);
+		createEReference(riskEClass, RISK__STATUS_UPDATES);
+
+		statusUpdateEClass = createEClass(STATUS_UPDATE);
+		createEReference(statusUpdateEClass, STATUS_UPDATE__BASE_COMMENT);
+		createEAttribute(statusUpdateEClass, STATUS_UPDATE__DATE);
+		createEAttribute(statusUpdateEClass, STATUS_UPDATE__SOURCE);
 
 		riskMitigationEClass = createEClass(RISK_MITIGATION);
 		createEAttribute(riskMitigationEClass, RISK_MITIGATION__PLANNED);
@@ -422,11 +460,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 		createEAttribute(riskMitigationEClass, RISK_MITIGATION__LIKELIHOOD);
 		createEAttribute(riskMitigationEClass, RISK_MITIGATION__CONSEQUENCE);
 		createEAttribute(riskMitigationEClass, RISK_MITIGATION__RISK);
-
-		statusUpdateEClass = createEClass(STATUS_UPDATE);
-		createEReference(statusUpdateEClass, STATUS_UPDATE__BASE_COMMENT);
-		createEAttribute(statusUpdateEClass, STATUS_UPDATE__DATE);
-		createEAttribute(statusUpdateEClass, STATUS_UPDATE__SOURCE);
 
 		// Create enums
 		likelihoodEEnum = createEEnum(LIKELIHOOD);
@@ -485,7 +518,26 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 		initEReference(getRisk_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 0, 1, Risk.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getRisk_Description(), theTypesPackage.getString(), "description", null, 0, 1, Risk.class,
+		initEAttribute(getRisk_Description(), theTypesPackage.getString(), "description", null, 0, -1, Risk.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				!IS_ORDERED);
+		initEAttribute(getRisk_EndDate(), ecorePackage.getEDate(), "endDate", null, 1, 1, Risk.class, IS_TRANSIENT,
+				IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRisk_StartDate(), ecorePackage.getEDate(), "startDate", null, 1, 1, Risk.class, !IS_TRANSIENT,
+				!IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRisk_StatusUpdates(), this.getStatusUpdate(), null, "statusUpdates", null, 0, -1, Risk.class,
+				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				IS_DERIVED, !IS_ORDERED);
+
+		initEClass(statusUpdateEClass, StatusUpdate.class, "StatusUpdate", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStatusUpdate_Base_Comment(), theUMLPackage.getComment(), null, "base_Comment", null, 0, 1,
+				StatusUpdate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getStatusUpdate_Date(), ecorePackage.getEDate(), "date", null, 1, 1, StatusUpdate.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				!IS_ORDERED);
+		initEAttribute(getStatusUpdate_Source(), theTypesPackage.getString(), "source", null, 1, 1, StatusUpdate.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				!IS_ORDERED);
 
@@ -511,18 +563,6 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 				!IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRiskMitigation_Risk(), this.getRiskLevel(), "risk", null, 1, 1, RiskMitigation.class,
 				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
-
-		initEClass(statusUpdateEClass, StatusUpdate.class, "StatusUpdate", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStatusUpdate_Base_Comment(), theUMLPackage.getComment(), null, "base_Comment", null, 0, 1,
-				StatusUpdate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getStatusUpdate_Date(), ecorePackage.getEDate(), "date", null, 1, 1, StatusUpdate.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				!IS_ORDERED);
-		initEAttribute(getStatusUpdate_Source(), theTypesPackage.getString(), "source", null, 1, 1, StatusUpdate.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				!IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(likelihoodEEnum, Likelihood.class, "Likelihood");
@@ -561,8 +601,8 @@ public class RiskPackageImpl extends EPackageImpl implements RiskPackage {
 	protected void createUMLAnnotations() {
 		String source = "http://www.eclipse.org/uml2/2.0.0/UML";
 		addAnnotation(riskLevelEEnum, source, new String[] { "originalName", "Risk Level" });
-		addAnnotation(riskMitigationEClass, source, new String[] { "originalName", "Risk Mitigation" });
 		addAnnotation(statusUpdateEClass, source, new String[] { "originalName", "Status Update" });
+		addAnnotation(riskMitigationEClass, source, new String[] { "originalName", "Risk Mitigation" });
 	}
 
 } // RiskPackageImpl

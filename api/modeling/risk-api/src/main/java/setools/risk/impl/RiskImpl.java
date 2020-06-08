@@ -5,14 +5,18 @@ package setools.risk.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.uml2.uml.Comment;
 import org.eclipse.uml2.uml.DirectedRelationship;
 import org.eclipse.uml2.uml.Element;
@@ -44,6 +48,10 @@ import setools.uml.util.UMLUtils;
  * <li>{@link setools.risk.impl.RiskImpl#getBase_Class <em>Base Class</em>}</li>
  * <li>{@link setools.risk.impl.RiskImpl#getDescription
  * <em>Description</em>}</li>
+ * <li>{@link setools.risk.impl.RiskImpl#getEndDate <em>End Date</em>}</li>
+ * <li>{@link setools.risk.impl.RiskImpl#getStartDate <em>Start Date</em>}</li>
+ * <li>{@link setools.risk.impl.RiskImpl#getStatusUpdates <em>Status
+ * Updates</em>}</li>
  * </ul>
  *
  * @generated
@@ -150,24 +158,44 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	protected org.eclipse.uml2.uml.Class base_Class;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}'
+	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
+	protected EList<String> description;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getEndDate() <em>End Date</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getDescription()
+	 * @see #getEndDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected String description = DESCRIPTION_EDEFAULT;
+	protected static final Date END_DATE_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getStartDate() <em>Start Date</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getStartDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date START_DATE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStartDate() <em>Start Date</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getStartDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date startDate = START_DATE_EDEFAULT;
 
 	protected final RiskLevel[][] risk_matrix;
 
@@ -374,7 +402,10 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * @generated
 	 */
 	@Override
-	public String getDescription() {
+	public EList<String> getDescription() {
+		if (description == null) {
+			description = new EDataTypeUniqueEList<String>(String.class, this, RiskPackage.RISK__DESCRIPTION);
+		}
 		return description;
 	}
 
@@ -384,12 +415,25 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * @generated
 	 */
 	@Override
-	public void setDescription(String newDescription) {
-		String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RiskPackage.RISK__DESCRIPTION, oldDescription,
-					description));
+	public Date getEndDate() {
+		if(!getMitigations().isEmpty()) {
+			int index = getMitigations().size();
+			return getMitigations().get(index-1).getPlanned();
+		} else
+			return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Date getStartDate() {
+		if(!getStatusUpdates().isEmpty()) {
+			return getStatusUpdates().get(0).getDate();
+		} else
+			return null;
 	}
 
 	/**
@@ -398,8 +442,8 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * @generated false
 	 */
 	@Override
-	public Collection<RiskMitigation> getMitigations() {
-		List<RiskMitigation> mitigations = new ArrayList<RiskMitigation>();
+	public EList<RiskMitigation> getMitigations() {
+		EList<RiskMitigation> mitigations = new BasicEList<RiskMitigation>();
 		if (getBase_Class() != null) {
 			Iterator<DirectedRelationship> iter = getBase_Class().getTargetDirectedRelationships().iterator();
 			while (iter.hasNext()) {
@@ -442,6 +486,12 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 			return basicGetBase_Class();
 		case RiskPackage.RISK__DESCRIPTION:
 			return getDescription();
+		case RiskPackage.RISK__END_DATE:
+			return getEndDate();
+		case RiskPackage.RISK__START_DATE:
+			return getStartDate();
+		case RiskPackage.RISK__STATUS_UPDATES:
+			return getStatusUpdates();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -451,6 +501,7 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 	 * 
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -470,7 +521,8 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 			setBase_Class((org.eclipse.uml2.uml.Class) newValue);
 			return;
 		case RiskPackage.RISK__DESCRIPTION:
-			setDescription((String) newValue);
+			getDescription().clear();
+			getDescription().addAll((Collection<? extends String>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -500,7 +552,7 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 			setBase_Class((org.eclipse.uml2.uml.Class) null);
 			return;
 		case RiskPackage.RISK__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
+			getDescription().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -527,7 +579,13 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 		case RiskPackage.RISK__BASE_CLASS:
 			return base_Class != null;
 		case RiskPackage.RISK__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			return description != null && !description.isEmpty();
+		case RiskPackage.RISK__END_DATE:
+			return END_DATE_EDEFAULT == null ? getEndDate() != null : !END_DATE_EDEFAULT.equals(getEndDate());
+		case RiskPackage.RISK__START_DATE:
+			return START_DATE_EDEFAULT == null ? startDate != null : !START_DATE_EDEFAULT.equals(startDate);
+		case RiskPackage.RISK__STATUS_UPDATES:
+			return !getStatusUpdates().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -553,13 +611,15 @@ public class RiskImpl extends MinimalEObjectImpl.Container implements Risk {
 		result.append(consequence);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", startDate: ");
+		result.append(startDate);
 		result.append(')');
 		return result.toString();
 	}
 
 	@Override
-	public Collection<StatusUpdate> getStatusUpdates() {
-		List<StatusUpdate> updates = new ArrayList<StatusUpdate>();
+	public EList<StatusUpdate> getStatusUpdates() {
+		EList<StatusUpdate> updates = new BasicEList<StatusUpdate>();
 		for (Comment comment : UMLUtils.getAppliedComments(getBase_Class())) {
 			StatusUpdate update = UMLUtils.getStereotypeApplication(comment, StatusUpdate.class);
 			if (update != null)

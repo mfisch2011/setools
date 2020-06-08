@@ -3,6 +3,8 @@
 package setools.risk;
 
 import java.util.Collection;
+import java.util.Date;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,6 +22,9 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link setools.risk.Risk#getRisk <em>Risk</em>}</li>
  * <li>{@link setools.risk.Risk#getBase_Class <em>Base Class</em>}</li>
  * <li>{@link setools.risk.Risk#getDescription <em>Description</em>}</li>
+ * <li>{@link setools.risk.Risk#getEndDate <em>End Date</em>}</li>
+ * <li>{@link setools.risk.Risk#getStartDate <em>Start Date</em>}</li>
+ * <li>{@link setools.risk.Risk#getStatusUpdates <em>Status Updates</em>}</li>
  * </ul>
  *
  * @see setools.risk.RiskPackage#getRisk()
@@ -205,18 +210,40 @@ public interface Risk extends EObject {
 	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
-	String getDescription();
+	EList<String> getDescription();
 
 	/**
-	 * Sets the value of the '{@link setools.risk.Risk#getDescription
-	 * <em>Description</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * Returns the value of the '<em><b>End Date</b></em>' attribute. <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>End Date</em>' attribute isn't clear, there really
+	 * should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * 
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
+	 * @return the value of the '<em>End Date</em>' attribute.
+	 * @see setools.risk.RiskPackage#getRisk_EndDate()
+	 * @model required="true" transient="true" changeable="false" volatile="true"
+	 *        derived="true" ordered="false"
 	 * @generated
 	 */
-	void setDescription(String value);
+	Date getEndDate();
+
+	/**
+	 * Returns the value of the '<em><b>Start Date</b></em>' attribute. <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Start Date</em>' attribute isn't clear, there
+	 * really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Start Date</em>' attribute.
+	 * @see setools.risk.RiskPackage#getRisk_StartDate()
+	 * @model required="true" changeable="false"
+	 * @generated
+	 */
+	Date getStartDate();
 
 	/**
 	 * Returns the value of the '<em><b>Mitigations</b></em>' reference list. The
@@ -234,7 +261,7 @@ public interface Risk extends EObject {
 	 *        ordered="false"
 	 * @generated false
 	 */
-	Collection<RiskMitigation> getMitigations(); // TODO:how to keep this set when we re-generate from the model
+	EList<RiskMitigation> getMitigations(); // TODO:how to keep this set when we re-generate from the model
 													// (@generated
 													// false does not seem to work here...)
 
@@ -250,6 +277,6 @@ public interface Risk extends EObject {
 	 * @return the set of associated status updates
 	 * @generated false
 	 */
-	Collection<StatusUpdate> getStatusUpdates();
+	EList<StatusUpdate> getStatusUpdates();
 
 } // Risk

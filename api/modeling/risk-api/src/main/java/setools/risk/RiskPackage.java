@@ -37,7 +37,7 @@ public interface RiskPackage extends EPackage {
 	 * 
 	 * @generated
 	 */
-	String eNS_URI = "http://setools/setools/risk/0.0.12/RiskML";
+	String eNS_URI = "http://setools/setools/risk/0.0.13/RiskML";
 
 	/**
 	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -128,13 +128,40 @@ public interface RiskPackage extends EPackage {
 	int RISK__DESCRIPTION = 6;
 
 	/**
+	 * The feature id for the '<em><b>End Date</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RISK__END_DATE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Start Date</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RISK__START_DATE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Status Updates</b></em>' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RISK__STATUS_UPDATES = 9;
+
+	/**
 	 * The number of structural features of the '<em>Risk</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int RISK_FEATURE_COUNT = 7;
+	int RISK_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Risk</em>' class. <!-- begin-user-doc
@@ -153,7 +180,62 @@ public interface RiskPackage extends EPackage {
 	 * @see setools.risk.impl.RiskPackageImpl#getRiskMitigation()
 	 * @generated
 	 */
-	int RISK_MITIGATION = 1;
+	int RISK_MITIGATION = 2;
+
+	/**
+	 * The meta object id for the '{@link setools.risk.impl.StatusUpdateImpl
+	 * <em>Status Update</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see setools.risk.impl.StatusUpdateImpl
+	 * @see setools.risk.impl.RiskPackageImpl#getStatusUpdate()
+	 * @generated
+	 */
+	int STATUS_UPDATE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Base Comment</b></em>' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int STATUS_UPDATE__BASE_COMMENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Date</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int STATUS_UPDATE__DATE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int STATUS_UPDATE__SOURCE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Status Update</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int STATUS_UPDATE_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Status Update</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int STATUS_UPDATE_OPERATION_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Planned</b></em>' attribute. <!--
@@ -235,61 +317,6 @@ public interface RiskPackage extends EPackage {
 	 * @ordered
 	 */
 	int RISK_MITIGATION_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link setools.risk.impl.StatusUpdateImpl
-	 * <em>Status Update</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see setools.risk.impl.StatusUpdateImpl
-	 * @see setools.risk.impl.RiskPackageImpl#getStatusUpdate()
-	 * @generated
-	 */
-	int STATUS_UPDATE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Base Comment</b></em>' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int STATUS_UPDATE__BASE_COMMENT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Date</b></em>' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int STATUS_UPDATE__DATE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int STATUS_UPDATE__SOURCE = 2;
-
-	/**
-	 * The number of structural features of the '<em>Status Update</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int STATUS_UPDATE_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Status Update</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int STATUS_UPDATE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link setools.risk.Likelihood
@@ -412,6 +439,42 @@ public interface RiskPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRisk_Description();
+
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link setools.risk.Risk#getEndDate <em>End Date</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>End Date</em>'.
+	 * @see setools.risk.Risk#getEndDate()
+	 * @see #getRisk()
+	 * @generated
+	 */
+	EAttribute getRisk_EndDate();
+
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link setools.risk.Risk#getStartDate <em>Start Date</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Start Date</em>'.
+	 * @see setools.risk.Risk#getStartDate()
+	 * @see #getRisk()
+	 * @generated
+	 */
+	EAttribute getRisk_StartDate();
+
+	/**
+	 * Returns the meta object for the reference list
+	 * '{@link setools.risk.Risk#getStatusUpdates <em>Status Updates</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Status Updates</em>'.
+	 * @see setools.risk.Risk#getStatusUpdates()
+	 * @see #getRisk()
+	 * @generated
+	 */
+	EReference getRisk_StatusUpdates();
 
 	/**
 	 * Returns the meta object for class '{@link setools.risk.RiskMitigation
@@ -665,12 +728,36 @@ public interface RiskPackage extends EPackage {
 		EReference RISK__BASE_CLASS = eINSTANCE.getRisk_Base_Class();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute list
 		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute RISK__DESCRIPTION = eINSTANCE.getRisk_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>End Date</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute RISK__END_DATE = eINSTANCE.getRisk_EndDate();
+
+		/**
+		 * The meta object literal for the '<em><b>Start Date</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute RISK__START_DATE = eINSTANCE.getRisk_StartDate();
+
+		/**
+		 * The meta object literal for the '<em><b>Status Updates</b></em>' reference
+		 * list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference RISK__STATUS_UPDATES = eINSTANCE.getRisk_StatusUpdates();
 
 		/**
 		 * The meta object literal for the '{@link setools.risk.impl.RiskMitigationImpl

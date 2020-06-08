@@ -64,6 +64,18 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference risk.ecore#//Risk/base_Class"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute risk.ecore#//Risk/description"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" createChild="false"
+          ecoreFeature="ecore:EAttribute risk.ecore#//Risk/endDate"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" createChild="false"
+          ecoreFeature="ecore:EAttribute risk.ecore#//Risk/startDate"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference risk.ecore#//Risk/statusUpdates"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="risk.ecore#//StatusUpdate">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference risk.ecore#//StatusUpdate/base_Comment"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute risk.ecore#//StatusUpdate/date"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute risk.ecore#//StatusUpdate/source"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="risk.ecore#//RiskMitigation">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute risk.ecore#//RiskMitigation/planned"/>
@@ -75,12 +87,6 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute risk.ecore#//RiskMitigation/consequence"/>
       <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" createChild="false"
           ecoreFeature="ecore:EAttribute risk.ecore#//RiskMitigation/risk"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="risk.ecore#//StatusUpdate">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference risk.ecore#//StatusUpdate/base_Comment"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute risk.ecore#//StatusUpdate/date"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute risk.ecore#//StatusUpdate/source"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

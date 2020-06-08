@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="risk" nsURI="http://setools/setools/risk/0.0.12/RiskML" nsPrefix="risk">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="risk" nsURI="http://setools/setools/risk/0.0.13/RiskML" nsPrefix="risk">
   <eClassifiers xsi:type="ecore:EClass" name="Risk">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
         eType="ecore:EDataType ../../../../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
@@ -15,7 +15,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
         eType="ecore:EClass ../../../../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
-        eType="ecore:EDataType ../../../../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+        upperBound="-1" eType="ecore:EDataType ../../../../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endDate" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startDate" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate" changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statusUpdates" ordered="false"
+        upperBound="-1" eType="#//StatusUpdate" changeable="false" volatile="true"
+        transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Likelihood">
     <eLiterals name="NOT_LIKELY"/>
@@ -39,6 +47,17 @@
     <eLiterals name="MEDIUM" value="1"/>
     <eLiterals name="HIGH" value="2"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StatusUpdate">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="Status Update"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Comment" ordered="false"
+        eType="ecore:EClass ../../../../../org.eclipse.uml2.uml/model/UML.ecore#//Comment"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../../../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RiskMitigation">
     <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
       <details key="originalName" value="Risk Mitigation"/>
@@ -57,16 +76,5 @@
         lowerBound="1" eType="#//Consequence"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="risk" ordered="false" lowerBound="1"
         eType="#//RiskLevel" changeable="false" volatile="true" transient="true" derived="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StatusUpdate">
-    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
-      <details key="originalName" value="Status Update"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Comment" ordered="false"
-        eType="ecore:EClass ../../../../../org.eclipse.uml2.uml/model/UML.ecore#//Comment"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" ordered="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" ordered="false"
-        lowerBound="1" eType="ecore:EDataType ../../../../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
   </eClassifiers>
 </ecore:EPackage>
