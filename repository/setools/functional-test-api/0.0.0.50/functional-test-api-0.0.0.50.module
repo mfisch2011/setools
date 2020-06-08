@@ -1,0 +1,93 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "functional-test-api",
+    "version": "0.0.0.50",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.0",
+      "buildId": "smr5unupa5drrjbz25yk6ludie"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "classpath-utils",
+          "version": {
+            "requires": "0.0.0.50"
+          }
+        },
+        {
+          "group": "junit",
+          "module": "junit",
+          "version": {
+            "requires": "4.12"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "functional-test-api-0.0.0.50.jar",
+          "url": "functional-test-api-0.0.0.50.jar",
+          "size": 1739,
+          "sha512": "33875132e2c655f9c8b9c2f276e470034a456279cd69eccb9c4274eed477028128084c41da74e9d8dcdc506838d6ece40bbb1af0b7af230c4131bb8223459cb5",
+          "sha256": "91b6eb24aae95d1700b709c0e0c678148a8e0591b507ecfa50f1d8a9a39a9046",
+          "sha1": "5f6e7872fad0a734cdfea87da4247307816c45bd",
+          "md5": "3a7fcc8e4de3f8c7c430a5bdf4303987"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "classpath-utils",
+          "version": {
+            "requires": "0.0.0.50"
+          }
+        },
+        {
+          "group": "junit",
+          "module": "junit",
+          "version": {
+            "requires": "4.12"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "functional-test-api-0.0.0.50.jar",
+          "url": "functional-test-api-0.0.0.50.jar",
+          "size": 1739,
+          "sha512": "33875132e2c655f9c8b9c2f276e470034a456279cd69eccb9c4274eed477028128084c41da74e9d8dcdc506838d6ece40bbb1af0b7af230c4131bb8223459cb5",
+          "sha256": "91b6eb24aae95d1700b709c0e0c678148a8e0591b507ecfa50f1d8a9a39a9046",
+          "sha1": "5f6e7872fad0a734cdfea87da4247307816c45bd",
+          "md5": "3a7fcc8e4de3f8c7c430a5bdf4303987"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "risk-base-plugin",
+    "version": "0.0.0.50",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.0",
+      "buildId": "smr5unupa5drrjbz25yk6ludie"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "risk-base-plugin-0.0.0.50.jar",
+          "url": "risk-base-plugin-0.0.0.50.jar",
+          "size": 1877,
+          "sha512": "b867640a70085d4ecb70649fddfe7b942985b8fe53a983733a311a94a8d46be130b05a0318d0247d09cd22f795d8205985b25172fa4884a81de3854498ae9740",
+          "sha256": "9591e10171557dc3dfc8e3734858dad8307c2605ec3683becc7c2e47afe26e81",
+          "sha1": "4dcd0ba78c940eb3e8c54a1862187adcfb26e8a6",
+          "md5": "9c31b516c44190d82d7e97d5a1c1e211"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "risk-base-plugin-0.0.0.50.jar",
+          "url": "risk-base-plugin-0.0.0.50.jar",
+          "size": 1877,
+          "sha512": "b867640a70085d4ecb70649fddfe7b942985b8fe53a983733a311a94a8d46be130b05a0318d0247d09cd22f795d8205985b25172fa4884a81de3854498ae9740",
+          "sha256": "9591e10171557dc3dfc8e3734858dad8307c2605ec3683becc7c2e47afe26e81",
+          "sha1": "4dcd0ba78c940eb3e8c54a1862187adcfb26e8a6",
+          "md5": "9c31b516c44190d82d7e97d5a1c1e211"
+        }
+      ]
+    }
+  ]
+}

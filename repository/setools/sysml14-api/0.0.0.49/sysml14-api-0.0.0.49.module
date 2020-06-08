@@ -1,0 +1,121 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "sysml14-api",
+    "version": "0.0.0.49",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.0",
+      "buildId": "jddj4ba5krf4zb6n7fcoknt5yi"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.eclipse.emf",
+          "module": "org.eclipse.emf.ecore",
+          "version": {
+            "requires": "[2.18.0,3.0.0)"
+          }
+        },
+        {
+          "group": "org.eclipse.uml2",
+          "module": "org.eclipse.uml2.uml.resources",
+          "version": {
+            "requires": "[5.0.0,6.0.0)"
+          }
+        },
+        {
+          "group": "org.eclipse.papyrus.sysml",
+          "module": "org.eclipse.papyrus.sysml14",
+          "version": {
+            "requires": "[1.3.200,2.0.0)"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "uml-api",
+          "version": {
+            "requires": "0.0.0.49"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "sysml14-api-0.0.0.49.jar",
+          "url": "sysml14-api-0.0.0.49.jar",
+          "size": 4848,
+          "sha512": "bb677575a996cf006c4dd3437d7e7064592026a274f5e19c62c98848ab3c4f1b4fd1810c86eb80ef716e5cbe6a81ec7f2f445990a52167816e4595bbd5b8ed5",
+          "sha256": "86d1126adae2b260f4ac6f585c7f7887b954188e191474e172521eb386967a20",
+          "sha1": "2cd6caf7600d46702b7c6b269281b2e4fad2f99a",
+          "md5": "92bb32b06820219b2415c6a6a1416d93"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.eclipse.emf",
+          "module": "org.eclipse.emf.ecore",
+          "version": {
+            "requires": "[2.18.0,3.0.0)"
+          }
+        },
+        {
+          "group": "org.eclipse.uml2",
+          "module": "org.eclipse.uml2.uml.resources",
+          "version": {
+            "requires": "[5.0.0,6.0.0)"
+          }
+        },
+        {
+          "group": "org.eclipse.papyrus.sysml",
+          "module": "org.eclipse.papyrus.sysml14",
+          "version": {
+            "requires": "[1.3.200,2.0.0)"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "uml-api",
+          "version": {
+            "requires": "0.0.0.49"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "sysml14-api-0.0.0.49.jar",
+          "url": "sysml14-api-0.0.0.49.jar",
+          "size": 4848,
+          "sha512": "bb677575a996cf006c4dd3437d7e7064592026a274f5e19c62c98848ab3c4f1b4fd1810c86eb80ef716e5cbe6a81ec7f2f445990a52167816e4595bbd5b8ed5",
+          "sha256": "86d1126adae2b260f4ac6f585c7f7887b954188e191474e172521eb386967a20",
+          "sha1": "2cd6caf7600d46702b7c6b269281b2e4fad2f99a",
+          "md5": "92bb32b06820219b2415c6a6a1416d93"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "ooxml-risk-review-plugin",
+    "version": "0.0.0.50",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.0",
+      "buildId": "smr5unupa5drrjbz25yk6ludie"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "ooxml-risk-review-plugin-0.0.0.50.jar",
+          "url": "ooxml-risk-review-plugin-0.0.0.50.jar",
+          "size": 91676,
+          "sha512": "3ef5cb8a3c19b472828d592cf10fb4dfc5940df1b8e5e3a085f65733d4af0a7500ed6e3bb1f1e3d669e65709cacf37d3d06080562c4987f151e80031ec93539c",
+          "sha256": "e57f7e4f32a5db2a48ad3455a6be6fe21218cf1c1c809f315943bddd99b9e624",
+          "sha1": "33cc00c3d62a185070e6560fc9ea1df24a10e42d",
+          "md5": "e2f800558ce4278d2f96080db0efdaaf"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "risk-base-plugin",
+          "version": {
+            "requires": "0.0.0.50"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "risk-api",
+          "version": {
+            "requires": "0.0.0.50"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "uml-plugin",
+          "version": {
+            "requires": "0.0.0.50"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "risk-review-plugin",
+          "version": {
+            "requires": "0.0.0.50"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "meetings-plugin",
+          "version": {
+            "requires": "0.0.0.50"
+          }
+        },
+        {
+          "group": "org.apache.poi",
+          "module": "poi-ooxml",
+          "version": {
+            "requires": "4.1.2"
+          }
+        },
+        {
+          "group": "org.apache.commons",
+          "module": "commons-text",
+          "version": {
+            "requires": "1.8"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ooxml-risk-review-plugin-0.0.0.50.jar",
+          "url": "ooxml-risk-review-plugin-0.0.0.50.jar",
+          "size": 91676,
+          "sha512": "3ef5cb8a3c19b472828d592cf10fb4dfc5940df1b8e5e3a085f65733d4af0a7500ed6e3bb1f1e3d669e65709cacf37d3d06080562c4987f151e80031ec93539c",
+          "sha256": "e57f7e4f32a5db2a48ad3455a6be6fe21218cf1c1c809f315943bddd99b9e624",
+          "sha1": "33cc00c3d62a185070e6560fc9ea1df24a10e42d",
+          "md5": "e2f800558ce4278d2f96080db0efdaaf"
+        }
+      ]
+    }
+  ]
+}

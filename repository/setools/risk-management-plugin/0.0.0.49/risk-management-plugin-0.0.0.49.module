@@ -1,0 +1,105 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "risk-management-plugin",
+    "version": "0.0.0.49",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.0",
+      "buildId": "jddj4ba5krf4zb6n7fcoknt5yi"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "risk-management-plugin-0.0.0.49.jar",
+          "url": "risk-management-plugin-0.0.0.49.jar",
+          "size": 103529,
+          "sha512": "21289b95b1790d09d6e85e9802940381c777dfc546b0bcca4a92258efd71acae526be9be4c3eb3c8dfac42e7ece6dbe51307bad81ef11d698be7a1908b7c31ce",
+          "sha256": "11c1dce387913ea0927a1ab7cfe2a068b008842f0f96f92a9076b6c0627d6120",
+          "sha1": "39eb7ea0dd43a9cd4c4b59a264c864e0c3d9f3c2",
+          "md5": "e055ae15f5aa9855ef33d837adb519ec"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "risk-api",
+          "version": {
+            "requires": "0.0.0.49"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "uml-plugin",
+          "version": {
+            "requires": "0.0.0.49"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "meetings-plugin",
+          "version": {
+            "requires": "0.0.0.49"
+          }
+        },
+        {
+          "group": "org.apache.poi",
+          "module": "poi-ooxml",
+          "version": {
+            "requires": "4.1.2"
+          }
+        },
+        {
+          "group": "org.apache.commons",
+          "module": "commons-text",
+          "version": {
+            "requires": "1.8"
+          }
+        },
+        {
+          "group": "org.json",
+          "module": "json",
+          "version": {
+            "requires": "20190722"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "risk-management-plugin-0.0.0.49.jar",
+          "url": "risk-management-plugin-0.0.0.49.jar",
+          "size": 103529,
+          "sha512": "21289b95b1790d09d6e85e9802940381c777dfc546b0bcca4a92258efd71acae526be9be4c3eb3c8dfac42e7ece6dbe51307bad81ef11d698be7a1908b7c31ce",
+          "sha256": "11c1dce387913ea0927a1ab7cfe2a068b008842f0f96f92a9076b6c0627d6120",
+          "sha1": "39eb7ea0dd43a9cd4c4b59a264c864e0c3d9f3c2",
+          "md5": "e055ae15f5aa9855ef33d837adb519ec"
+        }
+      ]
+    }
+  ]
+}

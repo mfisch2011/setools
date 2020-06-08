@@ -1,0 +1,93 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "uml-api",
+    "version": "0.0.0.47",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.0",
+      "buildId": "3hxchvadprgudef3zaokwxguni"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.eclipse.emf",
+          "module": "org.eclipse.emf.ecore",
+          "version": {
+            "requires": "[2.18.0,3.0.0)"
+          }
+        },
+        {
+          "group": "org.eclipse.uml2",
+          "module": "org.eclipse.uml2.uml.resources",
+          "version": {
+            "requires": "[5.0.0,6.0.0)"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "uml-api-0.0.0.47.jar",
+          "url": "uml-api-0.0.0.47.jar",
+          "size": 2780,
+          "sha512": "9ada200540cf144cc8c93f6ac218188b632bbb73319770eb960c07ab206631d8f6907e685ac880975b046abdff2f5157d3e22d03f9f57506c8e9d56283bde56a",
+          "sha256": "cd5bf70c01d3622157b65917d1bc87260cc656a095dadfc5347e9468a4ce77cc",
+          "sha1": "eb49c584cbc024e7d8c545dc2fdc1de532294e21",
+          "md5": "52563e354097cd0dbd6a2c58c79da65b"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.eclipse.emf",
+          "module": "org.eclipse.emf.ecore",
+          "version": {
+            "requires": "[2.18.0,3.0.0)"
+          }
+        },
+        {
+          "group": "org.eclipse.uml2",
+          "module": "org.eclipse.uml2.uml.resources",
+          "version": {
+            "requires": "[5.0.0,6.0.0)"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "uml-api-0.0.0.47.jar",
+          "url": "uml-api-0.0.0.47.jar",
+          "size": 2780,
+          "sha512": "9ada200540cf144cc8c93f6ac218188b632bbb73319770eb960c07ab206631d8f6907e685ac880975b046abdff2f5157d3e22d03f9f57506c8e9d56283bde56a",
+          "sha256": "cd5bf70c01d3622157b65917d1bc87260cc656a095dadfc5347e9468a4ce77cc",
+          "sha1": "eb49c584cbc024e7d8c545dc2fdc1de532294e21",
+          "md5": "52563e354097cd0dbd6a2c58c79da65b"
+        }
+      ]
+    }
+  ]
+}

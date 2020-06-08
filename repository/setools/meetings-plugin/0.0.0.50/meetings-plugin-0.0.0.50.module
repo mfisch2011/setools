@@ -1,0 +1,84 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "meetings-plugin",
+    "version": "0.0.0.50",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.0",
+      "buildId": "smr5unupa5drrjbz25yk6ludie"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "meetings-plugin-0.0.0.50.jar",
+          "url": "meetings-plugin-0.0.0.50.jar",
+          "size": 91069,
+          "sha512": "bfdaf2538d08d22a8647bec08ce15e7ee97cb36369db548bc34303a437ad2ac77a92fa274b02e36bc07c981067c704cc7557bed667f7aef84f1dc1136f910387",
+          "sha256": "62f64d23eaad00a903bf1f2e27ed3773b8d2f52fd15f1d7d5e585196f65e388f",
+          "sha1": "a28f0ceb53c13da1352f0d0e6a1b33e17d5e365",
+          "md5": "2277784a7afaa6dc9418d47ce36e1540"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.poi",
+          "module": "poi-ooxml",
+          "version": {
+            "requires": "4.1.2"
+          }
+        },
+        {
+          "group": "org.apache.commons",
+          "module": "commons-text",
+          "version": {
+            "requires": "1.8"
+          }
+        },
+        {
+          "group": "org.apache.velocity",
+          "module": "velocity",
+          "version": {
+            "requires": "1.7"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "meetings-plugin-0.0.0.50.jar",
+          "url": "meetings-plugin-0.0.0.50.jar",
+          "size": 91069,
+          "sha512": "bfdaf2538d08d22a8647bec08ce15e7ee97cb36369db548bc34303a437ad2ac77a92fa274b02e36bc07c981067c704cc7557bed667f7aef84f1dc1136f910387",
+          "sha256": "62f64d23eaad00a903bf1f2e27ed3773b8d2f52fd15f1d7d5e585196f65e388f",
+          "sha1": "a28f0ceb53c13da1352f0d0e6a1b33e17d5e365",
+          "md5": "2277784a7afaa6dc9418d47ce36e1540"
+        }
+      ]
+    }
+  ]
+}
