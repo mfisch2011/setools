@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "brn73jfvojbm5jc4naynp4txka"
+      "buildId": "d6obrwrtnzdjxafrhbvokvlo6q"
     }
   },
   "variants": [
@@ -28,11 +28,11 @@
         {
           "name": "ooxml-risk-review-plugin-0.0.0.68.jar",
           "url": "ooxml-risk-review-plugin-0.0.0.68.jar",
-          "size": 91676,
-          "sha512": "b5e601216fca11e1dc873c7bb284028b23c7eb1eaf7e2b896476064a5a02bc7c2ce1a302d86beeb96c6b3c079e30104d6c4f25d6a56b36b243476c83d2cb13bb",
-          "sha256": "12c7120379396fedd0b574a50718ed2444d05a4345a005bcbb6c9ed2352c8f",
-          "sha1": "58e42975b6981de5d457084b5abbb46d18b28f0c",
-          "md5": "a8c396b9bd60693c2002b6dc86815df5"
+          "size": 91587,
+          "sha512": "abd992fff4eaf4c2135a00e24d787a626453239d62cc2b9e2f5dd555ab08f143afa1ebc2ed3b9c2de456a98f0c55ca9d4d3a46578a8caa5598f59c00b025e17c",
+          "sha256": "5383112f32c4fd004e566b58af4e8c477cd3bcd16c045bddfb6525c1c1d442e4",
+          "sha1": "e75a81baf7e9d479787603adb2f11ba272ddcaf7",
+          "md5": "1ab232f7076a449e748d575479a4609"
         }
       ]
     },
@@ -100,11 +100,11 @@
         {
           "name": "ooxml-risk-review-plugin-0.0.0.68.jar",
           "url": "ooxml-risk-review-plugin-0.0.0.68.jar",
-          "size": 91676,
-          "sha512": "b5e601216fca11e1dc873c7bb284028b23c7eb1eaf7e2b896476064a5a02bc7c2ce1a302d86beeb96c6b3c079e30104d6c4f25d6a56b36b243476c83d2cb13bb",
-          "sha256": "12c7120379396fedd0b574a50718ed2444d05a4345a005bcbb6c9ed2352c8f",
-          "sha1": "58e42975b6981de5d457084b5abbb46d18b28f0c",
-          "md5": "a8c396b9bd60693c2002b6dc86815df5"
+          "size": 91587,
+          "sha512": "abd992fff4eaf4c2135a00e24d787a626453239d62cc2b9e2f5dd555ab08f143afa1ebc2ed3b9c2de456a98f0c55ca9d4d3a46578a8caa5598f59c00b025e17c",
+          "sha256": "5383112f32c4fd004e566b58af4e8c477cd3bcd16c045bddfb6525c1c1d442e4",
+          "sha1": "e75a81baf7e9d479787603adb2f11ba272ddcaf7",
+          "md5": "1ab232f7076a449e748d575479a4609"
         }
       ]
     }

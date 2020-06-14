@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "brn73jfvojbm5jc4naynp4txka"
+      "buildId": "d6obrwrtnzdjxafrhbvokvlo6q"
     }
   },
   "variants": [
@@ -29,10 +29,10 @@
           "name": "uml-plugin-0.0.0.68.jar",
           "url": "uml-plugin-0.0.0.68.jar",
           "size": 6132,
-          "sha512": "2a23fea896840c6c0f45f067cbf32d6a47f63995b9393f4313dca3ae01a720bc5e0618d1bf16683c29dd68d9a625d38525a0f5431c24470c25802bb709abdfe7",
-          "sha256": "c9cdb51357c1955d1e190f66f5028f7f3bbf8161f9bb2527f53ae9df733ddf78",
-          "sha1": "55e779f0c0748e57fe04115ada5544768261663c",
-          "md5": "f99538cc28c56ae29d09242240f75193"
+          "sha512": "47003b2b919cb6589dfeb4012e23359fd746b862e9160a3b91070cf2a4fbd0fcae899ee933fec84360290430b578bfee179e05803b391770bc77a9e4c1cd8895",
+          "sha256": "961922f6ccd28d8a64c5e4d963b1915b689f6d5e4efac7a86d3767fbbe4710e8",
+          "sha1": "ebf2536f2823d434fcc17313862b19e1f445b331",
+          "md5": "55a2de19122c719677d47e088f11deb9"
         }
       ]
     },
@@ -59,10 +59,10 @@
           "name": "uml-plugin-0.0.0.68.jar",
           "url": "uml-plugin-0.0.0.68.jar",
           "size": 6132,
-          "sha512": "2a23fea896840c6c0f45f067cbf32d6a47f63995b9393f4313dca3ae01a720bc5e0618d1bf16683c29dd68d9a625d38525a0f5431c24470c25802bb709abdfe7",
-          "sha256": "c9cdb51357c1955d1e190f66f5028f7f3bbf8161f9bb2527f53ae9df733ddf78",
-          "sha1": "55e779f0c0748e57fe04115ada5544768261663c",
-          "md5": "f99538cc28c56ae29d09242240f75193"
+          "sha512": "47003b2b919cb6589dfeb4012e23359fd746b862e9160a3b91070cf2a4fbd0fcae899ee933fec84360290430b578bfee179e05803b391770bc77a9e4c1cd8895",
+          "sha256": "961922f6ccd28d8a64c5e4d963b1915b689f6d5e4efac7a86d3767fbbe4710e8",
+          "sha1": "ebf2536f2823d434fcc17313862b19e1f445b331",
+          "md5": "55a2de19122c719677d47e088f11deb9"
         }
       ]
     }
