@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "4oj7d3ecvbdarest4xovyr6lsm"
+      "buildId": "wv75bp456fai3ibydu3nhdbrbm"
     }
   },
   "variants": [
@@ -29,10 +29,10 @@
           "name": "modeling-0.0.0.69.jar",
           "url": "modeling-0.0.0.69.jar",
           "size": 261,
-          "sha512": "382e1a91c8172bec4a7fce6a09375c870508dce2e0a92f8a2dd36c3d0bf998931cdacbc3d24d0bab6b0e6c98185073198a7f8e948eb3ccd2400c7b16fa60f0ee",
-          "sha256": "68fdcc44d0cac3f1ccafa90fd7b6cfd8a759d0660aa46d0b85cf5c1e3f50781e",
-          "sha1": "e185d4459a77b45d0f360a4979b141b611b5f41d",
-          "md5": "6f11ba5ec42466f3a42e25668b8df30e"
+          "sha512": "502bca4e9cc7c495fd8d1058f4b979e8eb31ee91d11f1433c842fda58f0554d0c5636b4f9f1ee012b52c7d693f11eb8822db90a974b85df87c9d219a29388c50",
+          "sha256": "cc2e6ba0ba741252c5c4adcc892cb8d94707486c53e42d2ed9201e319ac7ee79",
+          "sha1": "2342ccb667db05a776fd9e6fec3fd948a8c3dd81",
+          "md5": "beed556f5830519f457d79781a56278b"
         }
       ]
     },
@@ -50,10 +50,10 @@
           "name": "modeling-0.0.0.69.jar",
           "url": "modeling-0.0.0.69.jar",
           "size": 261,
-          "sha512": "382e1a91c8172bec4a7fce6a09375c870508dce2e0a92f8a2dd36c3d0bf998931cdacbc3d24d0bab6b0e6c98185073198a7f8e948eb3ccd2400c7b16fa60f0ee",
-          "sha256": "68fdcc44d0cac3f1ccafa90fd7b6cfd8a759d0660aa46d0b85cf5c1e3f50781e",
-          "sha1": "e185d4459a77b45d0f360a4979b141b611b5f41d",
-          "md5": "6f11ba5ec42466f3a42e25668b8df30e"
+          "sha512": "502bca4e9cc7c495fd8d1058f4b979e8eb31ee91d11f1433c842fda58f0554d0c5636b4f9f1ee012b52c7d693f11eb8822db90a974b85df87c9d219a29388c50",
+          "sha256": "cc2e6ba0ba741252c5c4adcc892cb8d94707486c53e42d2ed9201e319ac7ee79",
+          "sha1": "2342ccb667db05a776fd9e6fec3fd948a8c3dd81",
+          "md5": "beed556f5830519f457d79781a56278b"
         }
       ]
     }

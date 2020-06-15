@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "4oj7d3ecvbdarest4xovyr6lsm"
+      "buildId": "wv75bp456fai3ibydu3nhdbrbm"
     }
   },
   "variants": [
@@ -29,10 +29,10 @@
           "name": "meetings-plugin-0.0.0.69.jar",
           "url": "meetings-plugin-0.0.0.69.jar",
           "size": 92108,
-          "sha512": "49544242d2c2c4f2783d0746b260c1bb9fe7bd5fc41f0e5365fa6a4634e2d0ab05fa78b6935a25380af61ed885fcecb8b485fef0541a2e55c611825f88602009",
-          "sha256": "8967164aea2021be7e80b2769d4de29b095c39e288a0b2123e4f5c6813d372a7",
-          "sha1": "a06479e23550c30e6fd78d92bc84c12c65603bf9",
-          "md5": "4ac70e39f4151673529c559a868cddcd"
+          "sha512": "f9bafbc28b150efc9f1011c6de8739e0f2ba16389c41a54b3ecdfded40de0ec378f8ae2ee4636941416ac0a8d134e0e2afed45ffd4a8aee3862903443079b0be",
+          "sha256": "cb81752dbd8923058e6474f08bd55722ec39d319f2322947acdc3b02fb54b326",
+          "sha1": "7bef9c847dcf77071dac63c2af3648db40e5b88f",
+          "md5": "41cb6190d50ebf08ba5be879091181cf"
         }
       ]
     },
@@ -66,10 +66,10 @@
           "name": "meetings-plugin-0.0.0.69.jar",
           "url": "meetings-plugin-0.0.0.69.jar",
           "size": 92108,
-          "sha512": "49544242d2c2c4f2783d0746b260c1bb9fe7bd5fc41f0e5365fa6a4634e2d0ab05fa78b6935a25380af61ed885fcecb8b485fef0541a2e55c611825f88602009",
-          "sha256": "8967164aea2021be7e80b2769d4de29b095c39e288a0b2123e4f5c6813d372a7",
-          "sha1": "a06479e23550c30e6fd78d92bc84c12c65603bf9",
-          "md5": "4ac70e39f4151673529c559a868cddcd"
+          "sha512": "f9bafbc28b150efc9f1011c6de8739e0f2ba16389c41a54b3ecdfded40de0ec378f8ae2ee4636941416ac0a8d134e0e2afed45ffd4a8aee3862903443079b0be",
+          "sha256": "cb81752dbd8923058e6474f08bd55722ec39d319f2322947acdc3b02fb54b326",
+          "sha1": "7bef9c847dcf77071dac63c2af3648db40e5b88f",
+          "md5": "41cb6190d50ebf08ba5be879091181cf"
         }
       ]
     }

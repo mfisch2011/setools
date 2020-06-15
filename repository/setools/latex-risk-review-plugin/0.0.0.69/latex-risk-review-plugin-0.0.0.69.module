@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "4oj7d3ecvbdarest4xovyr6lsm"
+      "buildId": "wv75bp456fai3ibydu3nhdbrbm"
     }
   },
   "variants": [
@@ -29,10 +29,10 @@
           "name": "latex-risk-review-plugin-0.0.0.69.jar",
           "url": "latex-risk-review-plugin-0.0.0.69.jar",
           "size": 16967,
-          "sha512": "f5935308b5f6a77bf2099dba1b83b9effd9966e8fcf7cc59731dc1df4f52de136ab0ddf795ed4170297942d8f4a9a2f18501b056925431f000bb3a12ce3d9312",
-          "sha256": "fd18d0a3fbcfbec74ebadcd8698e8ac87b3f79199cd7cbf24c6fa551f565aa98",
-          "sha1": "4964bd79f345ddc84f9bce8c9460d59e243e2d0e",
-          "md5": "fd0d75db40d55fa4ee0aaa1f8c2952be"
+          "sha512": "cc297d42aa049603f39c500d931bb0a26a07499603462907c3c40905f8a863c1a88fff2907461a15ae2804e6d8aa04707e2a258c0c40d82545db81b8eed1cc24",
+          "sha256": "762e1e62cf55a1e7fb62468f57e5cc9783baa95a6aaccfeed6d39775c3576f3c",
+          "sha1": "ec93363269bd60ec047c681a9b7a797b9e887f4c",
+          "md5": "387e5488b6021d66b86796dcdaa5172a"
         }
       ]
     },
@@ -115,10 +115,10 @@
           "name": "latex-risk-review-plugin-0.0.0.69.jar",
           "url": "latex-risk-review-plugin-0.0.0.69.jar",
           "size": 16967,
-          "sha512": "f5935308b5f6a77bf2099dba1b83b9effd9966e8fcf7cc59731dc1df4f52de136ab0ddf795ed4170297942d8f4a9a2f18501b056925431f000bb3a12ce3d9312",
-          "sha256": "fd18d0a3fbcfbec74ebadcd8698e8ac87b3f79199cd7cbf24c6fa551f565aa98",
-          "sha1": "4964bd79f345ddc84f9bce8c9460d59e243e2d0e",
-          "md5": "fd0d75db40d55fa4ee0aaa1f8c2952be"
+          "sha512": "cc297d42aa049603f39c500d931bb0a26a07499603462907c3c40905f8a863c1a88fff2907461a15ae2804e6d8aa04707e2a258c0c40d82545db81b8eed1cc24",
+          "sha256": "762e1e62cf55a1e7fb62468f57e5cc9783baa95a6aaccfeed6d39775c3576f3c",
+          "sha1": "ec93363269bd60ec047c681a9b7a797b9e887f4c",
+          "md5": "387e5488b6021d66b86796dcdaa5172a"
         }
       ]
     }

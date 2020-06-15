@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "4oj7d3ecvbdarest4xovyr6lsm"
+      "buildId": "wv75bp456fai3ibydu3nhdbrbm"
     }
   },
   "variants": [
@@ -52,10 +52,10 @@
           "name": "risk-api-0.0.0.69.jar",
           "url": "risk-api-0.0.0.69.jar",
           "size": 52213,
-          "sha512": "4b5df7cac472f48d354dc7f664e2c885408c6a14f9beb8145be3334f3da78a75ea3e2244abcc1e17392474a3de8e1726a4b2a966bc3d8e335e0f0d0a4ce0aa8",
-          "sha256": "b2bbe785c0fe7f6a4c35a6dc6cd540deedf2e2349e2b514fc376cd958655c284",
-          "sha1": "b69dd12fdb0e1afe498d0cef0e68f3aa28eec117",
-          "md5": "56b772fb553b84a0b49f1bf2cb18ec84"
+          "sha512": "6011941f0422535851811d03be3ca3f11adfa803fe4fcdcff1aeae1543ebcec8c977d834a5cdbe5ce9a196fc64720a2d4eb0e8a88719e016b794ea4c129f6024",
+          "sha256": "b4a4f79a12838aa052d8361593020ed72f1c3482420075c3e5f8b7c20c57e66a",
+          "sha1": "7afa37efed9fae3df122d153b13f397500bf9cfe",
+          "md5": "2da8c81dd2f1d7bae3af7670bd25e518"
         }
       ]
     },
@@ -96,10 +96,10 @@
           "name": "risk-api-0.0.0.69.jar",
           "url": "risk-api-0.0.0.69.jar",
           "size": 52213,
-          "sha512": "4b5df7cac472f48d354dc7f664e2c885408c6a14f9beb8145be3334f3da78a75ea3e2244abcc1e17392474a3de8e1726a4b2a966bc3d8e335e0f0d0a4ce0aa8",
-          "sha256": "b2bbe785c0fe7f6a4c35a6dc6cd540deedf2e2349e2b514fc376cd958655c284",
-          "sha1": "b69dd12fdb0e1afe498d0cef0e68f3aa28eec117",
-          "md5": "56b772fb553b84a0b49f1bf2cb18ec84"
+          "sha512": "6011941f0422535851811d03be3ca3f11adfa803fe4fcdcff1aeae1543ebcec8c977d834a5cdbe5ce9a196fc64720a2d4eb0e8a88719e016b794ea4c129f6024",
+          "sha256": "b4a4f79a12838aa052d8361593020ed72f1c3482420075c3e5f8b7c20c57e66a",
+          "sha1": "7afa37efed9fae3df122d153b13f397500bf9cfe",
+          "md5": "2da8c81dd2f1d7bae3af7670bd25e518"
         }
       ]
     }
