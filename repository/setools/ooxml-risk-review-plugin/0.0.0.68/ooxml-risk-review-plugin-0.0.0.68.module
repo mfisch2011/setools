@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "d6obrwrtnzdjxafrhbvokvlo6q"
+      "buildId": "gxes5i6nzrddllljlddy6up76u"
     }
   },
   "variants": [
@@ -29,10 +29,10 @@
           "name": "ooxml-risk-review-plugin-0.0.0.68.jar",
           "url": "ooxml-risk-review-plugin-0.0.0.68.jar",
           "size": 91587,
-          "sha512": "abd992fff4eaf4c2135a00e24d787a626453239d62cc2b9e2f5dd555ab08f143afa1ebc2ed3b9c2de456a98f0c55ca9d4d3a46578a8caa5598f59c00b025e17c",
-          "sha256": "5383112f32c4fd004e566b58af4e8c477cd3bcd16c045bddfb6525c1c1d442e4",
-          "sha1": "e75a81baf7e9d479787603adb2f11ba272ddcaf7",
-          "md5": "1ab232f7076a449e748d575479a4609"
+          "sha512": "bcadbc33127d0418db89772b0dc06ce673927f7c9f15b794961bc30367ade200a5e023d2a6d409bfc71fef52c336d8784f88a7bb2ad5c2a7e9b7b61907f2dd63",
+          "sha256": "c3f3a596c6b4618b3e5f963aa1c070384e9d19bb8c148e82341809f464d05993",
+          "sha1": "96395ccb685dd365710b68407c55b2fcd8e55413",
+          "md5": "e4104ab6c7c5f09010151aa8b344fade"
         }
       ]
     },
@@ -101,10 +101,10 @@
           "name": "ooxml-risk-review-plugin-0.0.0.68.jar",
           "url": "ooxml-risk-review-plugin-0.0.0.68.jar",
           "size": 91587,
-          "sha512": "abd992fff4eaf4c2135a00e24d787a626453239d62cc2b9e2f5dd555ab08f143afa1ebc2ed3b9c2de456a98f0c55ca9d4d3a46578a8caa5598f59c00b025e17c",
-          "sha256": "5383112f32c4fd004e566b58af4e8c477cd3bcd16c045bddfb6525c1c1d442e4",
-          "sha1": "e75a81baf7e9d479787603adb2f11ba272ddcaf7",
-          "md5": "1ab232f7076a449e748d575479a4609"
+          "sha512": "bcadbc33127d0418db89772b0dc06ce673927f7c9f15b794961bc30367ade200a5e023d2a6d409bfc71fef52c336d8784f88a7bb2ad5c2a7e9b7b61907f2dd63",
+          "sha256": "c3f3a596c6b4618b3e5f963aa1c070384e9d19bb8c148e82341809f464d05993",
+          "sha1": "96395ccb685dd365710b68407c55b2fcd8e55413",
+          "md5": "e4104ab6c7c5f09010151aa8b344fade"
         }
       ]
     }

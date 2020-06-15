@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "d6obrwrtnzdjxafrhbvokvlo6q"
+      "buildId": "gxes5i6nzrddllljlddy6up76u"
     }
   },
   "variants": [
@@ -29,10 +29,10 @@
           "name": "risk-management-plugin-0.0.0.68.jar",
           "url": "risk-management-plugin-0.0.0.68.jar",
           "size": 7335,
-          "sha512": "4c186a2ab923dcbc9b6de7ebe9a661f3a758caed83e949d27087d8fb081ee3463f964ec48753f702222d93b61fbc572251b6712895faccd4e5a8820d3c4a0796",
-          "sha256": "b7522ed4beb23ca666437584c3ecf22d24c9a1c7ee8b8dd7c5c8e76e5f37ccad",
-          "sha1": "dac028df1835651fb6e8f280747f5a86d30d9288",
-          "md5": "9511d58da70dae180d61c88f74c9f978"
+          "sha512": "f072f52867dacdac94f8d0e1482ae20a91b5a1481aa92a88c2e4c1f2e88afdb6086209d2da9902b39dd3a021c9ae608683f9d64aad2367e03b887149ac94ce7c",
+          "sha256": "39bcc5b89938dcfcb2d4c056a21057302560373886bf212dd8195a56dbcd8770",
+          "sha1": "d45bba9469d0237252bd3eabcb217238e9ae4411",
+          "md5": "92ec2c438b5ef622203e99107d4a4ecd"
         }
       ]
     },
@@ -87,10 +87,10 @@
           "name": "risk-management-plugin-0.0.0.68.jar",
           "url": "risk-management-plugin-0.0.0.68.jar",
           "size": 7335,
-          "sha512": "4c186a2ab923dcbc9b6de7ebe9a661f3a758caed83e949d27087d8fb081ee3463f964ec48753f702222d93b61fbc572251b6712895faccd4e5a8820d3c4a0796",
-          "sha256": "b7522ed4beb23ca666437584c3ecf22d24c9a1c7ee8b8dd7c5c8e76e5f37ccad",
-          "sha1": "dac028df1835651fb6e8f280747f5a86d30d9288",
-          "md5": "9511d58da70dae180d61c88f74c9f978"
+          "sha512": "f072f52867dacdac94f8d0e1482ae20a91b5a1481aa92a88c2e4c1f2e88afdb6086209d2da9902b39dd3a021c9ae608683f9d64aad2367e03b887149ac94ce7c",
+          "sha256": "39bcc5b89938dcfcb2d4c056a21057302560373886bf212dd8195a56dbcd8770",
+          "sha1": "d45bba9469d0237252bd3eabcb217238e9ae4411",
+          "md5": "92ec2c438b5ef622203e99107d4a4ecd"
         }
       ]
     }

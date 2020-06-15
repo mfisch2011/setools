@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "d6obrwrtnzdjxafrhbvokvlo6q"
+      "buildId": "gxes5i6nzrddllljlddy6up76u"
     }
   },
   "variants": [
@@ -45,10 +45,10 @@
           "name": "uml-api-0.0.0.68.jar",
           "url": "uml-api-0.0.0.68.jar",
           "size": 4307,
-          "sha512": "ee66fc2b255209e42ce936331c59721942f67b55eb811b9df3ca93e8f82e4231dd138ae6189261439d0c3636f3f7731dae482e1325a7cc667be7b164878fbec2",
-          "sha256": "e196a13d1e5e9af847726acad0125e6fc686b2449f75815c4af46a01fcfc053f",
-          "sha1": "5a4005db745065066589c54a8b57991aa3ef6456",
-          "md5": "52142bca0142b96742e703dbae30ff46"
+          "sha512": "193e8257db480be60636180e5cbab20c5a33c4af3ac46701db572291c5717926db70dca36beccae3d2143895d51f235204eaa3d8e81d24e14f9e3c89c9e9a9bd",
+          "sha256": "d6f1d35858ab46f40472b3c988c1c9456b66df730d863bdb1d468a6c130e715b",
+          "sha1": "d17405f36e65aacf62c7afe351d99f05346126aa",
+          "md5": "59d8ccb8f52e015bdb3a4be391da307d"
         }
       ]
     },
@@ -82,10 +82,10 @@
           "name": "uml-api-0.0.0.68.jar",
           "url": "uml-api-0.0.0.68.jar",
           "size": 4307,
-          "sha512": "ee66fc2b255209e42ce936331c59721942f67b55eb811b9df3ca93e8f82e4231dd138ae6189261439d0c3636f3f7731dae482e1325a7cc667be7b164878fbec2",
-          "sha256": "e196a13d1e5e9af847726acad0125e6fc686b2449f75815c4af46a01fcfc053f",
-          "sha1": "5a4005db745065066589c54a8b57991aa3ef6456",
-          "md5": "52142bca0142b96742e703dbae30ff46"
+          "sha512": "193e8257db480be60636180e5cbab20c5a33c4af3ac46701db572291c5717926db70dca36beccae3d2143895d51f235204eaa3d8e81d24e14f9e3c89c9e9a9bd",
+          "sha256": "d6f1d35858ab46f40472b3c988c1c9456b66df730d863bdb1d468a6c130e715b",
+          "sha1": "d17405f36e65aacf62c7afe351d99f05346126aa",
+          "md5": "59d8ccb8f52e015bdb3a4be391da307d"
         }
       ]
     }

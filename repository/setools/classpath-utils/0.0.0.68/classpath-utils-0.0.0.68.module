@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "d6obrwrtnzdjxafrhbvokvlo6q"
+      "buildId": "gxes5i6nzrddllljlddy6up76u"
     }
   },
   "variants": [
@@ -29,10 +29,10 @@
           "name": "classpath-utils-0.0.0.68.jar",
           "url": "classpath-utils-0.0.0.68.jar",
           "size": 2930,
-          "sha512": "f07f6f08cb999984ad23aec2196b6ff2a0795d82d865a6dae3bb33d1288654316d0ed1641395b9853b400dddc803b8de6bae66d33847e31b3f0fb533415a6457",
-          "sha256": "ffad5687cc57b3558217e7c941b5c5ad00ba39165b55e0a923ae0aec512cb815",
-          "sha1": "b55a7cece87704c40a96bc00cec912b6be0f1343",
-          "md5": "255bcaec0aa50b37e2f27a52bc5d1cf0"
+          "sha512": "1ba18023ca186ca7bfe54dfc25bac3403f434e24e080394309c2c492224bf86017066e108beb87ab2874c2711c7ebac8c7225d76f87688c83f05f6b2eea382e1",
+          "sha256": "6a860906148723b76560f46b8f5526f2a2e32081dd89caeed69a2050e97e6ee6",
+          "sha1": "36afbe9a91c6f7efd53afd7b6ef69d4027ebb280",
+          "md5": "17dbc57ce8f913f3b0effea34d04f41c"
         }
       ]
     },
@@ -50,10 +50,10 @@
           "name": "classpath-utils-0.0.0.68.jar",
           "url": "classpath-utils-0.0.0.68.jar",
           "size": 2930,
-          "sha512": "f07f6f08cb999984ad23aec2196b6ff2a0795d82d865a6dae3bb33d1288654316d0ed1641395b9853b400dddc803b8de6bae66d33847e31b3f0fb533415a6457",
-          "sha256": "ffad5687cc57b3558217e7c941b5c5ad00ba39165b55e0a923ae0aec512cb815",
-          "sha1": "b55a7cece87704c40a96bc00cec912b6be0f1343",
-          "md5": "255bcaec0aa50b37e2f27a52bc5d1cf0"
+          "sha512": "1ba18023ca186ca7bfe54dfc25bac3403f434e24e080394309c2c492224bf86017066e108beb87ab2874c2711c7ebac8c7225d76f87688c83f05f6b2eea382e1",
+          "sha256": "6a860906148723b76560f46b8f5526f2a2e32081dd89caeed69a2050e97e6ee6",
+          "sha1": "36afbe9a91c6f7efd53afd7b6ef69d4027ebb280",
+          "md5": "17dbc57ce8f913f3b0effea34d04f41c"
         }
       ]
     }

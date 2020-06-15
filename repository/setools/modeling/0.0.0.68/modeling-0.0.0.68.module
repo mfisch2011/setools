@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "d6obrwrtnzdjxafrhbvokvlo6q"
+      "buildId": "gxes5i6nzrddllljlddy6up76u"
     }
   },
   "variants": [
@@ -29,10 +29,10 @@
           "name": "modeling-0.0.0.68.jar",
           "url": "modeling-0.0.0.68.jar",
           "size": 261,
-          "sha512": "39f98645169a27e8e38265d364ffb069690e772b95f435e9dac7b24fb9ceb207b5a7f25fc8c01da32ee123472822215f0a48b09642bb4961225264cc898237a0",
-          "sha256": "8c602277ef1dc10412b869c9acf926f0478c45dbd2599289bd40e9ec077004ca",
-          "sha1": "ab577b5a2cc9123f8edeb317c2522d2bf8e390bb",
-          "md5": "333a7768a5dd18d5a9e26a0f4754acf4"
+          "sha512": "901f899863f623afe5d4ddcd47f243e3010917fe0e8a0c0702ea164b2d746838921823fde6637b8d6562f0b0b97df15cd001f354c99ce2d51418beb003bdacb0",
+          "sha256": "a99c867d0cbcdd449c3e3b107c6f579cf9d1e2e768480fd4995b3f04726fa316",
+          "sha1": "68c09b582832e14c93ddfbdd0845178fc004bbb6",
+          "md5": "ac5db7e0baad62359c354b20449a004f"
         }
       ]
     },
@@ -50,10 +50,10 @@
           "name": "modeling-0.0.0.68.jar",
           "url": "modeling-0.0.0.68.jar",
           "size": 261,
-          "sha512": "39f98645169a27e8e38265d364ffb069690e772b95f435e9dac7b24fb9ceb207b5a7f25fc8c01da32ee123472822215f0a48b09642bb4961225264cc898237a0",
-          "sha256": "8c602277ef1dc10412b869c9acf926f0478c45dbd2599289bd40e9ec077004ca",
-          "sha1": "ab577b5a2cc9123f8edeb317c2522d2bf8e390bb",
-          "md5": "333a7768a5dd18d5a9e26a0f4754acf4"
+          "sha512": "901f899863f623afe5d4ddcd47f243e3010917fe0e8a0c0702ea164b2d746838921823fde6637b8d6562f0b0b97df15cd001f354c99ce2d51418beb003bdacb0",
+          "sha256": "a99c867d0cbcdd449c3e3b107c6f579cf9d1e2e768480fd4995b3f04726fa316",
+          "sha1": "68c09b582832e14c93ddfbdd0845178fc004bbb6",
+          "md5": "ac5db7e0baad62359c354b20449a004f"
         }
       ]
     }

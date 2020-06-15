@@ -1,0 +1,61 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "modeling",
+    "version": "0.0.0.69",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.0",
+      "buildId": "boct5krlmzgqdadpxux4vy4nfe"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "modeling-0.0.0.69.jar",
+          "url": "modeling-0.0.0.69.jar",
+          "size": 261,
+          "sha512": "92f905044f6d39269fabe27e18f5a2e0cfbda42e2457865d3f03608b0a38eb9f87b3154831fa01b8bfac3c0c10d737218391094302f83838894e3622e67f851a",
+          "sha256": "93039dba3012c091a9113ee575139d4215e66740aac4bc6e587763b1622efce3",
+          "sha1": "98f47f525421482be7f6f231f14dcca5d130f646",
+          "md5": "6f7c5ad8bbe41d6ef4cc64d5562cdc15"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "modeling-0.0.0.69.jar",
+          "url": "modeling-0.0.0.69.jar",
+          "size": 261,
+          "sha512": "92f905044f6d39269fabe27e18f5a2e0cfbda42e2457865d3f03608b0a38eb9f87b3154831fa01b8bfac3c0c10d737218391094302f83838894e3622e67f851a",
+          "sha256": "93039dba3012c091a9113ee575139d4215e66740aac4bc6e587763b1622efce3",
+          "sha1": "98f47f525421482be7f6f231f14dcca5d130f646",
+          "md5": "6f7c5ad8bbe41d6ef4cc64d5562cdc15"
+        }
+      ]
+    }
+  ]
+}
