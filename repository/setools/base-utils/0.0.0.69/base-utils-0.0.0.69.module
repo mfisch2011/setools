@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "boct5krlmzgqdadpxux4vy4nfe"
+      "buildId": "4oj7d3ecvbdarest4xovyr6lsm"
     }
   },
   "variants": [
@@ -29,10 +29,10 @@
           "name": "base-utils-0.0.0.69.jar",
           "url": "base-utils-0.0.0.69.jar",
           "size": 1196,
-          "sha512": "cd44ebbe41e8601fb5634124a356ee3136cadb2cb35512acac6d4e11ba43e0d003b9ab74077ce4d9ea42e3a477f5817ab0168134785d9519be0f3a0a740afb06",
-          "sha256": "40d685e5bf410ce9ed424e0862bfe34467eaec2d3146f21efe7a4d478148b4c5",
-          "sha1": "29fe838478a5984e14ccf9617f617cd67f1cfbd2",
-          "md5": "a3e74b97736042de44538bcb9652dcc5"
+          "sha512": "675e874e40b507f9be91981c0a9535c1d8a9477ca79098d6826563804caa3de983f58122e9292d0d5500884353152861c30f8bdc9184c90f1f7f69269e448aaf",
+          "sha256": "8cb95bfa49c8d11bbdd4e609c0e5b03fcb348bf569aae6325614e97b8a638646",
+          "sha1": "eef82c6b619c7d679610a1a5fbda5cbd53e94ca5",
+          "md5": "bc73b278241077c3c5100cdbed1c58d"
         }
       ]
     },
@@ -50,10 +50,10 @@
           "name": "base-utils-0.0.0.69.jar",
           "url": "base-utils-0.0.0.69.jar",
           "size": 1196,
-          "sha512": "cd44ebbe41e8601fb5634124a356ee3136cadb2cb35512acac6d4e11ba43e0d003b9ab74077ce4d9ea42e3a477f5817ab0168134785d9519be0f3a0a740afb06",
-          "sha256": "40d685e5bf410ce9ed424e0862bfe34467eaec2d3146f21efe7a4d478148b4c5",
-          "sha1": "29fe838478a5984e14ccf9617f617cd67f1cfbd2",
-          "md5": "a3e74b97736042de44538bcb9652dcc5"
+          "sha512": "675e874e40b507f9be91981c0a9535c1d8a9477ca79098d6826563804caa3de983f58122e9292d0d5500884353152861c30f8bdc9184c90f1f7f69269e448aaf",
+          "sha256": "8cb95bfa49c8d11bbdd4e609c0e5b03fcb348bf569aae6325614e97b8a638646",
+          "sha1": "eef82c6b619c7d679610a1a5fbda5cbd53e94ca5",
+          "md5": "bc73b278241077c3c5100cdbed1c58d"
         }
       ]
     }
