@@ -1,0 +1,70 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "uml-plugin",
+    "version": "0.0.0.71",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.0",
+      "buildId": "7xxns67nsvewfpuupao4xeuumy"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "uml-plugin-0.0.0.71.jar",
+          "url": "uml-plugin-0.0.0.71.jar",
+          "size": 6132,
+          "sha512": "8465b1a75594c7bd6845b75ae7fb7aec1add2de9b5076449de7e2ab319aa82d68e8fd1d8ef1339c5dfa213f6445f3aec0b091c57f3779d43a7545e857aa34f",
+          "sha256": "f46f82aacfb33acc326f3b53eda8822cc359d546e0bfe0973fea5a94f9dc1621",
+          "sha1": "9decc54e9ed02d2f44623af0280a3c7faa46472f",
+          "md5": "4b73a843fe9a4d8b5cf45e62f451df46"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "uml-api",
+          "version": {
+            "requires": "0.0.0.71"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "uml-plugin-0.0.0.71.jar",
+          "url": "uml-plugin-0.0.0.71.jar",
+          "size": 6132,
+          "sha512": "8465b1a75594c7bd6845b75ae7fb7aec1add2de9b5076449de7e2ab319aa82d68e8fd1d8ef1339c5dfa213f6445f3aec0b091c57f3779d43a7545e857aa34f",
+          "sha256": "f46f82aacfb33acc326f3b53eda8822cc359d546e0bfe0973fea5a94f9dc1621",
+          "sha1": "9decc54e9ed02d2f44623af0280a3c7faa46472f",
+          "md5": "4b73a843fe9a4d8b5cf45e62f451df46"
+        }
+      ]
+    }
+  ]
+}

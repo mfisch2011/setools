@@ -1,0 +1,98 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "risk-management-plugin",
+    "version": "0.0.0.71",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.0",
+      "buildId": "7xxns67nsvewfpuupao4xeuumy"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "risk-management-plugin-0.0.0.71.jar",
+          "url": "risk-management-plugin-0.0.0.71.jar",
+          "size": 7335,
+          "sha512": "dd0a9dc0919f46e5c804233c0ff8d59e68fe1692828b8ce94e6c1f8852627411fb61baa402401d664b3c45e373915ff3f624c29265ae190f747112baa21eb7be",
+          "sha256": "1d975444fbc79d71f1e49ad2d460afefaf3f51b887df9ef532bc4b0cffaf346d",
+          "sha1": "2c8a24d5e7e9bd9c50b930579f82d7438a787a48",
+          "md5": "a9090f772bb0d49b0b9d3567f3cc6391"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "risk-api",
+          "version": {
+            "requires": "0.0.0.71"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "uml-plugin",
+          "version": {
+            "requires": "0.0.0.71"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "meetings-plugin",
+          "version": {
+            "requires": "0.0.0.71"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "risk-base-plugin",
+          "version": {
+            "requires": "0.0.0.71"
+          }
+        },
+        {
+          "group": "org.json",
+          "module": "json",
+          "version": {
+            "requires": "20190722"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "risk-management-plugin-0.0.0.71.jar",
+          "url": "risk-management-plugin-0.0.0.71.jar",
+          "size": 7335,
+          "sha512": "dd0a9dc0919f46e5c804233c0ff8d59e68fe1692828b8ce94e6c1f8852627411fb61baa402401d664b3c45e373915ff3f624c29265ae190f747112baa21eb7be",
+          "sha256": "1d975444fbc79d71f1e49ad2d460afefaf3f51b887df9ef532bc4b0cffaf346d",
+          "sha1": "2c8a24d5e7e9bd9c50b930579f82d7438a787a48",
+          "md5": "a9090f772bb0d49b0b9d3567f3cc6391"
+        }
+      ]
+    }
+  ]
+}

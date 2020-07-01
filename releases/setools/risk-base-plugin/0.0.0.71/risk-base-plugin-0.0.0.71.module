@@ -1,0 +1,77 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "risk-base-plugin",
+    "version": "0.0.0.71",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.0",
+      "buildId": "7xxns67nsvewfpuupao4xeuumy"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "risk-base-plugin-0.0.0.71.jar",
+          "url": "risk-base-plugin-0.0.0.71.jar",
+          "size": 2682,
+          "sha512": "9166f4cad3e390e3acd063ad23d5b0874be023745adaf2f3358031c8f41b58113b22a85be9bd1e38f1f14f5d46aa839972b04c17c6c05a75eb96743158ea64d5",
+          "sha256": "adbdb942a5ed08cfd99da9a42cfeb530661aafcde9f5946c17d4732cf98b2777",
+          "sha1": "6784d23fe0cceadf8ae52c48137ba24dbab809a1",
+          "md5": "ad37879177985321b65241b6a9fc25ad"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "risk-api",
+          "version": {
+            "requires": "0.0.0.71"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "uml-plugin",
+          "version": {
+            "requires": "0.0.0.71"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "risk-base-plugin-0.0.0.71.jar",
+          "url": "risk-base-plugin-0.0.0.71.jar",
+          "size": 2682,
+          "sha512": "9166f4cad3e390e3acd063ad23d5b0874be023745adaf2f3358031c8f41b58113b22a85be9bd1e38f1f14f5d46aa839972b04c17c6c05a75eb96743158ea64d5",
+          "sha256": "adbdb942a5ed08cfd99da9a42cfeb530661aafcde9f5946c17d4732cf98b2777",
+          "sha1": "6784d23fe0cceadf8ae52c48137ba24dbab809a1",
+          "md5": "ad37879177985321b65241b6a9fc25ad"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "risk-base-plugin",
+    "version": "0.0.0.70",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.0",
+      "buildId": "nb7fnnfetzb5voyogf37xpopge"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "risk-base-plugin-0.0.0.70.jar",
+          "url": "risk-base-plugin-0.0.0.70.jar",
+          "size": 2682,
+          "sha512": "3c80da6dba62b5ed1984b300885b0e879f6bed9923ae5d64a3611508708a8121ecb4e3d1d556098a5676332c685b6a349cd8b6adc4bdb816b6d1e9dfbd2953ae",
+          "sha256": "a9fda3854a781a5f7a3d81dbf368837cd90f6e6a408c426853bcaa04a88478c5",
+          "sha1": "7ce2cf9336a72de7a6491a957c8dbc4a545de3a9",
+          "md5": "6bec9d3076a9cad39dd6aabc35ef7fa8"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "risk-api",
+          "version": {
+            "requires": "0.0.0.70"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "uml-plugin",
+          "version": {
+            "requires": "0.0.0.70"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "risk-base-plugin-0.0.0.70.jar",
+          "url": "risk-base-plugin-0.0.0.70.jar",
+          "size": 2682,
+          "sha512": "3c80da6dba62b5ed1984b300885b0e879f6bed9923ae5d64a3611508708a8121ecb4e3d1d556098a5676332c685b6a349cd8b6adc4bdb816b6d1e9dfbd2953ae",
+          "sha256": "a9fda3854a781a5f7a3d81dbf368837cd90f6e6a408c426853bcaa04a88478c5",
+          "sha1": "7ce2cf9336a72de7a6491a957c8dbc4a545de3a9",
+          "md5": "6bec9d3076a9cad39dd6aabc35ef7fa8"
+        }
+      ]
+    }
+  ]
+}

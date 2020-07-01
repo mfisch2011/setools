@@ -1,0 +1,126 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "latex-risk-review-plugin",
+    "version": "0.0.0.70",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.0",
+      "buildId": "nb7fnnfetzb5voyogf37xpopge"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "latex-risk-review-plugin-0.0.0.70.jar",
+          "url": "latex-risk-review-plugin-0.0.0.70.jar",
+          "size": 16967,
+          "sha512": "bcce6f51c900d92f1ae107ec8d557272bb607cd3ad6c5daceb9eb209b959030a57141c1c6d5212e6d43919e4979618395e0ac41d39033a091db09e1e4e40133c",
+          "sha256": "cb3953fae546245509a13970f09d177eb211cdfac9e667e792d28f494f4abdd4",
+          "sha1": "4ae07f3d02229b7564886521c7f8c29cecae8424",
+          "md5": "b96438d51b67ccbe9496a9256f4db632"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "base-utils",
+          "version": {
+            "requires": "0.0.0.70"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "risk-base-plugin",
+          "version": {
+            "requires": "0.0.0.70"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "risk-api",
+          "version": {
+            "requires": "0.0.0.70"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "uml-api",
+          "version": {
+            "requires": "0.0.0.70"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "uml-plugin",
+          "version": {
+            "requires": "0.0.0.70"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "risk-review-plugin",
+          "version": {
+            "requires": "0.0.0.70"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "meetings-plugin",
+          "version": {
+            "requires": "0.0.0.70"
+          }
+        },
+        {
+          "group": "org.apache.velocity",
+          "module": "velocity",
+          "version": {
+            "requires": "1.7"
+          }
+        },
+        {
+          "group": "org.apache.commons",
+          "module": "commons-text",
+          "version": {
+            "requires": "1.8"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "latex-risk-review-plugin-0.0.0.70.jar",
+          "url": "latex-risk-review-plugin-0.0.0.70.jar",
+          "size": 16967,
+          "sha512": "bcce6f51c900d92f1ae107ec8d557272bb607cd3ad6c5daceb9eb209b959030a57141c1c6d5212e6d43919e4979618395e0ac41d39033a091db09e1e4e40133c",
+          "sha256": "cb3953fae546245509a13970f09d177eb211cdfac9e667e792d28f494f4abdd4",
+          "sha1": "4ae07f3d02229b7564886521c7f8c29cecae8424",
+          "md5": "b96438d51b67ccbe9496a9256f4db632"
+        }
+      ]
+    }
+  ]
+}
