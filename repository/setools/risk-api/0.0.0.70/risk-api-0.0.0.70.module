@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "gehbh7oo3fevlhipu7ewq4giua"
+      "buildId": "nb7fnnfetzb5voyogf37xpopge"
     }
   },
   "variants": [
@@ -52,10 +52,10 @@
           "name": "risk-api-0.0.0.70.jar",
           "url": "risk-api-0.0.0.70.jar",
           "size": 52213,
-          "sha512": "f186b68c74c8d9a30c93fd0161747bf2e3687776bc49bf708311e6bbe69c0b29462c882cda5dfa0530303c16e6d75130eba8288519e2f2c5fbdfa93a60ce4dde",
-          "sha256": "623644e5b8f2882393eebf0b7b3b80f54c0e351107499dd09be9303bd5516498",
-          "sha1": "fb1ab8cd3b531cdd7cb136531f1514e33efcdc2b",
-          "md5": "64698514db31dedd72979b712153e671"
+          "sha512": "7f96ec0c5f68444b95a6cc1adfef4f5685555b47945d6d4697ecfa03be8bfa6a2d347d3e4f26fc838c8aac6e57d69cb74092922fdf8e08e23aae6b0ae57bb9a",
+          "sha256": "4299152560535ea5081f47bc32a9ebb650b8faded4610af66598dd246dc31611",
+          "sha1": "5f9cdfab5dd5a7c793a3af17afbca4fdf6765e",
+          "md5": "fa101e0ddd89a55a15f08c0298c1504a"
         }
       ]
     },
@@ -96,10 +96,10 @@
           "name": "risk-api-0.0.0.70.jar",
           "url": "risk-api-0.0.0.70.jar",
           "size": 52213,
-          "sha512": "f186b68c74c8d9a30c93fd0161747bf2e3687776bc49bf708311e6bbe69c0b29462c882cda5dfa0530303c16e6d75130eba8288519e2f2c5fbdfa93a60ce4dde",
-          "sha256": "623644e5b8f2882393eebf0b7b3b80f54c0e351107499dd09be9303bd5516498",
-          "sha1": "fb1ab8cd3b531cdd7cb136531f1514e33efcdc2b",
-          "md5": "64698514db31dedd72979b712153e671"
+          "sha512": "7f96ec0c5f68444b95a6cc1adfef4f5685555b47945d6d4697ecfa03be8bfa6a2d347d3e4f26fc838c8aac6e57d69cb74092922fdf8e08e23aae6b0ae57bb9a",
+          "sha256": "4299152560535ea5081f47bc32a9ebb650b8faded4610af66598dd246dc31611",
+          "sha1": "5f9cdfab5dd5a7c793a3af17afbca4fdf6765e",
+          "md5": "fa101e0ddd89a55a15f08c0298c1504a"
         }
       ]
     }

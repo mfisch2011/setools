@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "gehbh7oo3fevlhipu7ewq4giua"
+      "buildId": "nb7fnnfetzb5voyogf37xpopge"
     }
   },
   "variants": [
@@ -29,10 +29,10 @@
           "name": "classpath-utils-0.0.0.70.jar",
           "url": "classpath-utils-0.0.0.70.jar",
           "size": 2930,
-          "sha512": "98a25360565ac5b146d401bf03f691741172f25d31b8a0c70829c5d5d58fe601df7000a6ff6e9c212429d7d3176752d0fdbbe7cb66ecd3b897be0e3f2c1b25f2",
-          "sha256": "8ff7453df2d706f8d7106388990d9f59a0109f75fe947cc0af63d1383f7c0d2",
-          "sha1": "984f808bbf5d82682a43dc608ab213e899b1b55d",
-          "md5": "d77f4161fb7d5da780fd1ca7e85e3247"
+          "sha512": "7882e5d112ee42eee53417042d36e5402754b267ed7d6a946490d18efb098992d54119109e9fa83614ea886563176d2588c7b05b1de643cc9af4e78149f51b99",
+          "sha256": "6c0e29277e46e789688f6c927ba59a5fc936b7e1fd7e165a99fbc503d9fbd916",
+          "sha1": "dcff8821fd90150a7a18d5a0d41b275ce6ad928a",
+          "md5": "197c41d5f2ad2a02800f7660e7faf52f"
         }
       ]
     },
@@ -50,10 +50,10 @@
           "name": "classpath-utils-0.0.0.70.jar",
           "url": "classpath-utils-0.0.0.70.jar",
           "size": 2930,
-          "sha512": "98a25360565ac5b146d401bf03f691741172f25d31b8a0c70829c5d5d58fe601df7000a6ff6e9c212429d7d3176752d0fdbbe7cb66ecd3b897be0e3f2c1b25f2",
-          "sha256": "8ff7453df2d706f8d7106388990d9f59a0109f75fe947cc0af63d1383f7c0d2",
-          "sha1": "984f808bbf5d82682a43dc608ab213e899b1b55d",
-          "md5": "d77f4161fb7d5da780fd1ca7e85e3247"
+          "sha512": "7882e5d112ee42eee53417042d36e5402754b267ed7d6a946490d18efb098992d54119109e9fa83614ea886563176d2588c7b05b1de643cc9af4e78149f51b99",
+          "sha256": "6c0e29277e46e789688f6c927ba59a5fc936b7e1fd7e165a99fbc503d9fbd916",
+          "sha1": "dcff8821fd90150a7a18d5a0d41b275ce6ad928a",
+          "md5": "197c41d5f2ad2a02800f7660e7faf52f"
         }
       ]
     }

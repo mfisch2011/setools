@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "gehbh7oo3fevlhipu7ewq4giua"
+      "buildId": "nb7fnnfetzb5voyogf37xpopge"
     }
   },
   "variants": [
@@ -29,10 +29,10 @@
           "name": "risk-review-plugin-0.0.0.70.jar",
           "url": "risk-review-plugin-0.0.0.70.jar",
           "size": 3744,
-          "sha512": "807caf61ff8ba28c4474405316b1350f911d8365b7ae44751dec395fc7f58086e056ef759844ea59e961b0fd05c17d3a622a94fb474f6400cd63f4c208c368eb",
-          "sha256": "81bfaaf92af4d8b4c042ded5f463492bd534e2c523dbf2755fa56d79a2f230bc",
-          "sha1": "c38058eb25eaefbb4d60be0718de088bc2c78676",
-          "md5": "9ac47e19015ba014c15f9ca2696233"
+          "sha512": "337c2094246176812638f94f036a20d47ed30f76685e0455131afcd153757f4c658f2ab6b2e4a90a5c88feeff6300368c84fe52aab5b4418c7f41fd90fa8c286",
+          "sha256": "9f3e98cc1c704952a998369ee45cd50e1192d7574b9b8ddb2fca29aba0fe50d9",
+          "sha1": "caa9f95e2f4df2a99e8854005bd6f7951c67bdae",
+          "md5": "e12258579046ea44f04440ed70740359"
         }
       ]
     },
@@ -87,10 +87,10 @@
           "name": "risk-review-plugin-0.0.0.70.jar",
           "url": "risk-review-plugin-0.0.0.70.jar",
           "size": 3744,
-          "sha512": "807caf61ff8ba28c4474405316b1350f911d8365b7ae44751dec395fc7f58086e056ef759844ea59e961b0fd05c17d3a622a94fb474f6400cd63f4c208c368eb",
-          "sha256": "81bfaaf92af4d8b4c042ded5f463492bd534e2c523dbf2755fa56d79a2f230bc",
-          "sha1": "c38058eb25eaefbb4d60be0718de088bc2c78676",
-          "md5": "9ac47e19015ba014c15f9ca2696233"
+          "sha512": "337c2094246176812638f94f036a20d47ed30f76685e0455131afcd153757f4c658f2ab6b2e4a90a5c88feeff6300368c84fe52aab5b4418c7f41fd90fa8c286",
+          "sha256": "9f3e98cc1c704952a998369ee45cd50e1192d7574b9b8ddb2fca29aba0fe50d9",
+          "sha1": "caa9f95e2f4df2a99e8854005bd6f7951c67bdae",
+          "md5": "e12258579046ea44f04440ed70740359"
         }
       ]
     }

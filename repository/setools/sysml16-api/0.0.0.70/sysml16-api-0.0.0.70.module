@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.0",
-      "buildId": "gehbh7oo3fevlhipu7ewq4giua"
+      "buildId": "nb7fnnfetzb5voyogf37xpopge"
     }
   },
   "variants": [
@@ -59,10 +59,10 @@
           "name": "sysml16-api-0.0.0.70.jar",
           "url": "sysml16-api-0.0.0.70.jar",
           "size": 4846,
-          "sha512": "bd97d892526561361fe1c7a72219aa916f47b117189d21c1be7ad7f841716a8b9e185061503e741275db30ada579e71dddb973bf125f007d72b6703074a4ee3b",
-          "sha256": "3041f4cf54bca7f7ef153a752c2993f139d7c7ef6888e8cbce3a1c09648f6b51",
-          "sha1": "4c482469180e7a19686d09365c85a28d138e701c",
-          "md5": "ea132fffe2e4e728d79088f4dadc17e1"
+          "sha512": "a7d4240fd3e7e62c44a80729ebf0b2b008941bb54b9ecb45e6fd5bdfe6d0c381758a760a58ce8f5015ec559b8b19abd11cfa0923a399faad2ef8eeeb59176371",
+          "sha256": "3b85076e23e7062f2175c6d8592af28d8b122116374ea5196b0d61ca553f40df",
+          "sha1": "a9fd0c01f12f3c257042327b96dc687dcd1f022b",
+          "md5": "21575a2b78f8155c4f250e160047773d"
         }
       ]
     },
@@ -110,10 +110,10 @@
           "name": "sysml16-api-0.0.0.70.jar",
           "url": "sysml16-api-0.0.0.70.jar",
           "size": 4846,
-          "sha512": "bd97d892526561361fe1c7a72219aa916f47b117189d21c1be7ad7f841716a8b9e185061503e741275db30ada579e71dddb973bf125f007d72b6703074a4ee3b",
-          "sha256": "3041f4cf54bca7f7ef153a752c2993f139d7c7ef6888e8cbce3a1c09648f6b51",
-          "sha1": "4c482469180e7a19686d09365c85a28d138e701c",
-          "md5": "ea132fffe2e4e728d79088f4dadc17e1"
+          "sha512": "a7d4240fd3e7e62c44a80729ebf0b2b008941bb54b9ecb45e6fd5bdfe6d0c381758a760a58ce8f5015ec559b8b19abd11cfa0923a399faad2ef8eeeb59176371",
+          "sha256": "3b85076e23e7062f2175c6d8592af28d8b122116374ea5196b0d61ca553f40df",
+          "sha1": "a9fd0c01f12f3c257042327b96dc687dcd1f022b",
+          "md5": "21575a2b78f8155c4f250e160047773d"
         }
       ]
     }
