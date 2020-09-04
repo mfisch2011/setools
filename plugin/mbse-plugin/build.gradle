@@ -10,24 +10,15 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-subprojects {
-	apply plugin: "java-gradle-plugin"
-	
-	dependencies {
-		implementation gradleApi()
-		
-		testCompile "junit:junit:4.12"
-		//TODO:plugin testing framework...
-	}
-	
-	publishing {
-		publications {
-			pluginPublication (MavenPublication) {
-				from    components.java
-				groupId    project.group
-				artifactId project.name
-				//TODO: verify everything works properly before removing this...   version    project.version
-			}
+gradlePlugin {
+	plugins {
+		mbsePlugin {
+			id = "setools.gradle.plugins.MBSEPlugin"
+			implementationClass = "setools.gradle.plugins.MBSEPlugin"
 		}
 	}
+}
+
+dependencies {
+
 }
