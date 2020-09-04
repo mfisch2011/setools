@@ -15,6 +15,7 @@
 */
 buildscript {
 	repositories {
+		mavenLocal() //TODO:replace with plugin to add eclipse repo...
 		mavenCentral()
 		maven { url "https://plugins.gradle.org/m2/" }
 	}
@@ -44,7 +45,7 @@ allprojects {
   	
   	publishing {
   		repositories {
-        	maven { url = "${project.rootDir}/releases" }
+        	maven { url = "${rootProject.rootDir}/releases" }
         	mavenLocal();
     	}
     }
