@@ -11,16 +11,13 @@
    limitations under the License.
 */
 subprojects {
-
-	apply plugin: "java"
-	apply plugin: "application"
+	apply plugin: "java-gradle-plugin"
 	
 	sourceSets {
 		functionalTest {
 			resources {
 				srcDir file('src/functionalTest/resources')
 			}
-			
 			compileClasspath += sourceSets.main.output + configurations.testRuntimeClasspath
 			runtimeClasspath += output + compileClasspath
 		}
@@ -33,18 +30,32 @@ subprojects {
 	
 	check.dependsOn functionalTest
 	
+	gradlePlugin {
+		testSourceSets sourceSets.functionalTest
+	}
+	
 	dependencies {
-		implementation "info.picocli:picocli:4.1.0"
+		implementation gradleApi()
 		
 		testCompile "junit:junit:4.12"
+		testCompile gradleApi()
+		testCompile gradleTestKit()
+		
 		functionalTestImplementation "junit:junit:4.12"
+		functionalTestImplementation gradleApi()
+		functionalTestImplementation gradleTestKit()
+		
+		//TODO:plugin testing framework...
 	}
 	
 	publishing {
-    	publications {
-    		maven(MavenPublication) {
-            	from components.java
-            }
-        }
-    }
+		publications {
+			pluginPublication (MavenPublication) {
+				from    components.java
+				groupId    project.group
+				artifactId project.name
+				//TODO: verify everything works properly before removing this...   version    project.version
+			}
+		}
+	}
 }

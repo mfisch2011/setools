@@ -15,4 +15,33 @@
 */
 rootProject.name = "setools"
 
-include ":plugin:mbse-plugin"
+//base mbse conventions and extension
+//TODOL include "plugins:mbse-base"
+
+//virtual plugin to include all standard plugins and configurations
+include "plugins:mbse-plugin"
+
+//systems engineering technical processes
+//TODO:include "plugins:requirements-definition"
+//TODO:include "plugins:requirements-analysis"
+//TODO:include "plugins:requirements-definition"
+//TODO:include "plugins:architecture-design"
+//TODO:include "plugins:implementation"
+//TODO:include "plugins:integration"
+//TODO:include "plugins:verification"
+//TODO:include "plugins:validation"
+//TODO:include "plugins:transition"
+
+//systems engineering technical management processes
+//TODO:include "plugins:design-analysis"
+//TODO:include "plugins:technical-planning"
+//TODO:include "plugins:technical-assessment"
+//TODO:include "plugins:requirements-management"
+//TODO:include "plugins:risk-management"
+//TODO:include "plugins:configuration-management"
+//TODO:include "plugins:technical-data-management"
+//TODO:include "plugins:interface-management"
+
+//project/program management plugins...
+include "plugins:meetings-plugin"
+
