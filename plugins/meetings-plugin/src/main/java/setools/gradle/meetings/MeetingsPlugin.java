@@ -7,9 +7,9 @@ import org.gradle.api.Action;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 
-import setools.gradle.meetings.dsl.Meeting;
-import setools.gradle.meetings.dsl.MeetingsHandler;
-import setools.gradle.meetings.dsl.internal.DefaultMeetingsHandler;
+import setools.gradle.dsl.meeting.Meeting;
+import setools.gradle.dsl.meeting.MeetingsHandler;
+import setools.gradle.dsl.meeting.internal.DefaultMeetingsHandler;
 import setools.gradle.meetings.util.InitializeMeetingTasks;
 
 /**
@@ -18,7 +18,7 @@ import setools.gradle.meetings.util.InitializeMeetingTasks;
 public class MeetingsPlugin implements Plugin<Project> {
 
 	protected static final String PLUGIN_EXT = "meetings";
-	
+		
 	@Override
 	public void apply(Project project) {
 		applyPlugins(project);

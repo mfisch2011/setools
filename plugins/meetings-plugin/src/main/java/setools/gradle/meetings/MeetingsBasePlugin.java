@@ -18,8 +18,8 @@ import org.gradle.api.plugins.JavaPluginConvention;
 import org.gradle.api.tasks.SourceSet;
 import org.gradle.api.tasks.SourceSetContainer;
 
-import setools.gradle.meetings.dsl.Meeting;
-import setools.gradle.meetings.dsl.MeetingsHandler;
+import setools.gradle.dsl.meeting.Meeting;
+import setools.gradle.dsl.meeting.MeetingsHandler;
 import setools.gradle.meetings.internal.DefaultMeetingsSourceExtension;
 import setools.util.resources.ClasspathResourceLoader;
 import setools.util.resources.FileResourceLoader;

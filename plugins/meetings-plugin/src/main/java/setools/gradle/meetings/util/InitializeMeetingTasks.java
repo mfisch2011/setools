@@ -3,27 +3,18 @@
  */
 package setools.gradle.meetings.util;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.inject.Inject;
 
-import org.gradle.api.DefaultTask;
 import org.gradle.api.Project;
 import org.gradle.api.Task;
 
-import setools.gradle.meetings.dsl.AgendaItem;
-import setools.gradle.meetings.dsl.Attendee;
-import setools.gradle.meetings.dsl.Bullet;
-import setools.gradle.meetings.dsl.Meeting;
-import setools.gradle.meetings.service.agenda.providers.TitleAndContentProvider.DefaultTitleAndContent;
-import setools.gradle.meetings.service.agenda.providers.TitleAndContentProvider.TitleAndContent;
-import setools.gradle.meetings.service.agenda.providers.TitleSlideProvider.DefaultTitleSlide;
-import setools.gradle.meetings.service.agenda.providers.TitleSlideProvider.TitleSlide;
-import setools.gradle.meetings.task.pptx.*;
-
+import setools.gradle.dsl.agenda.AgendaItem;
+import setools.gradle.dsl.agenda.internal.DefaultBullet;
+import setools.gradle.dsl.agenda.internal.DefaultSectionSlide;
+import setools.gradle.dsl.agenda.internal.DefaultTitleAndContent;
+import setools.gradle.dsl.agenda.internal.DefaultTitleSlide;
+import setools.gradle.dsl.attendee.Attendee;
+import setools.gradle.dsl.meeting.Meeting;
 import org.apache.commons.text.CaseUtils;
 
 /**
@@ -147,24 +138,27 @@ public class InitializeMeetingTasks {
 	protected void createRollCallSlideTask() {
 		if(!meeting.attendees().isEmpty()) {
 			String name = getTaskName("draft","Roll Call Slide");
-			//create virtual agenda item to initialize task
-			DefaultTitleAndContent slide = new DefaultTitleAndContent();
-			slide.setTitle("Roll Call");
-			slide.setName(meeting.getName() + " Roll Call Slide");
-			//TODO:allow adding sub-bullets...
+			DefaultTitleAndContent topic = new DefaultTitleAndContent();
+			topic.setTitle("Roll Call");
+			topic.setName("Roll Call Slide");
 			for(Attendee attendee : meeting.attendees()) {
-				AgendaItem bullet = slide.subTopics().topic();
 				String text = "";
-				if(attendee.getName()!=null && !attendee.getName().isEmpty())
-					text += attendee.getName();
-				if(attendee.getRole()!=null && !attendee.getRole().isEmpty())
-					text += " / " + attendee.getRole();
-				bullet.setTitle(text);
+				if(attendee.getName()!=null) {
+					text = attendee.getName();
+				}
+				if(attendee.getRole()!=null) {
+					if(!text.isEmpty())
+						text += " / ";
+					text += attendee.getRole();
+				}
+				DefaultBullet bullet = new DefaultBullet();
+				bullet.setText(text);
+				topic.content().bullets().add(bullet);
 			}
-			Class<? extends DefaultTask> type = lookupType(slide);
-			Task task = (type!=null) ?
-					project.getTasks().create(name,type,meeting,slide) :
-					project.getTasks().create(name);
+			Class<? extends SlideGenerator> type = SlideGeneratorService.getTaskType(getPresentationFormat(),topic);
+			Task task = (type!=null) ? 
+				project.getTasks().create(name,type,meeting,topic) :	
+				project.getTasks().create(name); //TODO:add class
 			task.setGroup(meeting.getName());
 			task.setDescription("Draft the agenda slide(s) for the " + meeting.getName() + ".");
 			draftSlides.dependsOn(task);
@@ -173,12 +167,28 @@ public class InitializeMeetingTasks {
 	
 	/**
 	 * TODO:documentation...
+	 * @return
+	 */
+	protected String getPresentationFormat() {
+		String filename = meeting.getPresentationTemplate();
+		int index = filename.lastIndexOf('.');
+		String ext = (index>0) ? filename.substring(index) : "";
+		return ext;
+	}
+	
+	/**
+	 * TODO:documentation...
 	 */
 	protected void createDraftBackupsSlideTask() {
 		String name = getTaskName("draft","Backups Slide");
-		Task task = project.getTasks().create(name);//TODO:add class
+		//create virtual agenda item to initialize task
+		DefaultSectionSlide topic = new DefaultSectionSlide();
+		topic.setTitle("Backups");
+		Class<? extends SlideGenerator> type = SlideGeneratorService.getTaskType(getPresentationFormat(),topic);
+		Task task = (type==null) ? project.getTasks().create(name) :
+			project.getTasks().create(name,type,meeting,topic);
 		task.setGroup(meeting.getName());
-		task.setDescription("Draft the agenda slide(s) for the " + meeting.getName() + ".");
+		task.setDescription("Draft the backup slide(s) for the " + meeting.getName() + ".");
 		draftSlides.dependsOn(task);
 		
 		for(AgendaItem backup : meeting.backups()) {
@@ -192,17 +202,14 @@ public class InitializeMeetingTasks {
 	protected void createDraftAgendaSlideTask() {
 		String name = getTaskName("draft","Agenda Slide");
 		//create virtual agenda item to initialize task
-		DefaultTitleAndContent agendaSlide = new DefaultTitleAndContent();
-		agendaSlide.setTitle("Agenda");
-		agendaSlide.setName(meeting.getName() + " Agenda Slide");
-		//TODO:allow adding sub-bullets...
-		for(AgendaItem topic : meeting.agenda()) {
-			agendaSlide.content().bullets().add(topic);
+		DefaultTitleAndContent topic = new DefaultTitleAndContent();
+		topic.setTitle("Agenda");
+		for(AgendaItem bullet : meeting.agenda()) {
+			topic.content().bullets().add(bullet);
 		}
-		Class<? extends DefaultTask> type = lookupType(agendaSlide);
-		Task task = (type!=null) ?
-				project.getTasks().create(name,type,meeting,agendaSlide) :
-				project.getTasks().create(name);
+		Class<? extends SlideGenerator> type = SlideGeneratorService.getTaskType(getPresentationFormat(),topic);
+		Task task = (type==null) ? project.getTasks().create(name) :
+			project.getTasks().create(name,type,meeting,topic);
 		task.setGroup(meeting.getName());
 		task.setDescription("Draft the agenda slide(s) for the " + meeting.getName() + ".");
 		draftSlides.dependsOn(task);
@@ -214,13 +221,13 @@ public class InitializeMeetingTasks {
 	protected void createDraftTitleSlideTask() {
 		String name = getTaskName("draft","Title Slide");
 		//create virtual agenda item to initialize task
-		DefaultTitleSlide titleSlide = new DefaultTitleSlide();
-		titleSlide.setTitle(meeting.getName());
-		titleSlide.setName(meeting.getName() + " Title Slide");
-		Class<? extends DefaultTask> type = lookupType(titleSlide);
-		Task task = (type!=null) ?
-				project.getTasks().create(name,type,meeting,titleSlide) :
-				project.getTasks().create(name);
+		DefaultTitleSlide topic = new DefaultTitleSlide();
+		topic.setName("title");
+		topic.setTitle(meeting.getName());
+		topic.setSubtitle(meeting.getDate());
+		Class<? extends SlideGenerator> type = SlideGeneratorService.getTaskType(getPresentationFormat(),topic);
+		Task task = (type==null) ? project.getTasks().create(name) :
+			project.getTasks().create(name,type,meeting,topic);
 		task.setGroup(meeting.getName());
 		task.setDescription("Draft the title slide for the " + meeting.getName() + ".");
 		draftSlides.dependsOn(task);
@@ -231,72 +238,20 @@ public class InitializeMeetingTasks {
 	 * @param topic
 	 */
 	protected void createDraftSlideTask(AgendaItem topic) {
-		String name = getTaskName("draft",topic.getTitle() + " Slide");
-		Class<? extends DefaultTask> type = lookupType(topic);
-		Task task = (type!=null) ? project.getTasks().create(name,type,meeting,topic) :
-				project.getTasks().create(name) ;
+		String name = getTaskName("draft",topic.getName() + " Slide");
+		String format = this.getPresentationFormat();
+		Class<? extends Task> type = SlideGeneratorService.getTaskType(format, topic);
+		Task task = (type==null) ? project.getTasks().create(name) :
+			project.getTasks().create(name,type,meeting,topic); //TODO:add class
 		task.setGroup(meeting.getName());
-		task.setDescription("Draft the " + topic.getTitle() 
+		task.setDescription("Draft the " + topic.getName() 
 			+ " slide for the " + meeting.getName() + " presentation.");
 		if(!topic.getDependencies().isEmpty())
 			task.dependsOn(topic.getDependencies());
 		draftSlides.dependsOn(task);
-		
-		for(AgendaItem subTopic : topic.subTopics())
-			if(!(subTopic instanceof Bullet))
-				createDraftSlideTask(subTopic);
-	}
-	
-	/**
-	 * TODO:documentation...
-	 * @param topic
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	protected Class<? extends DefaultTask> lookupType(AgendaItem topic) {
-		String formatter = topic.getFormatter();
-		if(formatter!=null) {
-			try {
-				return (Class<? extends DefaultTask>)Class.forName(formatter);
-			} catch (ClassNotFoundException e) {
-				project.getLogger().warn("Formatter {} not found.",formatter);
-				StringWriter sw = new StringWriter();
-				PrintWriter pw = new PrintWriter(sw);
-				e.printStackTrace(pw);
-				project.getLogger().trace(sw.toString());
-			}
-		} else {
-			String ext = templateType();
-			return lookupType(ext,topic.getClass());
+		for(AgendaItem subtopic : topic.subTopics()) {
+			createDraftSlideTask(subtopic);
 		}
-		return null; //TODO:why is this necessary? i think there is a missing bracket...
-	}
-	
-	protected Class<? extends DefaultTask> lookupType(String format,Class<?> type) {
-		switch(format) {
-		case ".pptx":
-			//get list of implemented interfaces
-			List<Class<?>> interfaces = new ArrayList<Class<?>>();
-			for(Class<?> iface : type.getInterfaces())
-				interfaces.add(iface);
-			
-			//TODO:how to make this extensible???
-			if(interfaces.contains(TitleAndContent.class))
-				return PPTXTitleAndContentSlide.class;
-			else if(interfaces.contains(TitleSlide.class))
-				return PPTXTitleSlide.class;
-			else if(interfaces.contains(AgendaItem.class))
-				return PPTXTitledSlide.class;
-			else
-				project.getLogger().warn(
-				"Unhanded slide format '{}'.",type.getName());
-			break;
-		default:
-			project.getLogger().warn(
-			"Unhanded presentation format '{}'.",format);
-			break;
-		}
-		return null;
 	}
 	
 	/**
@@ -351,4 +306,7 @@ public class InitializeMeetingTasks {
 				meeting.getName() + " meeting.");
 		milestone.dependsOn(publishMinutes);
 	}
+	
+	
+	
 }

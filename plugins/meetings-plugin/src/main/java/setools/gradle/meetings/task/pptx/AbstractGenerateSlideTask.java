@@ -24,14 +24,15 @@ import org.gradle.api.tasks.OutputFile;
 import org.gradle.api.tasks.TaskAction;
 
 import setools.gradle.meetings.MeetingsSourceSet;
-import setools.gradle.meetings.dsl.AgendaItem;
-import setools.gradle.meetings.dsl.Meeting;
+import setools.gradle.meetings.util.SlideGenerator;
+import setools.gradle.dsl.agenda.AgendaItem;
+import setools.gradle.dsl.meeting.Meeting;
 import setools.util.resources.ResourceLoader;
 
 /**
  * TODO:documentation...
  */
-public abstract class AbstractGenerateSlideTask extends DefaultTask {
+public abstract class AbstractGenerateSlideTask extends DefaultTask implements SlideGenerator {
 
 	/**
 	 * TODO:documentation...
@@ -52,6 +53,10 @@ public abstract class AbstractGenerateSlideTask extends DefaultTask {
 	public AbstractGenerateSlideTask(Meeting meeting,AgendaItem topic) {
 		this.meeting = meeting;
 		this.topic = topic;
+		String slideName = topic.getName() + " Slide";
+		slideName = slideName.toLowerCase().replace(" ", "-") + ".pptx";
+		//TODO:use meeting source set...
+		setOutput("src/meetings/" + meeting.getName() + "/" + slideName);
 	}
 	
 	/**
@@ -185,5 +190,33 @@ public abstract class AbstractGenerateSlideTask extends DefaultTask {
 			}
 		}
 		return null;
+	}
+	
+	protected void printLayouts(XMLSlideShow presentation) {
+		for(XSLFSlideMaster master : presentation.getSlideMasters()) {
+			System.out.printf("Master: %s%n", master);
+			for(XSLFSlideLayout layout : master.getSlideLayouts()) {
+				System.out.printf("Layout: %s%n", layout.getName());
+			}
+		}
+	}
+	
+	protected void printShapes(XSLFSlide slide) {
+		//actual shapes first
+		System.out.println("Slide Shapes:");
+		for(XSLFShape shape : slide.getShapes()) {
+			System.out.printf("%s => %s%n",shape.getShapeName(),shape.getClass());
+		}
+		
+		//next placeholders
+		System.out.println("Slide Placeholders:");
+		for(XSLFShape shape : slide.getPlaceholders()) {
+			System.out.printf("%s => %s%n",shape.getShapeName(),shape.getClass());
+		}
+	}
+
+	@Override
+	public String getFormat() {
+		return ".pptx";
 	}
 }

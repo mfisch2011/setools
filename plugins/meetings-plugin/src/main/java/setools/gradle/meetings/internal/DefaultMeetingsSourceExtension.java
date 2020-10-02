@@ -11,7 +11,7 @@ import org.gradle.api.file.SourceDirectorySet;
 import org.gradle.api.model.ObjectFactory;
 
 import setools.gradle.meetings.MeetingsSourceExtension;
-import setools.gradle.meetings.dsl.Meeting;
+import setools.gradle.dsl.meeting.Meeting;
 
 /**
  * TODO:documentation...
