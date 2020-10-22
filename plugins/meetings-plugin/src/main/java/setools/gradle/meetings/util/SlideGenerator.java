@@ -6,7 +6,7 @@ package setools.gradle.meetings.util;
 import java.io.File;
 
 import org.gradle.api.Task;
-import org.gradle.api.tasks.Input;
+import org.gradle.api.tasks.Internal;
 import org.gradle.api.tasks.OutputFile;
 
 /**
@@ -18,7 +18,7 @@ public interface SlideGenerator extends Task {
 	 * TODO:documentation...
 	 * @return
 	 */
-	@Input
+	@Internal
 	public String getFormat();
 	
 	/**

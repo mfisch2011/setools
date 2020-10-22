@@ -3,10 +3,12 @@
  */
 package setools.gradle.dsl.agenda.internal;
 
+import setools.gradle.dsl.agenda.TitleOnly;
+
 /**
  * TODO:documentation...
  */
-public class DefaultTitleOnly extends DefaultAgendaItem {
+public class DefaultTitleOnly extends DefaultAgendaItem implements TitleOnly {
 	
 	/**
 	 * TODO:documentation...
@@ -19,18 +21,12 @@ public class DefaultTitleOnly extends DefaultAgendaItem {
 		return (name!=null) ? name : title;
 	}
 	
-	/**
-	 * TODO:documentation...
-	 * @return
-	 */
+	@Override
 	public String getTitle() {
 		return title;
 	}
 	
-	/**
-	 * TODO:documentation...
-	 * @param title
-	 */
+	@Override
 	public void setTitle(String title) {
 		this.title = title;
 	}

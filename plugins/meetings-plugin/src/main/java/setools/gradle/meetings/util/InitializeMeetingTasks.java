@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.gradle.api.Project;
 import org.gradle.api.Task;
+import org.gradle.api.internal.project.ProjectInternal;
 
 import setools.gradle.dsl.agenda.AgendaItem;
 import setools.gradle.dsl.agenda.internal.DefaultBullet;
@@ -71,6 +72,7 @@ public class InitializeMeetingTasks {
 	public InitializeMeetingTasks(Project project,Meeting meeting) {
 		this.project = project;
 		this.meeting = meeting;
+		SlideGeneratorService.reinitialize(((ProjectInternal)project).getClassLoaderScope().getLocalClassLoader());
 	}
 
 	/**

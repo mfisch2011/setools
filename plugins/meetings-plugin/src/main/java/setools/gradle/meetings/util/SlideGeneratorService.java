@@ -3,18 +3,20 @@
  */
 package setools.gradle.meetings.util;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.Constructor;
+import java.net.URL;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-
 import setools.gradle.dsl.agenda.AgendaItem;
 import setools.gradle.dsl.meeting.Meeting;
-import setools.gradle.meetings.task.pptx.GenerateSectionSlide;
-import setools.gradle.meetings.task.pptx.GenerateTitleAndContentSlide;
-import setools.gradle.meetings.task.pptx.GenerateTitleOnlySlide;
-import setools.gradle.meetings.task.pptx.GenerateTitleSlide;
 
 /**
  * TODO:documentation...
@@ -34,8 +36,9 @@ public class SlideGeneratorService {
 	 * @return
 	 */
 	public static Class<? extends SlideGenerator> getTaskType(String format,AgendaItem topic) {
-		if(slideGenerators.containsKey(format)) {
-			Set<Class<? extends SlideGenerator>> generators = slideGenerators.get(format);
+		String fmt = format.toLowerCase();
+		if(slideGenerators.containsKey(fmt)) {
+			Set<Class<? extends SlideGenerator>> generators = slideGenerators.get(fmt);
 			
 			//try classes first
 			Class<?> type = topic.getClass();
@@ -83,19 +86,90 @@ public class SlideGeneratorService {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	private static Map<String, Set<Class<? extends SlideGenerator>>> initializeGenerators() {
 		Map<String,Set<Class<? extends SlideGenerator>>> results = 
 				new HashMap<String,Set<Class<? extends SlideGenerator>>>();
 		
-		//pptx format
-		Set<Class<? extends SlideGenerator>> generators = 
-				new HashSet<Class<? extends SlideGenerator>>();
-		results.put(".pptx", generators);
-		generators.add(GenerateSectionSlide.class);
-		generators.add(GenerateTitleAndContentSlide.class);
-		generators.add(GenerateTitleOnlySlide.class);
-		generators.add(GenerateTitleSlide.class);
+		//TODO:HOW TO MAKE THIS WORK SINCE GRADLE FUCKS UP CLASS LOADING!!!!!!!
 		
+		try {
+			Enumeration<URL> resources = ClassLoader.getSystemResources(
+				"META-INF/services/setools.gradle.meetings.util.SlideGenerator");
+			Iterator<URL> iter = resources.asIterator();
+			while(iter.hasNext()) {
+				URL url = iter.next();
+				System.out.printf("READING: %s%n", url);
+				InputStream stream = url.openStream();
+				BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+				Iterator<String> lines = reader.lines().iterator();
+				while(lines.hasNext()) {
+					String line = lines.next();
+					String[] parts = line.split(",");
+					if(parts.length==2) {
+						String format = parts[0].trim();
+						String name = parts[1].trim();
+						try {
+							Class<?> type = Class.forName(name);
+							Set<Class<? extends SlideGenerator>> generators;
+							if(results.containsKey(format))
+								generators = results.get(format);
+							else {
+								generators = new HashSet<Class<? extends SlideGenerator>>();
+								results.put(format, generators);
+							}
+							System.out.printf("ADDING GENERATOR: %s - %s%n", format,type.getName());
+							generators.add((Class<? extends SlideGenerator>) type);
+						} catch (ClassNotFoundException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+				stream.close();
+			}
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
 		return results;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static void reinitialize(ClassLoader classloader) {
+		try {
+			slideGenerators.clear();
+			Enumeration<URL> resources = classloader.getResources(
+				"META-INF/services/setools.gradle.meetings.util.SlideGenerator");
+			Iterator<URL> iter = resources.asIterator();
+			while(iter.hasNext()) {
+				URL url = iter.next();
+				InputStream stream = url.openStream();
+				BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+				Iterator<String> lines = reader.lines().iterator();
+				while(lines.hasNext()) {
+					String line = lines.next();
+					String[] parts = line.split(",");
+					if(parts.length==2) {
+						String format = parts[0].trim();
+						String name = parts[1].trim();
+						try {
+							Class<?> type = Class.forName(name);
+							Set<Class<? extends SlideGenerator>> generators;
+							if(slideGenerators.containsKey(format))
+								generators = slideGenerators.get(format);
+							else {
+								generators = new HashSet<Class<? extends SlideGenerator>>();
+								slideGenerators.put(format, generators);
+							}
+							generators.add((Class<? extends SlideGenerator>) type);
+						} catch (ClassNotFoundException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+				stream.close();
+			}
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

@@ -33,7 +33,6 @@ public class GenerateSectionSlide extends GenerateTitleOnlySlide {
 	
 	@Override
 	protected void createSlide(XSLFSlide slide) {
-		printShapes(slide);
 		super.createSlide(slide);
 		XSLFTextShape shape = (XSLFTextShape)findShape(slide,"Text");
 		shape.setText(getSubtitle());
@@ -41,7 +40,6 @@ public class GenerateSectionSlide extends GenerateTitleOnlySlide {
 
 	@Override
 	protected XSLFSlideLayout getLayout(XMLSlideShow presentation) {
-		printLayouts(presentation);
 		return findLayout(presentation,"Section Header");
 	}
 	

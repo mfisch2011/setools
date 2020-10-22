@@ -7,11 +7,12 @@ import org.gradle.util.ConfigureUtil;
 
 import groovy.lang.Closure;
 import setools.gradle.dsl.agenda.Content;
+import setools.gradle.dsl.agenda.TitleAndContent;
 
 /**
  * TODO:documentation...
  */
-public class DefaultTitleAndContent extends DefaultTitleOnly {
+public class DefaultTitleAndContent extends DefaultTitleOnly implements TitleAndContent {
 
 	/**
 	 * TODO:documentation...
@@ -25,19 +26,12 @@ public class DefaultTitleAndContent extends DefaultTitleOnly {
 		this.content = new DefaultContent();
 	}
 	
-	/**
-	 * TODO:documentation...
-	 * @return
-	 */
+	@Override
 	public Content content() {
 		return content;
 	}
 	
-	/**
-	 * TODO:documentation...
-	 * @param closure
-	 * @return
-	 */
+	@Override
 	@SuppressWarnings("rawtypes")
 	public Content content(Closure closure) {
 		ConfigureUtil.configure(closure, content);

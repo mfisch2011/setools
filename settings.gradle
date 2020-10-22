@@ -44,4 +44,8 @@ include "plugins:mbse-plugin"
 
 //project/program management plugins...
 include "plugins:meetings-plugin"
+include "plugins:risk-plugin"
+include "plugins:action-items-plugin"
+include "api:model:risk-api"
+
 

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_0" name="risk" URI="http://SETOOLS/RISK/0.0.2/risk" metaclassReference="_p5EN4AZKEeua9Ppfq-ROhA">
+  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QcT_UAZNEeua9Ppfq-ROhA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bHhk0AZNEeua9Ppfq-ROhA" source="PapyrusVersion">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bHhk0QZNEeua9Ppfq-ROhA" key="Version" value="0.0.0"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bHhk0gZNEeua9Ppfq-ROhA" key="Comment" value="&lt;undefined>"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bHhk0wZNEeua9Ppfq-ROhA" key="Copyright" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bHhk1AZNEeua9Ppfq-ROhA" key="Date" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bHhk1QZNEeua9Ppfq-ROhA" key="Author" value="&lt;undefined>"/>
+    </eAnnotations>
+    <contents xmi:type="ecore:EPackage" xmi:id="_dz-kAAZNEeua9Ppfq-ROhA" name="risk" nsURI="http://SETOOLS/RISK/0.0.2/risk" nsPrefix="risk">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dz_yIwZNEeua9Ppfq-ROhA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dz_yJAZNEeua9Ppfq-ROhA" key="Version" value="0.0.2"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dz_yJQZNEeua9Ppfq-ROhA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dz_yJgZNEeua9Ppfq-ROhA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dz_yJwZNEeua9Ppfq-ROhA" key="Date" value="2020-10-04"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dz_yKAZNEeua9Ppfq-ROhA" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_dz-kAQZNEeua9Ppfq-ROhA" name="Risk">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dz-kAgZNEeua9Ppfq-ROhA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_r5je8AZKEeua9Ppfq-ROhA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_dz-kAwZNEeua9Ppfq-ROhA" name="base_Class" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_dz-kBQZNEeua9Ppfq-ROhA" name="Statement" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_dz-kBwZNEeua9Ppfq-ROhA" name="Text" ordered="false" upperBound="-1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_dz-kCQZNEeua9Ppfq-ROhA" name="Category" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_dz-kCwZNEeua9Ppfq-ROhA" name="Likelihood" ordered="false" lowerBound="1" eType="_dz-kFgZNEeua9Ppfq-ROhA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_dz-kDQZNEeua9Ppfq-ROhA" name="Consequence" ordered="false" lowerBound="1" eType="_dz-kHQZNEeua9Ppfq-ROhA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_dz-kDwZNEeua9Ppfq-ROhA" name="RiskLevel" ordered="false" lowerBound="1" eType="_dz-kJAZNEeua9Ppfq-ROhA" changeable="false" derived="true"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_dz-kEQZNEeua9Ppfq-ROhA" name="Mitigations" ordered="false" upperBound="-1" eType="_dz-kKQZNEeua9Ppfq-ROhA" changeable="false" volatile="true" transient="true" derived="true">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dz-kEgZNEeua9Ppfq-ROhA" source="union"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_dz-kFAZNEeua9Ppfq-ROhA" name="Name" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EEnum" xmi:id="_dz-kFgZNEeua9Ppfq-ROhA" name="Likelihood">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dz-kFwZNEeua9Ppfq-ROhA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_RwmjoAZLEeua9Ppfq-ROhA"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_dz-kGAZNEeua9Ppfq-ROhA" name="NOT_LIKELY"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_dz-kGQZNEeua9Ppfq-ROhA" name="LOW_LIKELIHOOD" value="1"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_dz-kGgZNEeua9Ppfq-ROhA" name="LIKELY" value="2"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_dz-kGwZNEeua9Ppfq-ROhA" name="HIGHLY_LIKELY" value="3"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_dz-kHAZNEeua9Ppfq-ROhA" name="NEAR_CERTAIN" value="4"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EEnum" xmi:id="_dz-kHQZNEeua9Ppfq-ROhA" name="Consequence">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dz-kHgZNEeua9Ppfq-ROhA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_TU8rQAZLEeua9Ppfq-ROhA"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_dz-kHwZNEeua9Ppfq-ROhA" name="MINIMAL_IMPACT"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_dz-kIAZNEeua9Ppfq-ROhA" name="MINOR_IMPACT" value="1"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_dz-kIQZNEeua9Ppfq-ROhA" name="MODERATE_IMPACT" value="2"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_dz-kIgZNEeua9Ppfq-ROhA" name="SIGNIFICANT_IMPACT" value="3"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_dz-kIwZNEeua9Ppfq-ROhA" name="CRITICAL_IMPACT" value="4"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EEnum" xmi:id="_dz-kJAZNEeua9Ppfq-ROhA" name="RiskLevel">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dz-kJQZNEeua9Ppfq-ROhA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_P9Sy8AZLEeua9Ppfq-ROhA"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_dz-kJgZNEeua9Ppfq-ROhA" name="LOW"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_dz-kJwZNEeua9Ppfq-ROhA" name="MEDIUM" value="1"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_dz-kKAZNEeua9Ppfq-ROhA" name="HIGH" value="2"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_dz-kKQZNEeua9Ppfq-ROhA" name="Mitigation">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dz-kKgZNEeua9Ppfq-ROhA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_siSS4AZKEeua9Ppfq-ROhA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_dz-kKwZNEeua9Ppfq-ROhA" name="base_Class" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_dz-kLQZNEeua9Ppfq-ROhA" name="Name" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_dz-kLwZNEeua9Ppfq-ROhA" name="Text" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_dz-kMQZNEeua9Ppfq-ROhA" name="Likelihood" ordered="false" lowerBound="1" eType="_dz-kFgZNEeua9Ppfq-ROhA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_dz-kMwZNEeua9Ppfq-ROhA" name="Consequence" ordered="false" lowerBound="1" eType="_dz-kHQZNEeua9Ppfq-ROhA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_dz-kNQZNEeua9Ppfq-ROhA" name="RiskLevel" ordered="false" lowerBound="1" eType="_dz-kJAZNEeua9Ppfq-ROhA"/>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_QcUmYAZNEeua9Ppfq-ROhA" name="risk" nsURI="http:///schemas/risk/_QcPG0AZNEeua9Ppfq-ROhA/0" nsPrefix="risk">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QcYQwQZNEeua9Ppfq-ROhA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QcYQwgZNEeua9Ppfq-ROhA" key="Version" value="0.0.1"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QcYQwwZNEeua9Ppfq-ROhA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QcYQxAZNEeua9Ppfq-ROhA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QcYQxQZNEeua9Ppfq-ROhA" key="Date" value="2020-10-04"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QcYQxgZNEeua9Ppfq-ROhA" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_QcUmYQZNEeua9Ppfq-ROhA" name="Risk">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QcUmYgZNEeua9Ppfq-ROhA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_r5je8AZKEeua9Ppfq-ROhA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_QcUmYwZNEeua9Ppfq-ROhA" name="base_Class" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_QcUmZQZNEeua9Ppfq-ROhA" name="Statement" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_QcUmZwZNEeua9Ppfq-ROhA" name="Text" ordered="false" upperBound="-1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_QcUmaQZNEeua9Ppfq-ROhA" name="Category" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_QcUmawZNEeua9Ppfq-ROhA" name="Likelihood" ordered="false" lowerBound="1" eType="_QcUmdgZNEeua9Ppfq-ROhA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_QcUmbQZNEeua9Ppfq-ROhA" name="Consequence" ordered="false" lowerBound="1" eType="_QcUmfQZNEeua9Ppfq-ROhA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_QcUmbwZNEeua9Ppfq-ROhA" name="RiskLevel" ordered="false" lowerBound="1" eType="_QcUmhAZNEeua9Ppfq-ROhA" changeable="false" derived="true"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_QcUmcQZNEeua9Ppfq-ROhA" name="Mitigations" ordered="false" upperBound="-1" eType="_QcUmiQZNEeua9Ppfq-ROhA" changeable="false" volatile="true" transient="true" derived="true">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QcUmcgZNEeua9Ppfq-ROhA" source="union"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_QcUmdAZNEeua9Ppfq-ROhA" name="Name" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EEnum" xmi:id="_QcUmdgZNEeua9Ppfq-ROhA" name="Likelihood">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QcUmdwZNEeua9Ppfq-ROhA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_RwmjoAZLEeua9Ppfq-ROhA"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_QcUmeAZNEeua9Ppfq-ROhA" name="NOT_LIKELY"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_QcUmeQZNEeua9Ppfq-ROhA" name="LOW_LIKELIHOOD" value="1"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_QcUmegZNEeua9Ppfq-ROhA" name="LIKELY" value="2"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_QcUmewZNEeua9Ppfq-ROhA" name="HIGHLY_LIKELY" value="3"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_QcUmfAZNEeua9Ppfq-ROhA" name="NEAR_CERTAIN" value="4"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EEnum" xmi:id="_QcUmfQZNEeua9Ppfq-ROhA" name="Consequence">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QcUmfgZNEeua9Ppfq-ROhA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_TU8rQAZLEeua9Ppfq-ROhA"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_QcUmfwZNEeua9Ppfq-ROhA" name="MINIMAL_IMPACT"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_QcUmgAZNEeua9Ppfq-ROhA" name="MINOR_IMPACT" value="1"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_QcUmgQZNEeua9Ppfq-ROhA" name="MODERATE_IMPACT" value="2"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_QcUmggZNEeua9Ppfq-ROhA" name="SIGNIFICANT_IMPACT" value="3"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_QcUmgwZNEeua9Ppfq-ROhA" name="CRITICAL_IMPACT" value="4"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EEnum" xmi:id="_QcUmhAZNEeua9Ppfq-ROhA" name="RiskLevel">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QcUmhQZNEeua9Ppfq-ROhA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_P9Sy8AZLEeua9Ppfq-ROhA"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_QcUmhgZNEeua9Ppfq-ROhA" name="LOW"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_QcUmhwZNEeua9Ppfq-ROhA" name="MEDIUM" value="1"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_QcUmiAZNEeua9Ppfq-ROhA" name="HIGH" value="2"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_QcUmiQZNEeua9Ppfq-ROhA" name="Mitigation">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QcUmigZNEeua9Ppfq-ROhA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_siSS4AZKEeua9Ppfq-ROhA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_QcUmiwZNEeua9Ppfq-ROhA" name="base_Class" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_QcUmjQZNEeua9Ppfq-ROhA" name="Name" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_QcUmjwZNEeua9Ppfq-ROhA" name="Text" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_QcUmkQZNEeua9Ppfq-ROhA" name="Likelihood" ordered="false" lowerBound="1" eType="_QcUmdgZNEeua9Ppfq-ROhA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_QcUmkwZNEeua9Ppfq-ROhA" name="Consequence" ordered="false" lowerBound="1" eType="_QcUmfQZNEeua9Ppfq-ROhA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_QcUmlQZNEeua9Ppfq-ROhA" name="RiskLevel" ordered="false" lowerBound="1" eType="_QcUmhAZNEeua9Ppfq-ROhA"/>
+      </eClassifiers>
+    </contents>
+  </eAnnotations>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_p5EN4AZKEeua9Ppfq-ROhA" alias="Class">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_Z1cZQAZKEeua9Ppfq-ROhA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_Z1dnYAZKEeua9Ppfq-ROhA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_r5je8AZKEeua9Ppfq-ROhA" name="Risk">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_u6zpcAZKEeua9Ppfq-ROhA" name="base_Class" association="_u6ti0AZKEeua9Ppfq-ROhA">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_u6zpcQZKEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_8fR7EAZKEeua9Ppfq-ROhA" name="Statement">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_Ei06wAZLEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_GbTfUAZLEeua9Ppfq-ROhA" name="Text">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Lh6MwAZLEeua9Ppfq-ROhA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LiD9wAZLEeua9Ppfq-ROhA" value="*"/>
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_KJaIwAZLEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_VWuVwAZLEeua9Ppfq-ROhA" name="Category">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_XyVckAZLEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_ft7aIAZLEeua9Ppfq-ROhA" name="Likelihood" type="_RwmjoAZLEeua9Ppfq-ROhA">
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_iZ54MAZLEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_jDmVcAZLEeua9Ppfq-ROhA" name="Consequence" type="_TU8rQAZLEeua9Ppfq-ROhA">
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_l-NFYAZLEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_mkqBYAZLEeua9Ppfq-ROhA" name="RiskLevel" type="_P9Sy8AZLEeua9Ppfq-ROhA" isReadOnly="true" isDerived="true">
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_p4tzIAZLEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_u1WsQAZLEeua9Ppfq-ROhA" name="Mitigations" type="_siSS4AZKEeua9Ppfq-ROhA" isReadOnly="true" isDerived="true" isDerivedUnion="true">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zsVpUAZLEeua9Ppfq-ROhA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zscXAAZLEeua9Ppfq-ROhA" value="*"/>
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_zFuVQAZLEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_2yzOgAZMEeua9Ppfq-ROhA" name="Name">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_4-cmsAZMEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_siSS4AZKEeua9Ppfq-ROhA" name="Mitigation">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_vi6LQAZKEeua9Ppfq-ROhA" name="base_Class" association="_vi49IAZKEeua9Ppfq-ROhA">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vi6LQQZKEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_yj6MMAZMEeua9Ppfq-ROhA" name="Name">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_2LpH4AZMEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_7_IJcAZMEeua9Ppfq-ROhA" name="Text">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_-du54AZMEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="__bPrAAZMEeua9Ppfq-ROhA" name="Likelihood" type="_RwmjoAZLEeua9Ppfq-ROhA">
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_CAeA0AZNEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_CwDqsAZNEeua9Ppfq-ROhA" name="Consequence" type="_TU8rQAZLEeua9Ppfq-ROhA">
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_E4_GEAZNEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_GYS8sAZNEeua9Ppfq-ROhA" name="RiskLevel" type="_P9Sy8AZLEeua9Ppfq-ROhA">
+      <defaultValue xmi:type="uml:LiteralNull" xmi:id="_JcDBkAZNEeua9Ppfq-ROhA"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_u6ti0AZKEeua9Ppfq-ROhA" name="E_Risk_Class6" memberEnd="_u6x0QAZKEeua9Ppfq-ROhA _u6zpcAZKEeua9Ppfq-ROhA">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_u6x0QAZKEeua9Ppfq-ROhA" name="extension_Risk" type="_r5je8AZKEeua9Ppfq-ROhA" aggregation="composite" association="_u6ti0AZKEeua9Ppfq-ROhA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_vi49IAZKEeua9Ppfq-ROhA" name="E_Mitigation_Class7" memberEnd="_vi5kMAZKEeua9Ppfq-ROhA _vi6LQAZKEeua9Ppfq-ROhA">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_vi5kMAZKEeua9Ppfq-ROhA" name="extension_Mitigation" type="_siSS4AZKEeua9Ppfq-ROhA" aggregation="composite" association="_vi49IAZKEeua9Ppfq-ROhA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_P9Sy8AZLEeua9Ppfq-ROhA" name="RiskLevel">
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_4klxsAZLEeua9Ppfq-ROhA" name="LOW"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_5YabUAZLEeua9Ppfq-ROhA" name="MEDIUM"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6ZLUwAZLEeua9Ppfq-ROhA" name="HIGH"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_RwmjoAZLEeua9Ppfq-ROhA" name="Likelihood">
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lzbjUAZMEeua9Ppfq-ROhA" name="NOT_LIKELY"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_nIw-kAZMEeua9Ppfq-ROhA" name="LOW_LIKELIHOOD"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_okPeEAZMEeua9Ppfq-ROhA" name="LIKELY"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_phHWAAZMEeua9Ppfq-ROhA" name="HIGHLY_LIKELY"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_q1gWEAZMEeua9Ppfq-ROhA" name="NEAR_CERTAIN"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_TU8rQAZLEeua9Ppfq-ROhA" name="Consequence">
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_XDCRIAZMEeua9Ppfq-ROhA" name="MINIMAL_IMPACT"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ZaURkAZMEeua9Ppfq-ROhA" name="MINOR_IMPACT"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_b3ih8AZMEeua9Ppfq-ROhA" name="MODERATE_IMPACT"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_d3TaQAZMEeua9Ppfq-ROhA" name="SIGNIFICANT_IMPACT"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_feXesAZMEeua9Ppfq-ROhA" name="CRITICAL_IMPACT"/>
+  </packagedElement>
+</uml:Profile>

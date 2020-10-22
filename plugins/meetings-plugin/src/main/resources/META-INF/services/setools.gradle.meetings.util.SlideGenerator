@@ -1,0 +1,4 @@
+.pptx, setools.gradle.meetings.task.pptx.GenerateSectionSlide
+.pptx, setools.gradle.meetings.task.pptx.GenerateTitleAndContentSlide
+.pptx, setools.gradle.meetings.task.pptx.GenerateTitleOnlySlide
+.pptx, setools.gradle.meetings.task.pptx.GenerateTitleSlide

@@ -1,0 +1,35 @@
+/**
+   Copyright 2020 Matt Fischer <mfish2011@gmail.com>
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+       http://www.apache.org/licenses/LICENSE-2.0
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+gradlePlugin {
+	plugins {
+		riskManagementPlugin {
+			id = "setools.gradle.risk.RiskManagementPlugin"
+			implementationClass = "setools.gradle.risk.RiskManagementPlugin"
+		}
+		riskReviewPlugin {
+			id = "setools.gradle.risk.RiskReviewPlugin"
+			implementationClass = "setools.gradle.risk.RiskReviewPlugin"
+		}
+	}
+}
+
+dependencies {
+	implementation project(":plugins:meetings-plugin")
+	implementation project(":plugins:action-items-plugin")
+	implementation project(":api:model:risk-api")
+	implementation "org.apache.poi:poi-ooxml:[4.1.2,5.0.0)"
+	
+	//TODO: why do these not pull in automatically?
+	implementation "org.eclipse.emf:org.eclipse.emf.ecore:[2.18.0,3.0.0)"
+	implementation "org.eclipse.uml2:org.eclipse.uml2.uml.resources:[5.0.0,6.0.0)"
+}

@@ -3,6 +3,7 @@
  */
 package setools.gradle.meetings;
 
+import java.io.File;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Properties;
@@ -39,15 +40,32 @@ public class MeetingsBasePlugin implements Plugin<ProjectInternal> {
 	}
 	
 	protected void createTemplatesSourceSet(ProjectInternal project) {
-		//TODO:actually make a configurable source set...
-		Properties properties = new Properties();
-		properties.setProperty("resource.loader", "templates.file,absolute.file,classpath");
-		properties.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
-		properties.setProperty("templates.file.resource.loader.class",FileResourceLoader.class.getName());
-		properties.setProperty("templates.file.resource.loader.path",project.file("src/templates").getAbsolutePath());
-		properties.setProperty("absolute.file.resource.loader.class",FileResourceLoader.class.getName());
-		properties.setProperty("absolute.file.resource.loader.path", "");
-		ResourceLoader.configure(properties);
+		SourceSet templates = sourceSets(project).create("templates");
+		templates.getAllSource().srcDir("src/templates");
+		//register callback to configure ResourceLoader once we have the sourceSet
+		project.afterEvaluate(new Action<Project>() {
+
+			@Override
+			public void execute(Project project) {
+				SourceSet sourceSet = sourceSets((ProjectInternal)project).getByName("templates");
+				Properties properties = new Properties();
+				String resourceLoaders = "absolute.file,classpath";
+				properties.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
+				properties.setProperty("absolute.file.resource.loader.class",FileResourceLoader.class.getName());
+				properties.setProperty("absolute.file.resource.loader.path", "");
+				for(File dir : sourceSet.getAllSource().getSrcDirs()) {
+					if(dir.isDirectory()) {
+						String name = dir.getName().toLowerCase().replace(' ', '-') + ".file";
+						resourceLoaders = name + "," + resourceLoaders;
+						properties.setProperty(name + ".resource.loader.class",FileResourceLoader.class.getName());
+						properties.setProperty(name + ".resource.loader.path", dir.getAbsolutePath());
+					}
+				}
+				properties.setProperty("resource.loader",resourceLoaders);
+				ResourceLoader.configure(properties);
+			}
+			
+		});
 	}
 	
 	/**

@@ -7,6 +7,12 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
+import org.apache.poi.xslf.usermodel.XMLSlideShow;
+import org.apache.poi.xslf.usermodel.XSLFShape;
+import org.apache.poi.xslf.usermodel.XSLFSlide;
+import org.apache.poi.xslf.usermodel.XSLFSlideLayout;
+import org.apache.poi.xslf.usermodel.XSLFTextParagraph;
+import org.apache.poi.xslf.usermodel.XSLFTextShape;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.Optional;
 
@@ -41,6 +47,32 @@ public class GenerateTitleAndContentSlide extends GenerateTitleOnlySlide {
 				}
 			}
 		} //TODO:else handle picture content...
+	}
+	
+	@Override
+	protected void createSlide(XSLFSlide slide) {
+		super.createSlide(slide);
+		XSLFShape content = findShape(slide,"Content");
+		String text = getContentText();
+		if(text!=null && !text.isEmpty()) {
+			XSLFTextShape textShape = (XSLFTextShape)content;
+			textShape.setText(text);
+		} else if(!getBullets().isEmpty()) {
+			//TODO:sub-bullets...
+			XSLFTextShape textShape = (XSLFTextShape)content;
+			textShape.clearText();
+			for(String bullet : getBullets()) {
+				XSLFTextParagraph para = textShape.addNewTextParagraph();
+				para.setBullet(true);
+				//TODO:bullet format...
+				para.addNewTextRun().setText(bullet);
+			}
+		}
+	}
+
+	@Override
+	protected XSLFSlideLayout getLayout(XMLSlideShow presentation) {
+		return findLayout(presentation,"Title and Content");
 	}
 	
 	/**

@@ -36,7 +36,7 @@ public class MeetingsPlugin implements Plugin<Project> {
 			@Override
 			public void execute(Project project) {
 				MeetingsHandler extension = (MeetingsHandler)
-						project.getExtensions().getByName("meetings");
+						project.getExtensions().getByName(PLUGIN_EXT);
 				for(Meeting meeting : extension) {
 					InitializeMeetingTasks initializer = 
 						new InitializeMeetingTasks(project,meeting);
