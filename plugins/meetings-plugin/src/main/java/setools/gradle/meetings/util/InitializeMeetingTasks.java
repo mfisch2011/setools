@@ -18,7 +18,7 @@ import setools.gradle.dsl.attendee.Attendee;
 import setools.gradle.dsl.meeting.Meeting;
 import org.apache.commons.text.CaseUtils;
 
-import setools.gradle.dsl.agenda.*;
+import setools.gradle.dsl.agenda.internal.*;
 import setools.gradle.meetings.task.pptx.*;
 
 /**
@@ -176,15 +176,20 @@ public class InitializeMeetingTasks {
 	 * @return
 	 */
 	protected Class<? extends SlideGenerator> getTaskType(String format,AgendaItem topic) {
+		System.out.println(topic);
 		//TODO:add support for other format types...
-		if(topic instanceof TitleAndContent) {
-			return GenerateTitleAndContentSlide.class;
-		} else if(topic instanceof TitleOnly) {
-			return GenerateTitleOnlySlide.class;
-		} else if(topic instanceof DefaultTitleSlide) {
+		if(topic instanceof DefaultTitleSlide)
 			return GenerateTitleSlide.class;
-		} else
+		else if(topic instanceof DefaultTitleAndContent)
 			return GenerateTitleAndContentSlide.class;
+		else if(topic instanceof DefaultSectionSlide)
+			return GenerateSectionSlide.class;
+		else if(topic instanceof DefaultTitleOnly)
+			return GenerateTitleOnlySlide.class;
+		else if(topic instanceof DefaultAgendaItem)
+			return GenerateTitleAndContentSlide.class;
+		else
+			return null;
 	}
 	
 	/**

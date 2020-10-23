@@ -1,0 +1,77 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "meetings-plugin",
+    "version": "0.0.0.37",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.7",
+      "buildId": "ib5sen6jsjdqxcdssi7nurploy"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "meetings-plugin-0.0.0.37.jar",
+          "url": "meetings-plugin-0.0.0.37.jar",
+          "size": 69958,
+          "sha512": "1805caff7b2012a717c057eca50730a59ad7e6bf15708088cdc5271e7e85a8031a337dab18336498a7de3102690e83200e79d7a0921ffda27dc0d66f0268e07c",
+          "sha256": "8d8c0648156b718463a0b758e7b0b3ce932046191fe0ad217a02ba0c0ac3f6d5",
+          "sha1": "0a199a18a56397583d04476a9a5144810b929ef9",
+          "md5": "ee9af40679efd50e8f5b9884165cf03c"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.commons",
+          "module": "commons-text",
+          "version": {
+            "requires": "1.9"
+          }
+        },
+        {
+          "group": "org.apache.poi",
+          "module": "poi-ooxml",
+          "version": {
+            "requires": "4.1.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "meetings-plugin-0.0.0.37.jar",
+          "url": "meetings-plugin-0.0.0.37.jar",
+          "size": 69958,
+          "sha512": "1805caff7b2012a717c057eca50730a59ad7e6bf15708088cdc5271e7e85a8031a337dab18336498a7de3102690e83200e79d7a0921ffda27dc0d66f0268e07c",
+          "sha256": "8d8c0648156b718463a0b758e7b0b3ce932046191fe0ad217a02ba0c0ac3f6d5",
+          "sha1": "0a199a18a56397583d04476a9a5144810b929ef9",
+          "md5": "ee9af40679efd50e8f5b9884165cf03c"
+        }
+      ]
+    }
+  ]
+}
