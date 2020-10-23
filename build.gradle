@@ -36,8 +36,11 @@ allprojects {
 	apply plugin: "io.toolebox.git-versioner"
 	apply plugin: "maven-publish"
 	
-	sourceCompatibility = "1.8"
-	targetCompatibility = "1.8"
+	//TODO:WTFF DOES THIS NOT FLOW DOWN TO SUB-PROJECT!?
+	compileJava {
+		sourceCompatibility = "8"
+		targetCompatibility = "8"
+	}
 	
 	versioner {
 		pattern { pattern = "%M.%m.%p(.%c)" }
@@ -48,5 +51,17 @@ allprojects {
         	maven { url = "${rootProject.rootDir}/releases" }
         	mavenLocal();
     	}
+    }
+}
+
+//TODO:THIS CRAP IS ASSININE HOW TO MAKE GRADLE FIX IT!!!!!
+clean {
+    subprojects.each {
+        it.afterEvaluate {
+            def cleanTask = it.tasks.findByName('clean')
+            if (cleanTask) {
+                dependsOn(cleanTask)
+            }
+        }
     }
 }

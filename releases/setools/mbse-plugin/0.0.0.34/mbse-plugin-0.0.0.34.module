@@ -1,0 +1,77 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "mbse-plugin",
+    "version": "0.0.0.34",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.7",
+      "buildId": "igidnqsaxreink5koyvwdv2ism"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "mbse-plugin-0.0.0.34.jar",
+          "url": "mbse-plugin-0.0.0.34.jar",
+          "size": 4169,
+          "sha512": "95ed890f4e524ea5286a047c9beab0992ab0247d15ecaf42932dde49b2f91eed55267490ea8c443142881fbbbb5a141d0361d507882d09e1310e6b634dd6f7ee",
+          "sha256": "2fce82ccf1f388f7d4627ef1562066ece2c5fd71f3366d22b4cf2fb564626379",
+          "sha1": "d90e175985e2d471ed1cb430ffb1b1ac7c113fbe",
+          "md5": "4cd9b6d9746d45bc79780eb88a8b66fe"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "meetings-plugin",
+          "version": {
+            "requires": "0.0.0.34"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "risk-plugin",
+          "version": {
+            "requires": "0.0.0.34"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "mbse-plugin-0.0.0.34.jar",
+          "url": "mbse-plugin-0.0.0.34.jar",
+          "size": 4169,
+          "sha512": "95ed890f4e524ea5286a047c9beab0992ab0247d15ecaf42932dde49b2f91eed55267490ea8c443142881fbbbb5a141d0361d507882d09e1310e6b634dd6f7ee",
+          "sha256": "2fce82ccf1f388f7d4627ef1562066ece2c5fd71f3366d22b4cf2fb564626379",
+          "sha1": "d90e175985e2d471ed1cb430ffb1b1ac7c113fbe",
+          "md5": "4cd9b6d9746d45bc79780eb88a8b66fe"
+        }
+      ]
+    }
+  ]
+}

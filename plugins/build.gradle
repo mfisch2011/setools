@@ -13,6 +13,11 @@
 subprojects {
 	apply plugin: "java-gradle-plugin"
 	
+	compileJava {
+		sourceCompatibility = "8"
+		targetCompatibility = "8"
+	}
+	
 	sourceSets {
 		functionalTest {
 			resources {

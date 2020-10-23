@@ -13,6 +13,11 @@
 subprojects {
 	apply plugin: "java-library"
 	
+	compileJava {
+		sourceCompatibility = "8"
+		targetCompatibility = "8"
+	}
+	
 	dependencies {
 		testCompile "junit:junit:4.12"
 	}
