@@ -3,14 +3,15 @@
   <groupId>setools.gradle.mbse.MBSEPlugin</groupId>
   <artifactId>setools.gradle.mbse.MBSEPlugin.gradle.plugin</artifactId>
   <versioning>
-    <latest>0.0.0.35</latest>
-    <release>0.0.0.35</release>
+    <latest>0.0.0.36</latest>
+    <release>0.0.0.36</release>
     <versions>
       <version>0.0.0.31</version>
       <version>0.0.0.33</version>
       <version>0.0.0.34</version>
       <version>0.0.0.35</version>
+      <version>0.0.0.36</version>
     </versions>
-    <lastUpdated>20201023193222</lastUpdated>
+    <lastUpdated>20201023194211</lastUpdated>
   </versioning>
 </metadata>
