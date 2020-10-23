@@ -1,0 +1,105 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "risk-plugin",
+    "version": "0.0.0.33",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "zp73qaha4vd2pdvfcbfmytq2mm"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "risk-plugin-0.0.0.33.jar",
+          "url": "risk-plugin-0.0.0.33.jar",
+          "size": 66039,
+          "sha512": "1b0f8f3a9cc4dd3caadd30db586c26fabad0243ce60bf61dbf8d4ede967507042a773f515bffe90b3e11445525f8c1a64733c3aaca77648109c3325d0f0e1d7d",
+          "sha256": "725f979a08c87a9202a755e50b948dd7b760200799f0fc95da6c04a3fd8941f3",
+          "sha1": "efc86c842de75b655ad055d41dcec9a3d2b3f827",
+          "md5": "a825d867b98d4ee8270ece59abba6edf"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "meetings-plugin",
+          "version": {
+            "requires": "0.0.0.33"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "action-items-plugin",
+          "version": {
+            "requires": "0.0.0.33"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "risk-api",
+          "version": {
+            "requires": "0.0.0.33"
+          }
+        },
+        {
+          "group": "org.apache.poi",
+          "module": "poi-ooxml",
+          "version": {
+            "requires": "[4.1.2,5.0.0)"
+          }
+        },
+        {
+          "group": "org.eclipse.emf",
+          "module": "org.eclipse.emf.ecore",
+          "version": {
+            "requires": "[2.18.0,3.0.0)"
+          }
+        },
+        {
+          "group": "org.eclipse.uml2",
+          "module": "org.eclipse.uml2.uml.resources",
+          "version": {
+            "requires": "[5.0.0,6.0.0)"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "risk-plugin-0.0.0.33.jar",
+          "url": "risk-plugin-0.0.0.33.jar",
+          "size": 66039,
+          "sha512": "1b0f8f3a9cc4dd3caadd30db586c26fabad0243ce60bf61dbf8d4ede967507042a773f515bffe90b3e11445525f8c1a64733c3aaca77648109c3325d0f0e1d7d",
+          "sha256": "725f979a08c87a9202a755e50b948dd7b760200799f0fc95da6c04a3fd8941f3",
+          "sha1": "efc86c842de75b655ad055d41dcec9a3d2b3f827",
+          "md5": "a825d867b98d4ee8270ece59abba6edf"
+        }
+      ]
+    }
+  ]
+}

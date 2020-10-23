@@ -22,6 +22,8 @@ buildscript {
 	}
 }
 
+apply plugin: "java" //to resolve sourceCompatibility targetCompatibility
+
 allprojects {
 	
 	repositories {
@@ -33,6 +35,9 @@ allprojects {
 	
 	apply plugin: "io.toolebox.git-versioner"
 	apply plugin: "maven-publish"
+	
+	sourceCompatibility = "1.8"
+	targetCompatibility = "1.8"
 	
 	versioner {
 		pattern { pattern = "%M.%m.%p(.%c)" }
