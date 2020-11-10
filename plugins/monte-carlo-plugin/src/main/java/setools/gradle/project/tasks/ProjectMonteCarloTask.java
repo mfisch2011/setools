@@ -8,7 +8,6 @@ import java.util.Date;
 
 import org.gradle.api.Project;
 import org.gradle.api.Task;
-import org.gradle.api.internal.TaskOutputsInternal;
 import org.gradle.api.specs.Spec;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.OutputFile;
@@ -32,8 +31,8 @@ public class ProjectMonteCarloTask extends SourceTask {
 	protected final ProjectMonteCarlo application;
 
 	public ProjectMonteCarloTask() {
-		//TODO:set the source directory...
-		//TODO:set the filter(s)
+		setSource("src/project"); //TODO:get this from the project source set...
+		include("*.mpp"); //TODO:add other types supported by MXJP...
 		application = new ProjectMonteCarlo();
 		
 		/*
