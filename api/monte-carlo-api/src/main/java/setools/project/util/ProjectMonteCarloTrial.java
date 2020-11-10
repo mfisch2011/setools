@@ -119,6 +119,8 @@ public class ProjectMonteCarloTrial implements Callable<File> {
 		if(lower!=null && upper!=null) {
 			double lowerTime = lower.getDuration();
 			double upperTime = upper.getDuration();
+			if(upperTime == lowerTime)
+				upperTime = lowerTime + 1;
 			double randomTime = ThreadLocalRandom.current()
 					.nextDouble(lowerTime, upperTime);
 			//TODO:how to handle different time units?
