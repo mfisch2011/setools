@@ -1,0 +1,93 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "monte-carlo-api",
+    "version": "0.0.0.41",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "gl32mala4vasviphtlu7xzwgby"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "net.sf.mpxj",
+          "module": "mpxj",
+          "version": {
+            "requires": "[8.3.2,9.0.0)"
+          }
+        },
+        {
+          "group": "org.apache.commons",
+          "module": "commons-math3",
+          "version": {
+            "requires": "[3.6.1,4.0.0)"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "monte-carlo-api-0.0.0.41.jar",
+          "url": "monte-carlo-api-0.0.0.41.jar",
+          "size": 5933,
+          "sha512": "3aadb939e8377211f09f4dd2e8b9470cbc999bc1f6b615315e37301fa8876c8813a8225238c951f2be49fc05304405df1dc4df4e6e2ae972767a35244556c747",
+          "sha256": "268050a959654d9618d5b04a94705eec95bf827ebe63eafea856aecd562dd73a",
+          "sha1": "a7084c0d9c7fa213576d65f2762b7db49f4e1eaa",
+          "md5": "de79d35f630628e14f878c96ece7cf42"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "net.sf.mpxj",
+          "module": "mpxj",
+          "version": {
+            "requires": "[8.3.2,9.0.0)"
+          }
+        },
+        {
+          "group": "org.apache.commons",
+          "module": "commons-math3",
+          "version": {
+            "requires": "[3.6.1,4.0.0)"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "monte-carlo-api-0.0.0.41.jar",
+          "url": "monte-carlo-api-0.0.0.41.jar",
+          "size": 5933,
+          "sha512": "3aadb939e8377211f09f4dd2e8b9470cbc999bc1f6b615315e37301fa8876c8813a8225238c951f2be49fc05304405df1dc4df4e6e2ae972767a35244556c747",
+          "sha256": "268050a959654d9618d5b04a94705eec95bf827ebe63eafea856aecd562dd73a",
+          "sha1": "a7084c0d9c7fa213576d65f2762b7db49f4e1eaa",
+          "md5": "de79d35f630628e14f878c96ece7cf42"
+        }
+      ]
+    }
+  ]
+}
