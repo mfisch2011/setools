@@ -1,0 +1,77 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "monte-carlo-app",
+    "version": "0.0.0.44",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "7flfmwsjn5bwpjvnsxttbxvcpa"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "monte-carlo-app-0.0.0.44.jar",
+          "url": "monte-carlo-app-0.0.0.44.jar",
+          "size": 7227,
+          "sha512": "a4b2bf37c89791beefc5f7a73bf5dc419ec3c46a4b0dbec120f34fbdb3ee3cfbd5c0a4a5f612ab59a3538313c9ef42281f3a5d049e76eaf74f96c7a7631a7f92",
+          "sha256": "419c793a21690536e154a5b08ccd075e0a65775a6e0d728c889beb2bc5128575",
+          "sha1": "e02be67fa8d6e651c000d4aa56edafa9cf236990",
+          "md5": "be8ec23a4045944bd38581f67503c93c"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "info.picocli",
+          "module": "picocli",
+          "version": {
+            "requires": "4.1.0"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "monte-carlo-api",
+          "version": {
+            "requires": "0.0.0.44"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "monte-carlo-app-0.0.0.44.jar",
+          "url": "monte-carlo-app-0.0.0.44.jar",
+          "size": 7227,
+          "sha512": "a4b2bf37c89791beefc5f7a73bf5dc419ec3c46a4b0dbec120f34fbdb3ee3cfbd5c0a4a5f612ab59a3538313c9ef42281f3a5d049e76eaf74f96c7a7631a7f92",
+          "sha256": "419c793a21690536e154a5b08ccd075e0a65775a6e0d728c889beb2bc5128575",
+          "sha1": "e02be67fa8d6e651c000d4aa56edafa9cf236990",
+          "md5": "be8ec23a4045944bd38581f67503c93c"
+        }
+      ]
+    }
+  ]
+}

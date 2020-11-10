@@ -1,0 +1,93 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "risk-api",
+    "version": "0.0.0.44",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "7flfmwsjn5bwpjvnsxttbxvcpa"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.eclipse.emf",
+          "module": "org.eclipse.emf.ecore",
+          "version": {
+            "requires": "[2.18.0,3.0.0)"
+          }
+        },
+        {
+          "group": "org.eclipse.uml2",
+          "module": "org.eclipse.uml2.uml.resources",
+          "version": {
+            "requires": "[5.0.0,6.0.0)"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "risk-api-0.0.0.44.jar",
+          "url": "risk-api-0.0.0.44.jar",
+          "size": 38936,
+          "sha512": "f9ad1008c0222091df96423355526d331c6d854e3ffe670130c0d2b3ae8a5321fac51df669d933082b80f825924b74251f0593122091d49ae0d387708992a099",
+          "sha256": "de8829cd997fe92f52d61efaae8d410352d4979c3fd8d6daebae66ad2f1b018b",
+          "sha1": "d5d6d4eedc9d69d52bd12bbfcd073681144751d3",
+          "md5": "015001614de8660bb7a2350a6b551bb1"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.eclipse.emf",
+          "module": "org.eclipse.emf.ecore",
+          "version": {
+            "requires": "[2.18.0,3.0.0)"
+          }
+        },
+        {
+          "group": "org.eclipse.uml2",
+          "module": "org.eclipse.uml2.uml.resources",
+          "version": {
+            "requires": "[5.0.0,6.0.0)"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "risk-api-0.0.0.44.jar",
+          "url": "risk-api-0.0.0.44.jar",
+          "size": 38936,
+          "sha512": "f9ad1008c0222091df96423355526d331c6d854e3ffe670130c0d2b3ae8a5321fac51df669d933082b80f825924b74251f0593122091d49ae0d387708992a099",
+          "sha256": "de8829cd997fe92f52d61efaae8d410352d4979c3fd8d6daebae66ad2f1b018b",
+          "sha1": "d5d6d4eedc9d69d52bd12bbfcd073681144751d3",
+          "md5": "015001614de8660bb7a2350a6b551bb1"
+        }
+      ]
+    }
+  ]
+}

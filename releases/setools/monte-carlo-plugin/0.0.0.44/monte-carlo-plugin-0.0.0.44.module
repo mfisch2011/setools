@@ -1,0 +1,70 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "monte-carlo-plugin",
+    "version": "0.0.0.44",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "7flfmwsjn5bwpjvnsxttbxvcpa"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "monte-carlo-plugin-0.0.0.44.jar",
+          "url": "monte-carlo-plugin-0.0.0.44.jar",
+          "size": 4294,
+          "sha512": "1a24b9d6ac8544edf4c2cbe53582e2f884fed93b40216be9a2dadf5fa125566f06e6e7535a4f01c703324ce5cc7a73bc61c504d9e12cefbe65235acf771ebfd7",
+          "sha256": "cd2b578de87bbf22b9b110b26ff93a27be2bcdc6ee0eba7c76777d7690212067",
+          "sha1": "36950d84857b6b8fe141e9c870e0ecd6d1bbb9f5",
+          "md5": "5f70c60fb19ebe0a1d30a77e0d3910f6"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "monte-carlo-app",
+          "version": {
+            "requires": "0.0.0.44"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "monte-carlo-plugin-0.0.0.44.jar",
+          "url": "monte-carlo-plugin-0.0.0.44.jar",
+          "size": 4294,
+          "sha512": "1a24b9d6ac8544edf4c2cbe53582e2f884fed93b40216be9a2dadf5fa125566f06e6e7535a4f01c703324ce5cc7a73bc61c504d9e12cefbe65235acf771ebfd7",
+          "sha256": "cd2b578de87bbf22b9b110b26ff93a27be2bcdc6ee0eba7c76777d7690212067",
+          "sha1": "36950d84857b6b8fe141e9c870e0ecd6d1bbb9f5",
+          "md5": "5f70c60fb19ebe0a1d30a77e0d3910f6"
+        }
+      ]
+    }
+  ]
+}
