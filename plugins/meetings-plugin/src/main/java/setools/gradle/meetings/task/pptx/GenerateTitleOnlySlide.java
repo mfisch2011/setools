@@ -12,6 +12,7 @@ import org.apache.poi.xslf.usermodel.XSLFTextShape;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.Optional;
 
+import setools.gradle.dsl.agenda.TitleOnly;
 import setools.gradle.dsl.agenda.internal.DefaultTitleOnly;
 import setools.gradle.dsl.meeting.Meeting;
 
@@ -26,7 +27,7 @@ public class GenerateTitleOnlySlide extends AbstractGenerateSlideTask {
 	 * @param topic
 	 */
 	@Inject
-	public GenerateTitleOnlySlide(Meeting meeting,DefaultTitleOnly topic) {
+	public GenerateTitleOnlySlide(Meeting meeting,TitleOnly topic) {
 		super(meeting, topic);
 		setTitle(topic.getTitle());
 	}

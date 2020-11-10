@@ -74,6 +74,7 @@ public class ResourceLoader {
 				//TODO:change this to be more efficient (i.e. loaders not created every call...)
 				if(type.equals(FileResourceLoader.class.getName())) {
 					String root = properties().getProperty(loader + ".resource.loader.path");
+					System.out.printf("SEARCHING: %s%n",root);
 					FileResourceLoader actualLoader = (root==null) ? 
 							new FileResourceLoader() : new FileResourceLoader(new File(root));
 					InputStream result = actualLoader.getResource(resource);
@@ -81,6 +82,7 @@ public class ResourceLoader {
 						return result;
 				} else if(type.equals(ClasspathResourceLoader.class.getName())) {
 					ClasspathResourceLoader actualLoader = new ClasspathResourceLoader();
+					System.out.printf("SEARCHING CLASSPATH%n");
 					InputStream result = actualLoader.getResource(resource);
 					if(result!=null)
 						return result;

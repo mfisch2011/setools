@@ -48,4 +48,7 @@ include "plugins:risk-plugin"
 include "plugins:action-items-plugin"
 include "api:model:risk-api"
 
-
+//simulation utilities
+include "plugins:monte-carlo-plugin"
+include "app:monte-carlo-app"
+include "api:monte-carlo-api"

@@ -35,18 +35,6 @@ public interface RisksSection extends AgendaItem {
 	 */
 	public void setOverviewSlide(boolean set);
 	
-	/**
-	 * TODO:documentation...
-	 * @return
-	 */
-	public RiskCollection filter();
-	
-	/**
-	 * TODO:documentation...
-	 * @param closure
-	 * @return
-	 */
-	@SuppressWarnings("rawtypes")
-	public RiskCollection filter(Closure closure);
+	//TODO:allow configuration of filter(s)...
 	
 }

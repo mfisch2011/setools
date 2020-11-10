@@ -4,7 +4,6 @@
 package setools.gradle.risk;
 
 import groovy.lang.Closure;
-import setools.gradle.actions.dsl.ActionItemReview;
 import setools.gradle.dsl.agenda.TitleAndContent;
 import setools.gradle.dsl.meeting.Meeting;
 import setools.gradle.risk.dsl.RisksSection;

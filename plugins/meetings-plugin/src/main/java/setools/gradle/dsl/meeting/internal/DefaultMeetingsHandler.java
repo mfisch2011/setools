@@ -4,6 +4,10 @@
 package setools.gradle.dsl.meeting.internal;
 
 import java.util.ArrayList;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.IllegalArgumentException;
+
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -15,6 +19,8 @@ import org.gradle.util.ConfigureUtil;
 import groovy.lang.Closure;
 import setools.gradle.dsl.meeting.Meeting;
 import setools.gradle.dsl.meeting.MeetingsHandler;
+
+import setools.util.resources.ResourceLoader;
 
 /**
  * TODO:documentation...
@@ -29,7 +35,7 @@ public class DefaultMeetingsHandler implements MeetingsHandler {
 	/**
 	 * TODO:documentation...
 	 */
-	protected final Collection<Meeting> meetings;
+	protected final Collection<Meeting> meetings; // TODO Auto-generated method stub
 	
 	/**
 	 * TODO:documentation...
@@ -93,7 +99,8 @@ public class DefaultMeetingsHandler implements MeetingsHandler {
 
 	@Override
 	public int size() {
-		return meetings.size();
+		return meetings.size();// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -122,37 +129,7 @@ public class DefaultMeetingsHandler implements MeetingsHandler {
 		return meeting;
 	}
 	
-	/**
-	 * TODO:documentation...
-	 */
-	protected String agendaTemplate = "templates/meeting-agena.docx"; //TODO:make templates a source set...
-
-	@Override
-	public String getAgendaTemplate() {
-		return agendaTemplate;
-	}
-
-	@Override
-	public void setAgendaTemplate(String template) {
-		//TODO:validate template
-		agendaTemplate = template;
-	}
-	
-	/**
-	 * TODO:documentation...
-	 */
-	protected String minutesTemplate = "templates/meeting-minutes.docx"; //TODO:make templates a source set...
-
-	@Override
-	public String getMinutesTemplate() {
-		return minutesTemplate;
-	}
-
-	@Override
-	public void setMinutesTemplate(String template) {
-		//TODO:validate template
-		minutesTemplate = template;
-	}
+	//TODO:allow configuring the agenda and minutes by templates...
 	
 	/**
 	 * TODO:documentation...
@@ -168,5 +145,47 @@ public class DefaultMeetingsHandler implements MeetingsHandler {
 	public void setPresentationTemplate(String template) {
 		//TODO:validate template
 		presentationTemplate = template;
+	}
+	
+	/**
+	 * TODO:documentation...
+	 */
+	protected String agendaTemplate = "templates/meeting-agenda-template.odt";
+
+	@Override
+	public String getAgendaTemplate() {
+		return agendaTemplate;
+	}
+
+	@Override
+	public void setAgendaTemplate(String template) {
+		try {
+			InputStream stream = ResourceLoader.getResource(template);
+			stream.close();
+			agendaTemplate = template;
+		} catch(IOException e) {
+			throw new IllegalArgumentException(e);
+		}
+	}
+	
+	/**
+	 * TODO:documentation...
+	 */
+	protected String minutesTemplate = "templates/meeting-minutes-template.docx";
+
+	@Override
+	public String getMinutesTemplate() {
+		return minutesTemplate;
+	}
+
+	@Override
+	public void setMinutesTemplate(String template) {
+		try {
+			InputStream stream = ResourceLoader.getResource(template);
+			stream.close();
+			agendaTemplate = template;
+		} catch(IOException e) {
+			throw new IllegalArgumentException(e);
+		}
 	}
 }

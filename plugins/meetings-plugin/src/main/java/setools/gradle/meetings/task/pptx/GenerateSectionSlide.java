@@ -12,6 +12,7 @@ import org.apache.poi.xslf.usermodel.XSLFTextShape;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.Optional;
 
+import setools.gradle.dsl.agenda.Section;
 import setools.gradle.dsl.agenda.internal.DefaultSectionSlide;
 import setools.gradle.dsl.meeting.Meeting;
 
@@ -26,9 +27,26 @@ public class GenerateSectionSlide extends GenerateTitleOnlySlide {
 	 * @param topic
 	 */
 	@Inject
-	public GenerateSectionSlide(Meeting meeting, DefaultSectionSlide topic) {
+	public GenerateSectionSlide(Meeting meeting, Section topic) {
 		super(meeting, topic);
 		setSubtitle(topic.getSubtitle());
+	}
+	
+	@Override
+	protected void createSlides(XMLSlideShow presentation) throws Exception {
+		XSLFSlideLayout layout = getLayout(presentation);
+		XSLFSlide slide = (layout!=null) ? presentation.createSlide(layout) :
+				presentation.createSlide();
+		createSlide(slide); //for the section title slide...
+		createSectionSlides(presentation);
+	}
+	
+	/**
+	 * TODO:documentation...
+	 * @param presentation
+	 */
+	protected void createSectionSlides(XMLSlideShow presentation) {
+		//to be overriden by children....
 	}
 	
 	@Override

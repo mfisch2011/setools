@@ -7,10 +7,8 @@ import org.gradle.api.Action;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 
-import setools.gradle.dsl.meeting.Meeting;
-import setools.gradle.dsl.meeting.MeetingsHandler;
-import setools.gradle.meetings.util.InitializeMeetingTasks;
 import setools.gradle.risk.internal.DefaultRiskReviewExtension;
+import setools.gradle.risk.util.InitializeRiskReviewTasks;
 
 /**
  * TODO:documentation...
@@ -42,8 +40,8 @@ public class RiskReviewPlugin implements Plugin<Project> {
 			public void execute(Project project) {
 				RiskReviewExtension extension = (RiskReviewExtension)
 						project.getExtensions().getByName(PLUGIN_EXT);
-				InitializeMeetingTasks initializer = 
-				new InitializeMeetingTasks(project,extension);
+				InitializeRiskReviewTasks initializer = 
+				new InitializeRiskReviewTasks(project,extension);
 				initializer.initializeTasks();
 			}
 		});

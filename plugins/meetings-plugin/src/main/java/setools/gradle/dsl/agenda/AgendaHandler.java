@@ -6,6 +6,7 @@ package setools.gradle.dsl.agenda;
 import java.util.Collection;
 
 import groovy.lang.Closure;
+import java.io.Serializable;
 
 /**
  * TODO:documentation...

@@ -1,0 +1,7 @@
+/**
+ * TODO:license...
+ */
+ dependencies {
+ 	api "net.sf.mpxj:mpxj:[8.3.2,9.0.0)"
+ 	api "org.apache.commons:commons-math3:[3.6.1,4.0.0)"
+ }

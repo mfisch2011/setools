@@ -12,9 +12,9 @@
 */
 gradlePlugin {
 	plugins {
-		actionItemsPlugin {
-			id = "setools.gradle.actions.ActionItemPlugin"
-			implementationClass = "setools.gradle.actions.ActionItemPlugin"
+		jdbcActionItemPlugin {
+			id = "setools.gradle.actions.JDBCActionItemPlugin"
+			implementationClass = "setools.gradle.actions.JDBCActionItemPlugin"
 		}
 	}
 }

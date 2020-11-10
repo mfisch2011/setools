@@ -3,17 +3,18 @@
  */
 package setools.gradle.risk.internal;
 
+import java.net.MalformedURLException;
+
 import javax.inject.Inject;
 
 import org.gradle.api.Project;
 import org.gradle.util.ConfigureUtil;
 
 import groovy.lang.Closure;
-import setools.gradle.actions.dsl.ActionItemReview;
-import setools.gradle.actions.dsl.internal.DefaultActionItemReview;
 import setools.gradle.dsl.agenda.TitleAndContent;
 import setools.gradle.dsl.agenda.internal.DefaultTitleAndContent;
 import setools.gradle.dsl.meeting.internal.DefaultMeeting;
+import setools.gradle.risk.ActionItemReview;
 import setools.gradle.risk.RiskReviewExtension;
 import setools.gradle.risk.dsl.RisksSection;
 import setools.gradle.risk.dsl.internal.DefaultRisksSection;
@@ -26,9 +27,10 @@ public class DefaultRiskReviewExtension extends DefaultMeeting implements RiskRe
 	/**
 	 * TODO:documentation...
 	 * @param project
+	 * @throws MalformedURLException 
 	 */
 	@Inject
-	public DefaultRiskReviewExtension(Project project) {
+	public DefaultRiskReviewExtension(Project project) throws MalformedURLException {
 		super(project);
 		setPresentationTemplate("templates/risk-review-template.pptx");
 		setName("Risk Review"); 

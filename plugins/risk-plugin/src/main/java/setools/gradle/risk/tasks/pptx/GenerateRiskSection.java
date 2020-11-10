@@ -4,7 +4,14 @@
 package setools.gradle.risk.tasks.pptx;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+import javax.inject.Inject;
+
 import java.awt.geom.Rectangle2D;
+import java.io.File;
 
 import org.apache.poi.sl.usermodel.AutoNumberingScheme;
 import org.apache.poi.xslf.usermodel.XMLSlideShow;
@@ -12,24 +19,35 @@ import org.apache.poi.xslf.usermodel.XSLFAutoShape;
 import org.apache.poi.xslf.usermodel.XSLFShape;
 import org.apache.poi.xslf.usermodel.XSLFSlide;
 import org.apache.poi.xslf.usermodel.XSLFSlideLayout;
-import org.apache.poi.xslf.usermodel.XSLFTextBox;
 import org.apache.poi.xslf.usermodel.XSLFTextParagraph;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.gradle.api.tasks.Input;
+import org.gradle.api.tasks.Internal;
+import org.gradle.api.tasks.Optional;
 
 import setools.gradle.dsl.meeting.Meeting;
 import setools.gradle.meetings.task.pptx.GenerateSectionSlide;
 import setools.gradle.meetings.util.SlideGenerator;
 import setools.gradle.risk.dsl.internal.DefaultRisksSection;
-import setools.risk.Consequence;
-import setools.risk.Likelihood;
 import setools.risk.Mitigation;
 import setools.risk.Risk;
+import setools.risk.util.RiskResourcesUtil;
 
 /**
  * TODO:documentation...
  */
 public class GenerateRiskSection extends GenerateSectionSlide implements SlideGenerator {
+	
+	/**
+	 * TODO:documentation...
+	 */
+	private ResourceSet resourceSet = null;
 
+	@Inject
 	public GenerateRiskSection(Meeting meeting, DefaultRisksSection topic) {
 		super(meeting, topic);
 	}
@@ -141,8 +159,57 @@ public class GenerateRiskSection extends GenerateSectionSlide implements SlideGe
 	 */
 	@SuppressWarnings("unchecked")
 	@Input
+	@Optional
 	public Collection<Risk> getRisks() {
-		return ((DefaultRisksSection)topic).filter();
+		Set<Risk> risks = new HashSet<Risk>();
+		for(EObject object : getObjects()) {
+			if(object instanceof Risk)
+				risks.add((Risk)object);
+		}
+		return risks;
+	}
+	
+	/**
+	 * TODO:documentation...
+	 * @return
+	 */
+	@Internal
+	public Collection<EObject> getObjects() {
+		Set<EObject> results = new HashSet<EObject>();
+		for(Resource resource : getResources()) {
+			Iterator<EObject> iter = resource.getAllContents();
+			while(iter.hasNext())
+				results.add(iter.next());
+		}
+		return results;
+	}
+	
+	/**
+	 * TODO:documentation...
+	 * @return
+	 */
+	@Internal
+	public Collection<Resource> getResources() {
+		if(resourceSet==null) {
+			resourceSet = new ResourceSetImpl();
+			RiskResourcesUtil.init(resourceSet);
+			for(File file : getSource()) {
+				URI uri = URI.createFileURI(file.getAbsolutePath());
+				resourceSet.getResource(uri, true);
+			}
+		}
+		return resourceSet.getResources();
+	}
+	
+	/**
+	 * TODO:documentation...
+	 * @return
+	 */
+	@Internal
+	public Collection<File> getSource() {
+		Set<File> results = new HashSet<File>();
+		//TODO:replace with SourceTask!!!!
+		return results;
 	}
 	
 	/**

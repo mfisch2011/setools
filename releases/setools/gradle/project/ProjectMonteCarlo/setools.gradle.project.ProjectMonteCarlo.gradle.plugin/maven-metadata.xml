@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>setools.gradle.project.ProjectMonteCarlo</groupId>
+  <artifactId>setools.gradle.project.ProjectMonteCarlo.gradle.plugin</artifactId>
+  <versioning>
+    <latest>0.0.0.38</latest>
+    <release>0.0.0.38</release>
+    <versions>
+      <version>0.0.0.38</version>
+    </versions>
+    <lastUpdated>20201110162738</lastUpdated>
+  </versioning>
+</metadata>

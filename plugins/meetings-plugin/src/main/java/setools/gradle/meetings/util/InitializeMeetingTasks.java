@@ -5,20 +5,20 @@ package setools.gradle.meetings.util;
 
 import javax.inject.Inject;
 
+import org.gradle.api.DefaultTask;
 import org.gradle.api.Project;
 import org.gradle.api.Task;
-import org.gradle.api.internal.project.ProjectInternal;
-
 import setools.gradle.dsl.agenda.AgendaItem;
+import setools.gradle.dsl.agenda.internal.DefaultAgendaItem;
 import setools.gradle.dsl.agenda.internal.DefaultBullet;
 import setools.gradle.dsl.agenda.internal.DefaultSectionSlide;
 import setools.gradle.dsl.agenda.internal.DefaultTitleAndContent;
+import setools.gradle.dsl.agenda.internal.DefaultTitleOnly;
 import setools.gradle.dsl.agenda.internal.DefaultTitleSlide;
 import setools.gradle.dsl.attendee.Attendee;
 import setools.gradle.dsl.meeting.Meeting;
 import org.apache.commons.text.CaseUtils;
 
-import setools.gradle.dsl.agenda.internal.*;
 import setools.gradle.meetings.task.pptx.*;
 
 /**
@@ -107,7 +107,7 @@ public class InitializeMeetingTasks {
 		publishPresentation = project.getTasks().create(getTaskName("publish","presentation")); //TODO:add class
 		publishPresentation.setGroup(meeting.getName());
 		publishPresentation.setDescription("Publish the presentation for the " + meeting.getName() + ".");
-		publishPresentation.dependsOn(assemblePresentation);
+		publishPresentation.dependsOn(assemblePresentation,draftAgenda);
 	}
 	
 	/**
@@ -159,7 +159,7 @@ public class InitializeMeetingTasks {
 				bullet.setText(text);
 				topic.content().bullets().add(bullet);
 			}
-			Class<? extends SlideGenerator> type = getTaskType(getPresentationFormat(),topic);
+			Class<? extends DefaultTask> type = getTaskType(getPresentationFormat(),topic);
 			Task task = (type!=null) ? 
 				project.getTasks().create(name,type,meeting,topic) :	
 				project.getTasks().create(name); //TODO:add class
@@ -175,8 +175,7 @@ public class InitializeMeetingTasks {
 	 * @param topic
 	 * @return
 	 */
-	protected Class<? extends SlideGenerator> getTaskType(String format,AgendaItem topic) {
-		System.out.println(topic);
+	protected Class<? extends DefaultTask> getTaskType(String format,AgendaItem topic) {
 		//TODO:add support for other format types...
 		if(topic instanceof DefaultTitleSlide)
 			return GenerateTitleSlide.class;
@@ -190,6 +189,21 @@ public class InitializeMeetingTasks {
 			return GenerateTitleAndContentSlide.class;
 		else
 			return null;
+		/*
+		MeetingsBasePlugin basePlugin = project.getPlugins()
+				.findPlugin(MeetingsBasePlugin.class);
+		Set<Class<? extends DefaultTask>> set = basePlugin
+				.slideGeneratorService().getGenerators(format,Meeting.class,
+						topic.getClass());
+		//TODO:how to handle more than one qualifying generator?
+		if(!set.isEmpty()) {
+			Class<? extends DefaultTask> type = set.iterator().next();
+			project.getLogger().info("Got {} for topic: '{}'.",type,topic.getName());
+			return type;
+		} else {
+			project.getLogger().info("Did not find task type for topic: '{}'.",topic.getName());
+			return null;
+		}*/
 	}
 	
 	/**
@@ -211,7 +225,7 @@ public class InitializeMeetingTasks {
 		//create virtual agenda item to initialize task
 		DefaultSectionSlide topic = new DefaultSectionSlide();
 		topic.setTitle("Backups");
-		Class<? extends SlideGenerator> type = getTaskType(getPresentationFormat(),topic);
+		Class<? extends DefaultTask> type = getTaskType(getPresentationFormat(),topic);
 		Task task = (type==null) ? project.getTasks().create(name) :
 			project.getTasks().create(name,type,meeting,topic);
 		task.setGroup(meeting.getName());
@@ -234,7 +248,7 @@ public class InitializeMeetingTasks {
 		for(AgendaItem bullet : meeting.agenda()) {
 			topic.content().bullets().add(bullet);
 		}
-		Class<? extends SlideGenerator> type = getTaskType(getPresentationFormat(),topic);
+		Class<? extends DefaultTask> type = getTaskType(getPresentationFormat(),topic);
 		Task task = (type==null) ? project.getTasks().create(name) :
 			project.getTasks().create(name,type,meeting,topic);
 		task.setGroup(meeting.getName());
@@ -252,7 +266,7 @@ public class InitializeMeetingTasks {
 		topic.setName("title");
 		topic.setTitle(meeting.getName());
 		topic.setSubtitle(meeting.getDate());
-		Class<? extends SlideGenerator> type = getTaskType(getPresentationFormat(),topic);
+		Class<? extends DefaultTask> type = getTaskType(getPresentationFormat(),topic);
 		Task task = (type==null) ? project.getTasks().create(name) :
 			project.getTasks().create(name,type,meeting,topic);
 		task.setGroup(meeting.getName());
@@ -296,9 +310,10 @@ public class InitializeMeetingTasks {
 	 * TODO:documentation...
 	 */
 	protected void createDraftAgendaTask() {
-		draftAgenda = project.getTasks().create(getTaskName("draft","agenda")); //TODO:add task class.
+		//update to allow different formats...
+		draftAgenda = project.getTasks().create(getTaskName("draft","agenda")); //TODO:add DraftAgenda class... 
 		draftAgenda.setGroup(meeting.getName());
-		draftAgenda.setDescription("Draft the agenda for the " + meeting.getName() + ".");
+		draftAgenda.setDescription("Draft the agenda for the " + meeting.getName());
 	}
 	
 	/**

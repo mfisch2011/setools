@@ -1,0 +1,15 @@
+/**
+ * TODO:license...
+ */
+ gradlePlugin {
+ 	plugins {
+ 		projectMonteCarlo {
+ 			id = "setools.gradle.project.ProjectMonteCarlo"
+ 			implementationClass = "setools.gradle.project.ProjectMonteCarlo"
+ 		}
+ 	}
+ }
+ 
+ dependencies {
+ 	implementation project(":app:monte-carlo-app")
+ }

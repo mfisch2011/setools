@@ -1,0 +1,8 @@
+/**
+ * TODO:license....
+ */
+mainClassName = "setools.project.util.ProjectMonteCarlo"
+
+dependencies {
+	implementation project(":api:monte-carlo-api")
+}

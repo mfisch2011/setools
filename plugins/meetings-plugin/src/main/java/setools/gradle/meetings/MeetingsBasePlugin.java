@@ -22,6 +22,8 @@ import org.gradle.api.tasks.SourceSetContainer;
 import setools.gradle.dsl.meeting.Meeting;
 import setools.gradle.dsl.meeting.MeetingsHandler;
 import setools.gradle.meetings.internal.DefaultMeetingsSourceExtension;
+import setools.gradle.meetings.util.internal.DefaultSlideGeneratorService;
+import setools.gradle.meetings.util.SlideGeneratorService;
 import setools.util.resources.ClasspathResourceLoader;
 import setools.util.resources.FileResourceLoader;
 import setools.util.resources.ResourceLoader;
@@ -30,6 +32,11 @@ import setools.util.resources.ResourceLoader;
  * TODO:documentation...
  */
 public class MeetingsBasePlugin implements Plugin<ProjectInternal> {
+	
+	/**
+	 * TODO:documentation...
+	 */
+	private SlideGeneratorService slideGeneratorService = null;
 
 	@Override
 	public void apply(ProjectInternal project) {
@@ -37,6 +44,7 @@ public class MeetingsBasePlugin implements Plugin<ProjectInternal> {
 		project.getPluginManager().apply(JavaBasePlugin.class);
 		createMeetingsSourceSet(project);
 		createTemplatesSourceSet(project);
+		slideGeneratorService = new DefaultSlideGeneratorService(project);
 	}
 	
 	protected void createTemplatesSourceSet(ProjectInternal project) {
@@ -109,5 +117,13 @@ public class MeetingsBasePlugin implements Plugin<ProjectInternal> {
 	protected SourceSetContainer sourceSets(ProjectInternal project) {
 		return project.getConvention().getPlugin(JavaPluginConvention.class)
 		.getSourceSets();
+	}
+	
+	/**
+	 * TODO:documentation...
+	 * @return
+	 */
+	public SlideGeneratorService slideGeneratorService() {
+		return slideGeneratorService;
 	}
 }

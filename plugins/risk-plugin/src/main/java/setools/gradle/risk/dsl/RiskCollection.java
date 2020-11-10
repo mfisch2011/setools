@@ -11,6 +11,6 @@ import setools.util.Filterable;
 /**
  * TODO:documentation...
  */
-public interface RiskCollection<T extends Risk> extends Filterable<T>,Collection<Risk> {
+public interface RiskCollection extends Filterable<Risk>,Collection<Risk> {
 
 }

@@ -7,7 +7,6 @@ import org.gradle.util.ConfigureUtil;
 
 import groovy.lang.Closure;
 import setools.gradle.dsl.agenda.internal.DefaultSectionSlide;
-import setools.gradle.risk.dsl.RiskCollection;
 import setools.gradle.risk.dsl.RiskOverviewSlide;
 import setools.gradle.risk.dsl.RisksSection;
 
@@ -57,17 +56,5 @@ public class DefaultRisksSection extends DefaultSectionSlide implements RisksSec
 	public RiskOverviewSlide overview(Closure closure) {
 		ConfigureUtil.configure(closure, overviewSlide);
 		return overviewSlide;
-	}
-
-	@Override
-	public RiskCollection filter() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public RiskCollection filter(Closure closure) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

@@ -3,6 +3,7 @@
  */
 package setools.gradle.dsl.agenda;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 import groovy.lang.Closure;
@@ -10,7 +11,7 @@ import groovy.lang.Closure;
 /**
  * TODO:documentation...
  */
-public interface AgendaItem {
+public interface AgendaItem extends Serializable {
 
 	/**
 	 * TODO:documentation...
