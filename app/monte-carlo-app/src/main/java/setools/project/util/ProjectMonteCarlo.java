@@ -102,6 +102,11 @@ public class ProjectMonteCarlo implements Runnable {
 	
 	public ProjectMonteCarlo() {
 		registers = new HashMap<String,Registers>();
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(new Date());
+		setStart(calendar.getTime());
+		calendar.add(3, getStep());
+		setEnd(calendar.getTime());
 	}
 	
 	protected void collectPass1(Set<File> inputs) throws IOException {
@@ -246,7 +251,9 @@ public class ProjectMonteCarlo implements Runnable {
 	}
 	
 	protected void reportSimulationResults() throws IOException {
-		FileWriter writer = new FileWriter(getOutput());
+		File output = getOutput();
+		System.out.printf("OUTPUT: %s%n", output);
+		FileWriter writer = new FileWriter(output);
 		//write headers
 		String header1 = "start";
 		String header2 = "end";

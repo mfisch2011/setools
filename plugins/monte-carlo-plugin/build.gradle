@@ -4,8 +4,8 @@
  gradlePlugin {
  	plugins {
  		projectMonteCarlo {
- 			id = "setools.gradle.project.ProjectMonteCarlo"
- 			implementationClass = "setools.gradle.project.ProjectMonteCarlo"
+ 			id = "setools.gradle.project.MonteCarloPlugin"
+ 			implementationClass = "setools.gradle.project.MonteCarloPlugin"
  		}
  	}
  }
