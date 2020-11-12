@@ -1,0 +1,70 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "action-items-plugin",
+    "version": "0.0.0.46",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "zfiazopo6vhiloqz7au766qqqa"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "action-items-plugin-0.0.0.46.jar",
+          "url": "action-items-plugin-0.0.0.46.jar",
+          "size": 8027,
+          "sha512": "f357c4589466b8696df60ada5a5d0bba6e0dd7bb96c3fc76c7b6ec6544344a3314e9103c9714ad279f5ab02578f5cff1c408b642c76e5ec707f77fc911b30976",
+          "sha256": "148427fd861319f51b0badb4f373a8f398d455b66c0759c5a474447adc84f2f9",
+          "sha1": "ed26850662967010ed7901f5168faf2df4e82b11",
+          "md5": "640f3d9e4b4b3c51d7617e6066347dd4"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "meetings-plugin",
+          "version": {
+            "requires": "0.0.0.46"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "action-items-plugin-0.0.0.46.jar",
+          "url": "action-items-plugin-0.0.0.46.jar",
+          "size": 8027,
+          "sha512": "f357c4589466b8696df60ada5a5d0bba6e0dd7bb96c3fc76c7b6ec6544344a3314e9103c9714ad279f5ab02578f5cff1c408b642c76e5ec707f77fc911b30976",
+          "sha256": "148427fd861319f51b0badb4f373a8f398d455b66c0759c5a474447adc84f2f9",
+          "sha1": "ed26850662967010ed7901f5168faf2df4e82b11",
+          "md5": "640f3d9e4b4b3c51d7617e6066347dd4"
+        }
+      ]
+    }
+  ]
+}
