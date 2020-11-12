@@ -168,10 +168,15 @@ public class ProjectMonteCarloTrial implements Callable<File> {
 	protected Date dateBetween(Date lower,Date upper) {
 		if(lower==null || upper==null)
 			return null;
-		UniformRealDistribution dist = new UniformRealDistribution(
-				(double)lower.getDate(),(double)upper.getDate());
+		//UniformRealDistribution dist = new UniformRealDistribution(
+		//		(double)lower.getDate(),(double)upper.getDate());
+		int lowerDate = lower.getDate();
+		int upperDate = upper.getDate();
+		if(lowerDate == upperDate)
+			upperDate = lowerDate +1;
+		int randomDate = ThreadLocalRandom.current().nextInt(lowerDate,upperDate);
 		Date result = new Date();
-		result.setDate((int)dist.sample());
+		result.setDate(randomDate);
 		return result;
 	}
 	
@@ -236,9 +241,12 @@ public class ProjectMonteCarloTrial implements Callable<File> {
 		
 		//open temp file for writing trial data
 		File output = File.createTempFile("tmp", ".cvs");
+		debug("Writing trial {} results to {}.",trial,output);
 		FileWriter writer = new FileWriter(output);
 		writer.append(header1 + System.lineSeparator());
+		debug(header1 + System.lineSeparator());
 		writer.append(header2 + System.lineSeparator());
+		debug(header2 + System.lineSeparator());
 		for(Entry<String,Registers> entry : resources.entrySet()) {
 			String line = String.format("%12s",entry.getKey());
 			Registers registers = entry.getValue();
@@ -246,6 +254,7 @@ public class ProjectMonteCarloTrial implements Callable<File> {
 				line += ", " + String.format("%8.2f", value);
 			}
 			writer.append(line + System.lineSeparator());
+			debug(line + System.lineSeparator());
 		}
 		writer.close();
 		exit();
