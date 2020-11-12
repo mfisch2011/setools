@@ -1,0 +1,98 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "monte-carlo-app",
+    "version": "0.0.0.48",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "vafwkqsvzbdbpazcqygdehzzpa"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "monte-carlo-app-0.0.0.48.jar",
+          "url": "monte-carlo-app-0.0.0.48.jar",
+          "size": 7573,
+          "sha512": "d2c300b3f525fd2fb4e3a6476b9565d63e8b6b0fe14c4a842c7871d124f5e1a75d5369ddc10c1caa2b171db0774c32211c4e847e2475abaf083ffed4e4851e38",
+          "sha256": "7028d410f3ee89dda40f29bb7600eec043108c52d375068f3eb77b5184455bfb",
+          "sha1": "9084baa70d94b610837679de9007832382809c31",
+          "md5": "925e0d16babe09794e7e84edd2117446"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "info.picocli",
+          "module": "picocli",
+          "version": {
+            "requires": "4.1.0"
+          }
+        },
+        {
+          "group": "org.apache.logging.log4j",
+          "module": "log4j-api",
+          "version": {
+            "requires": "2.7"
+          }
+        },
+        {
+          "group": "org.apache.logging.log4j",
+          "module": "log4j-core",
+          "version": {
+            "requires": "2.7"
+          }
+        },
+        {
+          "group": "org.apache.logging.log4j",
+          "module": "log4j-slf4j-impl",
+          "version": {
+            "requires": "2.7"
+          }
+        },
+        {
+          "group": "setools",
+          "module": "monte-carlo-api",
+          "version": {
+            "requires": "0.0.0.48"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "monte-carlo-app-0.0.0.48.jar",
+          "url": "monte-carlo-app-0.0.0.48.jar",
+          "size": 7573,
+          "sha512": "d2c300b3f525fd2fb4e3a6476b9565d63e8b6b0fe14c4a842c7871d124f5e1a75d5369ddc10c1caa2b171db0774c32211c4e847e2475abaf083ffed4e4851e38",
+          "sha256": "7028d410f3ee89dda40f29bb7600eec043108c52d375068f3eb77b5184455bfb",
+          "sha1": "9084baa70d94b610837679de9007832382809c31",
+          "md5": "925e0d16babe09794e7e84edd2117446"
+        }
+      ]
+    }
+  ]
+}
