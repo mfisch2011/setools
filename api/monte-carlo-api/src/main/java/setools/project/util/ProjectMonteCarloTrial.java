@@ -17,12 +17,17 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.apache.commons.math3.distribution.UniformRealDistribution;
+
 import net.sf.mpxj.Duration;
 import net.sf.mpxj.ProjectFile;
+import net.sf.mpxj.Relation;
 import net.sf.mpxj.Resource;
 import net.sf.mpxj.ResourceAssignment;
 import net.sf.mpxj.Task;
 import net.sf.mpxj.reader.UniversalProjectReader;
+
+import static setools.project.util.ProjectMonteCarloLogger.*;
 
 /**
  * TODO:documentation...
@@ -52,25 +57,32 @@ public class ProjectMonteCarloTrial implements Callable<File> {
 
 	@Override
 	public File call() throws Exception {
+		enter();
+		info("Running trial {}.",trial);
 		initialize();
+		UniversalProjectReader reader = new UniversalProjectReader();
 		for(File input : inputs) {
-			UniversalProjectReader reader = new UniversalProjectReader();
 			ProjectFile project = reader.read(input);
 			randomize(project);
 			adjust(project);
 			collect(project);
 		}
+		info("Trial {} done.",trial);
+		exit();
 		return report();
 	}
 	
 	protected void collect(ProjectFile project) {
+		enter();
 		//TODO:
 		for(Resource resource : project.getResources()) {
 			collect(resource);
 		}
+		exit();
 	}
 	
 	protected void collect(Resource resource) {
+		enter();
 		String name = resource.getName();
 		Registers registers = resources.get(name);
 		if(registers==null) {
@@ -78,44 +90,93 @@ public class ProjectMonteCarloTrial implements Callable<File> {
 			resources.put(name, registers);
 		}
 		for(ResourceAssignment assignment : resource.getTaskAssignments()) {
-			registers.addBetween(assignment.getWork(),
-			assignment.getStart(),assignment.getFinish());
+			Date begin = assignment.getTask().getStart();
+			Date finish = assignment.getTask().getFinish();
+			registers.addBetween(1.0,begin,finish); //TODO:configure to use actual percent utilization or work hours...
 		}
+		exit();
 	}
 	
 	protected void adjust(ProjectFile project) {
-		//TODO:
+		enter();
+		for(Task task : project.getTasks()) {
+			if(task.getPredecessors().isEmpty()) {
+				adjust(null,task,null);
+			}
+		}
+		exit();
+	}
+	
+	protected void adjust(Task parent,Task task,Relation rel) {
+		//adjust task start
+		Date parentFinish = (parent!=null) ? calculateFinish(parent.getFinish(),rel) : null;
+		Date start = task.getStart();
+		if(parentFinish!=null && parentFinish.after(start)) {
+			start = parentFinish;
+			task.setStart(parentFinish);
+		}
+		
+		//adjust task end
+		Date end = add(start,task.getDuration());
+		task.setFinish(end);
+		for(Relation relation : task.getSuccessors()) {
+			adjust(task,relation.getTargetTask(),relation);
+		}
+	}
+	
+	protected Date calculateFinish(Date date,Relation rel) {
+		if(rel!=null) {
+			//TODO:how to handle different lags???
+			Duration lag = rel.getLag();
+			return add(date,lag);
+		} else {
+			return date;
+		}
+	}
+	
+	protected Date add(Date date,Duration duration) {
+		//TODO:how to handle other types of durations...
+		int days = (int)Math.round(duration.getDuration() / 100.0);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		calendar.add(Calendar.DATE, days);
+		return calendar.getTime();
 	}
 	
 	protected void randomize(ProjectFile project) {
+		enter();
 		for(Task task : project.getTasks()) {
 			recursiveRandomizeTaskStart(task);
 			recursiveRandomizeTaskDuration(task);
 			recursiveRandomizeTaskCost(task);
 		}
+		exit();
 	}
 	
 	protected void recursiveRandomizeTaskStart(Task task) {
+		enter();
 		//TODO:enable different RV types...
+		//Date actualDate = dateBetween(task.getDate(1),task.getDate(2));
 		Date actualDate = dateBetween(task.getDate(1),task.getDate(2));
 		if(actualDate!=null) task.setStart(actualDate);
 		for(Task subtask : task.getChildTasks())
 			recursiveRandomizeTaskStart(subtask);
+		exit();
 	}
 	
-	protected Date dateBetween(Date start,Date end) {
-		if(start!=null && end!=null) {
-			long startMillis = start.getTime();
-			long endMillis = end.getTime();
-			long randomMillis = ThreadLocalRandom.current()
-					.nextLong(startMillis, endMillis);
-			return new Date(randomMillis);
-		} else {
+	@SuppressWarnings("deprecation")
+	protected Date dateBetween(Date lower,Date upper) {
+		if(lower==null || upper==null)
 			return null;
-		}
+		UniformRealDistribution dist = new UniformRealDistribution(
+				(double)lower.getDate(),(double)upper.getDate());
+		Date result = new Date();
+		result.setDate((int)dist.sample());
+		return result;
 	}
 	
 	protected Duration durationBetween(Duration lower,Duration upper) {
+		enter();
 		if(lower!=null && upper!=null) {
 			double lowerTime = lower.getDuration();
 			double upperTime = upper.getDuration();
@@ -124,43 +185,53 @@ public class ProjectMonteCarloTrial implements Callable<File> {
 			double randomTime = ThreadLocalRandom.current()
 					.nextDouble(lowerTime, upperTime);
 			//TODO:how to handle different time units?
+			exit();
 			return Duration.getInstance(randomTime, lower.getUnits());
 		} else {
+			exit();
 			return null;
 		}
 	}
 	
 	protected void recursiveRandomizeTaskDuration(Task task) {
+		enter();
 		//TODO:modify to use different RVs... task.getText(1);
 		Duration actualDuration = durationBetween(
 			task.getDuration(1),task.getDuration(2));
 		if(actualDuration!=null) task.setDuration(actualDuration);
 		for(Task subtask : task.getChildTasks())
 			recursiveRandomizeTaskDuration(subtask);
+		exit();
 	}
 	
 	protected void recursiveRandomizeTaskCost(Task task) {
+		enter();
 		//TODO: randomize cost...
 		for(Task subtask : task.getChildTasks())
 			recursiveRandomizeTaskCost(subtask);
+		exit();
 	}
 
 	protected void initialize() {
+		enter();
 		//TODO:
+		exit();
 	}
 	
 	protected File report() throws IOException {
-		//generate header lines
-		String header1 = "start";
-		String header2 = "end";
+		enter();
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+		//generate header lines
+		String header1 = String.format("%12s","start");
+		String header2 = String.format("%12s","end");
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(start);
-		Date tmp = calendar.getTime();		
+		Date tmp = calendar.getTime();
 		while(tmp.before(end)) {
-			header1 += ", " + formatter.format(tmp);
-			calendar.add(1, step);
-			header2 += ", " + formatter.format(tmp);
+			header1 += String.format(", %8s",formatter.format(tmp));
+			calendar.add(step,1);
+			tmp = calendar.getTime();
+			header2 += String.format(", %8s",formatter.format(tmp));
 		}
 		
 		//open temp file for writing trial data
@@ -169,15 +240,15 @@ public class ProjectMonteCarloTrial implements Callable<File> {
 		writer.append(header1 + System.lineSeparator());
 		writer.append(header2 + System.lineSeparator());
 		for(Entry<String,Registers> entry : resources.entrySet()) {
-			String line = entry.getKey();
+			String line = String.format("%12s",entry.getKey());
 			Registers registers = entry.getValue();
 			for(double value : registers.getBuffer()) {
-				line += ", " + String.format("%6.2f", value);
+				line += ", " + String.format("%8.2f", value);
 			}
 			writer.append(line + System.lineSeparator());
 		}
 		writer.close();
-		System.out.printf("Data for trial #%d to %s%n", trial,output);
+		exit();
 		return output;
 	}
 	
@@ -196,6 +267,7 @@ public class ProjectMonteCarloTrial implements Callable<File> {
 		protected int step;
 		
 		public Registers(Date start,Date end,int step) {
+			enter();
 			this.start = start;
 			this.end = end;
 			this.step = step;
@@ -205,34 +277,57 @@ public class ProjectMonteCarloTrial implements Callable<File> {
 			Date tmp = start;
 			while(tmp.before(end)) {
 				count++;
-				calendar.add(1, step);
+				calendar.add(step,1);
 				tmp = calendar.getTime();
 			}
 			buffer = new double[count];
+			exit();
 		}
 
-		public void addBetween(Duration work, Date start, Date finish) {
-			double value = work.getDuration(); //TODO:how to handle TimeUnits?
+		protected Date floor(Date date) {
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(date);
+			int year = calendar.get(Calendar.YEAR);
+			int month = calendar.get(Calendar.MONTH);
+			int day = calendar.get(Calendar.DAY_OF_MONTH);
+			calendar.set(year, month, day,0,0,0);
+			return calendar.getTime();
+		}
+		
+		protected Date ceiling(Date date) {
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(date);
+			int year = calendar.get(Calendar.YEAR);
+			int month = calendar.get(Calendar.MONTH);
+			int day = calendar.get(Calendar.DAY_OF_MONTH);
+			calendar.set(year, month, day,23,59,59);
+			return calendar.getTime();
+		}
+		
+		public void addBetween(double value, Date begin, Date finish) {
+			enter();
+			begin = floor(begin);
+			finish = ceiling(finish);
 			Calendar calendar = Calendar.getInstance();
 			
 			//cycle through bins until we reach start
 			calendar.setTime(this.start);
 			int count = 0;
 			Date tmp = calendar.getTime();
-			while(tmp.before(start)) {
+			while(tmp.before(begin) && count<buffer.length) {
 				count++;
-				calendar.add(1, step);
+				calendar.add(step,1);
 				tmp = calendar.getTime();
 			}
 			
 			//cycle through bins from start to finish and add value to each bin
-			while(tmp.before(end)) {
+			while(tmp.compareTo(finish)<=0 && count<buffer.length) {
 				buffer[count] += value;
 				count++;
-				calendar.add(1, step);
+				calendar.add(step,1);
 				tmp = calendar.getTime();
 			}
+			exit();
 		}
-		
 	}
 }

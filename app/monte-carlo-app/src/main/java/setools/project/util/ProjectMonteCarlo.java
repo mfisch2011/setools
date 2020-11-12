@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -22,10 +23,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
+
+import static setools.project.util.ProjectMonteCarloLogger.*;
 
 /**
  * TODO:documentation
@@ -55,6 +59,9 @@ public class ProjectMonteCarlo implements Runnable {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		enter();
+		ProjectMonteCarloLogger.info("Loading {} with {}.",
+				ProjectMonteCarlo.class.getName(),args);
 		ProjectMonteCarlo app = new ProjectMonteCarlo();
 		CommandLine commandLine = new CommandLine(app);
 		int status = -1;
@@ -63,7 +70,8 @@ public class ProjectMonteCarlo implements Runnable {
 		} else {
 			commandLine.usage(System.out);
 		}
-		System.exit(status);
+		exit();
+		//TODO:how to handle status???? System.exit FUBARs unit testing...
 	}
 	
 	protected static void zeroize(float[] array) {
@@ -97,7 +105,7 @@ public class ProjectMonteCarlo implements Runnable {
 	protected int stepSize = Calendar.WEEK_OF_YEAR;
 	
 	@Option(names= {"--timeout"},description=
-	"Set the time to wait for simulation completion.")
+	"S)et the time to wait for simulation completion.")
 	protected int timeout = 600; //TODO:what is a good default?
 	
 	public ProjectMonteCarlo() {
@@ -110,7 +118,7 @@ public class ProjectMonteCarlo implements Runnable {
 	}
 	
 	protected void collectPass1(Set<File> inputs) throws IOException {
-		
+		enter();
 		//collect date bin summations and maximum values
 		for(File input : inputs) {
 			BufferedReader reader = new BufferedReader(new FileReader(input));
@@ -125,7 +133,7 @@ public class ProjectMonteCarlo implements Runnable {
 			while(iter.hasNext()) {
 				line = iter.next();
 				parts = line.split(",");
-				String resource = parts[0];
+				String resource = parts[0].trim();
 				Registers registers = this.registers.get(resource);
 				if(registers==null) {
 					registers = new Registers(columns-1);
@@ -145,15 +153,19 @@ public class ProjectMonteCarlo implements Runnable {
 		
 		//calculate date bin mean values
 		float numTrials = (float)inputs.size();
-		for(Registers register : registers.values()) {
+		for(Entry<String, Registers> entry : registers.entrySet()) {
+			String name = entry.getKey();
+			Registers register = entry.getValue();
 			int length = register.sums.length;
 			for(int bin=0;bin<length;bin++) {
 				register.mean[bin] = register.sums[bin] / numTrials;
 			}
 		}
+		exit();
 	}
 	
 	protected void collectPass2(Set<File> inputs) throws IOException {
+		enter();
 		//zeroize sums
 		for(Registers register : registers.values()) {
 			zeroize(register.sums);
@@ -173,7 +185,7 @@ public class ProjectMonteCarlo implements Runnable {
 			while(iter.hasNext()) {
 				line = iter.next();
 				parts = line.split(",");
-				String resource = parts[0];
+				String resource = parts[0].trim();
 				Registers registers = this.registers.get(resource);
 				if(registers==null) {
 					registers = new Registers(columns-1);
@@ -191,15 +203,19 @@ public class ProjectMonteCarlo implements Runnable {
 		
 		//calculate date bin stdev values
 		float numTrials = (float)inputs.size();
-		for(Registers register : registers.values()) {
+		for(Entry<String, Registers> entry : registers.entrySet()) {
+			String name = entry.getKey();
+			Registers register = entry.getValue();
 			int length = register.sums.length;
 			for(int bin=0;bin<length;bin++) {
 				register.stdev[bin] = (float)Math.sqrt(register.sums[bin]/numTrials);
 			}
 		}
+		exit();
 	}
 	
 	protected void collectResults() throws IOException {
+		enter();
 		Set<File> trials = new HashSet<File>();
 		for(Future<File> result : results) {
 			try {
@@ -212,6 +228,7 @@ public class ProjectMonteCarlo implements Runnable {
 		}
 		collectPass1(trials);
 		collectPass2(trials);
+		exit();
 	}
 	
 	public Date getEnd() {
@@ -247,12 +264,14 @@ public class ProjectMonteCarlo implements Runnable {
 	}
 	
 	protected void initialize() {
+		enter();
 		//TODO:
+		exit();
 	}
 	
 	protected void reportSimulationResults() throws IOException {
+		enter();
 		File output = getOutput();
-		System.out.printf("OUTPUT: %s%n", output);
 		FileWriter writer = new FileWriter(output);
 		//write headers
 		String header1 = "start";
@@ -298,18 +317,25 @@ public class ProjectMonteCarlo implements Runnable {
 			writer.append(System.lineSeparator());
 		}
 		writer.close();
+		exit();
 	}
 	
 	@Override
 	public void run() {
+		enter();
 		try {
+			info("Running monte carlo simulation.");
+			long start = System.currentTimeMillis();
 			initialize();
 			simulate();
 			collectResults();
 			reportSimulationResults();
+			long end = System.currentTimeMillis();
+			info("Simulation completed in {} ms.",end - start);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		exit();
 	}
 	
 	public void setEnd(Date date) {
@@ -346,6 +372,7 @@ public class ProjectMonteCarlo implements Runnable {
 	}
 	
 	protected void simulate() throws InterruptedException {
+		enter();
 		ExecutorService executor = Executors.newFixedThreadPool(getNumThreads());
 		Set<File> inputs = getInputs();
 		for(int trial=1;trial<getNumTrials();trial++) {
@@ -355,5 +382,6 @@ public class ProjectMonteCarlo implements Runnable {
 		}
 		executor.shutdown();
 		executor.awaitTermination(getTimeout(),TimeUnit.SECONDS);
+		exit();
 	}
 }

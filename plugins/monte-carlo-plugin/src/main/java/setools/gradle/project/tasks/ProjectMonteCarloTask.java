@@ -32,8 +32,8 @@ public class ProjectMonteCarloTask extends SourceTask {
 
 	public ProjectMonteCarloTask() {
 		setSource("src/project"); //TODO:get this from the project source set...
-		include("*.mpp"); //TODO:add other types supported by MXJP...
-		application = new ProjectMonteCarlo();
+		include("*.mpp","*.pod"); //TODO:add other types supported by MXJP...
+		application = new ProjectMonteCarlo(); //TODO:how to link into Gradle Logger???
 		
 		/*
 		 * since this is a random simulation the output could change 

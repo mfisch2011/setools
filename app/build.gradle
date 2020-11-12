@@ -41,6 +41,9 @@ subprojects {
 	
 	dependencies {
 		implementation "info.picocli:picocli:4.1.0"
+		implementation "org.apache.logging.log4j:log4j-api:2.7"
+		implementation "org.apache.logging.log4j:log4j-core:2.7"
+		implementation "org.apache.logging.log4j:log4j-slf4j-impl:2.7"
 		
 		testCompile "junit:junit:4.12"
 		functionalTestImplementation "junit:junit:4.12"
@@ -53,4 +56,10 @@ subprojects {
             }
         }
     }
+    
+    test {
+    	dependsOn cleanTest
+    	testLogging.showStandardStreams = true
+	}
+    
 }

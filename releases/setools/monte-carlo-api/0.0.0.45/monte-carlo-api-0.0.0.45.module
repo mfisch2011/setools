@@ -1,0 +1,135 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "monte-carlo-api",
+    "version": "0.0.0.45",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "kb5uluiby5bajfmw2s2qc76ope"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "net.sf.mpxj",
+          "module": "mpxj",
+          "version": {
+            "requires": "[8.3.2,9.0.0)"
+          }
+        },
+        {
+          "group": "org.apache.commons",
+          "module": "commons-math3",
+          "version": {
+            "requires": "[3.6.1,4.0.0)"
+          }
+        },
+        {
+          "group": "org.apache.logging.log4j",
+          "module": "log4j-api",
+          "version": {
+            "requires": "2.7"
+          }
+        },
+        {
+          "group": "org.apache.logging.log4j",
+          "module": "log4j-core",
+          "version": {
+            "requires": "2.7"
+          }
+        },
+        {
+          "group": "org.apache.logging.log4j",
+          "module": "log4j-slf4j-impl",
+          "version": {
+            "requires": "2.7"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "monte-carlo-api-0.0.0.45.jar",
+          "url": "monte-carlo-api-0.0.0.45.jar",
+          "size": 9065,
+          "sha512": "dea985f0300a660b84b22e57e4112ef9d1721cd7f701748de4be381f94cfaf6f599e8c2ade76e1c2ef81763ab95d4b17e3b51d7f5ff43f7c90dbede44c94b7e9",
+          "sha256": "8787f30ea9536cb6323c6ca641226b71289fea30a6c8ab1a3623514cc74ba232",
+          "sha1": "032e0bdfeb7f99cf49e775f5183573ab6254542b",
+          "md5": "72600caa37f782ee0461dd7df295d2dd"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "net.sf.mpxj",
+          "module": "mpxj",
+          "version": {
+            "requires": "[8.3.2,9.0.0)"
+          }
+        },
+        {
+          "group": "org.apache.commons",
+          "module": "commons-math3",
+          "version": {
+            "requires": "[3.6.1,4.0.0)"
+          }
+        },
+        {
+          "group": "org.apache.logging.log4j",
+          "module": "log4j-api",
+          "version": {
+            "requires": "2.7"
+          }
+        },
+        {
+          "group": "org.apache.logging.log4j",
+          "module": "log4j-core",
+          "version": {
+            "requires": "2.7"
+          }
+        },
+        {
+          "group": "org.apache.logging.log4j",
+          "module": "log4j-slf4j-impl",
+          "version": {
+            "requires": "2.7"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "monte-carlo-api-0.0.0.45.jar",
+          "url": "monte-carlo-api-0.0.0.45.jar",
+          "size": 9065,
+          "sha512": "dea985f0300a660b84b22e57e4112ef9d1721cd7f701748de4be381f94cfaf6f599e8c2ade76e1c2ef81763ab95d4b17e3b51d7f5ff43f7c90dbede44c94b7e9",
+          "sha256": "8787f30ea9536cb6323c6ca641226b71289fea30a6c8ab1a3623514cc74ba232",
+          "sha1": "032e0bdfeb7f99cf49e775f5183573ab6254542b",
+          "md5": "72600caa37f782ee0461dd7df295d2dd"
+        }
+      ]
+    }
+  ]
+}
