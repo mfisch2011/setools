@@ -1,0 +1,166 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.github.mfisch2011",
+    "module": "VideoPlayer",
+    "version": "0.0.0.15",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "pjpzswfpqrhxtdjmwjxowht5zm"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "VideoPlayer-0.0.0.15.jar",
+          "url": "VideoPlayer-0.0.0.15.jar",
+          "size": 12602,
+          "sha512": "d630270ae74ea7a7e8e35088fa09d0d19b3a7bfd4df7d2de39d5257093978a82b77ce4963cdf5935ae42d517191c1a87af5d39ddf1785c2a1a20ddd40a692148",
+          "sha256": "8580653e06a5546d7529cb22d2989bac7d578212b580af3e67b775276ad72796",
+          "sha1": "8790cb925ffd269113ab4f3971d43bf9da70de9d",
+          "md5": "1a9b31c4526656acbd74d02a76768698"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.openjfx",
+          "module": "javafx-fxml",
+          "version": {
+            "requires": "14"
+          },
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "javafx-fxml",
+              "type": "jar",
+              "extension": "jar",
+              "classifier": "linux"
+            }
+          }
+        },
+        {
+          "group": "org.openjfx",
+          "module": "javafx-controls",
+          "version": {
+            "requires": "14"
+          },
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "javafx-controls",
+              "type": "jar",
+              "extension": "jar",
+              "classifier": "linux"
+            }
+          }
+        },
+        {
+          "group": "org.openjfx",
+          "module": "javafx-swing",
+          "version": {
+            "requires": "14"
+          },
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "javafx-swing",
+              "type": "jar",
+              "extension": "jar",
+              "classifier": "linux"
+            }
+          }
+        },
+        {
+          "group": "org.openjfx",
+          "module": "javafx-base",
+          "version": {
+            "requires": "14"
+          },
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "javafx-base",
+              "type": "jar",
+              "extension": "jar",
+              "classifier": "linux"
+            }
+          }
+        },
+        {
+          "group": "org.openjfx",
+          "module": "javafx-graphics",
+          "version": {
+            "requires": "14"
+          },
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "javafx-graphics",
+              "type": "jar",
+              "extension": "jar",
+              "classifier": "linux"
+            }
+          }
+        },
+        {
+          "group": "ch.qos.logback",
+          "module": "logback-classic",
+          "version": {
+            "requires": "1.1.7"
+          }
+        },
+        {
+          "group": "info.picocli",
+          "module": "picocli",
+          "version": {
+            "requires": "4.5.0"
+          }
+        },
+        {
+          "group": "org.controlsfx",
+          "module": "controlsfx",
+          "version": {
+            "requires": "11.0.2"
+          }
+        },
+        {
+          "group": "xuggle",
+          "module": "xuggle-xuggler",
+          "version": {
+            "requires": "5.4"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "VideoPlayer-0.0.0.15.jar",
+          "url": "VideoPlayer-0.0.0.15.jar",
+          "size": 12602,
+          "sha512": "d630270ae74ea7a7e8e35088fa09d0d19b3a7bfd4df7d2de39d5257093978a82b77ce4963cdf5935ae42d517191c1a87af5d39ddf1785c2a1a20ddd40a692148",
+          "sha256": "8580653e06a5546d7529cb22d2989bac7d578212b580af3e67b775276ad72796",
+          "sha1": "8790cb925ffd269113ab4f3971d43bf9da70de9d",
+          "md5": "1a9b31c4526656acbd74d02a76768698"
+        }
+      ]
+    }
+  ]
+}

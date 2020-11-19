@@ -1,0 +1,70 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools",
+    "module": "mbse-plugin",
+    "version": "0.0.0.30",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "k5cfkiej3rh4ncsu7urouzaqqm"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "mbse-plugin-0.0.0.30.jar",
+          "url": "mbse-plugin-0.0.0.30.jar",
+          "size": 4091,
+          "sha512": "7abfefa55b17de024bdb1ef2e0aa4dd89ca132a0bea8566118860b9f23593a5116b8a68507e3f92d415625910532015f27282b02d84d0c6117ca5964ff082c0f",
+          "sha256": "165e66abf0f9728ad841fbbbe889ceea55c0cc6b25bcd19fcce3e611f99b1786",
+          "sha1": "99e90f9aeb7d2f39f1ecab5caa711c506ae0bd4a",
+          "md5": "eb807fe2d99602be756ccfe9b615b836"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 14,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools",
+          "module": "meetings-plugin",
+          "version": {
+            "requires": "0.0.0.30"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "mbse-plugin-0.0.0.30.jar",
+          "url": "mbse-plugin-0.0.0.30.jar",
+          "size": 4091,
+          "sha512": "7abfefa55b17de024bdb1ef2e0aa4dd89ca132a0bea8566118860b9f23593a5116b8a68507e3f92d415625910532015f27282b02d84d0c6117ca5964ff082c0f",
+          "sha256": "165e66abf0f9728ad841fbbbe889ceea55c0cc6b25bcd19fcce3e611f99b1786",
+          "sha1": "99e90f9aeb7d2f39f1ecab5caa711c506ae0bd4a",
+          "md5": "eb807fe2d99602be756ccfe9b615b836"
+        }
+      ]
+    }
+  ]
+}
