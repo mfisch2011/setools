@@ -31,3 +31,6 @@ build/
 bin/
 .classpath
 .project
+
+# Ignore Gradle build output directory
+build
