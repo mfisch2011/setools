@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 plugins {
-    id "io.toolebox.git-versioner"    
+    id "io.toolebox.git-versioner"
+    id "uk.co.probablyfine.gradle.test-commit-revert"   
 }
 
 repositories {
