@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 plugins {
-    
+    id "io.toolebox.git-versioner"    
 }
 
 repositories {
@@ -23,4 +23,8 @@ repositories {
 
 dependencies {
 
+}
+
+versioner {
+    pattern { pattern = "%M.%m.%p(.%c)" }
 }
