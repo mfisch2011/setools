@@ -15,4 +15,5 @@ repositories {
 dependencies {
 	implementation "gradle.plugin.io.toolebox:gradle-git-versioner:1.6.5"
 	implementation "gradle.plugin.uk.co.probablyfine.gradle:gradle-test-commit-revert-plugin:0.3.5"
+	implementation "gradle.plugin.com.github.spotbugs.snom:spotbugs-gradle-plugin:4.7.0"
 }

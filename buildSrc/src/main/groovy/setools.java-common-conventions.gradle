@@ -17,6 +17,7 @@ plugins {
     id 'setools.base-conventions' //apply base conventions
     id 'java' //plugin for general java development
     id 'jacoco' //plugin for java code coverage analysis
+    id 'com.github.spotbugs' //plugin for static code analysis
 }
 
 dependencies {
