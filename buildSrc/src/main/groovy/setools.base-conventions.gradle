@@ -14,8 +14,13 @@
  * limitations under the License.
  */
 plugins {
+    //plugin to get version from git commit history
     id "io.toolebox.git-versioner"
-    id "uk.co.probablyfine.gradle.test-commit-revert"   
+    
+    //test, commit, revert workflow plugin 
+    id "uk.co.probablyfine.gradle.test-commit-revert" 
+    
+    id "maven-publich"
 }
 
 repositories {
@@ -28,4 +33,11 @@ dependencies {
 
 versioner {
     pattern { pattern = "%M.%m.%p(.%c)" }
+}
+
+publishing {
+    repositories {
+        localMaven()
+        maven { url "${project.rootDir}/releases" }
+    }
 }
