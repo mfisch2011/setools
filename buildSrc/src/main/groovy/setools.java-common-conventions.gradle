@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 plugins {
-    id 'setools.base-conventions'
-    // Apply the java Plugin to add support for Java.
-    id 'java'
+    id 'setools.base-conventions' //apply base conventions
+    id 'java' //plugin for general java development
+    id 'jacoco' //plugin for java code coverage analysis
 }
 
 dependencies {
