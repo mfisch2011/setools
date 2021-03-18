@@ -17,6 +17,7 @@ package setools.gradle.meetings.dsl;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.gradle.api.Action;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -24,44 +25,70 @@ import org.junit.jupiter.api.Test;
  * TODO:documentation...
  */
 public abstract class MeetingTest {
+	
+	/**
+	 * TODO:documentation...
+	 * @return
+	 */
+	protected abstract Meeting newInstance();
 
 	/**
 	 * Test method for {@link setools.gradle.meetings.dsl.Meeting#getAgendaTemplate()}
 	 * and {@link setools.gradle.meetings.dsl.Meeting#setAgendaTemplate(java.lang.Object)}.
 	 */
-	@Disabled
 	@Test
 	void testGetSetAgendaTemplate() {
-		fail("Not yet implemented");
+		Meeting meeting = newInstance();
+		assertNotNull(meeting);
+		assertNull(meeting.getAgendaTemplate());
+		meeting.setAgendaTemplate("test.tex");
+		assertEquals("test.tex",meeting.getAgendaTemplate());
+		//TODO:other templates?
 	}
+	
+	//TODO:fuzz test agendaTemplate
 
 	/**
 	 * Test method for {@link setools.gradle.meetings.dsl.Meeting#getMinutesTemplate()}
 	 * and {@link setools.gradle.meetings.dsl.Meeting#setMinutesTemplate(java.lang.Object)}.
 	 */
-	@Disabled
 	@Test
 	void testGetSetMinutesTemplate() {
-		fail("Not yet implemented");
+		Meeting meeting = newInstance();
+		assertNotNull(meeting);
+		assertNull(meeting.getMinutesTemplate());
+		meeting.setMinutesTemplate("test.tex");
+		assertEquals("test.tex",meeting.getMinutesTemplate());
+		//TODO:other templates?
 	}
+	
+	//TODO:fuzz test minutesTemplate
 
 	/**
 	 * Test method for {@link setools.gradle.meetings.dsl.Meeting#getPresentationTemplate()}
 	 * and {@link setools.gradle.meetings.dsl.Meeting#setPresentationTemplate(java.lang.Object)}.
 	 */
-	@Disabled
 	@Test
 	void testGetSetPresentationTemplate() {
-		fail("Not yet implemented");
+		Meeting meeting = newInstance();
+		assertNotNull(meeting);
+		assertNull(meeting.getPresentationTemplate());
+		meeting.setPresentationTemplate("test.tex");
+		assertEquals("test.tex",meeting.getPresentationTemplate());
+		//TODO:other templates?
 	}
+	
+	//TODO:fuzz test presentationTemplate
 
 	/**
 	 * Test method for {@link setools.gradle.meetings.dsl.Meeting#agenda()}.
 	 */
-	@Disabled
 	@Test
 	void testAgenda() {
-		fail("Not yet implemented");
+		Meeting meeting = newInstance();
+		assertNotNull(meeting);
+		assertNotNull(meeting.agenda());
+		//TODO:other testing
 	}
 
 	/**
@@ -70,16 +97,31 @@ public abstract class MeetingTest {
 	@Disabled
 	@Test
 	void testAgendaClosure() {
+		Meeting meeting = newInstance();
+		assertNotNull(meeting);
+		assertNotNull(meeting.agenda());
+		//TODO:set configuring with a closure
 		fail("Not yet implemented");
 	}
 
 	/**
 	 * Test method for {@link setools.gradle.meetings.dsl.Meeting#agenda(org.gradle.api.Action)}.
 	 */
-	@Disabled
 	@Test
 	void testAgendaActionOfQextendsAgendaHandler() {
-		fail("Not yet implemented");
+		Meeting meeting = newInstance();
+		assertNotNull(meeting);
+		assertNotNull(meeting.agenda());
+		meeting.agenda(new Action<AgendaHandler>() {
+
+			@Override
+			public void execute(AgendaHandler handler) {
+				handler.topic().setName("Test Topic 1");
+				handler.topic().setName("Test Topic 2");
+				handler.topic().setName("Test Topic 3");
+			}
+		});
+		assertEquals(3,meeting.agenda().size());
 	}
 
 }

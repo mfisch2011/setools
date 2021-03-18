@@ -79,7 +79,7 @@ public interface Meeting {
 	 * @param action
 	 * @return
 	 */
-	public AgendaHandler agenda(Action<? extends AgendaHandler> action);
+	public AgendaHandler agenda(Action<? super AgendaHandler> action);
 	
 	/**
 	 * TODO:documentation...
@@ -100,6 +100,6 @@ public interface Meeting {
 	 * @param action
 	 * @return
 	 */
-	public AttendeesHandler attendees(Action<? extends AttendeesHandler> action);
+	public AttendeesHandler attendees(Action<? super AttendeesHandler> action);
 	
 }
