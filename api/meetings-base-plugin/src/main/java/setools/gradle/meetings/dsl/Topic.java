@@ -15,9 +15,61 @@
  */
 package setools.gradle.meetings.dsl;
 
+import groovy.lang.Closure;
+
 /**
  * TODO:documentation...
  */
 public interface Topic {
-
+	
+	/**
+	 * TODO:documentation...
+	 * @return
+	 */
+	public String getName();
+	
+	/**
+	 * TODO:documentation...
+	 * @param name
+	 */
+	public void setName(String name);
+	
+	/**
+	 * TODO:documentation...
+	 * @return
+	 */
+	public String getNotes();
+	
+	/**
+	 * TODO:documentation...
+	 * @param text
+	 */
+	public void setNotes(String text);
+	
+	/**
+	 * TODO:documentation...
+	 * @return
+	 */
+	public String getPresenter();
+	
+	/**
+	 * TODO:documentation...
+	 * @param name
+	 */
+	public void setPresenter(String name);
+	
+	/**
+	 * TODO:documentation...
+	 * @return
+	 */
+	public AgendaHandler subTopics();
+	
+	/**
+	 * TODO:documentation...
+	 * @param closure
+	 * @return
+	 */
+	@SuppressWarnings("rawtypes")
+	public AgendaHandler subTopics(Closure closure);
+	
 }
