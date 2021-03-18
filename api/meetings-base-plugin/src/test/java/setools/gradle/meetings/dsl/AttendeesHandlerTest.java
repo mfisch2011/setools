@@ -66,7 +66,7 @@ public abstract class AttendeesHandlerTest extends AbstractHandlerTest<Attendee>
 			
 		});
 		assertNotNull(attendee);
-		assertEquals("TestName",attendee.getName());
+		assertEquals("Test Name",attendee.getName());
 		assertEquals("Test Role",attendee.getRole());
 		//TODO:further testing?
 	}

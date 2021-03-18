@@ -16,6 +16,7 @@
 package setools.gradle.meetings.dsl.internal;
 
 import org.gradle.api.Action;
+import org.gradle.util.ConfigureUtil;
 
 import groovy.lang.Closure;
 import setools.gradle.meetings.dsl.Attendee;
@@ -29,21 +30,26 @@ AttendeesHandler {
 
 	@Override
 	public Attendee attendee() {
-		// TODO Auto-generated method stub
-		return null;
+		Attendee attendee = new DefaultAttendee();
+		add(attendee);
+		return attendee;
 	}
 
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Attendee attendee(Closure closure) {
-		// TODO Auto-generated method stub
-		return null;
+		Attendee attendee = new DefaultAttendee();
+		ConfigureUtil.configure(closure, attendee);
+		add(attendee);
+		return attendee;
 	}
 
 	@Override
-	public Attendee attendee(Action<? extends Attendee> action) {
-		// TODO Auto-generated method stub
-		return null;
+	public Attendee attendee(Action<? super Attendee> action) {
+		Attendee attendee = new DefaultAttendee();
+		action.execute(attendee);
+		add(attendee);
+		return attendee;
 	}
 
 }

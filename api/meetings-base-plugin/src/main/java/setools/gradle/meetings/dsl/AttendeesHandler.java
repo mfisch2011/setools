@@ -45,6 +45,6 @@ public interface AttendeesHandler extends Collection<Attendee> {
 	 * @param action
 	 * @return
 	 */
-	public Attendee attendee(Action<? extends Attendee> action);
+	public Attendee attendee(Action<? super Attendee> action);
 	
 }
