@@ -81,4 +81,25 @@ public interface Meeting {
 	 */
 	public AgendaHandler agenda(Action<? extends AgendaHandler> action);
 	
+	/**
+	 * TODO:documentation...
+	 * @return
+	 */
+	public AttendeesHandler attendees();
+	
+	/**
+	 * TODO:documentation...
+	 * @param closure
+	 * @return
+	 */
+	@SuppressWarnings("rawtypes")
+	public AttendeesHandler attendees(Closure closure);
+	
+	/**
+	 * TODO:documentation...
+	 * @param action
+	 * @return
+	 */
+	public AttendeesHandler attendees(Action<? extends AttendeesHandler> action);
+	
 }
