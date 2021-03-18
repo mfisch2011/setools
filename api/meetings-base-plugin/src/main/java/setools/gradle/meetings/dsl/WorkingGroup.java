@@ -20,4 +20,16 @@ package setools.gradle.meetings.dsl;
  */
 public interface WorkingGroup extends Meeting {
 
+	/**
+	 * TODO:documentation...
+	 * @return
+	 */
+	public String getActionItemDatabase();
+	
+	/**
+	 * TODO:documentation...
+	 * @param connection
+	 */
+	public void setActionItemDatabase(String connection);
+	
 }
