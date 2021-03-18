@@ -92,7 +92,7 @@ public interface MeetingsHandler extends Collection<Meeting> {
 	 * TODO:documentation...
 	 * @param action
 	 */
-	public Meeting meeting(Action<? extends Meeting> action);
+	public Meeting meeting(Action<? super Meeting> action);
 	
 	/**
 	 * TODO:documentation...
@@ -113,6 +113,6 @@ public interface MeetingsHandler extends Collection<Meeting> {
 	 * @param action
 	 * @return
 	 */
-	public WorkingGroup workingGroup(Action<? extends WorkingGroup> action);
+	public WorkingGroup workingGroup(Action<? super WorkingGroup> action);
 	
 }
