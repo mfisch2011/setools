@@ -13,6 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-rootProject.name = "setools"
+package setools.gradle.meetings.api;
 
-include "api:meetings-base-plugin"
+/**
+ * TODO:documentation...
+ */
+public interface MeetingsHandler {
+
+}
