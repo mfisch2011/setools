@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 /**
  * TODO:documentation...
  */
-class WorkingGroupTest extends MeetingTest {
+public abstract class WorkingGroupTest extends MeetingTest {
 
 	/**
 	 * Test method for {@link setools.gradle.meetings.dsl.WorkingGroup#getActionItemDatabase()}
