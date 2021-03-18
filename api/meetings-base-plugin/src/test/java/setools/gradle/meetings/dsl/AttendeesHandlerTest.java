@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 /**
  * TODO:documentation...
  */
-class AttendeesHandlerTest {
+public abstract class AttendeesHandlerTest {
 
 	/**
 	 * Test method for {@link setools.gradle.meetings.dsl.AttendeesHandler#attendee()}.
