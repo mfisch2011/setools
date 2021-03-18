@@ -37,7 +37,6 @@ versioner {
 
 publishing {
     repositories {
-        localMaven()
-        maven { url "${project.rootDir}/releases" }
+        maven { url = "$project.rootDir/releases" }
     }
 }
