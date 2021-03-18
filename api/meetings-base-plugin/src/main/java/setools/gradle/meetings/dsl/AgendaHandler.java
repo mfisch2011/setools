@@ -15,6 +15,8 @@
  */
 package setools.gradle.meetings.dsl;
 
+import java.util.Collection;
+
 import org.gradle.api.Action;
 
 import groovy.lang.Closure;
@@ -22,49 +24,13 @@ import groovy.lang.Closure;
 /**
  * TODO:documentation...
  */
-public interface Meeting {
+public interface AgendaHandler extends Collection<Topic> {
 
 	/**
 	 * TODO:documentation...
 	 * @return
 	 */
-	public String getAgendaTemplate();
-	
-	/**
-	 * TODO:documentation...
-	 * @param object
-	 */
-	public void setAgendaTemplate(Object object);
-	
-	/**
-	 * TODO:documentation...
-	 * @return
-	 */
-	public String getMinutesTemplate();
-	
-	/**
-	 * TODO:documentation...
-	 * @param object
-	 */
-	public void setMinutesTemplate(Object object);
-	
-	/**
-	 * TODO:documentation...
-	 * @return
-	 */
-	public String getPresentationTemplate();
-	
-	/**
-	 * TODO:documentation...
-	 * @param object
-	 */
-	public void setPresentationTemplate(Object object);
-	
-	/**
-	 * TODO:documentation...
-	 * @return
-	 */
-	public AgendaHandler agenda();
+	public Topic topic();
 	
 	/**
 	 * TODO:documentation...
@@ -72,13 +38,13 @@ public interface Meeting {
 	 * @return
 	 */
 	@SuppressWarnings("rawtypes")
-	public AgendaHandler agenda(Closure closure);
+	public Topic topic(Closure closure);
 	
 	/**
 	 * TODO:documentation...
 	 * @param action
 	 * @return
 	 */
-	public AgendaHandler agenda(Action<? extends AgendaHandler> action);
+	public Topic topic(Action<? extends Topic> action);
 	
 }
