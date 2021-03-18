@@ -13,38 +13,43 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package setools.gradle.meetings.dsl;
-
-import java.util.Collection;
+package setools.gradle.meetings.dsl.internal;
 
 import org.gradle.api.Action;
+import org.gradle.util.ConfigureUtil;
 
 import groovy.lang.Closure;
+import setools.gradle.meetings.dsl.AgendaHandler;
+import setools.gradle.meetings.dsl.Topic;
 
 /**
  * TODO:documentation...
  */
-public interface AgendaHandler extends Collection<Topic> {
+public class DefaultAgendaHandler extends AbstractHandler<Topic> implements
+AgendaHandler {
 
-	/**
-	 * TODO:documentation...
-	 * @return
-	 */
-	public Topic topic();
-	
-	/**
-	 * TODO:documentation...
-	 * @param closure
-	 * @return
-	 */
+	@Override
+	public Topic topic() {
+		Topic topic = new DefaultTopic();
+		add(topic);
+		return topic;
+	}
+
 	@SuppressWarnings("rawtypes")
-	public Topic topic(Closure closure);
-	
-	/**
-	 * TODO:documentation...
-	 * @param action
-	 * @return
-	 */
-	public Topic topic(Action<? super Topic> action);
-	
+	@Override
+	public Topic topic(Closure closure) {
+		Topic topic = new DefaultTopic();
+		ConfigureUtil.configure(closure, topic);
+		add(topic);
+		return topic;
+	}
+
+	@Override
+	public Topic topic(Action<? super Topic> action) {
+		Topic topic = new DefaultTopic();
+		action.execute(topic);
+		add(topic);
+		return topic;
+	}
+
 }

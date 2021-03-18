@@ -13,38 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package setools.gradle.meetings.dsl;
+package setools.gradle.meetings.dsl.internal;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Collection;
 
-import org.gradle.api.Action;
+import org.junit.jupiter.api.Test;
 
-import groovy.lang.Closure;
+import setools.gradle.meetings.dsl.AgendaHandlerTest;
+import setools.gradle.meetings.dsl.Topic;
 
 /**
  * TODO:documentation...
  */
-public interface AgendaHandler extends Collection<Topic> {
+class DefaultAgendaHandlerTest extends AgendaHandlerTest {
 
-	/**
-	 * TODO:documentation...
-	 * @return
-	 */
-	public Topic topic();
-	
-	/**
-	 * TODO:documentation...
-	 * @param closure
-	 * @return
-	 */
-	@SuppressWarnings("rawtypes")
-	public Topic topic(Closure closure);
-	
-	/**
-	 * TODO:documentation...
-	 * @param action
-	 * @return
-	 */
-	public Topic topic(Action<? super Topic> action);
-	
+	@Override
+	protected Topic newObjectInstance() {
+		return new DefaultTopic();
+	}
+
+	@Override
+	protected Collection<Topic> newHandlerInstance() {
+		return new DefaultAgendaHandler();
+	}
+
 }

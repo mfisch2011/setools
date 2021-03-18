@@ -17,21 +17,29 @@ package setools.gradle.meetings.dsl;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.gradle.api.Action;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import setools.gradle.meetings.dsl.internal.AbstractHandlerTest;
 
 /**
  * TODO:documentation...
  */
-public abstract class AgendaHandlerTest {
+public abstract class AgendaHandlerTest extends AbstractHandlerTest<Topic> {
 
 	/**
 	 * Test method for {@link setools.gradle.meetings.dsl.AgendaHandler#topic()}.
 	 */
-	@Disabled
 	@Test
 	void testTopic() {
-		fail("Not yet implemented");
+		AgendaHandler handler = (AgendaHandler)newHandlerInstance();
+		assertNotNull(handler);
+		Topic topic = handler.topic();
+		assertNotNull(topic);
+		assertTrue(handler.contains(topic));
+		handler.remove(topic);
+		assertFalse(handler.contains(topic));
 	}
 
 	/**
@@ -40,7 +48,14 @@ public abstract class AgendaHandlerTest {
 	@Disabled
 	@Test
 	void testTopicClosure() {
-		fail("Not yet implemented");
+		AgendaHandler handler = (AgendaHandler)newHandlerInstance();
+		assertNotNull(handler);
+		//TODO:create with closure...
+		Topic topic = handler.topic();
+		assertNotNull(topic);
+		assertTrue(handler.contains(topic));
+		handler.remove(topic);
+		assertFalse(handler.contains(topic));
 	}
 
 	/**
@@ -49,178 +64,23 @@ public abstract class AgendaHandlerTest {
 	@Disabled
 	@Test
 	void testTopicActionOfQextendsTopic() {
-		fail("Not yet implemented");
-	}
+		AgendaHandler handler = (AgendaHandler)newHandlerInstance();
+		assertNotNull(handler);
+		Topic topic = handler.topic(new Action<Topic>() {
 
-	/**
-	 * Test method for {@link java.util.Collection#iterator()}.
-	 */
-	@Disabled
-	@Test
-	void testIterator() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#spliterator()}.
-	 */
-	@Disabled
-	@Test
-	void testSpliterator() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#size()}.
-	 */
-	@Disabled
-	@Test
-	void testSize() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#isEmpty()}.
-	 */
-	@Disabled
-	@Test
-	void testIsEmpty() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#contains(java.lang.Object)}.
-	 */
-	@Disabled
-	@Test
-	void testContains() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#toArray()}.
-	 */
-	@Disabled
-	@Test
-	void testToArray() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#toArray(T[])}.
-	 */
-	@Disabled
-	@Test
-	void testToArrayTArray() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#toArray(java.util.function.IntFunction)}.
-	 */
-	@Disabled
-	@Test
-	void testToArrayIntFunctionOfT() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#add(java.lang.Object)}.
-	 */
-	@Disabled
-	@Test
-	void testAdd() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#remove(java.lang.Object)}.
-	 */
-	@Disabled
-	@Test
-	void testRemove() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#containsAll(java.util.Collection)}.
-	 */
-	@Disabled
-	@Test
-	void testContainsAll() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#addAll(java.util.Collection)}.
-	 */
-	@Disabled
-	@Test
-	void testAddAll() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#removeAll(java.util.Collection)}.
-	 */
-	@Disabled
-	@Test
-	void testRemoveAll() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#removeIf(java.util.function.Predicate)}.
-	 */
-	@Disabled
-	@Test
-	void testRemoveIf() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#retainAll(java.util.Collection)}.
-	 */
-	@Disabled
-	@Test
-	void testRetainAll() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#clear()}.
-	 */
-	@Disabled
-	@Test
-	void testClear() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#stream()}.
-	 */
-	@Disabled
-	@Test
-	void testStream() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.util.Collection#parallelStream()}.
-	 */
-	@Disabled
-	@Test
-	void testParallelStream() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link java.lang.Iterable#forEach(java.util.function.Consumer)}.
-	 */
-	@Disabled
-	@Test
-	void testForEach() {
-		fail("Not yet implemented");
+			@Override
+			public void execute(Topic topic) {
+				topic.setName("Test topic");
+				topic.setNotes("Test notes");
+				topic.setPresenter("Test presenter");
+				//TODO:subTopics?
+			}
+			
+		});
+		assertNotNull(topic);
+		assertEquals("Test topic",topic.getName());
+		assertEquals("Test notes",topic.getNotes());
+		assertEquals("Test presenter",topic.getPresenter());
 	}
 
 }
