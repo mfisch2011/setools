@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-plugins {
-    id 'setools.java-library-conventions'
-}
+package setools.gradle.meetings.dsl;
 
-dependencies {
-    api gradleApi();
-    api gradleTestKit();
+/**
+ * TODO:documentation...
+ */
+public interface Meeting {
+
 }

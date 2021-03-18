@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package setools.gradle.meetings.api;
+package setools.gradle.meetings.dsl;
 
 /**
  * TODO:documentation...
  */
-public interface MeetingsHandler {
+public interface WorkingGroup extends Meeting {
 
 }
