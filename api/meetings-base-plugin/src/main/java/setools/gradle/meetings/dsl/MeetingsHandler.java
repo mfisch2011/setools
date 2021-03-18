@@ -70,9 +70,9 @@ public interface MeetingsHandler extends Collection<Meeting> {
 	
 	/**
 	 * TODO:documentation...
-	 * @param object
+	 * @param connection
 	 */
-	public void setActionItemDatabase(Object object);
+	public void setActionItemDatabase(String connection);
 	
 	/**
 	 * TODO:documentation...
