@@ -14,6 +14,6 @@
    limitations under the License.
 */
 dependencies {
-	api "org.eclipse.papyrus.sysml:org.eclipse.papyrus.sysml16:[1.0.0,2.0.0)"
+	api "org.eclipse.papyrus.sysml16:org.eclipse.papyrus.sysml16:1.0.0"
 	api project(":api:modeling:uml-api")
 }
