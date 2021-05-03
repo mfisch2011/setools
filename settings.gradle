@@ -33,6 +33,5 @@ include "plugins:risk-management-plugin"
 include "plugins:risk-base-plugin"
 include "plugins:risk-review-plugin"
 include "plugins:ooxml-risk-review-plugin"
-include "plugins:latex-risk-review-plugin"
 
 include "models"

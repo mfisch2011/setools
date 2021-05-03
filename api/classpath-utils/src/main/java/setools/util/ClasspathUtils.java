@@ -26,6 +26,7 @@ import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
+import org.apache.commons.io.FileUtils;
 
 /**
  * TODO:
@@ -57,44 +58,17 @@ public class ClasspathUtils {
 			}
 			break;
 		default:
-			Path path = Paths.get(url.getPath());
-			path = Paths.get(path.toString().replace("classes/java","resources")); //TODO:how to handle where Gradle puts resources...
-			File source = path.resolve(pathname).toFile();
-			if(source.isDirectory()) {
-				copyRecursive(source,source,dir);
-			} else {
-				Path srcPath = source.toPath();
-				Path destPath = Paths.get(dir.getAbsolutePath())
-						.resolve(srcPath);
-				File parent = destPath.toFile().getParentFile();
-				if(!parent.exists())
-					Files.createDirectories(parent.toPath());
-				Files.copy(srcPath,destPath);
-			}
-		}
-		
-	}
-
-	private static void copyRecursive(File root,File source,final File dir) throws IOException {
-		for(File file : source.listFiles()) {
-			if(file.isFile() ) {
-				Path srcPath = file.toPath();
-				Path relative = root.toPath().relativize(srcPath);
-				Path destPath = Paths.get(dir.getAbsolutePath())
-						.resolve(relative);
-				File parent = destPath.toFile().getParentFile();
-				if(!parent.exists())
-					Files.createDirectories(parent.toPath());
-				Files.copy(srcPath,destPath);
-			} else if(file.isDirectory())
-				copyRecursive(root,file,dir);
-		}
+			File srcDir = new File(url.getPath());
+			FileUtils.copyDirectory(srcDir,dir);
+			break;
+		}	
 	}
 
 	private static String getFileExtension(URL url) {
-		Path path = Paths.get(url.getPath());
-		String filename = path.getFileName().toString();
-		int index = filename.lastIndexOf('.');
+		String filename = url.getPath();
+		int index = filename.lastIndexOf('/');
+		filename = filename.substring(index);
+		index = filename.lastIndexOf('.');
 		if(index>0)
 			return filename.substring(index+1);
 		else
