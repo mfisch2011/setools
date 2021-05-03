@@ -192,7 +192,8 @@ public class RegisterMeetingLifecycle implements Action<Project> {
 					project.getTasks().create(name);
 		task.setGroup(meeting.getName());
 		task.setDescription("Publish the presentation for the " + meeting.getName());
-		task.dependsOn(getAssemblePresentationName());
+		task.dependsOn(getAssemblePresentationName(),
+			getDraftMinutesName(),getDraftAgendaName());
 		return task;
 	}
 
@@ -254,7 +255,10 @@ public class RegisterMeetingLifecycle implements Action<Project> {
 			GenerateTask task = project.getTasks().create(name, type, meeting);
 			task.setGroup(meeting.getName());
 			task.setDescription("Draft the minutes for the " + meeting.getName());
-			task.setDestination(getOutput(meeting.getName(),"Minutes.tex"));
+			String filename = meeting.getMinutesTemplate().getPath();
+			int index = filename.lastIndexOf('.');
+			String ext = filename.substring(index);
+			task.setDestination(getOutput(meeting.getName(),"Minutes" + ext));
 			task.dependsOn(getDraftAgendaName());
 			return task;
 		} else {
@@ -287,7 +291,10 @@ public class RegisterMeetingLifecycle implements Action<Project> {
 			GenerateTask task = project.getTasks().create(name, type, meeting);
 			task.setGroup(meeting.getName());
 			task.setDescription("Draft the agenda for the " + meeting.getName());
-			task.setDestination(getOutput(meeting.getName(),"Agenda.tex"));
+			String filename = meeting.getMinutesTemplate().getPath();
+			int index = filename.lastIndexOf('.');
+			String ext = filename.substring(index);
+			task.setDestination(getOutput(meeting.getName(),"Agenda" + ext));
 			return task;
 		} else {
 			Task task = project.getTasks().create(name);

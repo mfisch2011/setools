@@ -25,7 +25,12 @@ gradlePlugin {
 dependencies {
 	implementation "org.apache.poi:poi-ooxml:4.1.2"
 	implementation "org.apache.commons:commons-text:1.8"
-	implementation "org.apache.velocity:velocity:1.7"
 	//implementation project(":gradle-api")
-	
+
+	implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.document:2.0.2"
+	implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.document.docx:2.0.2"
+	implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.document.odt:2.0.2"
+	implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.converter.odt.odfdom:2.0.2"
+	implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.template.velocity:2.0.2"
+
 }

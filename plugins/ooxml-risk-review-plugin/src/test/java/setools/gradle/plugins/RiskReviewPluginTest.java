@@ -64,7 +64,7 @@ public class RiskReviewPluginTest {
 		assertNotNull(output);
 		File buildDir = new File(dir,"src/meetings/Risk Review");
 		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
-		File agenda = new File(buildDir,"riskReviewAgenda.docx");
+		File agenda = new File(buildDir,"riskReviewAgenda.odt");
 		assertTrue("Missing " + agenda.toString(),agenda.exists());
 		//TODO:validate output...
 	}
@@ -82,7 +82,7 @@ public class RiskReviewPluginTest {
 		assertNotNull(output);
 		File buildDir = new File(dir,"src/meetings/Risk Review");
 		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
-		File minutes = new File(buildDir,"riskReviewMinutes.docx");
+		File minutes = new File(buildDir,"riskReviewMinutes.odt");
 		assertTrue("Missing " + minutes.toString(),minutes.exists());
 		//TODO:validate output
 	}
@@ -135,7 +135,6 @@ public class RiskReviewPluginTest {
 	@GradleTest(args= {"assembleRiskReviewPresentation"},
 	resources="test-basic-risk-review")
 	public void testAssembleRiskReviewPresentation(BuildResult result,File dir) {
-		GradleTestRunner.listFiles(dir); //TODO:temp
 		assertNotNull(result);
 		String output = result.getOutput();
 		assertNotNull(output);
@@ -155,13 +154,16 @@ public class RiskReviewPluginTest {
 	 */
 	@GradleTest(args= {"publishRiskReviewMinutes"},resources="test-basic-risk-review")
 	public void testPublishRiskReviewMinutes(BuildResult result,File dir) {
-		GradleTestRunner.listFiles(dir); //TODO:temp
 		assertNotNull(result);
 		String output = result.getOutput();
 		assertNotNull(output);
 		File buildDir = new File(dir,"src/meetings/Risk Review");
 		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
-		File presentation = new File(buildDir,"riskReviewMinutes.docx");
+		File agenda = new File(buildDir,"riskReviewAgenda.odt");
+		assertTrue("Missing " + agenda.toString(),agenda.exists());
+		File minutes = new File(buildDir,"riskReviewMinutes.odt");
+		assertTrue("Missing " + minutes.toString(),minutes.exists());
+		File presentation = new File(buildDir,"riskReviewPresentation.pptx");
 		assertTrue("Missing " + presentation.toString(),presentation.exists());
 		//TODO:validate contents of presentation....
 	}

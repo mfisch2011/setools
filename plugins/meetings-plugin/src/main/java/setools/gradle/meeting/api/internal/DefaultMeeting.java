@@ -101,8 +101,8 @@ public class DefaultMeeting implements Meeting {
 		this.attendees = new TreeSet<String>();
 		this.agenda = new DefaultAgendaItemHandler();
 		this.presentationTemplate = new URI("classpath:///resources/ooxml-presentation-template.pptx");
-		this.agendaTemplate = new URI("classpath:///resources/agenda-template.docx");
-		this.minutesTemplate = new URI("classpath:///resources/minutes-template.docx");
+		this.agendaTemplate = new URI("classpath:///resources/agenda-template.odt");
+		this.minutesTemplate = new URI("classpath:///resources/minutes-template.odt");
 	}
 
 	@Override

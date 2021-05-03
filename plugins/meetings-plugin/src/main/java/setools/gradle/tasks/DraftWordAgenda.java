@@ -15,8 +15,11 @@
 */
 package setools.gradle.tasks;
 
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.Writer;
 
 import javax.inject.Inject;
@@ -27,8 +30,14 @@ import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.apache.velocity.runtime.resource.loader.FileResourceLoader;
 import org.gradle.api.tasks.Input;
+import org.gradle.api.tasks.Internal;
 import org.gradle.api.tasks.TaskAction;
 
+import fr.opensagres.xdocreport.core.XDocReportException;
+import fr.opensagres.xdocreport.document.IXDocReport;
+import fr.opensagres.xdocreport.document.registry.XDocReportRegistry;
+import fr.opensagres.xdocreport.template.IContext;
+import fr.opensagres.xdocreport.template.TemplateEngineKind;
 import setools.gradle.meeting.api.Meeting;
 
 /** 
@@ -52,24 +61,34 @@ public class DraftWordAgenda extends GenerateTask {
 	}
 	
 	@TaskAction
-	public void draftAgenda() throws IOException {
-		//TODO:make velocity thread api???
-		VelocityEngine engine = configureEngine();
-		Template template = engine.getTemplate(getTemplate());
-		Writer writer = new FileWriter(getDestination());
-		template.merge(configureContext(), writer);
-		writer.close();
+	public void draftAgenda() throws IOException, XDocReportException {
+		InputStream iStream = getTemplateAsStream();
+		IXDocReport report = XDocReportRegistry.getRegistry()
+			.loadReport(iStream, TemplateEngineKind.Velocity);
+		iStream.close();
+		IContext context = report.createContext();
+		OutputStream oStream = new FileOutputStream(getDestination());
+		report.process(context, oStream);
+		oStream.close();
+	}
+	
+	/**
+	 * TODO:documentation...
+	 * @return
+	 */
+	@Internal
+	protected InputStream getTemplateAsStream() {
+		//TODO:use resource loader...
+		return getClass().getResourceAsStream("/resources/agenda-template.odt");
 	}
 	
 	/**
 	 * TODO:
 	 * @return
 	 */
-	protected VelocityContext configureContext() {
-		VelocityContext context = new VelocityContext();
+	protected void configureContext(IContext context) {
 		context.put("meeting",meeting);
 		//TODO:other configuration....
-		return context;
 	}
 
 	/**
@@ -90,7 +109,7 @@ public class DraftWordAgenda extends GenerateTask {
 	/**
 	 * TODO:
 	 */
-	protected String template = "templates/velocity/agenda.tex.vm";
+	protected String template = "resources/agenda-template.odt";
 
 	/**
 	 * TODO:

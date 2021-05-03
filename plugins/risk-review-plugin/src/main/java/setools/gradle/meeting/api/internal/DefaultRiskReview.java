@@ -27,7 +27,6 @@ import org.gradle.util.ConfigureUtil;
 import groovy.lang.Closure;
 import setools.gradle.meeting.api.AgendaItem;
 import setools.gradle.meeting.api.RiskReview;
-import setools.gradle.meeting.api.internal.DefaultMeeting;
 
 
 /** TODO:
