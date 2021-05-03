@@ -16,7 +16,7 @@
 gradlePlugin {
 	plugins {
 		meetingsPlugin {
-			id = "setools.gradle.plugins.MeetingsPlugin"
+			id = "gradle.plugin.setools.meetings-plugin"
 			implementationClass = "setools.gradle.plugins.MeetingsPlugin"
 		}
 	}

@@ -16,7 +16,7 @@
 gradlePlugin {
 	plugins {
 		umlPlugin {
-			id = "setools.gradle.plugins.UmlPlugin"
+			id = "setools.gradle.uml-plugin"
 			implementationClass = "setools.gradle.plugins.UmlPlugin"
 		}
 	}

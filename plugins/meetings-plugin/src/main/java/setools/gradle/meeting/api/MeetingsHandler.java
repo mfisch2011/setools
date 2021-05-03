@@ -18,6 +18,8 @@ package setools.gradle.meeting.api;
 import java.net.URISyntaxException;
 import java.util.Set;
 
+import org.gradle.api.plugins.ExtensionAware;
+
 import groovy.lang.Closure;
 
 /**

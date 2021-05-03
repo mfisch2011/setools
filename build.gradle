@@ -22,6 +22,7 @@ buildscript {
 	
 	dependencies {
 		classpath "gradle.plugin.io.toolebox:gradle-git-versioner:1.3.0"
+		classpath "com.gradle.publish:plugin-publish-plugin:0.14.0"
 	}
 }
 
@@ -38,6 +39,7 @@ allprojects {
 	
 	apply plugin: "io.toolebox.git-versioner"
 	apply plugin: "maven-publish"
+	apply plugin: "com.gradle.plugin-publish"
 	
 	versioner {
 		pattern { pattern = "%M.%m.%p(.%c)" }
@@ -49,4 +51,15 @@ allprojects {
         	mavenLocal();
     	}
     }
+    
+    pluginBundle {
+    	website = "https://github.com/mfisch2011/setools" 
+    	vcsUrl = "https://github.com/mfisch2011/setools.git" 
+    	tags = ["Systems Engineering","MBSE","Risk Management","Program Management"]     
+    }
+    
+    //TODO:remove and properly generate javadoc...
+    subprojects {
+    	tasks.withType(Javadoc).all { enabled = false }
+	}
 }

@@ -14,7 +14,7 @@
    limitations under the License.
 */
 plugins {
-	id "setools.gradle.plugins.MeetingsPlugin"
+	id "gradle.plugin.setools.meetings-plugin"
 }
 
 meetingsPlugin {

@@ -16,7 +16,7 @@
 gradlePlugin {
 	plugins {
 		riskReviewPlugin {
-			id = "setools.gradle.plugins.OOXMLRiskReviewPlugin"
+			id = "gradle.plugin.setools.risk-review-plugin"
 			implementationClass = "setools.gradle.plugins.OOXMLRiskReviewPlugin"
 		}
 	}

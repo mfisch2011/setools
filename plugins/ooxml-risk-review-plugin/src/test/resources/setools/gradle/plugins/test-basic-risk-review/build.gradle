@@ -13,6 +13,5 @@
    See the License for the specific language governing permissions and
  */
 plugins {
-	id "setools.gradle.plugins.OOXMLRiskReviewPlugin"
-	//for debugging only id "com.dorongold.task-tree" version "1.5"
+	id "gradle.plugin.setools.risk-review-plugin"
 }
