@@ -19,35 +19,21 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 import org.gradle.testkit.runner.BuildResult;
+import org.junit.runner.RunWith;
+
 import setools.gradle.test.GradleTest;
+import setools.gradle.test.GradleTestRunner;
 
 /**
  * TODO:
  */
-//TODO: WTFF is this broken?! @RunWith(GradleTestRunner.class)
+@RunWith(GradleTestRunner.class)
 public class MeetingsPluginTest {
 
 	/**
 	 * Test method for {@link setools.gradle.plugins.MeetingsPlugin#apply(org.gradle.api.Project)}.
-	 * @throws IOException 
 	 */
-	@GradleTest(args={"tasks"},build=
-	"plugins {\r\n"
-	+ "	id \"setools.gradle.plugins.MeetingsPlugin\"\r\n"
-	+ "}\r\n"
-	+ "\r\n"
-	+ "meetingsPlugin {\r\n"
-	+ "	meetings {\r\n"
-	+ "		meeting {\r\n"
-	+ "			name = \"Test Meeting\"\r\n"
-	+ "			description = \"Create a fake meeting to test basic settings.\"\r\n"
-	+ "			date = \"1/1/2020\"\r\n"
-	+ "			time = \"14:00\"\r\n"
-	+ "			attendees = [\"Billy Joe Bob\",\"Pinky\",\"Brain\"]\r\n"
-	+ "			location = \"Super Secret Conference Room\"\r\n"
-	+ "		}\r\n"
-	+ "	}\r\n"
-	+ "}")
+	@GradleTest(args={"tasks"},resources="test-basic-meeting")
 	public void testRegisterMeetingTasks(BuildResult result,File dir) {
 		assertNotNull(result);
 		String output = result.getOutput();
@@ -68,25 +54,8 @@ public class MeetingsPluginTest {
 	 * 
 	 * TODO:is this better tested with an integration test using org.gradle.testfixtures.ProjectBuilder?
 	 * 
-	 * @throws IOException 
 	 */
-	@GradleTest(args= {"draftTestMeetingAgenda"},build=
-	"plugins {\r\n"
-	+ "	id \"setools.gradle.plugins.MeetingsPlugin\"\r\n"
-	+ "}\r\n"
-	+ "\r\n"
-	+ "meetingsPlugin {\r\n"
-	+ "	meetings {\r\n"
-	+ "		meeting {\r\n"
-	+ "			name = \"Test Meeting\"\r\n"
-	+ "			description = \"Create a fake meeting to test basic settings.\"\r\n"
-	+ "			date = \"1/1/2020\"\r\n"
-	+ "			time = \"14:00\"\r\n"
-	+ "			attendees = [\"Billy Joe Bob\",\"Pinky\",\"Brain\"]\r\n"
-	+ "			location = \"Super Secret Conference Room\"\r\n"
-	+ "		}\r\n"
-	+ "	}\r\n"
-	+ "}")
+	@GradleTest(args= {"draftTestMeetingAgenda"},resources="test-basic-meeting")
 	public void testDraftTestMeetingAgenda(BuildResult result,File dir) {
 		assertNotNull(result);
 		String output = result.getOutput();
@@ -94,7 +63,7 @@ public class MeetingsPluginTest {
 		System.out.println(output);
 		File buildDir = new File(dir,"src/meetings/Test Meeting");
 		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
-		File agenda = new File(buildDir,"testMeetingAgenda.docx");
+		File agenda = new File(buildDir,"testMeetingAgenda.odt");
 		assertTrue("Missing " + agenda.toString(),agenda.exists());
 		//TOOD:validate contents...
 	}
@@ -103,26 +72,8 @@ public class MeetingsPluginTest {
 	 * Test method for {@link setools.gradle.plugins.MeetingsPlugin#apply(org.gradle.api.Project)}.
 	 * 
 	 * TODO:is this better tested with an integration test using org.gradle.testfixtures.ProjectBuilder?
-	 * 
-	 * @throws IOException 
 	 */
-	@GradleTest(args= {"draftTestMeetingMinutes"}, build=
-	"plugins {\r\n"
-	+ "	id \"setools.gradle.plugins.MeetingsPlugin\"\r\n"
-	+ "}\r\n"
-	+ "\r\n"
-	+ "meetingsPlugin {\r\n"
-	+ "	meetings {\r\n"
-	+ "		meeting {\r\n"
-	+ "			name = \"Test Meeting\"\r\n"
-	+ "			description = \"Create a fake meeting to test basic settings.\"\r\n"
-	+ "			date = \"1/1/2020\"\r\n"
-	+ "			time = \"14:00\"\r\n"
-	+ "			attendees = [\"Billy Joe Bob\",\"Pinky\",\"Brain\"]\r\n"
-	+ "			location = \"Super Secret Conference Room\"\r\n"
-	+ "		}\r\n"
-	+ "	}\r\n"
-	+ "}")
+	@GradleTest(args= {"draftTestMeetingMinutes"},resources="test-basic-meeting")
 	public void testDraftTestMeetingMinutes(BuildResult result,File dir) {
 		assertNotNull(result);
 		String output = result.getOutput();
@@ -130,7 +81,7 @@ public class MeetingsPluginTest {
 		System.out.println(output);
 		File buildDir = new File(dir,"src/meetings/Test Meeting");
 		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
-		File minutes = new File(buildDir,"testMeetingMinutes.docx");
+		File minutes = new File(buildDir,"testMeetingMinutes.odt");
 		assertTrue("Missing " + minutes.toString(),minutes.exists());
 		//TODO:validate contents...
 	}
@@ -139,26 +90,8 @@ public class MeetingsPluginTest {
 	 * Test method for {@link setools.gradle.plugins.MeetingsPlugin#apply(org.gradle.api.Project)}.
 	 * 
 	 * TODO:is this better tested with an integration test using org.gradle.testfixtures.ProjectBuilder?
-	 * 
-	 * @throws IOException 
 	 */
-	@GradleTest(args= {"draftTestMeetingSlides"}, build=
-	"plugins {\r\n"
-	+ "	id \"setools.gradle.plugins.MeetingsPlugin\"\r\n"
-	+ "}\r\n"
-	+ "\r\n"
-	+ "meetingsPlugin {\r\n"
-	+ "	meetings {\r\n"
-	+ "		meeting {\r\n"
-	+ "			name = \"Test Meeting\"\r\n"
-	+ "			description = \"Create a fake meeting to test basic settings.\"\r\n"
-	+ "			date = \"1/1/2020\"\r\n"
-	+ "			time = \"14:00\"\r\n"
-	+ "			attendees = [\"Billy Joe Bob\",\"Pinky\",\"Brain\"]\r\n"
-	+ "			location = \"Super Secret Conference Room\"\r\n"
-	+ "		}\r\n"
-	+ "	}\r\n"
-	+ "}")
+	@GradleTest(args= {"draftTestMeetingSlides"},resources="test-basic-meeting")
 	public void testDraftTestMeetingSlides(BuildResult result,File dir) {
 		assertNotNull(result);
 		String output = result.getOutput();
@@ -181,26 +114,8 @@ public class MeetingsPluginTest {
 	 * Test method for {@link setools.gradle.plugins.MeetingsPlugin#apply(org.gradle.api.Project)}.
 	 * 
 	 * TODO:is this better tested with an integration test using org.gradle.testfixtures.ProjectBuilder?
-	 * 
-	 * @throws IOException 
 	 */
-	@GradleTest(args= {"assembleTestMeetingPresentation"}, build=
-	"plugins {\r\n"
-	+ "	id \"setools.gradle.plugins.MeetingsPlugin\"\r\n"
-	+ "}\r\n"
-	+ "\r\n"
-	+ "meetingsPlugin {\r\n"
-	+ "	meetings {\r\n"
-	+ "		meeting {\r\n"
-	+ "			name = \"Test Meeting\"\r\n"
-	+ "			description = \"Create a fake meeting to test basic settings.\"\r\n"
-	+ "			date = \"1/1/2020\"\r\n"
-	+ "			time = \"14:00\"\r\n"
-	+ "			attendees = [\"Billy Joe Bob\",\"Pinky\",\"Brain\"]\r\n"
-	+ "			location = \"Super Secret Conference Room\"\r\n"
-	+ "		}\r\n"
-	+ "	}\r\n"
-	+ "}")
+	@GradleTest(args= {"assembleTestMeetingPresentation"},resources="test-basic-meeting")
 	public void testAssembleTestMeetingPresentation(BuildResult result,File dir) {
 		assertNotNull(result);
 		String output = result.getOutput();
@@ -217,34 +132,16 @@ public class MeetingsPluginTest {
 	 * Test method for {@link setools.gradle.plugins.MeetingsPlugin#apply(org.gradle.api.Project)}.
 	 * 
 	 * TODO:is this better tested with an integration test using org.gradle.testfixtures.ProjectBuilder?
-	 * 
-	 * @throws IOException 
 	 */
-	@GradleTest(args= {"publishTestMeetingMinutes"}, build=
-	"plugins {\r\n"
-	+ "	id \"setools.gradle.plugins.MeetingsPlugin\"\r\n"
-	+ "}\r\n"
-	+ "\r\n"
-	+ "meetingsPlugin {\r\n"
-	+ "	meetings {\r\n"
-	+ "		meeting {\r\n"
-	+ "			name = \"Test Meeting\"\r\n"
-	+ "			description = \"Create a fake meeting to test basic settings.\"\r\n"
-	+ "			date = \"1/1/2020\"\r\n"
-	+ "			time = \"14:00\"\r\n"
-	+ "			attendees = [\"Billy Joe Bob\",\"Pinky\",\"Brain\"]\r\n"
-	+ "			location = \"Super Secret Conference Room\"\r\n"
-	+ "		}\r\n"
-	+ "	}\r\n"
-	+ "}")
+	@GradleTest(args= {"publishTestMeetingMinutes"},resources="test-basic-meeting")
 	public void testPublishTestMeetingMinutes(BuildResult result,File dir) {
 		assertNotNull(result);
 		String output = result.getOutput();
 		assertNotNull(output);
 		System.out.println(output);
-		File publishDir = new File(dir,"docs/Test Meeting");
+		File publishDir = new File(dir,"src/meetings/Test Meeting");
 		assertTrue("Missing " + publishDir.toString(),publishDir.exists());
-		File minutes = new File(publishDir,"testMeetingMinutes.docx");
+		File minutes = new File(publishDir,"testMeetingMinutes.odt");
 		assertTrue("Missing " + minutes.toString(),minutes.exists());
 		//TODO:validate contents of presentation....
 	}
