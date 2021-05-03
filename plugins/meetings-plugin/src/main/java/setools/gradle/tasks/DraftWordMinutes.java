@@ -67,6 +67,7 @@ public class DraftWordMinutes extends GenerateTask {
 			.loadReport(iStream, TemplateEngineKind.Velocity);
 		iStream.close();
 		IContext context = report.createContext();
+		configureContext(context);
 		OutputStream oStream = new FileOutputStream(getDestination());
 		report.process(context, oStream);
 		oStream.close();
