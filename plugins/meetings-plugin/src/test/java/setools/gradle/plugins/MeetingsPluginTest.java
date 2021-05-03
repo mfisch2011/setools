@@ -18,35 +18,39 @@ package setools.gradle.plugins;
 import static org.junit.Assert.*;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-
 import org.gradle.testkit.runner.BuildResult;
-import org.gradle.testkit.runner.GradleRunner;
-import org.junit.Test;
-
-import setools.gradle.test.GradleFunctionalTest;
+import setools.gradle.test.GradleTest;
 
 /**
  * TODO:
  */
-public class MeetingsPluginTest extends GradleFunctionalTest {
+//TODO: WTFF is this broken?! @RunWith(GradleTestRunner.class)
+public class MeetingsPluginTest {
 
 	/**
 	 * Test method for {@link setools.gradle.plugins.MeetingsPlugin#apply(org.gradle.api.Project)}.
 	 * @throws IOException 
 	 */
-	@Test
-	public void testRegisterMeetingTasks() throws IOException {
-		copyProjectResources("test-basic-meeting");
-		//TODO:how to abstract this out since this pattern will be the same for all tests...
-		BuildResult results = GradleRunner.create()
-				.withProjectDir(dir)
-				.withPluginClasspath()
-				.withArguments("tasks","--all")
-				.build();
-		assertNotNull(results);
-		String output = results.getOutput();
+	@GradleTest(args={"tasks"},build=
+	"plugins {\r\n"
+	+ "	id \"setools.gradle.plugins.MeetingsPlugin\"\r\n"
+	+ "}\r\n"
+	+ "\r\n"
+	+ "meetingsPlugin {\r\n"
+	+ "	meetings {\r\n"
+	+ "		meeting {\r\n"
+	+ "			name = \"Test Meeting\"\r\n"
+	+ "			description = \"Create a fake meeting to test basic settings.\"\r\n"
+	+ "			date = \"1/1/2020\"\r\n"
+	+ "			time = \"14:00\"\r\n"
+	+ "			attendees = [\"Billy Joe Bob\",\"Pinky\",\"Brain\"]\r\n"
+	+ "			location = \"Super Secret Conference Room\"\r\n"
+	+ "		}\r\n"
+	+ "	}\r\n"
+	+ "}")
+	public void testRegisterMeetingTasks(BuildResult result,File dir) {
+		assertNotNull(result);
+		String output = result.getOutput();
 		assertNotNull(output);
 		assertTrue("Missing draftAgenda task",output.contains("draftTestMeetingAgenda"));
 		assertTrue("Missing draftMinutes task",output.contains("draftTestMeetingMinutes"));
@@ -66,25 +70,33 @@ public class MeetingsPluginTest extends GradleFunctionalTest {
 	 * 
 	 * @throws IOException 
 	 */
-	@Test
-	public void testDraftTestMeetingAgenda() throws IOException {
-		copyProjectResources("test-basic-meeting");
-		//TODO:how to abstract this out since this pattern will be the same for all tests...
-		BuildResult results = GradleRunner.create()
-				.withProjectDir(dir)
-				.withPluginClasspath()
-				.withArguments("draftTestMeetingAgenda")
-				.build();
-		assertNotNull(results);
-		String output = results.getOutput();
+	@GradleTest(args= {"draftTestMeetingAgenda"},build=
+	"plugins {\r\n"
+	+ "	id \"setools.gradle.plugins.MeetingsPlugin\"\r\n"
+	+ "}\r\n"
+	+ "\r\n"
+	+ "meetingsPlugin {\r\n"
+	+ "	meetings {\r\n"
+	+ "		meeting {\r\n"
+	+ "			name = \"Test Meeting\"\r\n"
+	+ "			description = \"Create a fake meeting to test basic settings.\"\r\n"
+	+ "			date = \"1/1/2020\"\r\n"
+	+ "			time = \"14:00\"\r\n"
+	+ "			attendees = [\"Billy Joe Bob\",\"Pinky\",\"Brain\"]\r\n"
+	+ "			location = \"Super Secret Conference Room\"\r\n"
+	+ "		}\r\n"
+	+ "	}\r\n"
+	+ "}")
+	public void testDraftTestMeetingAgenda(BuildResult result,File dir) {
+		assertNotNull(result);
+		String output = result.getOutput();
 		assertNotNull(output);
 		System.out.println(output);
-		File buildDir = new File(dir,"src/meetings/Test Meeting");//TODO:should the output be in the default build location?
+		File buildDir = new File(dir,"src/meetings/Test Meeting");
 		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
-		File agenda = new File(buildDir,"testMeetingAgenda.tex");
+		File agenda = new File(buildDir,"testMeetingAgenda.docx");
 		assertTrue("Missing " + agenda.toString(),agenda.exists());
-		byte[] bytes = Files.readAllBytes(agenda.toPath());
-		//TODO:how to validate the LaTex file?  Simple string comparison?
+		//TOOD:validate contents...
 	}
 	
 	/**
@@ -94,25 +106,33 @@ public class MeetingsPluginTest extends GradleFunctionalTest {
 	 * 
 	 * @throws IOException 
 	 */
-	@Test
-	public void testDraftTestMeetingMinutes() throws IOException {
-		copyProjectResources("test-basic-meeting");
-		//TODO:how to abstract this out since this pattern will be the same for all tests...
-		BuildResult results = GradleRunner.create()
-				.withProjectDir(dir)
-				.withPluginClasspath()
-				.withArguments("draftTestMeetingMinutes")
-				.build();
-		assertNotNull(results);
-		String output = results.getOutput();
+	@GradleTest(args= {"draftTestMeetingMinutes"}, build=
+	"plugins {\r\n"
+	+ "	id \"setools.gradle.plugins.MeetingsPlugin\"\r\n"
+	+ "}\r\n"
+	+ "\r\n"
+	+ "meetingsPlugin {\r\n"
+	+ "	meetings {\r\n"
+	+ "		meeting {\r\n"
+	+ "			name = \"Test Meeting\"\r\n"
+	+ "			description = \"Create a fake meeting to test basic settings.\"\r\n"
+	+ "			date = \"1/1/2020\"\r\n"
+	+ "			time = \"14:00\"\r\n"
+	+ "			attendees = [\"Billy Joe Bob\",\"Pinky\",\"Brain\"]\r\n"
+	+ "			location = \"Super Secret Conference Room\"\r\n"
+	+ "		}\r\n"
+	+ "	}\r\n"
+	+ "}")
+	public void testDraftTestMeetingMinutes(BuildResult result,File dir) {
+		assertNotNull(result);
+		String output = result.getOutput();
 		assertNotNull(output);
 		System.out.println(output);
-		File buildDir = new File(dir,"src/meetings/Test Meeting");//TODO:should the output be in the default build location?
+		File buildDir = new File(dir,"src/meetings/Test Meeting");
 		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
-		File minutes = new File(buildDir,"testMeetingMinutes.tex");
+		File minutes = new File(buildDir,"testMeetingMinutes.docx");
 		assertTrue("Missing " + minutes.toString(),minutes.exists());
-		byte[] bytes = Files.readAllBytes(minutes.toPath());
-		//TODO:how to validate the LaTex file?  Simple string comparison?
+		//TODO:validate contents...
 	}
 	
 	/**
@@ -122,20 +142,29 @@ public class MeetingsPluginTest extends GradleFunctionalTest {
 	 * 
 	 * @throws IOException 
 	 */
-	@Test
-	public void testDraftTestMeetingSlides() throws IOException {
-		copyProjectResources("test-basic-meeting");
-		//TODO:how to abstract this out since this pattern will be the same for all tests...
-		BuildResult results = GradleRunner.create()
-				.withProjectDir(dir)
-				.withPluginClasspath()
-				.withArguments("draftTestMeetingSlides")
-				.build();
-		assertNotNull(results);
-		String output = results.getOutput();
+	@GradleTest(args= {"draftTestMeetingSlides"}, build=
+	"plugins {\r\n"
+	+ "	id \"setools.gradle.plugins.MeetingsPlugin\"\r\n"
+	+ "}\r\n"
+	+ "\r\n"
+	+ "meetingsPlugin {\r\n"
+	+ "	meetings {\r\n"
+	+ "		meeting {\r\n"
+	+ "			name = \"Test Meeting\"\r\n"
+	+ "			description = \"Create a fake meeting to test basic settings.\"\r\n"
+	+ "			date = \"1/1/2020\"\r\n"
+	+ "			time = \"14:00\"\r\n"
+	+ "			attendees = [\"Billy Joe Bob\",\"Pinky\",\"Brain\"]\r\n"
+	+ "			location = \"Super Secret Conference Room\"\r\n"
+	+ "		}\r\n"
+	+ "	}\r\n"
+	+ "}")
+	public void testDraftTestMeetingSlides(BuildResult result,File dir) {
+		assertNotNull(result);
+		String output = result.getOutput();
 		assertNotNull(output);
 		System.out.println(output);
-		File buildDir = new File(dir,"src/meetings/Test Meeting");//TODO:should the output be in the default build location?
+		File buildDir = new File(dir,"src/meetings/Test Meeting");
 		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
 		File title = new File(buildDir,"testMeetingTitleSlide.pptx");
 		assertTrue("Missing " + title.toString(),title.exists());
@@ -155,20 +184,29 @@ public class MeetingsPluginTest extends GradleFunctionalTest {
 	 * 
 	 * @throws IOException 
 	 */
-	@Test
-	public void testAssembleTestMeetingPresentation() throws IOException {
-		copyProjectResources("test-basic-meeting");
-		//TODO:how to abstract this out since this pattern will be the same for all tests...
-		BuildResult results = GradleRunner.create()
-				.withProjectDir(dir)
-				.withPluginClasspath()
-				.withArguments("assembleTestMeetingPresentation")
-				.build();
-		assertNotNull(results);
-		String output = results.getOutput();
+	@GradleTest(args= {"assembleTestMeetingPresentation"}, build=
+	"plugins {\r\n"
+	+ "	id \"setools.gradle.plugins.MeetingsPlugin\"\r\n"
+	+ "}\r\n"
+	+ "\r\n"
+	+ "meetingsPlugin {\r\n"
+	+ "	meetings {\r\n"
+	+ "		meeting {\r\n"
+	+ "			name = \"Test Meeting\"\r\n"
+	+ "			description = \"Create a fake meeting to test basic settings.\"\r\n"
+	+ "			date = \"1/1/2020\"\r\n"
+	+ "			time = \"14:00\"\r\n"
+	+ "			attendees = [\"Billy Joe Bob\",\"Pinky\",\"Brain\"]\r\n"
+	+ "			location = \"Super Secret Conference Room\"\r\n"
+	+ "		}\r\n"
+	+ "	}\r\n"
+	+ "}")
+	public void testAssembleTestMeetingPresentation(BuildResult result,File dir) {
+		assertNotNull(result);
+		String output = result.getOutput();
 		assertNotNull(output);
 		System.out.println(output);
-		File buildDir = new File(dir,"src/meetings/Test Meeting");//TODO:should the output be in the default build location?
+		File buildDir = new File(dir,"src/meetings/Test Meeting");
 		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
 		File presentation = new File(buildDir,"testMeetingPresentation.pptx");
 		assertTrue("Missing " + presentation.toString(),presentation.exists());
@@ -182,23 +220,32 @@ public class MeetingsPluginTest extends GradleFunctionalTest {
 	 * 
 	 * @throws IOException 
 	 */
-	@Test
-	public void testPublishTestMeetingMinutes() throws IOException {
-		copyProjectResources("test-basic-meeting");
-		//TODO:how to abstract this out since this pattern will be the same for all tests...
-		BuildResult results = GradleRunner.create()
-				.withProjectDir(dir)
-				.withPluginClasspath()
-				.withArguments("publishTestMeetingMinutes")
-				.build();
-		assertNotNull(results);
-		String output = results.getOutput();
+	@GradleTest(args= {"publishTestMeetingMinutes"}, build=
+	"plugins {\r\n"
+	+ "	id \"setools.gradle.plugins.MeetingsPlugin\"\r\n"
+	+ "}\r\n"
+	+ "\r\n"
+	+ "meetingsPlugin {\r\n"
+	+ "	meetings {\r\n"
+	+ "		meeting {\r\n"
+	+ "			name = \"Test Meeting\"\r\n"
+	+ "			description = \"Create a fake meeting to test basic settings.\"\r\n"
+	+ "			date = \"1/1/2020\"\r\n"
+	+ "			time = \"14:00\"\r\n"
+	+ "			attendees = [\"Billy Joe Bob\",\"Pinky\",\"Brain\"]\r\n"
+	+ "			location = \"Super Secret Conference Room\"\r\n"
+	+ "		}\r\n"
+	+ "	}\r\n"
+	+ "}")
+	public void testPublishTestMeetingMinutes(BuildResult result,File dir) {
+		assertNotNull(result);
+		String output = result.getOutput();
 		assertNotNull(output);
 		System.out.println(output);
-		File buildDir = new File(dir,"src/meetings/Test Meeting");//TODO:should the output be in the default build location?
-		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
-		File presentation = new File(buildDir,"testMeetingPresentation.pptx");
-		assertTrue("Missing " + presentation.toString(),presentation.exists());
+		File publishDir = new File(dir,"docs/Test Meeting");
+		assertTrue("Missing " + publishDir.toString(),publishDir.exists());
+		File minutes = new File(publishDir,"testMeetingMinutes.docx");
+		assertTrue("Missing " + minutes.toString(),minutes.exists());
 		//TODO:validate contents of presentation....
 	}
 }

@@ -19,34 +19,25 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-
 import org.gradle.testkit.runner.BuildResult;
-import org.gradle.testkit.runner.GradleRunner;
-import org.junit.Test;
+import org.junit.runner.RunWith;
 
-import setools.gradle.test.GradleFunctionalTest;
+import setools.gradle.test.GradleTest;
+import setools.gradle.test.GradleTestRunner;
 
 /**
  * TODO:
  */
-public class RiskReviewPluginTest extends GradleFunctionalTest {
+@RunWith(GradleTestRunner.class)
+public class RiskReviewPluginTest {
 
 	/**
 	 * Test method for {@link setools.gradle.plugins.MeetingsPlugin#apply(org.gradle.api.Project)}.
-	 * @throws IOException 
 	 */
-	@Test
-	public void testRegisterMeetingTasks() throws IOException {
-		copyProjectResources("test-basic-risk-review");
-		//TODO:how to abstract this out since this pattern will be the same for all tests...
-		BuildResult results = GradleRunner.create()
-				.withProjectDir(dir)
-				.withPluginClasspath()
-				.withArguments("tasks","--all")
-				.build();
-		assertNotNull(results);
-		String output = results.getOutput();
+	@GradleTest(args= {"tasks"},resources="test-basic-risk-review")
+	public void testRegisterRiskReview(BuildResult result,File dir) {
+		assertNotNull(result);
+		String output = result.getOutput();
 		assertNotNull(output);
 		assertTrue("Missing draftRiskReviewAgenda task",output.contains("draftRiskReviewAgenda"));
 		assertTrue("Missing draftRiskReviewMinutes task",output.contains("draftRiskReviewMinutes"));
@@ -65,27 +56,17 @@ public class RiskReviewPluginTest extends GradleFunctionalTest {
 	 * 
 	 * TODO:is this better tested with an integration test using org.gradle.testfixtures.ProjectBuilder?
 	 * 
-	 * @throws IOException 
 	 */
-	@Test
-	public void testDraftTestMeetingAgenda() throws IOException {
-		copyProjectResources("test-basic-risk-review");
-		//TODO:how to abstract this out since this pattern will be the same for all tests...
-		BuildResult results = GradleRunner.create()
-				.withProjectDir(dir)
-				.withPluginClasspath()
-				.withArguments("draftRiskReviewAgenda")
-				.build();
-		assertNotNull(results);
-		String output = results.getOutput();
+	@GradleTest(args= {"draftRiskReviewAgenda"},resources="test-basic-risk-review")
+	public void testDraftRiskReviewAgenda(BuildResult result,File dir) {
+		assertNotNull(result);
+		String output = result.getOutput();
 		assertNotNull(output);
-		File buildDir = new File(dir,"src/meetings/Risk Review");//TODO:should the output be in the default build location?
+		File buildDir = new File(dir,"src/meetings/Risk Review");
 		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
-		//TODO:change to ooxml agenda...
-		File agenda = new File(buildDir,"riskReviewAgenda.tex");
+		File agenda = new File(buildDir,"riskReviewAgenda.docx");
 		assertTrue("Missing " + agenda.toString(),agenda.exists());
-		byte[] bytes = Files.readAllBytes(agenda.toPath());
-		//TODO:how to validate the LaTex file?  Simple string comparison?
+		//TODO:validate output...
 	}
 	
 	/**
@@ -93,27 +74,17 @@ public class RiskReviewPluginTest extends GradleFunctionalTest {
 	 * 
 	 * TODO:is this better tested with an integration test using org.gradle.testfixtures.ProjectBuilder?
 	 * 
-	 * @throws IOException 
 	 */
-	@Test
-	public void testDraftTestMeetingMinutes() throws IOException {
-		copyProjectResources("test-basic-risk-review");
-		//TODO:how to abstract this out since this pattern will be the same for all tests...
-		BuildResult results = GradleRunner.create()
-				.withProjectDir(dir)
-				.withPluginClasspath()
-				.withArguments("draftRiskReviewMinutes")
-				.build();
-		assertNotNull(results);
-		String output = results.getOutput();
+	@GradleTest(args= {"draftRiskReviewMinutes"},resources="test-basic-risk-review")
+	public void testDraftRiskReviewMinutes(BuildResult result,File dir) {
+		assertNotNull(result);
+		String output = result.getOutput();
 		assertNotNull(output);
-		File buildDir = new File(dir,"src/meetings/Risk Review");//TODO:should the output be in the default build location?
+		File buildDir = new File(dir,"src/meetings/Risk Review");
 		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
-		//TODO:change to ooxml minutes...
-		File minutes = new File(buildDir,"riskReviewMinutes.tex");
+		File minutes = new File(buildDir,"riskReviewMinutes.docx");
 		assertTrue("Missing " + minutes.toString(),minutes.exists());
-		byte[] bytes = Files.readAllBytes(minutes.toPath());
-		//TODO:how to validate the LaTex file?  Simple string comparison?
+		//TODO:validate output
 	}
 	
 	/**
@@ -121,21 +92,13 @@ public class RiskReviewPluginTest extends GradleFunctionalTest {
 	 * 
 	 * TODO:is this better tested with an integration test using org.gradle.testfixtures.ProjectBuilder?
 	 * 
-	 * @throws IOException 
 	 */
-	@Test
-	public void testDraftTestMeetingSlides() throws IOException {
-		copyProjectResources("test-basic-risk-review");
-		//TODO:how to abstract this out since this pattern will be the same for all tests...
-		BuildResult results = GradleRunner.create()
-				.withProjectDir(dir)
-				.withPluginClasspath()
-				.withArguments("draftRiskReviewSlides")
-				.build();
-		assertNotNull(results);
-		String output = results.getOutput();
+	@GradleTest(args= {"draftRiskReviewSlides"},resources="test-basic-risk-review")
+	public void testDraftRiskReviewSlides(BuildResult result,File dir) {
+		assertNotNull(result);
+		String output = result.getOutput();
 		assertNotNull(output);
-		File buildDir = new File(dir,"src/meetings/Risk Review");//TODO:should the output be in the default build location?
+		File buildDir = new File(dir,"src/meetings/Risk Review");
 		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
 		File title = new File(buildDir,"riskReviewTitleSlide.pptx");
 		assertTrue("Missing " + title.toString(),title.exists());
@@ -168,21 +131,15 @@ public class RiskReviewPluginTest extends GradleFunctionalTest {
 	 * 
 	 * TODO:is this better tested with an integration test using org.gradle.testfixtures.ProjectBuilder?
 	 * 
-	 * @throws IOException 
 	 */
-	@Test
-	public void testAssembleTestMeetingPresentation() throws IOException {
-		copyProjectResources("test-basic-risk-review");
-		//TODO:how to abstract this out since this pattern will be the same for all tests...
-		BuildResult results = GradleRunner.create()
-				.withProjectDir(dir)
-				.withPluginClasspath()
-				.withArguments("assembleRiskReviewPresentation")
-				.build();
-		assertNotNull(results);
-		String output = results.getOutput();
+	@GradleTest(args= {"assembleRiskReviewPresentation"},
+	resources="test-basic-risk-review")
+	public void testAssembleRiskReviewPresentation(BuildResult result,File dir) {
+		GradleTestRunner.listFiles(dir); //TODO:temp
+		assertNotNull(result);
+		String output = result.getOutput();
 		assertNotNull(output);
-		File buildDir = new File(dir,"src/meetings/Risk Review");//TODO:should the output be in the default build location?
+		File buildDir = new File(dir,"src/meetings/Risk Review");
 		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
 		File presentation = new File(buildDir,"riskReviewPresentation.pptx");
 		assertTrue("Missing " + presentation.toString(),presentation.exists());
@@ -196,21 +153,15 @@ public class RiskReviewPluginTest extends GradleFunctionalTest {
 	 * 
 	 * @throws IOException 
 	 */
-	@Test
-	public void testPublishTestMeetingMinutes() throws IOException {
-		copyProjectResources("test-basic-risk-review");
-		//TODO:how to abstract this out since this pattern will be the same for all tests...
-		BuildResult results = GradleRunner.create()
-				.withProjectDir(dir)
-				.withPluginClasspath()
-				.withArguments("publishRiskReviewMinutes")
-				.build();
-		assertNotNull(results);
-		String output = results.getOutput();
+	@GradleTest(args= {"publishRiskReviewMinutes"},resources="test-basic-risk-review")
+	public void testPublishRiskReviewMinutes(BuildResult result,File dir) {
+		GradleTestRunner.listFiles(dir); //TODO:temp
+		assertNotNull(result);
+		String output = result.getOutput();
 		assertNotNull(output);
-		File buildDir = new File(dir,"src/meetings/Risk Review");//TODO:should the output be in the default build location?
+		File buildDir = new File(dir,"src/meetings/Risk Review");
 		assertTrue("Missing " + buildDir.toString(),buildDir.exists());
-		File presentation = new File(buildDir,"riskReviewPresentation.pptx");
+		File presentation = new File(buildDir,"riskReviewMinutes.docx");
 		assertTrue("Missing " + presentation.toString(),presentation.exists());
 		//TODO:validate contents of presentation....
 	}
