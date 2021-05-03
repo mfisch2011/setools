@@ -107,6 +107,26 @@ public interface Meeting {
 	/** TODO:
 	 * @return
 	 */
+	public URI getAgendaTemplate();
+	
+	/** TODO:
+	 * @param object
+	 */
+	public void setAgendaTemplate(Object object);
+	
+	/** TODO:
+	 * @return
+	 */
+	public URI getMinutesTemplate();
+	
+	/** TODO:
+	 * @param object
+	 */
+	public void setMinutesTemplate(Object object);
+	
+	/** TODO:
+	 * @return
+	 */
 	public String getLocation();
 	
 	/** TODO:

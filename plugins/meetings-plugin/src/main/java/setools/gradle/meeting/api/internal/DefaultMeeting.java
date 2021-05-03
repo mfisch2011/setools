@@ -75,6 +75,16 @@ public class DefaultMeeting implements Meeting {
 	 *  TODO:
 	 */
 	protected URI presentationTemplate = null;
+	
+	/**
+	 *  TODO:
+	 */
+	protected URI agendaTemplate = null;
+	
+	/**
+	 *  TODO:
+	 */
+	protected URI minutesTemplate = null;
 
 	/**
 	 * TODO:
@@ -91,6 +101,8 @@ public class DefaultMeeting implements Meeting {
 		this.attendees = new TreeSet<String>();
 		this.agenda = new DefaultAgendaItemHandler();
 		this.presentationTemplate = new URI("classpath:///resources/ooxml-presentation-template.pptx");
+		this.agendaTemplate = new URI("classpath:///resources/agenda-template.docx");
+		this.minutesTemplate = new URI("classpath:///resources/minutes-template.docx");
 	}
 
 	@Override
@@ -170,6 +182,26 @@ public class DefaultMeeting implements Meeting {
 	@Override
 	public void setPresentationTemplate(Object object) {
 		presentationTemplate = project.uri(object);
+	}
+	
+	@Override
+	public URI getAgendaTemplate() {
+		return agendaTemplate;
+	}
+
+	@Override
+	public void setAgendaTemplate(Object object) {
+		agendaTemplate = project.uri(object);
+	}
+	
+	@Override
+	public URI getMinutesTemplate() {
+		return minutesTemplate;
+	}
+
+	@Override
+	public void setMinutesTemplate(Object object) {
+		minutesTemplate = project.uri(object);
 	}
 
 	@Override
