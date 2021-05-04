@@ -21,10 +21,6 @@ import java.util.Set;
 import javax.inject.Inject;
 
 import org.gradle.api.Project;
-import org.gradle.api.internal.project.ProjectInternal;
-import org.gradle.api.plugins.ExtensionContainer;
-import org.gradle.internal.extensibility.ExtensibleDynamicObject;
-import org.gradle.internal.instantiation.InstanceGenerator;
 import org.gradle.util.ConfigureUtil;
 
 import groovy.lang.Closure;
@@ -91,4 +87,5 @@ public class DefaultMeetingHandler implements MeetingsHandler {
 		ConfigureUtil.configure(closure, meeting);
 		return meeting;
 	}
+
 }

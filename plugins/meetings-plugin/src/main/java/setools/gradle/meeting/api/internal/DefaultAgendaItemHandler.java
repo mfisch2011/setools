@@ -18,8 +18,8 @@ package setools.gradle.meeting.api.internal;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Set;
-
+import org.gradle.api.plugins.ExtensionAware;
+import org.gradle.api.plugins.ExtensionContainer;
 import org.gradle.util.ConfigureUtil;
 
 import groovy.lang.Closure;
@@ -30,10 +30,10 @@ import setools.gradle.meeting.api.AgendaItemHandler;
  * @author matt
  *
  */
-public class DefaultAgendaItemHandler implements AgendaItemHandler {
+public class DefaultAgendaItemHandler implements AgendaItemHandler,ExtensionAware {
 	
 	protected final ArrayList<AgendaItem> agendaItems;
-
+	
 	public DefaultAgendaItemHandler() {
 		agendaItems = new ArrayList<AgendaItem>();
 	}
@@ -72,6 +72,12 @@ public class DefaultAgendaItemHandler implements AgendaItemHandler {
 		AgendaItem topic = new DefaultAgendaItem();
 		ConfigureUtil.configure(closure, topic);
 		return topic;
+	}
+
+	@Override
+	public ExtensionContainer getExtensions() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

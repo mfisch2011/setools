@@ -19,9 +19,12 @@ import org.gradle.api.Action;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.JavaBasePlugin;
+
+import setools.gradle.dsl.internal.WorkingGroup;
 import setools.gradle.meeting.api.Meeting;
 import setools.gradle.meeting.util.RegisterMeetingLifecycle;
 import setools.gradle.plugins.internal.DefaultMeetingsPluginExtension;
+import setools.gradle.plugins.internal.ExtensibleMeetingsPluginExtension;
 
 /** TODO:
  * @author matt
@@ -79,8 +82,15 @@ public class MeetingsPlugin implements Plugin<Project> {
 		project.getPluginManager().apply(JavaBasePlugin.class);
 	}
 
+	/**
+	 * TODO:documentation...
+	 * @param project
+	 * @return
+	 */
 	protected MeetingsPluginExtension configureMeetingsExtension(Project project) {
-		return project.getExtensions().create(PLUGIN_EXT,
-				DefaultMeetingsPluginExtension.class, project);
+		ExtensibleMeetingsPluginExtension extension =  project.getExtensions()
+				.create(PLUGIN_EXT,ExtensibleMeetingsPluginExtension.class, project);
+		extension.register("workingGroup",new WorkingGroup(project,extension.meetings));
+		return extension;
 	}
 }

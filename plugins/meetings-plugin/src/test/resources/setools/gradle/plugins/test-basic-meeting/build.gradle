@@ -19,7 +19,7 @@ plugins {
 
 meetingsPlugin {
 	meetings {
-		meeting {
+		workingGroup {
 			name = "Test Meeting"
 			description = "Create a fake meeting to test basic settings."
 			date = "1/1/2020"

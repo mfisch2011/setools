@@ -15,21 +15,16 @@
 */
 package setools.gradle.plugins.internal;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
-
 import javax.inject.Inject;
 
-import org.gradle.api.NamedDomainObjectContainer;
 import org.gradle.api.Project;
 import org.gradle.util.ConfigureUtil;
 
 import groovy.lang.Closure;
 import setools.gradle.meeting.api.Meeting;
 import setools.gradle.meeting.api.MeetingsHandler;
-import setools.gradle.meeting.api.internal.DefaultMeeting;
 import setools.gradle.meeting.api.internal.DefaultMeetingHandler;
 import setools.gradle.plugins.MeetingsPluginExtension;
 
