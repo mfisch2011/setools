@@ -102,5 +102,4 @@ public class DefaultAgendaItem implements AgendaItem {
 			subItems = new DefaultAgendaItemHandler();
 		ConfigureUtil.configure(closure, subItems);
 	}
-
 }
