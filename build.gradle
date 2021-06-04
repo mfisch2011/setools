@@ -14,26 +14,5 @@
  * limitations under the License.
  */
 plugins {
-    id "io.toolebox.git-versioner"
-    id "uk.co.probablyfine.gradle.test-commit-revert" 
-    id "maven-publish"
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-
-}
-
-versioner {
-    pattern { pattern = "%M.%m.%p(.%c)" }
-}
-
-publishing {
-    repositories {
-        mavenLocal()
-        maven { url "${project.rootDir}/releases" }
-    }
+    id "io.spring.javadoc-aggregate" version "0.0.1"
 }
