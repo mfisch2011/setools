@@ -14,9 +14,15 @@
  * limitations under the License.
  */
 plugins {
-    // Apply the common convention plugin for shared build configuration between library and application projects.
-    id 'setools.java-common-conventions'
-
-    // Apply the java-library plugin for API and implementation separation.
-    id 'java-gradle-plugin'
+    id "setools.java-common-conventions"
+    id "java-gradle-plugin"
+    id "com.gradle.plugin-publish"
 }
+
+pluginBundle {
+    //TODO:website and vcs
+    
+    group = "gradle.plugin.setools"
+    
+}
+    

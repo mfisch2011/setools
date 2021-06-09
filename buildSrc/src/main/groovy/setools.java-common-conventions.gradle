@@ -22,31 +22,26 @@ plugins {
 
 dependencies {
     constraints {
-        // Define dependency versions as constraints
-        implementation 'org.apache.commons:commons-text:1.9'
+        
     }
 
-    // Use JUnit Jupiter API for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
-
-    // Use JUnit Jupiter Engine for testing.
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.6.2"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
 }
 
-tasks.named('test') {
-    // Use junit platform for unit tests.
+tasks.named("test") {
     useJUnitPlatform()
 }
 
 
 task sourceJar(type: Jar) {
-  classifier = 'sources'
+  classifier = "sources"
   from sourceSets.main.allJava
 }
 
 task packageJavadoc(type: Jar) {
     from javadoc
-    classifier = 'javadoc'
+    classifier = "javadoc"
 }
 
 publishing {
@@ -69,4 +64,10 @@ javadoc {
     setAuthor true
     links "https://docs.oracle.com/javase/8/docs/api/"
   }
+}
+
+spotbugsMain {
+    reports {
+        html.enabled = true
+    }
 }
