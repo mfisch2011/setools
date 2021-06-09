@@ -38,11 +38,15 @@ public class FunctionalTestRunner implements InvocationInterceptor {
     }
 
 	/**
-	 * TODO:
-	 * @param method
-	 * @param instance
-	 * @param testContext
-	 * @param dir
+	 * Execute the test build and call method on instance to validate 
+	 * the results.
+	 * 
+	 * @param method - {@link java.lang.reflect.Method} to execute to 
+	 * validate the test build
+	 * @param instance - the test object to use for validation
+	 * @param testContext - the {@link setools.gradle.test.FunctionalTest} 
+	 * with the test context
+	 * @param dir - {@link java.io.File} for the project directory
 	 * @throws InvocationTargetException 
 	 * @throws IllegalArgumentException 
 	 * @throws IllegalAccessException 
@@ -66,8 +70,12 @@ public class FunctionalTestRunner implements InvocationInterceptor {
 	}
 
 	/**
-	 * @param context
-	 * @return
+	 * Create and configure the test project directory as specified 
+	 * by context.
+	 * 
+	 * @param context - the {@link setools.gradle.test.FunctionalTest} 
+	 * with the test context
+	 * @return {@link java.io.File}
 	 * @throws IOException 
 	 */
 	protected File setupTest(FunctionalTest context) throws IOException {
@@ -88,29 +96,28 @@ public class FunctionalTestRunner implements InvocationInterceptor {
 			Files.writeString(buildGradle.toPath(),context.settings());
 		}
 		
-		if(context.properties()!=null && context.properties().length>0) {
+		if(!isNullOrEmpty(context.properties())) {
 			File buildGradle = new File(dir,"gradle.properties");
-			String text = "";
-			for(String property : context.properties()) {
-				text += property + System.lineSeparator();
-			}
-			Files.writeString(buildGradle.toPath(),text);
+			Files.writeString(buildGradle.toPath(),context.properties());
 		}
 		
 		return dir;
 	}
 
 	/**
-	 * TODO:
-	 * @param dir
-	 * @param resources
+	 * Copy file resources from resources to dir.
+	 * 
+	 * @param dir - destination {@link java.io.File}
+	 * @param resources - {@link java.lang.String} pathname for source files
+	 * @throws IOException
 	 */
-	protected void copyResources(File dir, String pathname) {
+	protected void copyResources(File dir, String pathname) throws IOException {
 		//TODO:copy resources from pathname to dir
 	}
 
 	/**
 	 * Test if text is null or empty.
+	 * 
 	 * @param text - {@link String} to test
 	 * @return boolean
 	 */

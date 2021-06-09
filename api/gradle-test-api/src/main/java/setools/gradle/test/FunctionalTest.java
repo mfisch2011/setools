@@ -17,32 +17,37 @@ import java.lang.annotation.Target;
 public @interface FunctionalTest {
 
 	/**
-	 * TODO:
-	 * @return
+	 * The pathname for test project resources.
+	 * 
+	 * @return {@link java.lang.String}
 	 */
 	public String resources() default "";
 
 	/**
-	 * TODO:
-	 * @return
+	 * The text for the project build.gradle file.
+	 * 
+	 * @return {@link java.lang.String}
 	 */
 	public String build() default "";
 	
 	/**
-	 * TODO:
-	 * @return
+	 * The text for the project settings.gradle file.
+	 * 
+	 * @return {@link java.lang.String}
 	 */
 	public String settings() default "";
 	
 	/**
-	 * TODO:
-	 * @return
+	 * The text for the project gradle.properties file.
+	 * 
+	 * @return {@link java.lang.String}
 	 */
-	public String[] properties() default {};
+	public String properties() default "";
 	
 	/**
-	 * TODO:
-	 * @return
+	 * The command line arguments to pass to the test build.
+	 * 
+	 * @return {@link java.lang.String}[]
 	 */
 	public String[] arguments() default {};
 }
