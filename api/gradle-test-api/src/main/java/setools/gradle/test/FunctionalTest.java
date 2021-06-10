@@ -12,7 +12,9 @@ import java.lang.annotation.Target;
 @Retention(RUNTIME)
 @Target(METHOD)
 /**
- * TODO:
+ * Annotation for configuring a functional test using 
+ * {@link org.gradle.testkit.runner.GradleRunner} and 
+ * {@link setools.gradle.test.FunctionalTestRunner}.
  */
 public @interface FunctionalTest {
 

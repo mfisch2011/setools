@@ -1,0 +1,87 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "setools.api",
+    "module": "gradle-test-api",
+    "version": "0.0.0.43",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.8.3",
+      "buildId": "v24lzvbmyjeshgdagyabobipc4"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-engine"
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-api",
+          "version": {
+            "requires": "5.6.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "gradle-test-api-0.0.0.43.jar",
+          "url": "gradle-test-api-0.0.0.43.jar",
+          "size": 3398,
+          "sha512": "6eb6a8a28edef8dc24b8ed937c5ec905acae39612e48f116789496dcf6daee5c9c03be81017c1250ef0b03700df96dacc5c711d528fc4933b1e5c9bcd1915376",
+          "sha256": "53ced51cee924f6cb3afc7ff45fbb404eb4dad45dc7ced9d28e3de8804dfb50c",
+          "sha1": "d172d80d6e2e9c73cebe5ad81bb4fa005566e79e",
+          "md5": "63e69e1d6d9b284577b81efb39c4e097"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-api",
+          "version": {
+            "requires": "5.6.2"
+          }
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-engine"
+        }
+      ],
+      "files": [
+        {
+          "name": "gradle-test-api-0.0.0.43.jar",
+          "url": "gradle-test-api-0.0.0.43.jar",
+          "size": 3398,
+          "sha512": "6eb6a8a28edef8dc24b8ed937c5ec905acae39612e48f116789496dcf6daee5c9c03be81017c1250ef0b03700df96dacc5c711d528fc4933b1e5c9bcd1915376",
+          "sha256": "53ced51cee924f6cb3afc7ff45fbb404eb4dad45dc7ced9d28e3de8804dfb50c",
+          "sha1": "d172d80d6e2e9c73cebe5ad81bb4fa005566e79e",
+          "md5": "63e69e1d6d9b284577b81efb39c4e097"
+        }
+      ]
+    }
+  ]
+}

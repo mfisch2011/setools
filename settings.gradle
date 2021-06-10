@@ -17,6 +17,11 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         mavenLocal() //TODO:move to setools repo...
+        
+        maven {
+            name = "ajoberstar-backup"
+            url = "https://ajoberstar.org/bintray-backup/"
+        }
     }
 }
 
