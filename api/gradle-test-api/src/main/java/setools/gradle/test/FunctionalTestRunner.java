@@ -47,9 +47,9 @@ public class FunctionalTestRunner implements InvocationInterceptor {
 	 * @param testContext - the {@link setools.gradle.test.FunctionalTest} 
 	 * with the test context
 	 * @param dir - {@link java.io.File} for the project directory
-	 * @throws InvocationTargetException 
-	 * @throws IllegalArgumentException 
-	 * @throws IllegalAccessException 
+	 * @throws InvocationTargetException - error running validation method
+	 * @throws IllegalArgumentException - illegal arguments passed to method
+	 * @throws IllegalAccessException - error running validation method 
 	 */
 	protected void executeTest(Method method, Optional<Object> instance, FunctionalTest testContext, File dir) throws
 	IllegalAccessException, IllegalArgumentException, InvocationTargetException {
@@ -76,7 +76,7 @@ public class FunctionalTestRunner implements InvocationInterceptor {
 	 * @param context - the {@link setools.gradle.test.FunctionalTest} 
 	 * with the test context
 	 * @return {@link java.io.File}
-	 * @throws IOException 
+	 * @throws IOException - error initialing test project directory
 	 */
 	protected File setupTest(FunctionalTest context) throws IOException {
 		File dir = Files.createTempDirectory("tmp").toFile();
@@ -108,8 +108,8 @@ public class FunctionalTestRunner implements InvocationInterceptor {
 	 * Copy file resources from resources to dir.
 	 * 
 	 * @param dir - destination {@link java.io.File}
-	 * @param resources - {@link java.lang.String} pathname for source files
-	 * @throws IOException
+	 * @param pathname - {@link java.lang.String} location for source files
+	 * @throws IOException - error copying resources
 	 */
 	protected void copyResources(File dir, String pathname) throws IOException {
 		//TODO:copy resources from pathname to dir
