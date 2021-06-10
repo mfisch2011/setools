@@ -1,0 +1,70 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "gradle.plugin.setools",
+    "module": "aggregate-javadoc-plugin",
+    "version": "0.0.0.38",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.8.3",
+      "buildId": "vqkgcacjqzgltj4yuxkragl6ii"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "aggregate-javadoc-plugin-0.0.0.38.jar",
+          "url": "aggregate-javadoc-plugin-0.0.0.38.jar",
+          "size": 3300,
+          "sha512": "99dc93e3d89f58316972925812600083f8256a84cc80ee5b39787c9d1b623f8cf6983543ebcff8f448daeef30e3a1316bf586ea60705e7034458768d4a7a210a",
+          "sha256": "f72b208d7a0c91c1b25640275d104a6278d3bb4f1896a9d9fdbea8c2cbef4f44",
+          "sha1": "51acc2212aae9fdc375a69cada4f925a18bc4013",
+          "md5": "11789b878d3995fddd0f008975a682a4"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "setools.api",
+          "module": "gradle-utils",
+          "version": {
+            "requires": "0.0.0.38"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "aggregate-javadoc-plugin-0.0.0.38.jar",
+          "url": "aggregate-javadoc-plugin-0.0.0.38.jar",
+          "size": 3300,
+          "sha512": "99dc93e3d89f58316972925812600083f8256a84cc80ee5b39787c9d1b623f8cf6983543ebcff8f448daeef30e3a1316bf586ea60705e7034458768d4a7a210a",
+          "sha256": "f72b208d7a0c91c1b25640275d104a6278d3bb4f1896a9d9fdbea8c2cbef4f44",
+          "sha1": "51acc2212aae9fdc375a69cada4f925a18bc4013",
+          "md5": "11789b878d3995fddd0f008975a682a4"
+        }
+      ]
+    }
+  ]
+}
