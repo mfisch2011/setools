@@ -15,7 +15,7 @@
  */
 plugins {
     id "io.toolebox.git-versioner"
-    id "uk.co.probablyfine.gradle.test-commit-revert" 
+//    id "uk.co.probablyfine.gradle.test-commit-revert" //TODO:replace with java implementation, missing bash fubars this plugin... 
     id "maven-publish"
 }
 

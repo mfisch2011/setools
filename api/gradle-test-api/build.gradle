@@ -18,8 +18,7 @@
 }
 
 dependencies {
-    api "org.junit.jupiter:junit-jupiter-api:5.6.2"
+    api "junit:junit:4.13"
     api gradleTestKit()
-    runtime "org.junit.jupiter:junit-jupiter-engine"
 }
  
