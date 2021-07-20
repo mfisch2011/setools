@@ -5,36 +5,85 @@ package setools.gradle.test;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.nio.file.Files;
-import java.util.Optional;
-
 import org.gradle.testkit.runner.BuildResult;
 import org.gradle.testkit.runner.GradleRunner;
-import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.jupiter.api.extension.InvocationInterceptor;
-import org.junit.jupiter.api.extension.ReflectiveInvocationContext;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.Description;
+import org.junit.runner.Runner;
+import org.junit.runner.notification.Failure;
+import org.junit.runner.notification.RunNotifier;
 
 /**
  * TODO:
  */
-public class FunctionalTestRunner implements InvocationInterceptor {
+public class FunctionalTestRunner extends Runner {
 
-    @Override
-    public void interceptTestMethod(Invocation<Void> invocation,
-            ReflectiveInvocationContext<Method> invocationContext,
-            ExtensionContext extensionContext) throws Throwable {
-    	Method method = invocationContext.getExecutable();
-    	Optional<Object> instance = invocationContext.getTarget();
-    	FunctionalTest testContext = method.getAnnotation(FunctionalTest.class);
-    	if(testContext!=null) {
-    		File dir = setupTest(testContext);
-    		executeTest(method,instance,testContext,dir);
-    		if(!dir.delete()) {
-    			System.err.printf("Error removing '%s'.%n", dir);
-    		}
-    	}
+	/**
+	 * TODO:add documentation...
+	 */
+	@SuppressWarnings("rawtypes")
+	private Class testClass;
+	
+	/**
+	 * TODO:add documentation...
+	 * @param testClass
+	 */
+	@SuppressWarnings("rawtypes")
+	public FunctionalTestRunner(Class testClass) {
+		this.testClass = testClass;
+	}
+	
+	@Override
+	public Description getDescription() {
+		return Description.createTestDescription(testClass,
+				"Gradle functional test runner.");
+	}
+	
+    @SuppressWarnings("unchecked")
+	@Override
+    public void run(RunNotifier notifier) {
+    	Constructor<?> constructor = null;
+    	Object instance = null;
+		try {
+			constructor = testClass.getConstructor();
+	    	instance = constructor.newInstance();
+	    	for(Method method : testClass.getMethods()) {
+	    		Description description = Description.createTestDescription(testClass, method.getName());
+	    		Ignore ignored = method.getAnnotation(Ignore.class);
+	    		if(ignored==null) {
+	    			FunctionalTest context = method
+	    					.getAnnotation(FunctionalTest.class);
+	    			if(context!=null) {
+	    				try {
+							File dir = setupTest(context);
+							executeTest(method,instance,context,dir);
+						} catch (IOException | AssertionError e) {
+							Failure failure = new Failure(description,e);
+							notifier.fireTestFailure(failure);
+						}
+	    				
+	    			} else {
+	    				Test test = method.getAnnotation(Test.class);
+	    				if(test!=null) {
+	    					//TODO:pass to Runner???
+	    					notifier.fireTestIgnored(description);
+	    				}
+	    			}
+	    		} else {
+	    			//TODO:add method to message???
+	    			notifier.fireTestIgnored(description);
+	    		}
+	    	}
+		} catch (Throwable e) {
+			throw new RuntimeException(e);
+		} finally {
+			//TODO:clean up???
+		}
     }
 
 	/**
@@ -51,8 +100,8 @@ public class FunctionalTestRunner implements InvocationInterceptor {
 	 * @throws IllegalArgumentException - illegal arguments passed to method
 	 * @throws IllegalAccessException - error running validation method 
 	 */
-	protected void executeTest(Method method, Optional<Object> instance, FunctionalTest testContext, File dir) throws
-	IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	protected void executeTest(Method method, Object instance, FunctionalTest testContext, File dir) throws
+	Throwable {
 		BuildResult result = GradleRunner.create()
 				.withProjectDir(dir)
 				.withPluginClasspath()
@@ -60,12 +109,10 @@ public class FunctionalTestRunner implements InvocationInterceptor {
 				.build();
 		//TODO:make method arguments flexible...
 		Object[] args = {result,dir};
-		if(instance.isPresent()) {
-			//invoke method using instance
-			method.invoke(instance.get(),args);
-		} else {
-			//invoke method using null instance
-			method.invoke(null, args);
+		try {
+			method.invoke(instance,args);
+		} catch(InvocationTargetException e) {
+			throw e.getCause();
 		}
 	}
 
