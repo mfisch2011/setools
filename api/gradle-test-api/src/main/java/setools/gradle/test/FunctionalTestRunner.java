@@ -81,24 +81,24 @@ public class FunctionalTestRunner implements InvocationInterceptor {
 	protected File setupTest(FunctionalTest context) throws IOException {
 		File dir = Files.createTempDirectory("tmp").toFile();
 		dir.deleteOnExit(); //in case we get interrupted...
-		
+		String encoding = System.getProperty("file.encoding");
 		if(!isNullOrEmpty(context.resources())) {
 			copyResources(dir,context.resources());
 		}
 		
 		if(!isNullOrEmpty(context.build())) {
 			File buildGradle = new File(dir,"build.gradle");
-			Files.writeString(buildGradle.toPath(),context.build());
+			Files.write(buildGradle.toPath(),context.build().getBytes(encoding));
 		}
 		
 		if(!isNullOrEmpty(context.settings())) {
 			File buildGradle = new File(dir,"settings.gradle");
-			Files.writeString(buildGradle.toPath(),context.settings());
+			Files.write(buildGradle.toPath(),context.settings().getBytes(encoding));
 		}
 		
 		if(!isNullOrEmpty(context.properties())) {
 			File buildGradle = new File(dir,"gradle.properties");
-			Files.writeString(buildGradle.toPath(),context.properties());
+			Files.write(buildGradle.toPath(),context.properties().getBytes(encoding));
 		}
 		
 		return dir;
