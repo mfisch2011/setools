@@ -20,6 +20,8 @@ plugins {
     id "com.github.spotbugs"
 }
 
+group = "setools"
+
 dependencies {
     constraints {
         
