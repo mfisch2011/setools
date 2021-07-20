@@ -57,7 +57,8 @@ publishing {
 javadoc {
   source = sourceSets.main.allJava
   classpath = configurations.compileClasspath
-
+  enabled = false
+  
   options
   {
     setMemberLevel JavadocMemberLevel.PUBLIC
