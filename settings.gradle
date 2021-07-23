@@ -29,3 +29,5 @@ rootProject.name = "setools"
 
 include "api:gradle-test-api"
 include "api:gradle-utils"
+include "plugins:meetings-plugin"
+//TODO: include "plugins:meetings-source-set-plugin"

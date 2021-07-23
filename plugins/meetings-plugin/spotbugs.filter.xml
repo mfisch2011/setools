@@ -1,0 +1,21 @@
+<!-- Matching individual warnings so that we at least see them and 
+     manually evaluate the first time -->
+<FindBugsFilter>
+
+	<!-- Exclude false positive for open stream in 	
+	setools.gradle.meetings.tasks.GenerateDocument.generate -->
+	<Match>
+		<Class name="setools.gradle.meetings.tasks.GenerateDocument" />
+		<Method name="generate" />
+		<Bug pattern="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" />
+	</Match>
+	
+	<!-- Exclude false positive for open stream in 	
+	setools.gradle.meetings.tasks.GenerateSlide.generate -->
+	<Match>
+		<Class name="setools.gradle.meetings.tasks.GenerateSlide" />
+		<Method name="generate" />
+		<Bug pattern="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" />
+	</Match>
+	
+</FindBugsFilter>

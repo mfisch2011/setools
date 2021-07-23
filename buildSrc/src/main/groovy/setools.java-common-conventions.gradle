@@ -24,7 +24,17 @@ group = "setools"
 
 dependencies {
     constraints {
-        
+		implementation "commons-lang:commons-lang:2.6"
+		implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.template.velocity:2.0.2"
+        implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.template.freemarker:2.0.2"
+        implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.document.odt:2.0.2"
+        implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.document.docx:2.0.2"
+        implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.document.docx:2.0.2"
+        implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.document.pptx:2.0.2"
+        implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.converter.odt.odfdom:2.0.2"
+        implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.converter.docx.xwpf:2.0.2"
+        implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.converter.docx.docx4j:2.0.2"
+        implementation "org.jodconverter:jodconverter-local:4.4.2"
     }
 
     //TODO: because jupiter sucks...
