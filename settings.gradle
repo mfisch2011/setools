@@ -27,5 +27,4 @@ pluginManagement {
 
 rootProject.name = "setools"
 
-include "api:gradle-test-api"
-include "api:gradle-utils"
+include "api:gradle-junit-api"

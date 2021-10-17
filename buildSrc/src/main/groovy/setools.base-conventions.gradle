@@ -19,6 +19,8 @@ plugins {
     id "maven-publish"
 }
 
+group = "setools"
+
 repositories {
     mavenCentral()
 }
