@@ -69,15 +69,21 @@ javadoc {
   }
 }
 
+def excludesFile = file("spotbugs-exclude.xml")
+
 spotbugsMain {
-    excludeFilter = file("spotbugs-exclude.xml")
+    if(excludesFile.exists()) {
+        excludeFilter = file("spotbugs-exclude.xml")
+    }
     reports {
         html.enabled = true
     }
 }
 
 spotbugsTest {
-    excludeFilter = file("spotbugs-exclude.xml")
+    if(excludesFile.exists()) {
+        excludeFilter = file("spotbugs-exclude.xml")
+    }
     reports {
         html.enabled = true
     }

@@ -21,8 +21,9 @@ plugins {
 
 pluginBundle {
     //TODO:website and vcs
-    
     group = "gradle.plugin.setools"
-    
 }
-    
+
+dependencies {
+    testImplementation "com.github.mfisch2011:gradle-junit-api:0.0.0.46"
+}   

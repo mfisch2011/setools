@@ -23,6 +23,7 @@ group = "setools"
 
 repositories {
     mavenCentral()
+    mavenLocal() //TODO:move to Gradle Tools repo
 }
 
 dependencies {
