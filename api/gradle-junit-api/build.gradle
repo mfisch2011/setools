@@ -18,6 +18,8 @@ plugins {
 }
 
 dependencies {
-    api gradleApi()
-    api gradleTestKit()
+    api gradleTestKit();
+    api "junit:junit:4.13"
+    
+    testImplementation "junit:junit:4.13"
 }
