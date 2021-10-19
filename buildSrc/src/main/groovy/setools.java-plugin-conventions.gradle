@@ -25,5 +25,5 @@ pluginBundle {
 }
 
 dependencies {
-    testImplementation "com.github.mfisch2011:gradle-junit-api:0.0.0.48"
+    testImplementation "com.github.mfisch2011:gradle-junit-api:0.0.0.49"
 }   
