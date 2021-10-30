@@ -14,6 +14,16 @@
  * limitations under the License.
  */
 plugins {
-    id "io.freefair.aggregate-javadoc" version "6.0.0-m2"
+    id "setools.java-common-conventions"
+    id "java-gradle-plugin"
+    id "com.gradle.plugin-publish"
 }
 
+pluginBundle {
+    //TODO:website and vcs
+    group = "gradle.plugin.setools"
+}
+
+dependencies {
+    testImplementation "com.github.mfisch2011:gradle-junit-api:0.0.0.49"
+}   

@@ -14,6 +14,29 @@
  * limitations under the License.
  */
 plugins {
-    id "io.freefair.aggregate-javadoc" version "6.0.0-m2"
+    id "io.toolebox.git-versioner"
+    id "com.github.mfisch2011.test-commit-revert-plugin" 
+    id "maven-publish"
 }
 
+group = "setools"
+
+repositories {
+    mavenCentral()
+    mavenLocal() //TODO:move to Gradle Tools repo
+}
+
+dependencies {
+
+}
+
+versioner {
+    pattern { pattern = "%M.%m.%p(.%c)" }
+}
+
+publishing {
+    repositories {
+        mavenLocal()
+        maven { url "${project.rootDir}/releases" }
+    }
+}
