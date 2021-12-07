@@ -18,5 +18,6 @@ plugins {
 }
 
 dependencies {
+    implementation project(":subprojects:util-api")
     implementation project(":subprojects:meetings:meetings-dsl")
 }

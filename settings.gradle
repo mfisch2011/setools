@@ -27,6 +27,7 @@ pluginManagement {
 
 rootProject.name = "setools"
 
+include "subprojects:util-api"
 include "subprojects:meetings:meetings-api"
 include "subprojects:meetings:meetings-dsl"
 include "subprojects:meetings:meetings-base-plugin"
