@@ -15,7 +15,7 @@
  */
 plugins {
     id "io.toolebox.git-versioner"
-    id "com.github.mfisch2011.test-commit-revert-plugin" 
+    id "com.github.mfisch2011.gradle.test-commit-revert" 
     id "maven-publish"
 }
 

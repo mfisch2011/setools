@@ -24,17 +24,10 @@ dependencies {
     constraints {
         
     }
-
-    //TODO: testImplementation "org.junit.jupiter:junit-jupiter-api:5.6.2"
-    //TODO: testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
+    
     testImplementation "junit:junit:4.13"
 }
 
-/* TODO:
-tasks.named("test") {
-    useJUnitPlatform()
-}
-*/
 
 
 task sourceJar(type: Jar) {
