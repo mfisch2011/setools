@@ -18,7 +18,7 @@ plugins {
 }
 
 dependencies {
-
+    implementation project(":subprojects:meetings:meetings-dsl")
 }
 
 gradlePlugin {
