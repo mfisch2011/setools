@@ -20,6 +20,7 @@ plugins {
 dependencies {
     implementation project(":subprojects:util-api")
     implementation project(":subprojects:meetings:meetings-dsl")
+    implementation project(":subprojects:meetings:meetings-base-plugin")
 }
 
 gradlePlugin {
