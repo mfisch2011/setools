@@ -285,7 +285,7 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		String name = CaseUtils.toCamelCase("Draft " + meeting.getName() + " Agenda Slide",false);
 		String description = "Draft the agenda slide for the %s.";
 		Class<? extends Task> type = getDraftAgendaSlideType();
-		Task task = (type!=null) ? createTask(project,meeting,name,description,dependencies) :
+		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
 		
 		//configure task
@@ -322,7 +322,7 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		String name = CaseUtils.toCamelCase("Draft " + meeting.getName() + " Title Slide",false);
 		String description = "Draft the title slide for the %s.";
 		Class<? extends Task> type = getDraftTitleSlideType();
-		Task task = (type!=null) ? createTask(project,meeting,name,description,dependencies) :
+		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
 		
 		//configure task
@@ -359,7 +359,7 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		String name = CaseUtils.toCamelCase("Draft " + meeting.getName() + " Minutes",false);
 		String description = "Draft the minutes for the %s.";
 		Class<? extends Task> type = getDraftMinutesType();
-		Task task = (type!=null) ? createTask(project,meeting,name,description,dependencies) :
+		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
 		
 		//configure task
@@ -397,7 +397,7 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		String name = CaseUtils.toCamelCase("Draft " + meeting.getName() + " Agenda",false);
 		String description = "Draft the agenda for the %s.";
 		Class<? extends Task> type = getDraftAgendaType();
-		Task task = (type!=null) ? createTask(project,meeting,name,description,dependencies) :
+		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
 		
 		//configure task
