@@ -15,6 +15,10 @@
  */
 package setools.gradle.meetings.dsl;
 
+import org.gradle.api.Action;
+
+import groovy.lang.Closure;
+
 /**
  * TODO:
  */
@@ -31,5 +35,24 @@ public interface Topic {
 	 * @param value
 	 */
 	public void setName(String value);
+
+	/**
+	 * TODO:
+	 * @return
+	 */
+	public AgendaHandler subtopics();
+	
+	/**
+	 * TODO:
+	 * @return
+	 */
+	@SuppressWarnings("rawtypes")
+	public AgendaHandler subtopics(Closure closure);
+	
+	/**
+	 * TODO:
+	 * @return
+	 */
+	public AgendaHandler subtopics(Action<? super AgendaHandler> action);
 	
 }
