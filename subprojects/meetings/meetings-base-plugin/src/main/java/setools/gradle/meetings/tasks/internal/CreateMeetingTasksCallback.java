@@ -180,7 +180,7 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		String name = CaseUtils.toCamelCase("Assemble " + meeting.getName() + " Presentation",false);
 		String description = "Assemble the presentation for the %s.";
 		Class<? extends Task> type = getAssemblePresentationType();
-		Task task = (type!=null) ? createTask(project,meeting,name,description,dependencies) :
+		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
 		
 		//configure task

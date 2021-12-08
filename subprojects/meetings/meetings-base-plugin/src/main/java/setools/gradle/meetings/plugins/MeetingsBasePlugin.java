@@ -15,14 +15,10 @@
  */
 package setools.gradle.meetings.plugins;
 
-import javax.inject.Inject;
-
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
-import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.plugins.JavaBasePlugin;
 import org.gradle.api.tasks.SourceSetContainer;
-import org.gradle.internal.reflect.Instantiator;
 
 /**
  * TODO:
@@ -32,28 +28,7 @@ public class MeetingsBasePlugin implements Plugin<Project> {
 	/**
 	 * TODO:
 	 */
-	public static final String MEETINGS_SOURCE_SET_NAME = "meetings";
-	
-	/**
-	 * TODO:
-	 */
-	protected final ObjectFactory objectFactory;
-	
-	/**
-	 * TODO:
-	 */
-	protected final Instantiator instantiator;
-	
-	/**
-	 * TODO:
-	 * @param instantiator
-	 * @param objectFactory
-	 */
-	@Inject
-	public MeetingsBasePlugin(Instantiator instantiator,ObjectFactory objectFactory) {
-		this.instantiator = instantiator;
-		this.objectFactory = objectFactory;
-	}
+	public static final String MEETINGS_SOURCE_SET_NAME = "meetings";		
 
 	@Override
 	public void apply(Project project) {
