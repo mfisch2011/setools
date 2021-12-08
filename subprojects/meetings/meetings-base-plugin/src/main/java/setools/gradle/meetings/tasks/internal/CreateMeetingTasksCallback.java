@@ -68,7 +68,7 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		String name = CaseUtils.toCamelCase("Publish " + meeting.getName() + " Minutes",false);
 		String description = "Publish the minutes for the %s.";
 		Class<? extends Task> type = getPublishMinutesType();
-		Task task = (type!=null) ? createTask(project,meeting,name,description,dependencies) :
+		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
 		
 		//configure task
@@ -106,7 +106,7 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		String name = CaseUtils.toCamelCase("Publish " + meeting.getName() + " Presentation",false);
 		String description = "Publish the presentation for the %s.";
 		Class<? extends Task> type = getPublishPresentationType();
-		Task task = (type!=null) ? createTask(project,meeting,name,description,dependencies) :
+		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
 		
 		//configure task
@@ -143,7 +143,7 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		String name = CaseUtils.toCamelCase("Publish " + meeting.getName() + " Agenda",false);
 		String description = "Publish the agenda for the %s.";
 		Class<? extends Task> type = getPublishAgendaType();
-		Task task = (type!=null) ? createTask(project,meeting,name,description,dependencies) :
+		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
 		
 		//configure task
@@ -242,7 +242,7 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		String name = CaseUtils.toCamelCase("Draft " + meeting.getName() + " " + topic.getName() + " Slide",false);
 		String description = "Draft the " + topic.getName() + " slide for the %s.";
 		Class<? extends Task> type = getDraftTopicSlideType();
-		Task task = (type!=null) ? createTask(project,meeting,name,description,dependencies) :
+		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
 		
 		//configure task
