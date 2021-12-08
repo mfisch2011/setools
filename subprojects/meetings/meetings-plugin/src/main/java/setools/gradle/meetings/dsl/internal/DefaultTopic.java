@@ -37,6 +37,9 @@ public class DefaultTopic implements Topic {
 	 */
 	private String name = null;
 
+	/**
+	 * TODO:
+	 */
 	public DefaultTopic() {
 		this.subtopics = new DefaultAgendaHandler();
 	}
