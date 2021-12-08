@@ -1,0 +1,7 @@
+<FindBugsFilter>
+    <!-- Ignore complaint about cast when testing sourceSet type -->
+    <Match>
+        <Class name="setools.gradle.meetings.plugins.MeetingsBasePluginTest" />
+        <Method name="testApply" />
+    </Match>
+</FindBugsFilter>
