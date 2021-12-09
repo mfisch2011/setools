@@ -71,21 +71,9 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
 		
-		//configure task
-		Action<Task> action = getConfigurePublishMinutes();
-		if(action!=null) { //TODO:test parameter type against type...
-			action.execute(task);
-		}
+		//TODO: configure task
 		return task;
 	}
-
-	
-	/**
-	 * TODO:
-	 * @return - {@link Action} to configure slide generation task or 
-	 * null if no special configuration
-	 */
-	protected abstract Action<Task> getConfigurePublishMinutes();
 
 	/**
 	 * TODO:
@@ -108,21 +96,9 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		Class<? extends Task> type = getPublishPresentationType();
 		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
-		
-		//configure task
-		Action<Task> action = getConfigurePublishPresentation();
-		if(action!=null) { //TODO:test parameter type against type...
-			action.execute(task);
-		}
+		//TODO: configure task
 		return task;
 	}
-	
-	/**
-	 * TODO:
-	 * @return - {@link Action} to configure slide generation task or 
-	 * null if no special configuration
-	 */
-	protected abstract Action<Task> getConfigurePublishPresentation();
 
 	/**
 	 * TODO:
@@ -145,21 +121,9 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		Class<? extends Task> type = getPublishAgendaType();
 		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
-		
-		//configure task
-		Action<Task> action = getConfigurePublishAgenda();
-		if(action!=null) { //TODO:test parameter type against type...
-			action.execute(task);
-		}
+		//TODO: configure task
 		return task;
 	}
-
-	/**
-	 * TODO:
-	 * @return - {@link Action} to configure slide generation task or 
-	 * null if no special configuration
-	 */
-	protected abstract Action<Task> getConfigurePublishAgenda();
 
 	/**
 	 * TODO:
@@ -182,22 +146,9 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		Class<? extends Task> type = getAssemblePresentationType();
 		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
-		
-		//configure task
-		Action<Task> action = getConfigureAssemblePresentation();
-		if(action!=null) { //TODO:test parameter type against type...
-			action.execute(task);
-		}
+		//TODO: configure task
 		return task;
 	}
-
-	
-	/**
-	 * TODO:
-	 * @return - {@link Action} to configure slide generation task or 
-	 * null if no special configuration
-	 */
-	protected abstract Action<Task> getConfigureAssemblePresentation();
 
 	/**
 	 * TODO:
@@ -244,27 +195,14 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		Class<? extends Task> type = getDraftTopicSlideType();
 		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
-		
-		//configure task
-		Action<Task> action = getConfigureDraftTopicSlide();
-		if(action!=null) { //TODO:test parameter type against type...
-			action.execute(task);
-		}
-		
+		//TODO: configure task
+
 		//recurse to create slides for subtopics...
 		for(Topic subtopic : topic.subtopics()) {
 			createDraftTopicSlideTask(project,meetings,meeting,subtopic,task); //TODO:how to pass dependencies with task...
 		}
-		
 		return task;
 	}
-
-	/**
-	 * TODO:
-	 * @return - {@link Action} to configure slide generation task or 
-	 * null if no special configuration
-	 */
-	protected abstract Action<Task> getConfigureDraftTopicSlide();
 
 	/**
 	 * TODO:
@@ -287,21 +225,9 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		Class<? extends Task> type = getDraftAgendaSlideType();
 		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
-		
-		//configure task
-		Action<Task> action = getConfigureDraftAgendaSlide();
-		if(action!=null) { //TODO:test parameter type against type...
-			action.execute(task);
-		}
+		//TODO: configure task
 		return task;
 	}
-
-	/**
-	 * TODO:
-	 * @return - {@link Action} to configure slide generation task or 
-	 * null if no special configuration
-	 */
-	protected abstract Action<Task> getConfigureDraftAgendaSlide();
 
 	/**
 	 * TODO:
@@ -324,21 +250,9 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		Class<? extends Task> type = getDraftTitleSlideType();
 		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
-		
-		//configure task
-		Action<Task> action = getConfigureDraftTitleSlide();
-		if(action!=null) { //TODO:test parameter type against type...
-			action.execute(task);
-		}
+		//TODO: configure task
 		return task;
 	}
-
-	/**
-	 * TODO:
-	 * @return - {@link Action} to configure slide generation task or 
-	 * null if no special configuration
-	 */
-	protected abstract Action<Task> getConfigureDraftTitleSlide();
 
 	/**
 	 * TODO:
@@ -361,22 +275,9 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		Class<? extends Task> type = getDraftMinutesType();
 		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
-		
-		//configure task
-		Action<Task> action = getConfigureDraftMinutes();
-		if(action!=null) { //TODO:test parameter type against type...
-			action.execute(task);
-		}
+		//TODO: configure task
 		return task;
 	}
-
-	
-	/**
-	 * TODO:
-	 * @return - {@link Action} to configure slide generation task or 
-	 * null if no special configuration
-	 */
-	protected abstract Action<Task> getConfigureDraftMinutes();
 
 	/**
 	 * TODO:
@@ -399,21 +300,9 @@ public abstract class CreateMeetingTasksCallback implements Action<Project> {
 		Class<? extends Task> type = getDraftAgendaType();
 		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
 			createTask(project,type,meeting,name,description,dependencies);
-		
-		//configure task
-		Action<Task> action = getConfigureDraftAgenda();
-		if(action!=null) { //TODO:test parameter type against type...
-			action.execute(task);
-		}
+		//TODO: configure task
 		return task;
 	}
-
-	/**
-	 * TODO:
-	 * @return - {@link Action} to configure slide generation task or 
-	 * null if no special configuration
-	 */
-	protected abstract Action<Task> getConfigureDraftAgenda();
 
 	/**
 	 * TODO:
