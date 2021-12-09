@@ -15,10 +15,8 @@
  */
 package setools.gradle.meetings.dsl.internal;
 
-import org.gradle.api.Action;
+import org.gradle.api.Project;
 
-import groovy.lang.Closure;
-import setools.gradle.meetings.dsl.AgendaHandler;
 import setools.gradle.meetings.dsl.WorkingGroup;
 
 /**
@@ -26,59 +24,13 @@ import setools.gradle.meetings.dsl.WorkingGroup;
  */
 public class DefaultWorkingGroup extends DefaultMeeting implements WorkingGroup {
 
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setName(String value) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public String getLocation() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setLocation(String value) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public String getTime() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setTime(Object object) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public AgendaHandler agenda() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@SuppressWarnings("rawtypes")
-	@Override
-	public AgendaHandler agenda(Closure closure) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public AgendaHandler agenda(Action<AgendaHandler> action) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * TODO:
+	 * @param project
+	 */
+	public DefaultWorkingGroup(Project project) {
+		super(project);
+		// TODO Auto-generated constructor stub
 	}
 
 }

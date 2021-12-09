@@ -32,7 +32,8 @@ public class BasicTopicFactoriesPlugin implements Plugin<Project> {
 			project.getPluginManager().apply(TopicFactoryServicePlugin.class);
 			service = project.getPlugins().getPlugin(TopicFactoryServicePlugin.class);
 		}
-		service.register("topic",new DefaultTopicFactory());
+		DefaultTopicFactory factory = project.getObjects().newInstance(DefaultTopicFactory.class,project);
+		service.register("topic",factory);
 		//TODO:add other format and content specific factories...
 	}
 

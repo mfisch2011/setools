@@ -16,9 +16,7 @@
 package setools.gradle.meetings.dsl.internal;
 
 import org.gradle.api.Action;
-import org.gradle.util.internal.ConfigureUtil;
-
-import groovy.lang.Closure;
+import org.gradle.api.Project;
 import setools.gradle.meetings.dsl.AgendaHandler;
 import setools.gradle.meetings.dsl.Meeting;
 
@@ -30,9 +28,15 @@ public class DefaultMeeting implements Meeting {
 	/**
 	 * TODO:
 	 */
-	public DefaultMeeting() {
-		agendaHandler = new DefaultAgendaHandler();
+	public DefaultMeeting(Project project) {
+		this.agendaHandler = new DefaultAgendaHandler();
+		this.project = project;
 	}
+	
+	/**
+	 * TODO:
+	 */
+	protected final Project project;
 	
 	/**
 	 * TODO:
@@ -92,17 +96,58 @@ public class DefaultMeeting implements Meeting {
 		return agendaHandler;
 	}
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public AgendaHandler agenda(Closure closure) {
-		ConfigureUtil.configure(closure, agendaHandler);
-		return agendaHandler;
-	}
-
 	@Override
 	public AgendaHandler agenda(Action<AgendaHandler> action) {
 		action.execute(agendaHandler);
 		return agendaHandler;
+	}
+	
+	/**
+	 * TODO:
+	 */
+	protected Object agendaTemplate;
+
+	@Override
+	public Object getAgendaTemplate() {
+		return agendaTemplate;
+	}
+
+	@Override
+	public void setAgendaTemplate(Object object) {
+		agendaTemplate = project.uri(object);
+		//TODO:catch exception and try file ???
+	}
+	
+	/**
+	 * TODO:
+	 */
+	protected String agendaFilename = null;
+
+	@Override
+	public String getAgendaFilename() {
+		return agendaFilename;
+	}
+
+	@Override
+	public void setAgendaFilename(String filename) {
+		//TODO:validate filename...
+		agendaFilename = filename;
+	}
+	
+	/**
+	 * TODO:
+	 */
+	protected String date = null;
+
+	@Override
+	public String getDate() {
+		return date;
+	}
+
+	@Override
+	public void setDate(String value) {
+		//TODO:validate value
+		date = value;
 	}
 
 }

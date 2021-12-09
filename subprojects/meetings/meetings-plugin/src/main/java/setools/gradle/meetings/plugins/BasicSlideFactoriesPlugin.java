@@ -34,7 +34,9 @@ public class BasicSlideFactoriesPlugin implements Plugin<Project> {
 			project.getPluginManager().apply(SlideFactoryServicePlugin.class);
 			service = project.getPlugins().getPlugin(SlideFactoryServicePlugin.class);
 		}
-		service.register(Topic.class,new DefaultTopicSlideFactory());
+		//TODO:better way ???
+		DefaultTopicSlideFactory factory = project.getObjects().newInstance(DefaultTopicSlideFactory.class,project);
+		service.register(Topic.class,factory);
 		//TODO:add other slide generators...
 	}
 

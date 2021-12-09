@@ -20,8 +20,6 @@ import java.util.Map;
 
 import org.gradle.api.Action;
 
-import groovy.lang.Closure;
-
 /**
  * TODO:
  */
@@ -60,23 +58,6 @@ public class FactoryServicePlugin<K,T> extends ServicePlugin {
 		Factory<T> factory = factories.get(id);
 		if(factory!=null) {
 			return factory.build();
-		} else {
-			//TODO:throw exception???
-			return null;
-		}
-	}
-	
-	/**
-	 * TODO:
-	 * @param id
-	 * @param closure
-	 * @return
-	 */
-	@SuppressWarnings("rawtypes")
-	public T build(K id,Closure closure) {
-		Factory<T> factory = factories.get(id);
-		if(factory!=null) {
-			return factory.build(closure);
 		} else {
 			//TODO:throw exception???
 			return null;

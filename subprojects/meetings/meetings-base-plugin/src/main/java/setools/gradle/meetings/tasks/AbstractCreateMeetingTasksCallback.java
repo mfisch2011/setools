@@ -39,7 +39,8 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 	}
 
 	/**
-	 * TODO:
+	 * Create the tasks for meeting using the default settings in meetings.
+	 * 
 	 * @param project - {@link Project} to add task to
 	 * @param meetings - {@link MeetingsHandler} with default settings
 	 * @param meeting - {@link Meeting} to create task for
@@ -56,7 +57,8 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 	}
 
 	/**
-	 * TODO: add documentation...
+	 * Create the task to publish the minutes for meeting using the default settings in meetings.
+	 * 
 	 * @param project - {@link Project} to add task to
 	 * @param meetings - {@link MeetingsHandler} with default settings
 	 * @param meeting - {@link Meeting} to create task for
@@ -67,22 +69,26 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 		//create task
 		String name = CaseUtils.toCamelCase("Publish " + meeting.getName() + " Minutes",false);
 		String description = "Publish the minutes for the %s.";
-		Class<? extends Task> type = getPublishMinutesType();
-		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
-			createTask(project,type,meeting,name,description,dependencies);
-		
-		//TODO: configure task
-		return task;
+		Class<? extends PublishDocument> type = getPublishMinutesType();
+		if(type==null) {
+			return createTask(project,meeting,name,description,dependencies);
+		} else {
+			PublishDocument task = createTask(project,type,meeting,name,description,dependencies);
+			//TODO: configure task
+			return task;
+		}
 	}
 
 	/**
-	 * TODO:
+	 * Get the type of the task to use for publishing the meeting's minutes.
+	 * 
 	 * @return - {@link Class} with the type of the presentation assembly task or null if a simple placeholder/milestone
 	 */
-	protected abstract Class<? extends Task> getPublishMinutesType();
+	protected abstract Class<? extends PublishDocument> getPublishMinutesType();
 
 	/**
-	 * TODO: add documentation...
+	 * Create the task to publish the presentation for meeting using the default settings in meetings.
+	 * 
 	 * @param project - {@link Project} to add task to
 	 * @param meetings - {@link MeetingsHandler} with default settings
 	 * @param meeting - {@link Meeting} to create task for
@@ -93,21 +99,26 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 		//create task
 		String name = CaseUtils.toCamelCase("Publish " + meeting.getName() + " Presentation",false);
 		String description = "Publish the presentation for the %s.";
-		Class<? extends Task> type = getPublishPresentationType();
-		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
-			createTask(project,type,meeting,name,description,dependencies);
-		//TODO: configure task
-		return task;
+		Class<? extends PublishDocument> type = getPublishPresentationType();
+		if(type==null) {
+			return createTask(project,meeting,name,description,dependencies);
+		} else {
+			PublishDocument task = createTask(project,type,meeting,name,description,dependencies);
+			//TODO: configure task
+			return task;			
+		}			
 	}
 
 	/**
-	 * TODO:
+	 * Get the type of the task to use for publishing the meeting's presentation.
+	 * 
 	 * @return - {@link Class} with the type of the presentation assembly task or null if a simple placeholder/milestone
 	 */
-	protected abstract Class<? extends Task> getPublishPresentationType();
+	protected abstract Class<? extends PublishDocument> getPublishPresentationType();
 
 	/**
-	 * TODO: add documentation...
+	 * Create the task to publish the agenda for meeting using the default settings in meetings.
+	 * 
 	 * @param project - {@link Project} to add task to
 	 * @param meetings - {@link MeetingsHandler} with default settings
 	 * @param meeting - {@link Meeting} to create task for
@@ -118,21 +129,26 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 		//create task
 		String name = CaseUtils.toCamelCase("Publish " + meeting.getName() + " Agenda",false);
 		String description = "Publish the agenda for the %s.";
-		Class<? extends Task> type = getPublishAgendaType();
-		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
-			createTask(project,type,meeting,name,description,dependencies);
-		//TODO: configure task
-		return task;
+		Class<? extends PublishDocument> type = getPublishAgendaType();
+		if(type==null) {
+			return createTask(project,meeting,name,description,dependencies);
+		} else {
+			PublishDocument task = createTask(project,type,meeting,name,description,dependencies);
+			//TODO: configure task
+			return task;			
+		}
 	}
 
 	/**
-	 * TODO:
+	 * Get the type of the task to use for publishing the meeting's agenda.
+	 * 
 	 * @return - {@link Class} with the type of the presentation assembly task or null if a simple placeholder/milestone
 	 */
-	protected abstract Class<? extends Task> getPublishAgendaType();
+	protected abstract Class<? extends PublishDocument> getPublishAgendaType();
 
 	/**
-	 * TODO: add documentation...
+	 * Create the task to assemble the presentation for meeting using the default settings in meetings.
+	 * 
 	 * @param project - {@link Project} to add task to
 	 * @param meetings - {@link MeetingsHandler} with default settings
 	 * @param meeting - {@link Meeting} to create task for
@@ -143,21 +159,26 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 		//create task
 		String name = CaseUtils.toCamelCase("Assemble " + meeting.getName() + " Presentation",false);
 		String description = "Assemble the presentation for the %s.";
-		Class<? extends Task> type = getAssemblePresentationType();
-		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
-			createTask(project,type,meeting,name,description,dependencies);
-		//TODO: configure task
-		return task;
+		Class<? extends AssemblePresentation> type = getAssemblePresentationType();
+		if(type==null) {
+			return createTask(project,meeting,name,description,dependencies);
+		} else {
+			AssemblePresentation task = createTask(project,type,meeting,name,description,dependencies);
+			//TODO: configure task
+			return task;
+		}
 	}
 
 	/**
-	 * TODO:
+	 * Get the type of the task to use to assemble the meeting's presentation.
+	 * 
 	 * @return - {@link Class} with the type of the presentation assembly task or null if a simple placeholder/milestone
 	 */
-	protected abstract Class<? extends Task> getAssemblePresentationType();
+	protected abstract Class<? extends AssemblePresentation> getAssemblePresentationType();
 
 	/**
-	 * TODO: add documentation...
+	 * Create a tasks to draft the slides for meeting using the default settings in meetings.
+	 * 
 	 * @param project - {@link Project} to add task to
 	 * @param meetings - {@link MeetingsHandler} with default settings
 	 * @param meeting - {@link Meeting} to create task for
@@ -179,7 +200,8 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 
 	
 	/**
-	 * TODO: add documentation...
+	 * Create a task to draft a slide for topic using the settings in meeting and meetings.
+	 * 
 	 * @param project - {@link Project} to add task to
 	 * @param meetings - {@link MeetingsHandler} with default settings
 	 * @param meeting - {@link Meeting} to create task for
@@ -192,10 +214,15 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 		//create task
 		String name = CaseUtils.toCamelCase("Draft " + meeting.getName() + " " + topic.getName() + " Slide",false);
 		String description = "Draft the " + topic.getName() + " slide for the %s.";
-		Class<? extends Task> type = getDraftTopicSlideType();
-		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
-			createTask(project,type,meeting,name,description,dependencies);
-		//TODO: configure task
+		Class<? extends GenerateSlide> type = getDraftTopicSlideType();
+		Task task = null;
+		if(type==null) {
+			task = createTask(project,meeting,name,description,dependencies);
+		} else {
+			GenerateSlide generate = createTask(project,type,meeting,name,description,dependencies);
+			task = generate;
+			//TODO: configure task
+		}
 
 		//recurse to create slides for subtopics...
 		for(Topic subtopic : topic.subtopics()) {
@@ -205,13 +232,15 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 	}
 
 	/**
-	 * TODO:
+	 * Get the type of the task to use to generate topic slides.
+	 * 
 	 * @return - {@link Class} with the type of the presentation assembly task or null if a simple placeholder/milestone
 	 */
-	protected abstract Class<? extends Task> getDraftTopicSlideType();
+	protected abstract Class<? extends GenerateSlide> getDraftTopicSlideType();
 
 	/**
-	 * TODO: add documentation...
+	 * Create a task to draft the agenda slide for meeting using the default settings in meetings.
+	 * 
 	 * @param project - {@link Project} to add task to
 	 * @param meetings - {@link MeetingsHandler} with default settings
 	 * @param meeting - {@link Meeting} to create task for
@@ -222,21 +251,26 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 		//create task
 		String name = CaseUtils.toCamelCase("Draft " + meeting.getName() + " Agenda Slide",false);
 		String description = "Draft the agenda slide for the %s.";
-		Class<? extends Task> type = getDraftAgendaSlideType();
-		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
-			createTask(project,type,meeting,name,description,dependencies);
-		//TODO: configure task
-		return task;
+		Class<? extends GenerateSlide> type = getDraftAgendaSlideType();
+		if(type==null) {
+			return createTask(project,meeting,name,description,dependencies);
+		} else {
+			GenerateSlide task = createTask(project,type,meeting,name,description,dependencies);
+			//TODO: configure task
+			return task;			
+		}
 	}
 
 	/**
-	 * TODO:
+	 * Get the type of the task to use to generate the agenda slides.
+	 * 
 	 * @return - {@link Class} with the type of the presentation assembly task or null if a simple placeholder/milestone
 	 */
-	protected abstract Class<? extends Task> getDraftAgendaSlideType();
+	protected abstract Class<? extends GenerateSlide> getDraftAgendaSlideType();
 
 	/**
-	 * TODO: add documentation...
+	 * Create a task to draft the title slide for meeting using the default settings in meetings.
+	 * 
 	 * @param project - {@link Project} to add task to
 	 * @param meetings - {@link MeetingsHandler} with default settings
 	 * @param meeting - {@link Meeting} to create task for
@@ -247,21 +281,26 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 		//create task
 		String name = CaseUtils.toCamelCase("Draft " + meeting.getName() + " Title Slide",false);
 		String description = "Draft the title slide for the %s.";
-		Class<? extends Task> type = getDraftTitleSlideType();
-		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
-			createTask(project,type,meeting,name,description,dependencies);
-		//TODO: configure task
-		return task;
+		Class<? extends GenerateSlide> type = getDraftTitleSlideType();
+		if(type==null) {
+			return createTask(project,meeting,name,description,dependencies);
+		} else {
+			GenerateSlide task = createTask(project,type,meeting,name,description,dependencies);
+			//TODO: configure task
+			return task;
+		}
 	}
 
 	/**
-	 * TODO:
+	 * Get the type of the task to use to generate the title slide.
+	 * 
 	 * @return - {@link Class} with the type of the presentation assembly task or null if a simple placeholder/milestone
 	 */
-	protected abstract Class<? extends Task> getDraftTitleSlideType();
+	protected abstract Class<? extends GenerateSlide> getDraftTitleSlideType();
 
 	/**
-	 * TODO: add documentation...
+	 * Create a task to draft the minutes for meeting using the default settings in meetings.
+	 * 
 	 * @param project - {@link Project} to add task to
 	 * @param meetings - {@link MeetingsHandler} with default settings
 	 * @param meeting - {@link Meeting} to create task for
@@ -272,21 +311,26 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 		//create task
 		String name = CaseUtils.toCamelCase("Draft " + meeting.getName() + " Minutes",false);
 		String description = "Draft the minutes for the %s.";
-		Class<? extends Task> type = getDraftMinutesType();
-		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
-			createTask(project,type,meeting,name,description,dependencies);
-		//TODO: configure task
-		return task;
+		Class<? extends GenerateDocument> type = getDraftMinutesType();
+		if(type==null) {
+			return createTask(project,meeting,name,description,dependencies);
+		} else {
+			GenerateDocument task = createTask(project,type,meeting,name,description,dependencies);
+			//TODO: configure task
+			return task;
+		}
 	}
 
 	/**
-	 * TODO:
+	 * Get the type of the task to use to generate the draft meeting minutes.
+	 * 
 	 * @return - {@link Class} with the type of the presentation assembly task or null if a simple placeholder/milestone
 	 */
-	protected abstract Class<? extends Task> getDraftMinutesType();
+	protected abstract Class<? extends GenerateDocument> getDraftMinutesType();
 
 	/**
-	 * TODO: add documentation...
+	 * Create a task to draft the agenda for meeting using the default settings in meetings.
+	 * 
 	 * @param project - {@link Project} to add task to
 	 * @param meetings - {@link MeetingsHandler} with default settings
 	 * @param meeting - {@link Meeting} to create task for
@@ -297,21 +341,53 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 		//create task
 		String name = CaseUtils.toCamelCase("Draft " + meeting.getName() + " Agenda",false);
 		String description = "Draft the agenda for the %s.";
-		Class<? extends Task> type = getDraftAgendaType();
-		Task task = (type==null) ? createTask(project,meeting,name,description,dependencies) :
-			createTask(project,type,meeting,name,description,dependencies);
-		//TODO: configure task
-		return task;
+		Class<? extends GenerateDocument> type = getDraftAgendaType();
+		if(type==null) {
+			return createTask(project,meeting,name,description,dependencies);
+		} else {
+			GenerateDocument task = createTask(project,type,meeting,name,description,dependencies);
+			//TODO:how to abstract and re-use this???
+			//set template
+			Object template = meeting.getAgendaTemplate();
+			if(template==null) {
+				template = meetings.getDefaultAgendaTemplate();
+			}
+			task.setTemplate(template);
+			
+			//set output
+			String agenda_name = meeting.getAgendaFilename();
+			if(isNullOrEmpty(agenda_name)) {
+				agenda_name = meetings.getDefaultAgendaFilename(meeting);
+			}
+			task.setOutput(agenda_name);
+			
+			//configure properties
+			task.getContextProperties().put("meeting",meeting);
+			
+			//TODO: configure task
+			return task;			
+		}
+	}
+	
+	/**
+	 * TODO:
+	 * @param text
+	 * @return
+	 */
+	protected static boolean isNullOrEmpty(String text) {
+		return text==null || text.isEmpty();
 	}
 
 	/**
-	 * TODO:
+	 * Get the type of the task to use to generate the draft meeting agenda.
+	 * 
 	 * @return - {@link Class} with the type of the presentation assembly task or null if a simple placeholder/milestone
 	 */
-	protected abstract Class<? extends Task> getDraftAgendaType();
+	protected abstract Class<? extends GenerateDocument> getDraftAgendaType();
 
 	/**
-	 * TODO: add documentation...
+	 * Create the milestone task for meeting.
+	 * 
 	 * @param project - {@link Project} to add task to
 	 * @param meetings - {@link MeetingsHandler} with default settings
 	 * @param meeting - {@link Meeting} to create task for
@@ -324,7 +400,8 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 	}
 	
 	/**
-	 * TODO: add documentation...
+	 * Create a new default task for meeting with name and description.
+	 * 
 	 * @param project - {@link Project} to add task to
 	 * @param meeting - {@link Meeting} to create task for
 	 * @param name - {@link String} with the name of the new task
@@ -342,7 +419,8 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 	}
 
 	/**
-	 * TODO: add documentation...
+	 * Create a new task for meeting with type, name, and description.
+	 * 
 	 * @param project - {@link Project} to add task to
 	 * @param type - {@link Class} for the new task to create
 	 * @param meeting - {@link Meeting} to create task for
@@ -361,7 +439,8 @@ public abstract class AbstractCreateMeetingTasksCallback implements Action<Proje
 	}
 
 	/**
-	 * TODO:
+	 * Get the MeetingHandler from project.
+	 * 
 	 * @param project - {@link Project} to get the meetings for
 	 * @return {@link MeetingsHandler} with the project's meetings
 	 */

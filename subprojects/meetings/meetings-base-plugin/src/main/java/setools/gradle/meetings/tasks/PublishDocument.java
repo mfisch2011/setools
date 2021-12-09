@@ -13,26 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package setools.gradle.util;
+package setools.gradle.meetings.tasks;
 
-import org.gradle.api.Action;
+import org.gradle.api.Task;
 
 /**
  * TODO:
  */
-public interface Factory<T> {
+public interface PublishDocument extends Task {
 
-	/**
-	 * TODO:
-	 * @return
-	 */
-	public T build();
-	
-	/**
-	 * TODO:
-	 * @param action
-	 * @return
-	 */
-	public T build(Action<T> action);
-	
 }

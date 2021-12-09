@@ -15,6 +15,10 @@
  */
 package setools.gradle.meetings.tasks.internal;
 
+import java.io.File;
+import java.util.Properties;
+
+import org.gradle.api.Action;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.tasks.TaskAction;
 
@@ -31,5 +35,52 @@ public class DefaultGenerateDocument extends DefaultTask implements GenerateDocu
 	@TaskAction
 	public void generate() {
 		//TODO:
+	}
+	
+	/**
+	 * TODO:
+	 */
+	protected Object template = null;
+
+	@Override
+	public void setTemplate(Object object) {
+		template = getProject().uri(object);
+		//TODO:catch exception and try getProject().file ???
+	}
+
+	@Override
+	public Object getTemplate() {
+		return template;
+	}
+
+	@Override
+	public void setOutput(Object object) {
+		output = getProject().file(object);
+	}
+	
+	/**
+	 * TODO:
+	 */
+	protected File output = null;
+
+	@Override
+	public File getOutput() {
+		return output;
+	}
+	
+	/**
+	 * TODO:
+	 */
+	protected final Properties contextProperties = new Properties();
+
+	@Override
+	public Properties getContextProperties() {
+		return contextProperties;
+	}
+
+	@Override
+	public Properties context(Action<Properties> action) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -15,10 +15,11 @@
  */
 package setools.gradle.meetings.tasks.internal;
 
-import org.gradle.api.Action;
-import org.gradle.api.Task;
-
 import setools.gradle.meetings.tasks.AbstractCreateMeetingTasksCallback;
+import setools.gradle.meetings.tasks.AssemblePresentation;
+import setools.gradle.meetings.tasks.GenerateDocument;
+import setools.gradle.meetings.tasks.GenerateSlide;
+import setools.gradle.meetings.tasks.PublishDocument;
 
 /**
  * TODO:
@@ -26,47 +27,47 @@ import setools.gradle.meetings.tasks.AbstractCreateMeetingTasksCallback;
 public class DefaultCreateMeetingTasksCallback extends AbstractCreateMeetingTasksCallback {
 
 	@Override
-	protected Class<? extends Task> getPublishMinutesType() {
+	protected Class<? extends PublishDocument> getPublishMinutesType() {
 		return DefaultPublishDocument.class;
 	}
 
 	@Override
-	protected Class<? extends Task> getPublishPresentationType() {
+	protected Class<? extends PublishDocument> getPublishPresentationType() {
 		return DefaultPublishDocument.class;
 	}
 
 	@Override
-	protected Class<? extends Task> getPublishAgendaType() {
+	protected Class<? extends PublishDocument> getPublishAgendaType() {
 		return DefaultPublishDocument.class;
 	}
 
 	@Override
-	protected Class<? extends Task> getAssemblePresentationType() {
+	protected Class<? extends AssemblePresentation> getAssemblePresentationType() {
 		return DefaultAssemblePresentation.class;
 	}
 
 	@Override
-	protected Class<? extends Task> getDraftTopicSlideType() {
-		return DefaultGenerateDocument.class; //TODO:does this work with PPTX templates or do we need something special???
+	protected Class<? extends GenerateSlide> getDraftTopicSlideType() {
+		return DefaultGenerateSlide.class;
 	}
 
 	@Override
-	protected Class<? extends Task> getDraftAgendaSlideType() {
-		return DefaultGenerateDocument.class; //TODO:does this work with PPTX templates or do we need something special???
+	protected Class<? extends GenerateSlide> getDraftAgendaSlideType() {
+		return DefaultGenerateSlide.class;
 	}
 
 	@Override
-	protected Class<? extends Task> getDraftTitleSlideType() {
-		return DefaultGenerateDocument.class; //TODO:does this work with PPTX templates or do we need something special???
+	protected Class<? extends GenerateSlide> getDraftTitleSlideType() {
+		return DefaultGenerateSlide.class;
 	}
 
 	@Override
-	protected Class<? extends Task> getDraftMinutesType() {
+	protected Class<? extends GenerateDocument> getDraftMinutesType() {
 		return DefaultGenerateDocument.class;
 	}
 	
 	@Override
-	protected Class<? extends Task> getDraftAgendaType() {
+	protected Class<? extends GenerateDocument> getDraftAgendaType() {
 		return DefaultGenerateDocument.class;
 	}
 

@@ -16,9 +16,6 @@
 package setools.gradle.meetings.dsl.internal;
 
 import org.gradle.api.Action;
-import org.gradle.util.internal.ConfigureUtil;
-
-import groovy.lang.Closure;
 import setools.gradle.meetings.dsl.AgendaHandler;
 import setools.gradle.meetings.dsl.Topic;
 
@@ -56,13 +53,6 @@ public class DefaultTopic implements Topic {
 
 	@Override
 	public AgendaHandler subtopics() {
-		return subtopics;
-	}
-
-	@SuppressWarnings("rawtypes")
-	@Override
-	public AgendaHandler subtopics(Closure closure) {
-		ConfigureUtil.configure(closure, subtopics);
 		return subtopics;
 	}
 

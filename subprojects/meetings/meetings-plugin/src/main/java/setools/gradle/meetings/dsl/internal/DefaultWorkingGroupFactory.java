@@ -16,9 +16,7 @@
 package setools.gradle.meetings.dsl.internal;
 
 import org.gradle.api.Action;
-import org.gradle.util.internal.ConfigureUtil;
-
-import groovy.lang.Closure;
+import org.gradle.api.Project;
 import setools.gradle.meetings.dsl.Meeting;
 import setools.gradle.util.Factory;
 
@@ -27,23 +25,28 @@ import setools.gradle.util.Factory;
  */
 public class DefaultWorkingGroupFactory implements Factory<Meeting> {
 
+	/**
+	 * TODO:
+	 */
+	protected final Project project;
+	
+	/**
+	 * TODO:
+	 * @param project
+	 */
+	public DefaultWorkingGroupFactory(Project project) {
+		this.project = project;
+	}
+	
 	@Override
 	public Meeting build() {
-		Meeting result = new DefaultWorkingGroup();
-		return result;
-	}
-
-	@SuppressWarnings("rawtypes")
-	@Override
-	public Meeting build(Closure closure) {
-		Meeting result = new DefaultWorkingGroup();
-		ConfigureUtil.configure(closure, result);
+		Meeting result = project.getObjects().newInstance(DefaultWorkingGroup.class,project);
 		return result;
 	}
 
 	@Override
 	public Meeting build(Action<Meeting> action) {
-		Meeting result = new DefaultWorkingGroup();
+		Meeting result = build();
 		action.execute(result);
 		return result;
 	}

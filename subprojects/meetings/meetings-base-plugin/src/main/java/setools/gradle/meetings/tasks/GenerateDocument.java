@@ -13,26 +13,58 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package setools.gradle.util;
+package setools.gradle.meetings.tasks;
+
+import java.io.File;
+import java.util.Properties;
 
 import org.gradle.api.Action;
+import org.gradle.api.Task;
+import org.gradle.api.tasks.InputFile;
+import org.gradle.api.tasks.OutputFile;
 
 /**
  * TODO:
  */
-public interface Factory<T> {
+public interface GenerateDocument extends Task {
+
+	/**
+	 * TODO:
+	 * @param object
+	 */
+	public void setTemplate(Object object);
 
 	/**
 	 * TODO:
 	 * @return
 	 */
-	public T build();
+	@InputFile //TODO:what about URLs...
+	public Object getTemplate();
+
+	/**
+	 * TODO:
+	 * @param object
+	 */
+	public void setOutput(Object object);
 	
+	/**
+	 * TODO:
+	 * @return
+	 */
+	@OutputFile
+	public File getOutput();
+
+	/**
+	 * TODO:
+	 * @return
+	 */
+	public Properties getContextProperties();
+		
 	/**
 	 * TODO:
 	 * @param action
 	 * @return
 	 */
-	public T build(Action<T> action);
+	public Properties context(Action<Properties> action);
 	
 }

@@ -16,9 +16,7 @@
 package setools.gradle.meetings.dsl.internal;
 
 import org.gradle.api.Action;
-import org.gradle.util.internal.ConfigureUtil;
-
-import groovy.lang.Closure;
+import org.gradle.api.Project;
 import setools.gradle.meetings.dsl.Topic;
 import setools.gradle.util.Factory;
 
@@ -27,23 +25,28 @@ import setools.gradle.util.Factory;
  */
 public class DefaultTopicFactory implements Factory<Topic> {
 
-	@Override
-	public Topic build() {
-		Topic result = new DefaultTopic();
-		return result;
+	/**
+	 * TODO:
+	 */
+	protected final Project project;
+	
+	/**
+	 * TODO:
+	 * @param project
+	 */
+	public DefaultTopicFactory(Project project) {
+		this.project = project;
 	}
 	
-	@SuppressWarnings("rawtypes")
 	@Override
-	public Topic build(Closure closure) {
-	    Topic result = new DefaultTopic();
-	    ConfigureUtil.configure(closure, result);
-	    return result;
+	public Topic build() {
+		Topic result = project.getObjects().newInstance(DefaultTopic.class);
+		return result;
 	}
 
 	@Override
 	public Topic build(Action<Topic> action) {
-		Topic result = new DefaultTopic();
+		Topic result = build();
 		action.execute(result);
 		return result;
 	}

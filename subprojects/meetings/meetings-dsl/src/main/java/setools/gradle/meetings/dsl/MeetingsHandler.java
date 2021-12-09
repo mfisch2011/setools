@@ -16,10 +16,86 @@
 package setools.gradle.meetings.dsl;
 
 import java.util.Collection;
+import java.util.function.Function;
 
 /**
  * TODO:
  */
 public interface MeetingsHandler extends Collection<Meeting> {
+
+	/**
+	 * TODO:
+	 * @return
+	 */
+	public Object getDefaultAgendaTemplate();
+	
+	/**
+	 * TODO:
+	 * @param object
+	 */
+	public void setDefaultAgendaTemplate(Object object);
+
+	/**
+	 * TODO:
+	 * @param meeting
+	 * @return
+	 */
+	public String getDefaultAgendaFilename(Meeting meeting);
+
+	/**
+	 * TODO:
+	 * @param transform
+	 */
+	public void setDefaultAgendaFilenameTransform(Function<Meeting,String> transform);
+
+	/**
+	 * TODO:
+	 * @return
+	 */
+	public Object getDefaultMinutesTemplate();
+	
+	/**
+	 * TODO:
+	 * @param object
+	 */
+	public void setDefaultMinutesTemplate(Object object);
+
+	/**
+	 * TODO:
+	 * @param meeting
+	 * @return
+	 */
+	public String getDefaultMinutesFilename(Meeting meeting);
+
+	/**
+	 * TODO:
+	 * @param transform
+	 */
+	public void setDefaultMinutesFilenameTransform(Function<Meeting,String> transform);
+
+	/**
+	 * TODO:
+	 * @return
+	 */
+	public Object getDefaultPresentationTemplate();
+	
+	/**
+	 * TODO:
+	 * @param object
+	 */
+	public void setDefaultPresentationTemplate(Object object);
+
+	/**
+	 * TODO:
+	 * @param meeting
+	 * @return
+	 */
+	public String getDefaultPresentationFilename(Meeting meeting);
+
+	/**
+	 * TODO:
+	 * @param transform
+	 */
+	public void setDefaultPresentationFilenameTransform(Function<Meeting,String> transform);
 
 }

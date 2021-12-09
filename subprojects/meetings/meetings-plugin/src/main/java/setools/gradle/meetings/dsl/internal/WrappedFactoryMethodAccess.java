@@ -64,7 +64,7 @@ public class WrappedFactoryMethodAccess<T> implements MethodAccess {
 		return false;
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" }) //TODO:how to avoid this...
+	@SuppressWarnings({ "unchecked" }) //TODO:how to avoid this...
 	@Override
 	public DynamicInvokeResult tryInvokeMethod(String key, Object... args) {
 		if(!factories.contains(key)) return DynamicInvokeResult.notFound();
@@ -75,9 +75,11 @@ public class WrappedFactoryMethodAccess<T> implements MethodAccess {
 		} else if(args.length==1) {
 			Class<?> type = args[0].getClass();
 			if(Closure.class.isAssignableFrom(type)) {
-				T result = factories.build(key,(Closure)args[0]);
-				collection.add(result);
-				return DynamicInvokeResult.found(result);
+				//TODO:how to un-F this since Gradle deprecated Closures, but still uses them behind the scenes??!!!!
+				//T result = factories.build(key,(Closure)args[0]);
+				//collection.add(result);
+				//return DynamicInvokeResult.found(result);
+				return DynamicInvokeResult.notFound();
 			} else if(Action.class.isAssignableFrom(type)) {
 				T result = factories.build(key,(Action<T>)args[0]);
 				collection.add(result);

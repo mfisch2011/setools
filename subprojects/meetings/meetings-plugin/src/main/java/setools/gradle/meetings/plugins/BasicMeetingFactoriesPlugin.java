@@ -34,8 +34,8 @@ public class BasicMeetingFactoriesPlugin implements Plugin<Project> {
 			project.getPluginManager().apply(MeetingsFactoryServicePlugin.class);
 			service = project.getPlugins().getPlugin(MeetingsFactoryServicePlugin.class);
 		}
-		service.register("meeting",new DefaultMeetingFactory());
-		service.register("workingGroup",new DefaultWorkingGroupFactory());
+		service.register("meeting",new DefaultMeetingFactory(project));
+		service.register("workingGroup",new DefaultWorkingGroupFactory(project));
 	}
 
 }

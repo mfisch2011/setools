@@ -16,10 +16,8 @@
 package setools.gradle.meetings.dsl.internal;
 
 import org.gradle.api.Action;
+import org.gradle.api.Project;
 import org.gradle.api.Task;
-import org.gradle.util.internal.ConfigureUtil;
-
-import groovy.lang.Closure;
 import setools.gradle.meetings.tasks.internal.DefaultGenerateSlide;
 import setools.gradle.util.Factory;
 
@@ -29,24 +27,29 @@ import setools.gradle.meetings.tasks.GenerateSlide;
  * TODO:
  */
 public class DefaultTopicSlideFactory implements Factory<Task> {
+	
+	/**
+	 * TODO:
+	 */
+	protected final Project project;
+	
+	/**
+	 * TODO:
+	 * @param project
+	 */
+	public DefaultTopicSlideFactory(Project project) {
+		this.project = project;
+	}
 
 	@Override
 	public Task build() {
-		GenerateSlide task = new DefaultGenerateSlide();
-		return task;
-	}
-
-	@SuppressWarnings("rawtypes")
-	@Override
-	public Task build(Closure closure) {
-		GenerateSlide task = new DefaultGenerateSlide();
-		ConfigureUtil.configure(closure, task);
+		GenerateSlide task = project.getObjects().newInstance(DefaultGenerateSlide.class);
 		return task;
 	}
 
 	@Override
 	public Task build(Action<Task> action) {
-		GenerateSlide task = new DefaultGenerateSlide();
+		GenerateSlide task = project.getObjects().newInstance(DefaultGenerateSlide.class);
 		action.execute(task);
 		return task;
 	}

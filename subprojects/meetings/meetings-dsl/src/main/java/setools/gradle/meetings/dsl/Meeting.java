@@ -65,20 +65,54 @@ public interface Meeting {
 	 * @return
 	 */
 	public AgendaHandler agenda();
-	
-	/**
-	 * TODO:
-	 * @param closure
-	 * @return
-	 */
-	public AgendaHandler agenda(@SuppressWarnings("rawtypes") Closure closure);
-	
+		
 	/**
 	 * TODO:
 	 * @param action
 	 * @return
 	 */
 	public AgendaHandler agenda(Action<AgendaHandler> action);
+
+	/**
+	 * TODO:
+	 * @return
+	 */
+	public Object getAgendaTemplate();
 	
+	/**
+	 * TODO:
+	 * @param object
+	 */
+	public void setAgendaTemplate(Object object);
+
+	/**
+	 * The preference, and default, is to use the name transformation in 
+	 * the MeetingHandler, but getAgendaFilename is provided to retrieve 
+	 * an output agenda filename explicitly set by setAgendaFilename.
+	 * 
+	 * @return
+	 */
+	public String getAgendaFilename();
+	
+	/**
+	 * The preference, and default, is to use the name transformation in 
+	 * the MeetingHandler, but setAgendaFilename is provided to allow 
+	 * explicit setting of the output agenda filename.
+	 * 
+	 * @param filename
+	 */
+	public void setAgendaFilename(String filename);
+
+	/**
+	 * TODO:
+	 * @return
+	 */
+	public String getDate();
+	
+	/**
+	 * TODO:
+	 * @param value
+	 */
+	public void setDate(String value);
 	
 }
