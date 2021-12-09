@@ -15,6 +15,8 @@
  */
 package setools.gradle.meetings.dsl.internal;
 
+import javax.inject.Inject;
+
 import org.gradle.api.Action;
 import org.gradle.api.Project;
 import org.gradle.api.Task;
@@ -37,6 +39,7 @@ public class DefaultTopicSlideFactory implements Factory<Task> {
 	 * TODO:
 	 * @param project
 	 */
+	@Inject
 	public DefaultTopicSlideFactory(Project project) {
 		this.project = project;
 	}
