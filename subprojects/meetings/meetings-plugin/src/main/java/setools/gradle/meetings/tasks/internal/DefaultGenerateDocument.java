@@ -13,15 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package setools.gradle.meetings.tasks;
+package setools.gradle.meetings.tasks.internal;
 
 import org.gradle.api.DefaultTask;
 import org.gradle.api.tasks.TaskAction;
 
+import setools.gradle.meetings.tasks.GenerateDocument;
+
 /**
  * TODO:
  */
-public class GenerateDocument extends DefaultTask {
+public class DefaultGenerateDocument extends DefaultTask implements GenerateDocument {
 
 	/**
 	 * TODO:

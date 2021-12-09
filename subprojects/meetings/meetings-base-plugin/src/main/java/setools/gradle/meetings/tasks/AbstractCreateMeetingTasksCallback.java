@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package setools.gradle.meetings.tasks.internal;
+package setools.gradle.meetings.tasks;
 
 import org.gradle.api.Action;
 import org.gradle.api.Project;
@@ -28,7 +28,7 @@ import org.apache.commons.text.CaseUtils;
 /**
  * TODO:
  */
-public abstract class CreateMeetingTasksCallback implements Action<Project> {
+public abstract class AbstractCreateMeetingTasksCallback implements Action<Project> {
 
 	@Override
 	public void execute(Project project) {

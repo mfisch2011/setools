@@ -20,8 +20,10 @@ import org.gradle.api.Task;
 import org.gradle.util.internal.ConfigureUtil;
 
 import groovy.lang.Closure;
-import setools.gradle.meetings.tasks.GenerateSlide;
+import setools.gradle.meetings.tasks.internal.DefaultGenerateSlide;
 import setools.gradle.util.Factory;
+
+import setools.gradle.meetings.tasks.GenerateSlide;
 
 /**
  * TODO:
@@ -30,21 +32,21 @@ public class DefaultTopicSlideFactory implements Factory<Task> {
 
 	@Override
 	public Task build() {
-		GenerateSlide task = new GenerateSlide();
+		GenerateSlide task = new DefaultGenerateSlide();
 		return task;
 	}
 
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Task build(Closure closure) {
-		GenerateSlide task = new GenerateSlide();
+		GenerateSlide task = new DefaultGenerateSlide();
 		ConfigureUtil.configure(closure, task);
 		return task;
 	}
 
 	@Override
 	public Task build(Action<Task> action) {
-		GenerateSlide task = new GenerateSlide();
+		GenerateSlide task = new DefaultGenerateSlide();
 		action.execute(task);
 		return task;
 	}

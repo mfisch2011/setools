@@ -13,21 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package setools.gradle.meetings.tasks;
+package setools.gradle.meetings.tasks.internal;
 
 import org.gradle.api.DefaultTask;
 import org.gradle.api.tasks.TaskAction;
 
+import setools.gradle.meetings.tasks.AssemblePresentation;
+
 /**
  * TODO:
  */
-public class PublishDocument extends DefaultTask {
+public class DefaultAssemblePresentation extends DefaultTask implements AssemblePresentation {
 
 	/**
 	 * TODO:
 	 */
 	@TaskAction
-	public void publish() {
+	public void assemble() {
 		//TODO:
 	}
+	
 }

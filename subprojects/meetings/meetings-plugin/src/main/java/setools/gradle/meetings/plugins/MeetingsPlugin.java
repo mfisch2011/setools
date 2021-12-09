@@ -19,7 +19,7 @@ import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 
 import setools.gradle.meetings.dsl.internal.DefaultMeetingsHandler;
-import setools.gradle.meetings.tasks.DefaultCreateMeetingTasksCallback;
+import setools.gradle.meetings.tasks.internal.DefaultCreateMeetingTasksCallback;
 
 /**
  * TODO:
