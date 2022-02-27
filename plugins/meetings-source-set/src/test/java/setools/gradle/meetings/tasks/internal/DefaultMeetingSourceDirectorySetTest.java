@@ -49,6 +49,7 @@ public class DefaultMeetingSourceDirectorySetTest {
 	@Test
 	@Ignore
 	public void testGetAgenda() {
+		//TODO: hot to test agenda functionality ???
 		fail("Not yet implemented");
 	}
 
@@ -58,6 +59,7 @@ public class DefaultMeetingSourceDirectorySetTest {
 	@Test
 	@Ignore
 	public void testGetMinutes() {
+		//TODO: hot to test minutes functionality ???
 		fail("Not yet implemented");
 	}
 
@@ -67,6 +69,7 @@ public class DefaultMeetingSourceDirectorySetTest {
 	@Test
 	@Ignore
 	public void testGetPresentation() {
+		//TODO: hot to test presentation functionality ???
 		fail("Not yet implemented");
 	}
 
@@ -76,6 +79,7 @@ public class DefaultMeetingSourceDirectorySetTest {
 	@Test
 	@Ignore
 	public void testGetAllSources() {
+		//TODO: hot to test allSource functionality ???
 		fail("Not yet implemented");
 	}
 
