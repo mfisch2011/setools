@@ -18,6 +18,7 @@ package setools.gradle.meetings.plugins.internal;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 
 import org.gradle.api.Plugin;
@@ -52,19 +53,13 @@ public class DefaultMeetingsFactory implements MeetingsFactory,Plugin<Project> {
 
 	@Override
 	public boolean hasMethod(String name, Object...args) {
-		Class<?>[] params = new Class<?>[args.length];
-		for(int x=0;x<args.length;x++) {
-			params[x] = args[x].getClass();
-		}
-		
 		for(Object handler : handlers) {
-			Method method;
-			try {
-				method = handler.getClass().getMethod(name, params);
-				if(Meeting.class.isAssignableFrom(method.getReturnType()))
-					return true;
-			} catch (NoSuchMethodException | SecurityException e) {
-				//ignore expected
+			//TODO:will this search parent classes ???
+			for(Method method : handler.getClass().getDeclaredMethods()) {
+				if(Meeting.class.isAssignableFrom(method.getReturnType())) {
+					if(parametersMatch(method.getParameters(),args))
+						return true;
+				}
 			}
 		}
 		return false;
@@ -72,29 +67,39 @@ public class DefaultMeetingsFactory implements MeetingsFactory,Plugin<Project> {
 
 	@Override
 	public DynamicInvokeResult tryInvokeMethod(String name, Object...args) {
-		Class<?>[] params = new Class<?>[args.length];
-		for(int x=0;x<args.length;x++) {
-			params[x] = args[x].getClass();
-		}
-		
 		for(Object handler : handlers) {
-			Method method;
-			try {
-				project.getLogger().lifecycle("Searching {} for method '{}' with {}.",handler,name,params);
-				method = handler.getClass().getMethod(name, params);
-				project.getLogger().lifecycle("Found {}.",method);
-				Object result = method.invoke(handler, args);
-				project.getLogger().lifecycle("Result: {}.",result);
-				if(result instanceof Meeting) {
-					onSuccess((Meeting)result);
-					return DynamicInvokeResult.found(result);
+			//TODO:will this search parent classes ???
+			for(Method method : handler.getClass().getDeclaredMethods()) {
+				if(Meeting.class.isAssignableFrom(method.getReturnType())) {
+					if(parametersMatch(method.getParameters(),args)) {
+						Object result;
+						try {
+							result = method.invoke(handler, args);
+							onSuccess((Meeting)result);
+							return DynamicInvokeResult.found(result);
+						} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+							throw new RuntimeException(e);
+						}
+					}
 				}
-			} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-				//ignore expected
-				project.getLogger().warn("Error {} while searching for '{}'.",e,name);
 			}
 		}
 		return DynamicInvokeResult.notFound();
+	}
+
+	/**
+	 * TODO:
+	 * @param parameters
+	 * @param params
+	 * @return
+	 */
+	protected boolean parametersMatch(Parameter[] params,Object...args) {
+		if(params.length != args.length) return false;
+		for(int x=0;x<params.length;x++) {
+			if(!params[x].getType().isInstance(args[x]))
+				return false;
+		}
+		return true;
 	}
 
 	/**
