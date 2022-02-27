@@ -91,7 +91,7 @@ public class MeetingsPluginTest {
 		writeFile(settingsFile, "rootProject.name = 'test-project'");
 		String text = getPluginConfig();
 		text += "meetings {" + System.lineSeparator()
-			+ "  " + System.lineSeparator()
+			+ "  meetings" + System.lineSeparator()
 			+ "}";
 		writeFile(buildFile,text);
 		BuildResult result = GradleRunner.create()

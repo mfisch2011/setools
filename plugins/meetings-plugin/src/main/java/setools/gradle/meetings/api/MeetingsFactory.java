@@ -24,8 +24,8 @@ public interface MeetingsFactory extends MethodAccess {
 
 	/**
 	 * TODO:
-	 * @param class1
+	 * @param type - {@link Class} of new handler
 	 */
-	void register(Class<?> class1);
+	void register(Class<?> type);
 
 }
