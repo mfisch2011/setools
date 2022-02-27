@@ -83,9 +83,9 @@ public class DefaultMeetingsFactory implements MeetingsFactory,Plugin<Project> {
 				project.getLogger().lifecycle("Searching {} for method '{}' with {}.",handler,name,params);
 				method = handler.getClass().getMethod(name, params);
 				project.getLogger().lifecycle("Found {}.",method);
-				if(Meeting.class.isAssignableFrom(method.getReturnType())) {
-					Object result = method.invoke(handler, args);
-					onSuccess(Meeting.class.cast(result));
+				Object result = method.invoke(handler, args);
+				if(result instanceof Meeting) {
+					onSuccess((Meeting)result);
 				}
 			} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 				//ignore expected
