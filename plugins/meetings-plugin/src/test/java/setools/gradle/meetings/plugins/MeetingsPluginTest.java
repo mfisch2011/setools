@@ -17,21 +17,72 @@ package setools.gradle.meetings.plugins;
 
 import static org.junit.Assert.fail;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 
 /**
  * TODO:
  */
 public class MeetingsPluginTest {
+	
+	@Rule
+	public TemporaryFolder folder = new TemporaryFolder();
+	
+	/**
+	 * TODO:
+	 */
+	private File settingsFile;
+	
+	/**
+	 * TODO:
+	 */
+	private File buildFile;
+
+    @Before
+    public void setup() throws IOException {
+    	settingsFile = folder.newFile( "settings.gradle");
+    	buildFile = folder.newFile("build.gradle");
+    }
+    
+    @After
+    public void cleanup() {
+    	folder.delete();
+    }
 
 	/**
 	 * Test method for {@link setools.gradle.meetings.plugins.MeetingsPlugin#apply(org.gradle.api.Project)}.
+	 * @throws IOException 
 	 */
 	@Test
 	@Ignore
-	public void testApply() {
+	public void testApply() throws IOException {
+		writeFile(settingsFile, "rootProject.name = 'test-project'");
 		fail("Not yet implemented");
+	}
+
+	/**
+	 * TODO:
+	 * @param settingsFile2
+	 * @param string
+	 * @throws IOException 
+	 */
+	protected void writeFile(File file, String text) throws IOException {
+		BufferedWriter output = null;
+		try {
+			output = new BufferedWriter(new FileWriter(file));
+			output.write(text);
+		} finally {
+			if(output!=null) output.close();
+		}
 	}
 
 }
