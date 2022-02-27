@@ -73,7 +73,10 @@ public class MeetingsPluginTest {
 		"plugins { "
 		+ "  id 'setools.meetings-plugin' "
 		+ "} "
-		+ ""); //TODO:add meetings configuration...
+		+ System.lineSeparator()
+		+ "meetings {"
+		+ "  "
+		+ "}"); //TODO:add meetings configuration...
 		BuildResult result = GradleRunner.create()
 				.withPluginClasspath()
 				.withProjectDir(folder.getRoot())
