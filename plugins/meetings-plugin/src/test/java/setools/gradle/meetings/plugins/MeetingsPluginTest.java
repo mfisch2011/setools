@@ -15,6 +15,8 @@
  */
 package setools.gradle.meetings.plugins;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 import java.io.BufferedWriter;
@@ -24,12 +26,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
+import org.gradle.testkit.runner.BuildResult;
+import org.gradle.testkit.runner.GradleRunner;
+import org.gradle.testkit.runner.TaskOutcome;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
+
+import static org.gradle.testkit.runner.TaskOutcome.SUCCESS;
 
 /**
  * TODO:
@@ -68,7 +75,19 @@ public class MeetingsPluginTest {
 	@Ignore
 	public void testApply() throws IOException {
 		writeFile(settingsFile, "rootProject.name = 'test-project'");
-		fail("Not yet implemented");
+		writeFile(buildFile,
+		"plugins { "
+		+ "  id 'setools.meetings-plugin' "
+		+ "} "
+		+ ""); //TODO:add meetings configuration...
+		BuildResult result = GradleRunner.create()
+				.withPluginClasspath()
+				.withProjectDir(folder.getRoot())
+				.withArguments("tasks")
+				.build();
+		assertNotNull(result);
+		System.out.println(result.getOutput());
+		assertEquals(SUCCESS,result.task("tasks").getOutcome());
 	}
 
 	/**
