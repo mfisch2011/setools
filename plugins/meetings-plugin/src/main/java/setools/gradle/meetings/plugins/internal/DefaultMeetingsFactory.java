@@ -105,8 +105,8 @@ public class DefaultMeetingsFactory implements MeetingsFactory,Plugin<Project> {
 	 * @return
 	 */
 	protected MeetingsPluginExt getMeetings() {
-		return (MeetingsPluginExt)project.getPluginManager()
-			.findPlugin(DefaultMeetingsPluginExt.MEETINGS_EXT_NAME);
+		return (MeetingsPluginExt)project.getExtensions()
+			.getByName(DefaultMeetingsPluginExt.MEETINGS_EXT_NAME);
 	}
 
 	@Override
