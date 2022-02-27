@@ -15,9 +15,12 @@
  */
 package setools.gradle.meetings.plugins.internal;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+
+import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.internal.metaobject.DynamicInvokeResult;
 
@@ -28,7 +31,7 @@ import setools.gradle.meetings.plugins.MeetingsPluginExt;
 /**
  * TODO:
  */
-public class DefaultMeetingsFactory implements MeetingsFactory {
+public class DefaultMeetingsFactory implements MeetingsFactory,Plugin<Project> {
 	
 	/**
 	 * TODO:
@@ -104,5 +107,25 @@ public class DefaultMeetingsFactory implements MeetingsFactory {
 	protected MeetingsPluginExt getMeetings() {
 		return (MeetingsPluginExt)project.getPluginManager()
 			.findPlugin(MeetingsPluginExt.MEETINGS_EXT_NAME);
+	}
+
+	@Override
+	public void register(Class<?> type) {
+		synchronized(handlers) {
+			//TODO:better way to detect name space clashes...
+			for(Object handler : handlers) {
+				if(type.isInstance(handler))
+					return; //TODO:throw exception ???
+			}
+		}
+		try {
+			Constructor<?> constructor = type.getConstructor();
+			Object object = constructor.newInstance();
+			handlers.add(object);
+		} catch (NoSuchMethodException | SecurityException | InstantiationException |
+				IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+			throw new IllegalArgumentException(e);
+		}
+		
 	}
 }

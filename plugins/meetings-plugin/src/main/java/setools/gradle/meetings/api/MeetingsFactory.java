@@ -15,13 +15,17 @@
  */
 package setools.gradle.meetings.api;
 
-import org.gradle.api.Plugin;
-import org.gradle.api.Project;
 import org.gradle.internal.metaobject.MethodAccess;
 
 /**
  * TODO:
  */
-public interface MeetingsFactory extends MethodAccess,Plugin<Project> {
+public interface MeetingsFactory extends MethodAccess {
+
+	/**
+	 * TODO:
+	 * @param class1
+	 */
+	void register(Class<?> class1);
 
 }

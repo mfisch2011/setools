@@ -60,18 +60,15 @@ public class DefaultMeetingsPluginExt extends TreeSet<Meeting> implements Meetin
 			}
 		}
 		if(factory!=null) {
-			project.getLogger().lifecycle("Found MeetingsFactory {}.",factory);
 			meetingsFactory = factory;
 		} else {
 			meetingsFactory = null;
-			project.getLogger().lifecycle("No MeetingsFactory found.");
 		}
 	}
 
 
 	@Override
 	public MethodAccess getAdditionalMethods() {
-		project.getLogger().lifecycle("Providing access to MeetingsFactory = {}.",meetingsFactory);
 		return meetingsFactory;
 	}
 		
