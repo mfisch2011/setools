@@ -27,6 +27,7 @@ import org.gradle.testkit.runner.BuildResult;
 import org.gradle.testkit.runner.GradleRunner;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
@@ -69,14 +70,8 @@ public class MeetingsPluginTest {
 	@Test
 	public void testApply() throws IOException {
 		writeFile(settingsFile, "rootProject.name = 'test-project'");
-		writeFile(buildFile,
-		"plugins { "
-		+ "  id 'setools.meetings-plugin' "
-		+ "} "
-		+ System.lineSeparator()
-		+ "meetings {"
-		+ "  "
-		+ "}"); //TODO:add meetings configuration...
+		String text = getPluginConfig();
+		writeFile(buildFile,text);
 		BuildResult result = GradleRunner.create()
 				.withPluginClasspath()
 				.withProjectDir(folder.getRoot())
@@ -85,6 +80,136 @@ public class MeetingsPluginTest {
 		assertNotNull(result);
 		System.out.println(result.getOutput());
 		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
+	}
+	
+	/**
+	 * TODO:
+	 * @throws IOException
+	 */
+	@Test
+	@Ignore
+	public void testEmptyDefaultMeeting() throws IOException {
+		writeFile(settingsFile, "rootProject.name = 'test-project'");
+		String text = getPluginConfig();
+		writeFile(buildFile,text);
+		BuildResult result = GradleRunner.create()
+				.withPluginClasspath()
+				.withProjectDir(folder.getRoot())
+				.withArguments("tasks")
+				.build();
+		assertNotNull(result);
+		System.out.println(result.getOutput());
+		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
+	}
+	
+	/**
+	 * TODO:
+	 * @throws IOException
+	 */
+	@Test
+	@Ignore
+	public void testBasicDefaultMeeting() throws IOException {
+		writeFile(settingsFile, "rootProject.name = 'test-project'");
+		String text = getPluginConfig();
+		writeFile(buildFile,text);
+		BuildResult result = GradleRunner.create()
+				.withPluginClasspath()
+				.withProjectDir(folder.getRoot())
+				.withArguments("tasks")
+				.build();
+		assertNotNull(result);
+		System.out.println(result.getOutput());
+		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
+	}
+	
+	/**
+	 * TODO:
+	 * @throws IOException
+	 */
+	@Test
+	@Ignore
+	public void testDefaultMeetingWithAction() throws IOException {
+		writeFile(settingsFile, "rootProject.name = 'test-project'");
+		String text = getPluginConfig();
+		writeFile(buildFile,text);
+		BuildResult result = GradleRunner.create()
+				.withPluginClasspath()
+				.withProjectDir(folder.getRoot())
+				.withArguments("tasks")
+				.build();
+		assertNotNull(result);
+		System.out.println(result.getOutput());
+		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
+	}
+	
+	/**
+	 * TODO:
+	 * @throws IOException
+	 */
+	@Test
+	@Ignore
+	public void testEmptyModelBasedMeeting() throws IOException {
+		writeFile(settingsFile, "rootProject.name = 'test-project'");
+		String text = getPluginConfig();
+		writeFile(buildFile,text);
+		BuildResult result = GradleRunner.create()
+				.withPluginClasspath()
+				.withProjectDir(folder.getRoot())
+				.withArguments("tasks")
+				.build();
+		assertNotNull(result);
+		System.out.println(result.getOutput());
+		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
+	}
+	
+	/**
+	 * TODO:
+	 * @throws IOException
+	 */
+	@Test
+	@Ignore
+	public void testBasicModelBasedMeeting() throws IOException {
+		writeFile(settingsFile, "rootProject.name = 'test-project'");
+		String text = getPluginConfig();
+		writeFile(buildFile,text);
+		BuildResult result = GradleRunner.create()
+				.withPluginClasspath()
+				.withProjectDir(folder.getRoot())
+				.withArguments("tasks")
+				.build();
+		assertNotNull(result);
+		System.out.println(result.getOutput());
+		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
+	}
+	
+	/**
+	 * TODO:
+	 * @throws IOException
+	 */
+	@Test
+	@Ignore
+	public void testModelBasedWithAction() throws IOException {
+		writeFile(settingsFile, "rootProject.name = 'test-project'");
+		String text = getPluginConfig();
+		writeFile(buildFile,text);
+		BuildResult result = GradleRunner.create()
+				.withPluginClasspath()
+				.withProjectDir(folder.getRoot())
+				.withArguments("tasks")
+				.build();
+		assertNotNull(result);
+		System.out.println(result.getOutput());
+		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
+	}
+
+	/**
+	 * TODO:
+	 * @return
+	 */
+	protected String getPluginConfig() {
+		return "plugins { " + System.lineSeparator()
+		+ "  id 'setools.meetings-plugin' " + System.lineSeparator()
+		+ "}" + System.lineSeparator();
 	}
 
 	/**
