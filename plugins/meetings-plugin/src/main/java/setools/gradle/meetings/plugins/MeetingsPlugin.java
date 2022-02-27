@@ -25,7 +25,7 @@ public class MeetingsPlugin implements Plugin<Project> {
 
 	@Override
 	public void apply(Project project) {
-		//TODO:
+		project.getPluginManager().apply(MeetingsSourceSetPlugin.class);
 	}
 
 }
