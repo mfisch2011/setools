@@ -37,6 +37,10 @@ public class DefaultMeetingSourceDirectorySetTest {
 			.build();
 		DefaultMeetingSourceDirectorySet tst = new DefaultMeetingSourceDirectorySet("testing",project.getObjects());
 		assertNotNull(tst);
+		assertNotNull(tst.getAgenda());
+		assertNotNull(tst.getMinutes());
+		assertNotNull(tst.getPresentation());
+		assertNotNull(tst.getAllSources());
 	}
 
 	/**
