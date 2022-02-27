@@ -21,7 +21,7 @@ import java.util.Date;
 /**
  * TODO:
  */
-public interface Meeting extends Serializable {
+public interface Meeting {
 
 	/**
 	 * Get the name of the meeting.

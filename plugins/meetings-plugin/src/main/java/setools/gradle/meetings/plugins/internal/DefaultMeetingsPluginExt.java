@@ -16,6 +16,8 @@
 package setools.gradle.meetings.plugins.internal;
 
 import java.util.HashSet;
+import java.util.TreeSet;
+
 import javax.inject.Inject;
 
 import org.gradle.api.Project;
@@ -28,12 +30,8 @@ import setools.gradle.meetings.plugins.MeetingsPluginExt;
 /**
  * TODO:
  */
-public class DefaultMeetingsPluginExt extends HashSet<Meeting> implements MeetingsPluginExt {
+public class DefaultMeetingsPluginExt extends TreeSet<Meeting> implements MeetingsPluginExt {
 
-	/**
-	 * TODO:
-	 */
-	private static final long serialVersionUID = 5488820675711220846L;
 	/**
 	 * TODO:
 	 */
