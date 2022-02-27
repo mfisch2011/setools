@@ -66,6 +66,7 @@ public class MeetingsPlugin implements Plugin<Project> {
 	 * @return
 	 */
 	protected MeetingsFactory meetingsFactory() {
+		project.getLogger().lifecycle("Getting the registered MeetingsFactory.");
 		if(meetingsFactory==null) {
 			for(Plugin<?> plugin : project.getPlugins()) {
 				if(MeetingsFactory.class.isInstance(plugin)) {
@@ -74,6 +75,7 @@ public class MeetingsPlugin implements Plugin<Project> {
 				}
 			}
 		}
+		project.getLogger().lifecycle("Found {} for the registered MeetingsFactory.",meetingsFactory);
 		return meetingsFactory;
 	}
 
