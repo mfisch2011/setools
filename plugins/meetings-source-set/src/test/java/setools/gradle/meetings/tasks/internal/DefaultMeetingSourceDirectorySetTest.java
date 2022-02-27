@@ -17,6 +17,8 @@ package setools.gradle.meetings.tasks.internal;
 
 import static org.junit.Assert.*;
 
+import org.gradle.api.Project;
+import org.gradle.testfixtures.ProjectBuilder;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -29,9 +31,12 @@ public class DefaultMeetingSourceDirectorySetTest {
 	 * Test method for {@link setools.gradle.meetings.tasks.internal.DefaultMeetingSourceDirectorySet#DefaultMeetingSourceDirectorySet(java.lang.String, org.gradle.api.model.ObjectFactory)}.
 	 */
 	@Test
-	@Ignore
 	public void testDefaultMeetingSourceDirectorySet() {
-		fail("Not yet implemented");
+		Project project = ProjectBuilder.builder()
+			//TODO:configure builder...
+			.build();
+		DefaultMeetingSourceDirectorySet tst = new DefaultMeetingSourceDirectorySet("testing",project.getObjects());
+		assertNotNull(tst);
 	}
 
 	/**
