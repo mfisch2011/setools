@@ -133,14 +133,13 @@ public class MeetingsPluginTest {
 	 * @throws IOException
 	 */
 	@Test
-	@Ignore
 	public void testDefaultMeetingWithAction() throws IOException {
 		writeFile(settingsFile, "rootProject.name = 'test-project'");
 		String text = getPluginConfig();
 		text += "meetings {" + System.lineSeparator()
 			+ "  meeting(meeting -> {" + System.lineSeparator()
 			+ "    meeting.setName('Test Meeting')" + System.lineSeparator()
-			+ "  }}" + System.lineSeparator()
+			+ "  })" + System.lineSeparator()
 			+ "}";
 		writeFile(buildFile,text);
 		BuildResult result = GradleRunner.create()
