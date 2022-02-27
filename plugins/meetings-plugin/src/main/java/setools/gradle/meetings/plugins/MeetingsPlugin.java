@@ -39,7 +39,7 @@ public class MeetingsPlugin implements Plugin<Project> {
 				DefaultMeetingsPluginExt.class,project);
 		
 		//register factory services
-		MeetingsFactory meetingsFactory = project.getPlugins().getAt(MeetingsFactory.class);
+		MeetingsFactory meetingsFactory = project.getPlugins().getAt(DefaultMeetingsFactory.class);
 		meetingsFactory.registerHandler("meeting",new DefaultMeetingFactory());
 		
 		//TODO: register callback to create tasks for the configured meetings
