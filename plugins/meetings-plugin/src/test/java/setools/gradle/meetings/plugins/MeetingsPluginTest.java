@@ -72,7 +72,6 @@ public class MeetingsPluginTest {
 	 * @throws IOException 
 	 */
 	@Test
-	@Ignore
 	public void testApply() throws IOException {
 		writeFile(settingsFile, "rootProject.name = 'test-project'");
 		writeFile(buildFile,
