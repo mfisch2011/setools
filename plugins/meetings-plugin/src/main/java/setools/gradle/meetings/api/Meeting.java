@@ -15,12 +15,13 @@
  */
 package setools.gradle.meetings.api;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * TODO:
  */
-public interface Meeting {
+public interface Meeting extends Serializable {
 
 	/**
 	 * Get the name of the meeting.
