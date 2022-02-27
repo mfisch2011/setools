@@ -57,15 +57,7 @@ public class MeetingsSourceSetPlugin implements Plugin<Project> {
 	public void apply(Project project) {
 		project.getPluginManager().apply(JvmEcosystemPlugin.class);
 		SourceSetContainer sourceSets = (SourceSetContainer) project.getExtensions().getByName("sourceSets");
-		sourceSets.add(doCreate(MeetingsSourceSet.MEETINGS_SOURCE_SET_NAME));
+		sourceSets.add(instantiator.newInstance(DefaultMeetingsSourceSet.class,objectFactory));
 	}
 	
-	/**
-	 * TODO:
-	 * @param name
-	 * @return
-	 */
-	protected SourceSet doCreate(String name) {
-		return instantiator.newInstance(DefaultMeetingsSourceSet.class, name, objectFactory);
-	}
 }
