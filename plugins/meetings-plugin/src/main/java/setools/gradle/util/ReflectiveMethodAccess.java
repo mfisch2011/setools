@@ -32,6 +32,7 @@ public abstract class ReflectiveMethodAccess implements MethodAccess {
 	
 	@Override
 	public boolean hasMethod(String name, Object...args) {
+		System.out.printf("Find handler for method '%s'.%n",name);
 		Object handler = getHandler(name);
 		if(handler!=null) {
 			Class<?> type = handler.getClass();
@@ -61,6 +62,7 @@ public abstract class ReflectiveMethodAccess implements MethodAccess {
 
 	@Override
 	public DynamicInvokeResult tryInvokeMethod(String name, Object...args) {
+		System.out.printf("Find handler for method '%s'.%n",name);
 		Object handler = getHandler(name);
 		if(handler!=null) {
 			Class<?> type = handler.getClass();
