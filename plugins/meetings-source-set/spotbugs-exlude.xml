@@ -1,0 +1,19 @@
+<!-- This file specifies a spotbugs filter for excluding reports that
+     should not be considered errors.
+     The format of this file is documented at:
+       https://spotbugs.readthedocs.io/en/latest/filter.html
+     When possible, please specify the full names of the bug codes,
+     using the pattern attribute, to make it clearer what reports are
+     being suppressed.  You can find a listing of codes at:
+       https://spotbugs.readthedocs.io/en/latest/bugDescriptions.html
+  -->
+<FindBugsFilter>
+    <!-- ignore false positive in setools.gradle.meetings.plugins.MeetingsSourceSetPluginTest.testApply() 
+         TODO: how to not need to ignore this (i.e. what is the correct way to test type ???
+    -->
+    <Match>
+        <Class name="setools.gradle.meetings.plugins.MeetingsSourceSetPluginTest" />
+        <Method name="testApply" />
+        <Bug pattern="JUA_DONT_ASSERT_INSTANCEOF_IN_TESTS"/>
+    </Match>
+</FindBugsFilter>
