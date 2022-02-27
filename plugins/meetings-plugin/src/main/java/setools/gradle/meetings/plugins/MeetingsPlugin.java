@@ -28,8 +28,15 @@ import setools.gradle.meetings.plugins.internal.DefaultMeetingsPluginExt;
  */
 public class MeetingsPlugin implements Plugin<Project> {
 
+	/**
+	 * {@link Project} the plugin is applied to.
+	 */
+	private Project project;
+
 	@Override
 	public void apply(Project project) {
+		this.project = project;
+
 		//apply other plugins that we will use
 		project.getPluginManager().apply(MeetingsSourceSetPlugin.class);
 		project.getPluginManager().apply(DefaultMeetingsFactory.class);
@@ -39,10 +46,30 @@ public class MeetingsPlugin implements Plugin<Project> {
 				DefaultMeetingsPluginExt.class,project);
 		
 		//register factory services
-		MeetingsFactory meetingsFactory = project.getPlugins().getAt(DefaultMeetingsFactory.class);
-		meetingsFactory.registerHandler("meeting",new DefaultMeetingFactory());
+		meetingsFactory().registerHandler("meeting",new DefaultMeetingFactory());
 		
 		//TODO: register callback to create tasks for the configured meetings
+	}
+	
+	/**
+	 * {@link MeetingsFactory} registered as a plugin for project.
+	 */
+	private MeetingsFactory meetingsFactory = null;
+	
+	/**
+	 * TODO:
+	 * @return
+	 */
+	protected MeetingsFactory meetingsFactory() {
+		if(meetingsFactory==null) {
+			for(Plugin<?> plugin : project.getPlugins()) {
+				if(MeetingsFactory.class.isInstance(plugin)) {
+					meetingsFactory = (MeetingsFactory)plugin;
+					break;
+				}
+			}
+		}
+		return meetingsFactory;
 	}
 
 }
