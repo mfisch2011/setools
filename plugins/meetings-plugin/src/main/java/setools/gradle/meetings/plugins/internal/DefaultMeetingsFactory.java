@@ -84,6 +84,7 @@ public class DefaultMeetingsFactory implements MeetingsFactory,Plugin<Project> {
 				method = handler.getClass().getMethod(name, params);
 				project.getLogger().lifecycle("Found {}.",method);
 				Object result = method.invoke(handler, args);
+				project.getLogger().lifecycle("Result: {}.",result);
 				if(result instanceof Meeting) {
 					onSuccess((Meeting)result);
 				}
