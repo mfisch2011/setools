@@ -63,7 +63,7 @@ public class DefaultMeeting implements Meeting {
 
 	@Override
 	public Date getTime() {
-		return time;
+		return (Date)time.clone();
 	}
 
 	@Override
