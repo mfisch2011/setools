@@ -8,12 +8,5 @@
        https://spotbugs.readthedocs.io/en/latest/bugDescriptions.html
   -->
 <FindBugsFilter>
-    <!-- ignore false positive in setools.gradle.meetings.plugins.MeetingsSourceSetPluginTest.testApply() 
-         TODO: how to not need to ignore this (i.e. what is the correct way to test type ???
-    -->
-    <Match>
-        <Class name="setools.gradle.meetings.plugins.MeetingsSourceSetPluginTest" />
-        <Method name="testApply" />
-        <Bug pattern="JUA_DONT_ASSERT_INSTANCEOF_IN_TESTS"/>
-    </Match>
+
 </FindBugsFilter>
