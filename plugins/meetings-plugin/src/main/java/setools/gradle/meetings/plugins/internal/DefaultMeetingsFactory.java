@@ -70,7 +70,7 @@ public class DefaultMeetingsFactory implements MeetingsFactory {
 	public DynamicInvokeResult tryInvokeMethod(String name, Object...args) {
 		logger.debug("I method '{}' with arguments {}.",name,args);
 		// TODO Auto-generated method stub
-		return null;
+		return DynamicInvokeResult.notFound();
 	}
 
 }

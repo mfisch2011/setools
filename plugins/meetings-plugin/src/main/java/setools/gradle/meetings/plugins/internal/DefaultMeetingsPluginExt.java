@@ -71,7 +71,7 @@ public class DefaultMeetingsPluginExt extends TreeSet<Meeting> implements Meetin
 
 	@Override
 	public MethodAccess getAdditionalMethods() {
-		project.getLogger().lifecycle("Providing access to MeetingsFactory.");
+		project.getLogger().lifecycle("Providing access to MeetingsFactory = {}.",meetingsFactory);
 		return meetingsFactory;
 	}
 		
