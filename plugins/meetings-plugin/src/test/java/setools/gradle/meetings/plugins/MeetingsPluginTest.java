@@ -91,6 +91,10 @@ public class MeetingsPluginTest {
 	public void testEmptyDefaultMeeting() throws IOException {
 		writeFile(settingsFile, "rootProject.name = 'test-project'");
 		String text = getPluginConfig();
+		text += "meetings {" + System.lineSeparator()
+			+ "  " + System.lineSeparator()
+			+ "}";
+		System.out.println(text);
 		writeFile(buildFile,text);
 		BuildResult result = GradleRunner.create()
 				.withPluginClasspath()
@@ -209,7 +213,7 @@ public class MeetingsPluginTest {
 	protected String getPluginConfig() {
 		return "plugins { " + System.lineSeparator()
 		+ "  id 'setools.meetings-plugin' " + System.lineSeparator()
-		+ "}" + System.lineSeparator();
+		+ "}" + System.lineSeparator() + System.lineSeparator();
 	}
 
 	/**
