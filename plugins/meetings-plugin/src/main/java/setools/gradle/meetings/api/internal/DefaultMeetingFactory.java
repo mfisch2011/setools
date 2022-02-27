@@ -13,22 +13,46 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package setools.gradle.meetings.plugins;
+package setools.gradle.meetings.api.internal;
 
-import java.util.Collection;
+import org.gradle.api.Action;
+import org.gradle.util.internal.ConfigureUtil;
 
-import org.gradle.internal.metaobject.MethodMixIn;
-
+import groovy.lang.Closure;
 import setools.gradle.meetings.api.Meeting;
 
 /**
  * TODO:
  */
-public interface MeetingsPluginExt extends Collection<Meeting>,MethodMixIn {
+public class DefaultMeetingFactory {
 
 	/**
 	 * TODO:
+	 * @return
 	 */
-	public static final String MEETINGS_EXT_NAME = "meetings";
-
+	public Meeting meeting() {
+		return new DefaultMeeting();
+	}
+	
+	/**
+	 * TODO:
+	 * @param action
+	 * @return
+	 */
+	public Meeting meeting(Action<? super Meeting> action) {
+		Meeting result = new DefaultMeeting();
+		action.execute(result);
+		return result;
+	}
+	
+	/**
+	 * TODO:
+	 * @param closure
+	 * @return
+	 */
+	public Meeting meeting(Closure<?> closure) {
+		Meeting result = new DefaultMeeting();
+		ConfigureUtil.configure(closure, result);
+		return result;
+	}
 }

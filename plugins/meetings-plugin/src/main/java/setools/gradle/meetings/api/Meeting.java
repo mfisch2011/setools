@@ -13,22 +13,52 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package setools.gradle.meetings.plugins;
+package setools.gradle.meetings.api;
 
-import java.util.Collection;
-
-import org.gradle.internal.metaobject.MethodMixIn;
-
-import setools.gradle.meetings.api.Meeting;
+import java.util.Date;
 
 /**
  * TODO:
  */
-public interface MeetingsPluginExt extends Collection<Meeting>,MethodMixIn {
+public interface Meeting {
 
 	/**
 	 * TODO:
+	 * @return
 	 */
-	public static final String MEETINGS_EXT_NAME = "meetings";
-
+	public String getName();
+	
+	/**
+	 * TODO:
+	 * @param name
+	 */
+	public void setName(String name);
+	
+	/**
+	 * TODO:
+	 * @return
+	 */
+	public String getLocation();
+	
+	/**
+	 * TODO:
+	 * @param location
+	 */
+	public void setLocation(String location);
+	
+	/**
+	 * TODO:
+	 * @return
+	 */
+	public Date getTime();
+	
+	/**
+	 * TODO:
+	 * @param object
+	 */
+	public void setTime(Object object);
+	
+	//TODO:add agenda methods...
+	
+	//TODO:add attendee methods...
 }

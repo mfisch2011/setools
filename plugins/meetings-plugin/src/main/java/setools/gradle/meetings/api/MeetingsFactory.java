@@ -13,22 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package setools.gradle.meetings.plugins;
+package setools.gradle.meetings.api;
 
-import java.util.Collection;
-
-import org.gradle.internal.metaobject.MethodMixIn;
-
-import setools.gradle.meetings.api.Meeting;
+import org.gradle.api.Plugin;
+import org.gradle.api.Project;
+import org.gradle.internal.metaobject.MethodAccess;
 
 /**
  * TODO:
  */
-public interface MeetingsPluginExt extends Collection<Meeting>,MethodMixIn {
+public interface MeetingsFactory extends MethodAccess,Plugin<Project> {
 
 	/**
 	 * TODO:
+	 * @param string
+	 * @param defaultMeetingFactory
 	 */
-	public static final String MEETINGS_EXT_NAME = "meetings";
+	public Object registerHandler(String name,Object factory);
 
 }

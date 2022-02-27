@@ -15,17 +15,26 @@
  */
 package setools.gradle.meetings.plugins.internal;
 
+import java.util.TreeSet;
+
 import javax.inject.Inject;
 
 import org.gradle.api.Project;
+import org.gradle.internal.metaobject.MethodAccess;
 
+import setools.gradle.meetings.api.Meeting;
+import setools.gradle.meetings.api.MeetingsFactory;
 import setools.gradle.meetings.plugins.MeetingsPluginExt;
 
 /**
  * TODO:
  */
-public class DefaultMeetingsPluginExt implements MeetingsPluginExt {
+public class DefaultMeetingsPluginExt extends TreeSet<Meeting> implements MeetingsPluginExt {
 
+	/**
+	 * TODO:
+	 */
+	private static final long serialVersionUID = 5488820675711220846L;
 	/**
 	 * TODO:
 	 */
@@ -38,5 +47,20 @@ public class DefaultMeetingsPluginExt implements MeetingsPluginExt {
 	@Inject
 	public DefaultMeetingsPluginExt(Project project) {
 		this.project = project;
+	}
+
+
+	@Override
+	public MethodAccess getAdditionalMethods() {
+		return getMeetingsFactory();
+	}
+
+
+	/**
+	 * TODO:
+	 * @return
+	 */
+	protected MeetingsFactory getMeetingsFactory() {
+		return project.getPlugins().getAt(MeetingsFactory.class);
 	}
 }

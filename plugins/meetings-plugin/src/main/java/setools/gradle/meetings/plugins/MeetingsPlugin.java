@@ -18,6 +18,9 @@ package setools.gradle.meetings.plugins;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 
+import setools.gradle.meetings.api.MeetingsFactory;
+import setools.gradle.meetings.api.internal.DefaultMeetingFactory;
+import setools.gradle.meetings.plugins.internal.DefaultMeetingsFactory;
 import setools.gradle.meetings.plugins.internal.DefaultMeetingsPluginExt;
 
 /**
@@ -27,9 +30,19 @@ public class MeetingsPlugin implements Plugin<Project> {
 
 	@Override
 	public void apply(Project project) {
+		//apply other plugins that we will use
 		project.getPluginManager().apply(MeetingsSourceSetPlugin.class);
+		project.getPluginManager().apply(DefaultMeetingsFactory.class);
+		
+		//create plugin extensions
 		project.getExtensions().create(MeetingsPluginExt.MEETINGS_EXT_NAME,
 				DefaultMeetingsPluginExt.class,project);
+		
+		//register factory services
+		MeetingsFactory meetingsFactory = project.getPlugins().getAt(MeetingsFactory.class);
+		meetingsFactory.registerHandler("meeting",new DefaultMeetingFactory());
+		
+		//TODO: register callback to create tasks for the configured meetings
 	}
 
 }
