@@ -15,7 +15,6 @@
  */
 package setools.gradle.meetings.api.internal;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import setools.gradle.meetings.api.Meeting;
@@ -23,12 +22,7 @@ import setools.gradle.meetings.api.Meeting;
 /**
  * TODO:
  */
-public class DefaultMeeting implements Meeting,Serializable {
-	
-	/**
-	 * TODO:
-	 */
-	private static final long serialVersionUID = 5350976471235123584L;
+public class DefaultMeeting implements Meeting {
 	
 	/**
 	 * {@link String} to store the meeting name in

@@ -15,7 +15,6 @@
  */
 package setools.gradle.meetings.api;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
