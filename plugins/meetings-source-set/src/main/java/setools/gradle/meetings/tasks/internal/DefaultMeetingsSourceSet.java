@@ -16,6 +16,10 @@
 package setools.gradle.meetings.tasks.internal;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 import org.gradle.api.internal.tasks.DefaultSourceSet;
 import org.gradle.api.model.ObjectFactory;
 import setools.gradle.meetings.tasks.MeetingSourceDirectorySet;
@@ -30,6 +34,11 @@ public abstract class DefaultMeetingsSourceSet extends DefaultSourceSet implemen
 	 * TODO:
 	 */
 	protected final ObjectFactory objectFactory;
+	
+	/**
+	 * TODO:
+	 */
+	protected final Map<String, MeetingSourceDirectorySet> meetings;
 
 	/**
 	 * TODO:
@@ -39,22 +48,21 @@ public abstract class DefaultMeetingsSourceSet extends DefaultSourceSet implemen
 	public DefaultMeetingsSourceSet(ObjectFactory objectFactory) {
 		super(MeetingsSourceSet.MEETINGS_SOURCE_SET_NAME,objectFactory);
 		this.objectFactory = objectFactory;
+		this.meetings = new ConcurrentHashMap<String,MeetingSourceDirectorySet>();
 	}
 
 	@Override
 	public MeetingSourceDirectorySet getMeeting(String name) {
-		Object extension = getExtensions().getByName(name);
-		if(extension instanceof MeetingSourceDirectorySet) {
-			return (MeetingSourceDirectorySet)extension;
+		if(meetings.containsKey(name)) {
+			return meetings.get(name);
 		}
 		throw new RuntimeException(); //TODO:what type of exception to throw ???
 	}
 
 	@Override
 	public MeetingSourceDirectorySet findMeeting(String name) {
-		Object extension = getExtensions().findByName(name);
-		if(extension instanceof MeetingSourceDirectorySet) {
-			return (MeetingSourceDirectorySet)extension;
+		if(meetings.containsKey(name)) {
+			return meetings.get(name);
 		}
 		return null;
 	}
@@ -64,15 +72,14 @@ public abstract class DefaultMeetingsSourceSet extends DefaultSourceSet implemen
 		MeetingSourceDirectorySet meeting = findMeeting(name);
 		if(meeting==null) {
 			meeting = new DefaultMeetingSourceDirectorySet(name,objectFactory);
-			getExtensions().add(name, meeting);
+			meetings.put(name, meeting);
 		}
 		return meeting;
 	}
 
 	@Override
 	public Collection<MeetingSourceDirectorySet> getAllMeetings() {
-		// TODO Auto-generated method stub
-		return null;
+		return Collections.unmodifiableCollection(meetings.values());
 	}
 
 }
