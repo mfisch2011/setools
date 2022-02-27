@@ -68,8 +68,11 @@ public class DefaultMeeting implements Meeting {
 
 	@Override
 	public void setTime(Object object) {
-		// TODO Auto-generated method stub
-		
+		//TODO: how to really handle this ???
+		if(object instanceof Date) {
+			time = (Date)((Date)object).clone();
+		}
+		//TODO: how to robustly handle string parsing ???
 	}
 
 }
