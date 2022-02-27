@@ -35,11 +35,6 @@ public class MeetingsSourceSetPlugin implements Plugin<Project> {
 	/**
 	 * TODO:
 	 */
-	protected final SourceSetContainer sourceSets;
-	
-	/**
-	 * TODO:
-	 */
 	protected final Instantiator instantiator;
 
 	/**
@@ -52,10 +47,9 @@ public class MeetingsSourceSetPlugin implements Plugin<Project> {
 	 * @param sourceSets
 	 */
 	@Inject
-	public MeetingsSourceSetPlugin(Instantiator instantiator,ObjectFactory objectFactory,SourceSetContainer sourceSets) {
+	public MeetingsSourceSetPlugin(Instantiator instantiator,ObjectFactory objectFactory) {
 		this.instantiator = instantiator;
 		this.objectFactory = objectFactory;
-		this.sourceSets = sourceSets;
 	}
 
 	@Override
