@@ -38,14 +38,19 @@ public class MeetingsPlugin implements Plugin<Project> {
 		this.project = project;
 
 		//apply other plugins that we will use
+		project.getLogger().lifecycle("Applying {}.",MeetingsSourceSetPlugin.class);
 		project.getPluginManager().apply(MeetingsSourceSetPlugin.class);
+		project.getLogger().lifecycle("Applying {}.",DefaultMeetingsFactory.class);
 		project.getPluginManager().apply(DefaultMeetingsFactory.class);
 		
 		//create plugin extensions
+		project.getLogger().lifecycle("Createing {} as '{}'.",DefaultMeetingsPluginExt.class,MeetingsPluginExt.MEETINGS_EXT_NAME);
 		project.getExtensions().create(MeetingsPluginExt.MEETINGS_EXT_NAME,
 				DefaultMeetingsPluginExt.class,project);
 		
 		//register factory services
+		project.getLogger().lifecycle("Registering {} as {} in {}.",
+				DefaultMeetingFactory.class,"meeting",meetingsFactory());
 		meetingsFactory().registerHandler("meeting",new DefaultMeetingFactory());
 		
 		//TODO: register callback to create tasks for the configured meetings
