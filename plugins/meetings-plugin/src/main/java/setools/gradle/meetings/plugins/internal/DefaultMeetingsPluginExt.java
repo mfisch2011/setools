@@ -15,7 +15,7 @@
  */
 package setools.gradle.meetings.plugins.internal;
 
-import java.util.TreeSet;
+import java.util.HashSet;
 
 import javax.inject.Inject;
 
@@ -31,7 +31,7 @@ import setools.gradle.meetings.plugins.MeetingsPluginExt;
  * TODO:
  */
 @SuppressWarnings("serial") //TODO:WHERE THE FUCK IS THIS COMING FROM ???
-public class DefaultMeetingsPluginExt extends TreeSet<Meeting> implements MeetingsPluginExt {
+public class DefaultMeetingsPluginExt extends HashSet<Meeting> implements MeetingsPluginExt {
 
 	/**
 	 * TODO:
