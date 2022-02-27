@@ -20,6 +20,7 @@ import javax.inject.Inject;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.model.ObjectFactory;
+import org.gradle.api.plugins.JvmEcosystemPlugin;
 import org.gradle.api.tasks.SourceSet;
 import org.gradle.api.tasks.SourceSetContainer;
 import org.gradle.internal.reflect.Instantiator;
@@ -54,6 +55,8 @@ public class MeetingsSourceSetPlugin implements Plugin<Project> {
 
 	@Override
 	public void apply(Project project) {
+		project.getPluginManager().apply(JvmEcosystemPlugin.class);
+		SourceSetContainer sourceSets = (SourceSetContainer) project.getExtensions().getByName("sourceSets");
 		sourceSets.add(doCreate(MeetingsSourceSet.MEETINGS_SOURCE_SET_NAME));
 	}
 	
