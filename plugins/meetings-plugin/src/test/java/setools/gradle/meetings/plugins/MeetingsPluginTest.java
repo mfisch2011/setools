@@ -109,7 +109,6 @@ public class MeetingsPluginTest {
 	 * @throws IOException
 	 */
 	@Test
-	@Ignore
 	public void testBasicDefaultMeeting() throws IOException {
 		writeFile(settingsFile, "rootProject.name = 'test-project'");
 		String text = getPluginConfig();
