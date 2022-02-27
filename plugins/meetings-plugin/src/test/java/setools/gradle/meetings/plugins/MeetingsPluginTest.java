@@ -19,8 +19,10 @@ import static org.junit.Assert.fail;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 import org.junit.After;
 import org.junit.Before;
@@ -77,11 +79,14 @@ public class MeetingsPluginTest {
 	 */
 	protected void writeFile(File file, String text) throws IOException {
 		BufferedWriter output = null;
+		OutputStreamWriter writer = null;
 		try {
-			output = new BufferedWriter(new FileWriter(file));
+			writer = new OutputStreamWriter(new FileOutputStream(file),"UTF-8");
+			output = new BufferedWriter(writer);
 			output.write(text);
 		} finally {
 			if(output!=null) output.close();
+			if(writer!=null) writer.close();
 		}
 	}
 
