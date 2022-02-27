@@ -19,7 +19,6 @@ import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 
 import setools.gradle.meetings.api.MeetingsFactory;
-import setools.gradle.meetings.api.internal.DefaultMeetingFactory;
 import setools.gradle.meetings.plugins.internal.DefaultMeetingsFactory;
 import setools.gradle.meetings.plugins.internal.DefaultMeetingsPluginExt;
 
@@ -49,9 +48,6 @@ public class MeetingsPlugin implements Plugin<Project> {
 				DefaultMeetingsPluginExt.class,project);
 		
 		//register factory services
-		project.getLogger().lifecycle("Registering {} as {} in {}.",
-				DefaultMeetingFactory.class,"meeting",meetingsFactory());
-		meetingsFactory().registerHandler("meeting",new DefaultMeetingFactory());
 		
 		//TODO: register callback to create tasks for the configured meetings
 	}

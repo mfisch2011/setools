@@ -19,16 +19,15 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.gradle.api.Project;
+import org.gradle.api.logging.Logger;
+import org.gradle.internal.metaobject.DynamicInvokeResult;
 
-import setools.gradle.meetings.api.Meeting;
 import setools.gradle.meetings.api.MeetingsFactory;
-import setools.gradle.meetings.plugins.MeetingsPluginExt;
-import setools.gradle.util.ReflectiveMethodAccess;
 
 /**
  * TODO:
  */
-public class DefaultMeetingsFactory extends ReflectiveMethodAccess implements MeetingsFactory {
+public class DefaultMeetingsFactory implements MeetingsFactory {
 
 	/**
 	 * TODO:
@@ -39,6 +38,12 @@ public class DefaultMeetingsFactory extends ReflectiveMethodAccess implements Me
 	 * TODO:
 	 */
 	private Project project = null;
+
+	/**
+	 * TODO:
+	 */
+	private Logger logger;
+	
 	
 	/**
 	 * TODO:
@@ -50,40 +55,22 @@ public class DefaultMeetingsFactory extends ReflectiveMethodAccess implements Me
 	@Override
 	public void apply(Project project) {
 		this.project = project;
+		this.logger = project.getLogger();
 		//TODO anything to do here ???
 	}
 
 	@Override
-	protected Object getHandler(String name) {
-		return handlers.get(name);
+	public boolean hasMethod(String name, Object...args) {
+		logger.debug("Searching for method '{}' with arguments {}.",name,args);
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
-	protected void onSuccess(Object result) throws IllegalArgumentException {
-		//TODO: there must be a better way ???
-		if(project!=null) {
-			if(result instanceof Meeting) {
-				MeetingsPluginExt meetings = getMeetingsPlugin();
-				meetings.add((Meeting)result);
-			} else {
-				throw new IllegalArgumentException();
-			}
-		} else {
-			throw new IllegalStateException();
-		}
-	}
-
-	/**
-	 * TODO:
-	 * @return
-	 */
-	protected MeetingsPluginExt getMeetingsPlugin() {
-		return project.getExtensions().getByType(DefaultMeetingsPluginExt.class); //TODO:make this generally MeetingsPluginExt...
-	}
-
-	@Override
-	public Object registerHandler(String name, Object factory) {
-		return handlers.put(name, factory);
+	public DynamicInvokeResult tryInvokeMethod(String name, Object...args) {
+		logger.debug("Invoking method '{}' with arguments {}.",name,args);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

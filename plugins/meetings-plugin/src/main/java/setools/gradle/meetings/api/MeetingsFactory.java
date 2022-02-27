@@ -24,13 +24,4 @@ import org.gradle.internal.metaobject.MethodAccess;
  */
 public interface MeetingsFactory extends MethodAccess,Plugin<Project> {
 
-	/**
-	 * Register factory as a factory handler with name.
-	 * 
-	 * @param name - {@link String} containing the name to register
-	 * @param factory - {@link Object} to register as a factory handler
-	 * @return - {@link Object} that was the previously registered handler
-	 */
-	public Object registerHandler(String name,Object factory);
-
 }
