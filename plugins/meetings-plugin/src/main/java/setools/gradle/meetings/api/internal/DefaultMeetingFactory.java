@@ -55,7 +55,8 @@ public class DefaultMeetingFactory {
 	 * @param closure - {@link Closure} for configuration
 	 * @return - new {@link Meeting} instance
 	 */
-	public Meeting meeting(Closure<?> closure) {
+	@SuppressWarnings("rawtypes")
+	public Meeting meeting(Closure closure) {
 		Meeting result = new DefaultMeeting();
 		ConfigureUtil.configure(closure, result);
 		return result;
