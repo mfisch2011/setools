@@ -86,7 +86,7 @@ public class MeetingsPluginTest {
 				.build();
 		assertNotNull(result);
 		System.out.println(result.getOutput());
-		//TODO: assertEquals(SUCCESS,result.task("tasks").getOutcome());
+		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
 	}
 
 	/**
