@@ -43,9 +43,8 @@ public class MeetingsSourceSetPluginTest {
 		assertNotNull(plugin);
 		SourceSetContainer sourceSets = project.getExtensions().getByType(SourceSetContainer.class);
 		assertNotNull(sourceSets);
-		SourceSet sourceSet = sourceSets.getAt("meetings");
+		MeetingsSourceSet sourceSet = (MeetingsSourceSet)sourceSets.getAt("meetings");
 		assertNotNull(sourceSet);
-		MeetingsSourceSet meetingsSourceSet = (MeetingsSourceSet)sourceSet;
 		
 		//TODO:test that no meeting source directory sets exist...
 		//TODO:test adding a meeting source directory set...
