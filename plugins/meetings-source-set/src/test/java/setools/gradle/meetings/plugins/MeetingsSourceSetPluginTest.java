@@ -18,11 +18,11 @@ package setools.gradle.meetings.plugins;
 import static org.junit.Assert.*;
 
 import org.gradle.api.Project;
-import org.gradle.api.tasks.SourceSet;
 import org.gradle.api.tasks.SourceSetContainer;
 import org.gradle.testfixtures.ProjectBuilder;
 import org.junit.Test;
 
+import setools.gradle.meetings.tasks.MeetingSourceDirectorySet;
 import setools.gradle.meetings.tasks.MeetingsSourceSet;
 
 /**
@@ -47,6 +47,9 @@ public class MeetingsSourceSetPluginTest {
 		assertNotNull(sourceSet);
 		assertNotNull(sourceSet.getAllMeetings());
 		assertEquals(0,sourceSet.getAllMeetings().size());
+		MeetingSourceDirectorySet dirSet = sourceSet.createMeeting("testMeeting");
+		assertNotNull(dirSet);
+		
 		//TODO:test adding a meeting source directory set...
 	}
 
