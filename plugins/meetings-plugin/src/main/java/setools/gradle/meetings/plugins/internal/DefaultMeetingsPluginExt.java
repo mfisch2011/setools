@@ -37,6 +37,12 @@ public class DefaultMeetingsPluginExt extends TreeSet<Meeting> implements Meetin
 	 * TODO:
 	 */
 	protected final Project project;
+	
+	/**
+	 * TODO:
+	 */
+	protected final MeetingsFactory meetingsFactory;
+
 
 	/**
 	 * TODO:
@@ -45,33 +51,27 @@ public class DefaultMeetingsPluginExt extends TreeSet<Meeting> implements Meetin
 	@Inject
 	public DefaultMeetingsPluginExt(Project project) {
 		this.project = project;
+		
+		//find the registered instance of a MeetingsFactory...
+		MeetingsFactory factory = null;
+		for(Plugin<?> plugin : project.getPlugins()) {
+			if(plugin instanceof MeetingsFactory) {
+				factory = (MeetingsFactory)plugin;
+			}
+		}
+		if(factory!=null) {
+			project.getLogger().lifecycle("Found MeetingsFactory {}.",factory);
+			meetingsFactory = factory;
+		} else {
+			meetingsFactory = null;
+			project.getLogger().lifecycle("No MeetingsFactory found.");
+		}
 	}
 
 
 	@Override
 	public MethodAccess getAdditionalMethods() {
-		return getMeetingsFactory();
-	}
-	
-	/**
-	 * TODO:
-	 */
-	private MeetingsFactory meetingsFactory = null;
-	
-	/**
-	 * TODO:
-	 * @return
-	 */
-	protected MeetingsFactory getMeetingsFactory() {
-		if(meetingsFactory==null) {
-			project.getLogger().debug("Searching for MeetingsFactory.");
-			for(Plugin<?> plugin : project.getPlugins()) {
-				if(plugin instanceof MeetingsFactory) {
-					meetingsFactory = (MeetingsFactory)plugin;
-					project.getLogger().debug("Found {}.",meetingsFactory);
-				}
-			}
-		}
 		return meetingsFactory;
 	}
+		
 }
