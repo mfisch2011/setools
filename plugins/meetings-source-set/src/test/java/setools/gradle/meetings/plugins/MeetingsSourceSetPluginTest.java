@@ -18,6 +18,7 @@ package setools.gradle.meetings.plugins;
 import static org.junit.Assert.*;
 
 import org.gradle.api.Project;
+import org.gradle.api.tasks.SourceSet;
 import org.gradle.api.tasks.SourceSetContainer;
 import org.gradle.testfixtures.ProjectBuilder;
 import org.junit.Test;
@@ -40,8 +41,9 @@ public class MeetingsSourceSetPluginTest {
 		assertNotNull(plugin);
 		SourceSetContainer sourceSets = project.getExtensions().getByType(SourceSetContainer.class);
 		assertNotNull(sourceSets);
+		SourceSet sourceSet = sourceSets.getAt("meetings");
+		assertNotNull(sourceSet);
 		
-		//TODO:test that meetings source set exists...
 		//TODO:test that no meeting source directory sets exist...
 		//TODO:test adding a meeting source directory set...
 	}
