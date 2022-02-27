@@ -15,21 +15,14 @@
  */
 package setools.gradle.meetings.plugins;
 
-import org.gradle.api.Plugin;
-import org.gradle.api.Project;
-
-import setools.gradle.meetings.plugins.internal.DefaultMeetingsPluginExt;
-
 /**
  * TODO:
  */
-public class MeetingsPlugin implements Plugin<Project> {
+public interface MeetingsPluginExt {
 
-	@Override
-	public void apply(Project project) {
-		project.getPluginManager().apply(MeetingsSourceSetPlugin.class);
-		project.getExtensions().create(MeetingsPluginExt.MEETINGS_EXT_NAME,
-				DefaultMeetingsPluginExt.class,project);
-	}
+	/**
+	 * TODO:
+	 */
+	public static final String MEETINGS_EXT_NAME = "meetings";
 
 }

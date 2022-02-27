@@ -13,23 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package setools.gradle.meetings.plugins;
+package setools.gradle.meetings.plugins.internal;
 
-import org.gradle.api.Plugin;
+import javax.inject.Inject;
+
 import org.gradle.api.Project;
 
-import setools.gradle.meetings.plugins.internal.DefaultMeetingsPluginExt;
+import setools.gradle.meetings.plugins.MeetingsPluginExt;
 
 /**
  * TODO:
  */
-public class MeetingsPlugin implements Plugin<Project> {
+public class DefaultMeetingsPluginExt implements MeetingsPluginExt {
 
-	@Override
-	public void apply(Project project) {
-		project.getPluginManager().apply(MeetingsSourceSetPlugin.class);
-		project.getExtensions().create(MeetingsPluginExt.MEETINGS_EXT_NAME,
-				DefaultMeetingsPluginExt.class,project);
+	/**
+	 * TODO:
+	 */
+	protected final Project project;
+
+	/**
+	 * TODO:
+	 * @param project - {@link Project} to resolve configuration
+	 */
+	@Inject
+	public DefaultMeetingsPluginExt(Project project) {
+		this.project = project;
 	}
-
 }
