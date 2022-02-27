@@ -63,8 +63,7 @@ public class DefaultMeetingsFactory extends ReflectiveMethodAccess implements Me
 		//TODO: there must be a better way ???
 		if(project!=null) {
 			if(result instanceof Meeting) {
-				MeetingsPluginExt meetings = project.getExtensions()
-						.getByType(MeetingsPluginExt.class);
+				MeetingsPluginExt meetings = getMeetingsPlugin();
 				meetings.add((Meeting)result);
 			} else {
 				throw new IllegalArgumentException();
@@ -72,6 +71,14 @@ public class DefaultMeetingsFactory extends ReflectiveMethodAccess implements Me
 		} else {
 			throw new IllegalStateException();
 		}
+	}
+
+	/**
+	 * TODO:
+	 * @return
+	 */
+	protected MeetingsPluginExt getMeetingsPlugin() {
+		return project.getExtensions().getByType(DefaultMeetingsPluginExt.class); //TODO:make this generally MeetingsPluginExt...
 	}
 
 	@Override
