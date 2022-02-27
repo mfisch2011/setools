@@ -68,7 +68,7 @@ public class DefaultMeetingsFactory implements MeetingsFactory {
 
 	@Override
 	public DynamicInvokeResult tryInvokeMethod(String name, Object...args) {
-		logger.debug("Invoking method '{}' with arguments {}.",name,args);
+		logger.debug("I method '{}' with arguments {}.",name,args);
 		// TODO Auto-generated method stub
 		return null;
 	}

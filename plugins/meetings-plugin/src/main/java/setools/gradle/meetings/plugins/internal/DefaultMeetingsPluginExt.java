@@ -19,6 +19,7 @@ import java.util.TreeSet;
 
 import javax.inject.Inject;
 
+import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.internal.metaobject.MethodAccess;
 
@@ -51,13 +52,24 @@ public class DefaultMeetingsPluginExt extends TreeSet<Meeting> implements Meetin
 	public MethodAccess getAdditionalMethods() {
 		return getMeetingsFactory();
 	}
-
-
+	
+	/**
+	 * TODO:
+	 */
+	private MeetingsFactory meetingsFactory = null;
+	
 	/**
 	 * TODO:
 	 * @return
 	 */
 	protected MeetingsFactory getMeetingsFactory() {
-		return project.getPlugins().getAt(MeetingsFactory.class);
+		if(meetingsFactory==null) {
+			for(Plugin<?> plugin : project.getPlugins()) {
+				if(plugin instanceof MeetingsFactory) {
+					meetingsFactory = (MeetingsFactory)plugin;
+				}
+			}
+		}
+		return meetingsFactory;
 	}
 }
