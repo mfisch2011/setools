@@ -93,7 +93,6 @@ public class MeetingsPluginTest {
 		text += "meetings {" + System.lineSeparator()
 			+ "  " + System.lineSeparator()
 			+ "}";
-		System.out.println(text);
 		writeFile(buildFile,text);
 		BuildResult result = GradleRunner.create()
 				.withPluginClasspath()
@@ -101,7 +100,6 @@ public class MeetingsPluginTest {
 				.withArguments("tasks")
 				.build();
 		assertNotNull(result);
-		System.out.println(result.getOutput());
 		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
 	}
 	
