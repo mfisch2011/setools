@@ -1,7 +1,0 @@
-{
-	id : '1',
-	name : "Test Risk 1",
-	statement : "If Test Risk 1 occurs, then really bad stuff will happen.",
-	likelihood : "LIKELY",
-	consequence : "CATASTROPHIC_IMPACT"
-}
