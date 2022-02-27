@@ -23,38 +23,44 @@ import java.util.Date;
 public interface Meeting {
 
 	/**
-	 * TODO:
-	 * @return
+	 * Get the name of the meeting.
+	 * 
+	 * @return - {@link String} containing the name
 	 */
 	public String getName();
 	
 	/**
-	 * TODO:
-	 * @param name
+	 * Set the name of the meeting.
+	 * 
+	 * @param name - {@link String} containing the name
 	 */
 	public void setName(String name);
 	
 	/**
-	 * TODO:
-	 * @return
+	 * Get the location of the meeting.
+	 * 
+	 * @return - {@link String} containing the location
 	 */
 	public String getLocation();
 	
 	/**
-	 * TODO:
-	 * @param location
+	 * Set the location of the meeting.
+	 * 
+	 * @param location - {@link String} containing the location
 	 */
 	public void setLocation(String location);
 	
 	/**
-	 * TODO:
-	 * @return
+	 * Get the date and time of the meeting.
+	 * 
+	 * @return - {@link Date} containing the date and time
 	 */
 	public Date getTime();
 	
 	/**
-	 * TODO:
-	 * @param object
+	 * Set the date and time of the meeting.
+	 * 
+	 * @param object - {@link Object} containing the date and time
 	 */
 	public void setTime(Object object);
 	

@@ -27,17 +27,20 @@ import setools.gradle.meetings.api.Meeting;
 public class DefaultMeetingFactory {
 
 	/**
-	 * TODO:
-	 * @return
+	 * Create a new {@link DefaultMeeting} instance.
+	 * 
+	 * @return - new {@link Meeting} instance
 	 */
 	public Meeting meeting() {
 		return new DefaultMeeting();
 	}
 	
 	/**
-	 * TODO:
-	 * @param action
-	 * @return
+	 * Create a new {@link DefaultMeeting} instance and configure it by 
+	 * executing action.
+	 * 
+	 * @param action - {@link Action} to execute
+	 * @return - new {@link Meeting} instance
 	 */
 	public Meeting meeting(Action<? super Meeting> action) {
 		Meeting result = new DefaultMeeting();
@@ -46,9 +49,11 @@ public class DefaultMeetingFactory {
 	}
 	
 	/**
-	 * TODO:
-	 * @param closure
-	 * @return
+	 * Create a new {@link DefaultMeeting} instance and configure 
+	 * it with closure.
+	 * 
+	 * @param closure - {@link Closure} for configuration
+	 * @return - new {@link Meeting} instance
 	 */
 	public Meeting meeting(Closure<?> closure) {
 		Meeting result = new DefaultMeeting();
