@@ -64,9 +64,11 @@ public class DefaultMeetingsPluginExt extends TreeSet<Meeting> implements Meetin
 	 */
 	protected MeetingsFactory getMeetingsFactory() {
 		if(meetingsFactory==null) {
+			project.getLogger().debug("Searching for MeetingsFactory.");
 			for(Plugin<?> plugin : project.getPlugins()) {
 				if(plugin instanceof MeetingsFactory) {
 					meetingsFactory = (MeetingsFactory)plugin;
+					project.getLogger().debug("Found {}.",meetingsFactory);
 				}
 			}
 		}
