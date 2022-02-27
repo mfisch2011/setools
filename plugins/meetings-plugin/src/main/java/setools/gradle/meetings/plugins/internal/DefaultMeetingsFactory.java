@@ -80,6 +80,7 @@ public class DefaultMeetingsFactory implements MeetingsFactory,Plugin<Project> {
 		for(Object handler : handlers) {
 			Method method;
 			try {
+				project.getLogger().lifecycle("Searching {} for method '{}' with {}.",handler,name,params);
 				method = handler.getClass().getMethod(name, params);
 				if(Meeting.class.isAssignableFrom(method.getReturnType())) {
 					Object result = method.invoke(handler, args);
@@ -87,6 +88,7 @@ public class DefaultMeetingsFactory implements MeetingsFactory,Plugin<Project> {
 				}
 			} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 				//ignore expected
+				project.getLogger().warn("Error {} while searching for '{}'.",e,name);
 			}
 		}
 		return DynamicInvokeResult.notFound();
