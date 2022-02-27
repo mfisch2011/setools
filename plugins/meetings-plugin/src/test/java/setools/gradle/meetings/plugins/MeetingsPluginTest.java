@@ -101,6 +101,7 @@ public class MeetingsPluginTest {
 				.build();
 		assertNotNull(result);
 		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
+		//TODO:verify tasks ???
 	}
 	
 	/**
@@ -112,6 +113,11 @@ public class MeetingsPluginTest {
 	public void testBasicDefaultMeeting() throws IOException {
 		writeFile(settingsFile, "rootProject.name = 'test-project'");
 		String text = getPluginConfig();
+		text += "meetings {" + System.lineSeparator()
+			+ "  meeting {" + System.lineSeparator()
+			+ "    name = 'Test Meeting'" + System.lineSeparator()
+			+ "  }" + System.lineSeparator()
+			+ "}";
 		writeFile(buildFile,text);
 		BuildResult result = GradleRunner.create()
 				.withPluginClasspath()
@@ -119,8 +125,8 @@ public class MeetingsPluginTest {
 				.withArguments("tasks")
 				.build();
 		assertNotNull(result);
-		System.out.println(result.getOutput());
 		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
+		//TODO:verify tasks
 	}
 	
 	/**
