@@ -61,14 +61,14 @@ public class DefaultMeetingsFactory implements MeetingsFactory {
 
 	@Override
 	public boolean hasMethod(String name, Object...args) {
-		logger.debug("Searching for method '{}' with arguments {}.",name,args);
+		logger.lifecycle("Searching for method '{}' with arguments {}.",name,args);
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public DynamicInvokeResult tryInvokeMethod(String name, Object...args) {
-		logger.debug("I method '{}' with arguments {}.",name,args);
+		logger.lifecycle("I method '{}' with arguments {}.",name,args);
 		// TODO Auto-generated method stub
 		return DynamicInvokeResult.notFound();
 	}
