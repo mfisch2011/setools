@@ -87,6 +87,7 @@ public class DefaultMeetingsFactory implements MeetingsFactory,Plugin<Project> {
 				project.getLogger().lifecycle("Result: {}.",result);
 				if(result instanceof Meeting) {
 					onSuccess((Meeting)result);
+					return DynamicInvokeResult.found(result);
 				}
 			} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 				//ignore expected
