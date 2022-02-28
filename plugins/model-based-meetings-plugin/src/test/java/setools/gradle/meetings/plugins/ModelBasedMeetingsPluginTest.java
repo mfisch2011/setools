@@ -15,8 +15,9 @@
  */
 package setools.gradle.meetings.plugins;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.gradle.testkit.runner.TaskOutcome.SUCCESS;
+import static org.junit.Assert.*;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -32,13 +33,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-import static org.gradle.testkit.runner.TaskOutcome.SUCCESS;
-
 /**
  * TODO:
  */
-public class MeetingsPluginTest {
-	
+public class ModelBasedMeetingsPluginTest {
+
 	@Rule
 	public TemporaryFolder folder = new TemporaryFolder();
 	
@@ -87,12 +86,10 @@ public class MeetingsPluginTest {
 	 * @throws IOException
 	 */
 	@Test
-	public void testEmptyDefaultMeeting() throws IOException {
+	@Ignore
+	public void testEmptyModelBasedMeeting() throws IOException {
 		writeFile(settingsFile, "rootProject.name = 'test-project'");
 		String text = getPluginConfig();
-		text += "meetings {" + System.lineSeparator()
-			+ "  meeting()" + System.lineSeparator()
-			+ "}";
 		writeFile(buildFile,text);
 		BuildResult result = GradleRunner.create()
 				.withPluginClasspath()
@@ -100,8 +97,8 @@ public class MeetingsPluginTest {
 				.withArguments("tasks")
 				.build();
 		assertNotNull(result);
+		System.out.println(result.getOutput());
 		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
-		//TODO:verify tasks ???
 	}
 	
 	/**
@@ -109,14 +106,10 @@ public class MeetingsPluginTest {
 	 * @throws IOException
 	 */
 	@Test
-	public void testBasicDefaultMeeting() throws IOException {
+	@Ignore
+	public void testBasicModelBasedMeeting() throws IOException {
 		writeFile(settingsFile, "rootProject.name = 'test-project'");
 		String text = getPluginConfig();
-		text += "meetings {" + System.lineSeparator()
-			+ "  meeting {" + System.lineSeparator()
-			+ "    name = 'Test Meeting'" + System.lineSeparator()
-			+ "  }" + System.lineSeparator()
-			+ "}";
 		writeFile(buildFile,text);
 		BuildResult result = GradleRunner.create()
 				.withPluginClasspath()
@@ -124,8 +117,8 @@ public class MeetingsPluginTest {
 				.withArguments("tasks")
 				.build();
 		assertNotNull(result);
+		System.out.println(result.getOutput());
 		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
-		//TODO:verify tasks
 	}
 	
 	/**
@@ -133,14 +126,10 @@ public class MeetingsPluginTest {
 	 * @throws IOException
 	 */
 	@Test
-	public void testDefaultMeetingWithAction() throws IOException {
+	@Ignore
+	public void testModelBasedWithAction() throws IOException {
 		writeFile(settingsFile, "rootProject.name = 'test-project'");
 		String text = getPluginConfig();
-		text += "meetings {" + System.lineSeparator()
-			+ "  meeting(meeting -> {" + System.lineSeparator()
-			+ "    meeting.setName('Test Meeting')" + System.lineSeparator()
-			+ "  })" + System.lineSeparator()
-			+ "}";
 		writeFile(buildFile,text);
 		BuildResult result = GradleRunner.create()
 				.withPluginClasspath()
@@ -148,10 +137,10 @@ public class MeetingsPluginTest {
 				.withArguments("tasks")
 				.build();
 		assertNotNull(result);
+		System.out.println(result.getOutput());
 		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
-		//TODO:verify tasks
 	}
-	
+
 	/**
 	 * TODO:
 	 * @return

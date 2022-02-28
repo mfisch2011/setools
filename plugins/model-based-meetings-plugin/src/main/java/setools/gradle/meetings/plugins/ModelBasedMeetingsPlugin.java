@@ -36,7 +36,6 @@ public class ModelBasedMeetingsPlugin implements Plugin<Project> {
 	public void apply(Project project) {
 		this.project = project;
 		project.getPluginManager().apply(ModellingBasePlugin.class);
-		
 		meetingsFactory().register(UmlMeetingFactory.class);
 	}
 	
