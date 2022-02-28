@@ -14,19 +14,9 @@
  * limitations under the License.
  */
 plugins {
-    id "setools.java-plugin-conventions"
-}
-
-gradlePlugin {
-    plugins {
-        meetings {
-            id = "setools.meetings-plugin"
-            implementationClass = "setools.gradle.meetings.plugins.MeetingsPlugin"
-        }
-    }
+    id "setools.java-library-conventions"
 }
 
 dependencies {
-    implementation project(":plugins:meetings-source-set")
-    implementation project(":api:meetings-api")
+      
 }

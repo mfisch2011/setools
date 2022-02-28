@@ -22,7 +22,7 @@ plugins {
 
 dependencies {
     constraints {
-        
+        implementation "org.eclipse.emf:org.eclipse.emf.ecore:2.25.0"
     }
     
     testImplementation "junit:junit:4.13"

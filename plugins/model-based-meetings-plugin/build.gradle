@@ -20,13 +20,17 @@ plugins {
 gradlePlugin {
     plugins {
         meetings {
-            id = "setools.meetings-plugin"
-            implementationClass = "setools.gradle.meetings.plugins.MeetingsPlugin"
+            id = "setools.model-based-meetings-plugin"
+            implementationClass = "setools.gradle.meetings.plugins.ModelBasedMeetingsPlugin"
         }
     }
 }
 
 dependencies {
+    //TODO:how to handle transient dependencies ???
     implementation project(":plugins:meetings-source-set")
+    implementation project(":plugins:meetings-plugin")
     implementation project(":api:meetings-api")
+    implementation project(":plugins:modelling-plugin")
+    implementation "org.eclipse.emf:org.eclipse.emf.ecore" //TODO:move to separate plugin ???
 }

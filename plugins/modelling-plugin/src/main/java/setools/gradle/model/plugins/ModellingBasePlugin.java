@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 M. Fischer <mfisch2011@gmail.com>
+ * Copyright 2022 M. Fischer <mfisch2011@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,20 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-plugins {
-    id "setools.java-plugin-conventions"
-}
+package setools.gradle.model.plugins;
 
-gradlePlugin {
-    plugins {
-        meetings {
-            id = "setools.meetings-plugin"
-            implementationClass = "setools.gradle.meetings.plugins.MeetingsPlugin"
-        }
-    }
-}
+import org.gradle.api.Plugin;
+import org.gradle.api.Project;
 
-dependencies {
-    implementation project(":plugins:meetings-source-set")
-    implementation project(":api:meetings-api")
+/**
+ * TODO:
+ */
+public class ModellingBasePlugin implements Plugin<Project> {
+
+	@Override
+	public void apply(Project project) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

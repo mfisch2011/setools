@@ -17,16 +17,6 @@ plugins {
     id "setools.java-plugin-conventions"
 }
 
-gradlePlugin {
-    plugins {
-        meetings {
-            id = "setools.meetings-plugin"
-            implementationClass = "setools.gradle.meetings.plugins.MeetingsPlugin"
-        }
-    }
-}
-
 dependencies {
-    implementation project(":plugins:meetings-source-set")
-    implementation project(":api:meetings-api")
+    implementation "org.eclipse.emf:org.eclipse.emf.ecore"
 }
