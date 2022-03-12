@@ -19,4 +19,5 @@ plugins {
 
 dependencies {
     implementation "org.eclipse.emf:org.eclipse.emf.ecore"
+    implementation project(":api:gradle-utils")
 }

@@ -20,6 +20,7 @@ import javax.inject.Inject;
 import org.gradle.internal.reflect.Instantiator;
 
 import setools.gradle.model.tasks.internal.DefaultModelSourceDirectorySet;
+import setools.gradle.plugins.AbstractSourceSetPlugin;
 
 /**
  * TODO:
