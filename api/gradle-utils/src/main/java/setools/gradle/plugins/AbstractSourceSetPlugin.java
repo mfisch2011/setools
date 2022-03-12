@@ -24,6 +24,7 @@ import javax.inject.Inject;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.internal.tasks.DefaultSourceSet;
+import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.plugins.JavaBasePlugin;
 import org.gradle.api.plugins.JavaPluginExtension;
 import org.gradle.api.tasks.SourceSet;
@@ -95,11 +96,11 @@ public class AbstractSourceSetPlugin implements Plugin<Project> {
 	 * @param name - {@link String} with name of new {@link SourceSet}
 	 * @return {@link SourceSet} created
 	 */
-	protected SourceSet addSourceSet(SourceSetContainer sourceSets, Class<? extends SourceSet> type,String name) {
+	protected SourceSet addSourceSet(SourceSetContainer sourceSets,ObjectFactory objectFactory, Class<? extends SourceSet> type,String name) {
 		if(type==null) {
 			return sourceSets.create(name);
 		} else {
-			SourceSet sourceSet = (SourceSet) instantiator.newInstance(type, name);
+			SourceSet sourceSet = (SourceSet) instantiator.newInstance(type, name,objectFactory);
 			sourceSets.add(sourceSet);
 			//TODO:configure classes or leave that to the SourceSet ????
 	        return sourceSet;
@@ -112,7 +113,7 @@ public class AbstractSourceSetPlugin implements Plugin<Project> {
 		SourceSetContainer sourceSets = project.getExtensions()
 				.getByType(JavaPluginExtension.class).getSourceSets();
 		if(sourceSetName!=null) {
-			sourceSet = addSourceSet(sourceSets,sourceSetType,sourceSetName);
+			sourceSet = addSourceSet(sourceSets,project.getObjects(),sourceSetType,sourceSetName);
 		}
 		
 		//TODO:how to register callbacks to add SourceDirectorySet(s) after all SourceSets are registered ???
