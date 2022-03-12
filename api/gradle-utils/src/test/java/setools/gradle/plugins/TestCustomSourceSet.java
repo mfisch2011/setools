@@ -17,7 +17,6 @@ package setools.gradle.plugins;
 
 import javax.inject.Inject;
 
-import org.gradle.internal.reflect.Instantiator;
 import org.gradle.internal.service.ServiceRegistry;
 
 /**

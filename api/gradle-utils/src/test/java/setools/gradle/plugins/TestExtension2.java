@@ -15,24 +15,9 @@
  */
 package setools.gradle.plugins;
 
-import javax.inject.Inject;
-
-import org.gradle.internal.service.ServiceRegistry;
-
 /**
  * TODO:
  */
-public class TestDefaultSourceSet extends AbstractSourceSetPlugin {
-
-	/**
-	 * Create a test {@link AbstractSourceSetPlugin} that creates a 
-	 * {@link DefaultSourceSet} named 'defaultTest' with no extensions.
-	 * @param services - {@link ServiceRegistry} to use
-	 */
-	@Inject
-	public TestDefaultSourceSet(ServiceRegistry services) {
-		super(null,"defaultTest", services);
-		// TODO Auto-generated constructor stub
-	}
+public class TestExtension2 {
 
 }

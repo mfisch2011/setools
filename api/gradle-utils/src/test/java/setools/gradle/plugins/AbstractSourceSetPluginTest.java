@@ -72,7 +72,6 @@ public class AbstractSourceSetPluginTest {
 	 * Test method for {@link setools.gradle.plugins.AbstractSourceSetPlugin#apply(org.gradle.api.Project)}.
 	 */
 	@Test
-	@Ignore
 	public void testApplyExtensions() {
 		Project project = ProjectBuilder.builder()
 				//TODO:configure project
@@ -86,9 +85,9 @@ public class AbstractSourceSetPluginTest {
 		assertThat(sourceSet,instanceOf(DefaultSourceSet.class));
 		Object extension = sourceSet.getExtensions().getByName("test1");
 		assertNotNull(extension);
-		assertThat(extension,instanceOf(String.class));
+		assertThat(extension,instanceOf(TestExtension1.class));
 		extension = sourceSet.getExtensions().getByName("test2");
 		assertNotNull(extension);
-		assertThat(extension,instanceOf(Integer.class));
+		assertThat(extension,instanceOf(TestExtension2.class));
 	}
 }
