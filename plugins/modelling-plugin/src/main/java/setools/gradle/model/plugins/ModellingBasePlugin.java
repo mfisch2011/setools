@@ -18,6 +18,7 @@ package setools.gradle.model.plugins;
 import javax.inject.Inject;
 
 import org.gradle.internal.reflect.Instantiator;
+import org.gradle.internal.service.ServiceRegistry;
 
 import setools.gradle.model.tasks.internal.DefaultModelSourceDirectorySet;
 import setools.gradle.plugins.AbstractSourceSetPlugin;
@@ -30,13 +31,11 @@ public class ModellingBasePlugin extends AbstractSourceSetPlugin {
 	/**
 	 * TODO:description
 	 * 
-	 * @param instantiator - {@link Instantiator} used for 
-	 * {@link org.gradle.api.tasks.SourceSet} creation and parameter 
-	 * injection
+	 * @param services - {@link ServiceRegistry} for configuration
 	 */
 	@Inject
-	public ModellingBasePlugin(Instantiator instantiator) {
-		super(null,null, instantiator);
+	public ModellingBasePlugin(ServiceRegistry services) {
+		super(null,null, services);
 		extensions.put("uml",DefaultModelSourceDirectorySet.class);
 	}
 	
