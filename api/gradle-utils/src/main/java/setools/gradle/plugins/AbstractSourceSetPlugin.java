@@ -98,11 +98,15 @@ public class AbstractSourceSetPlugin implements Plugin<ProjectInternal> {
 	 * @param name - {@link String} with name of new {@link SourceSet}
 	 * @return {@link SourceSet} created
 	 */
-	protected SourceSet addSourceSet(SourceSetContainer sourceSets,ObjectFactory objectFactory, Class<? extends SourceSet> type,String name) {
+	protected SourceSet addSourceSet(SourceSetContainer sourceSets,
+			ObjectFactory objectFactory,
+			Class<? extends SourceSet> type,
+			String name,
+			ServiceRegistry services) {
 		if(type==null) {
 			return sourceSets.create(name);
 		} else {
-			SourceSet sourceSet = (SourceSet) instantiator.newInstance(type, name,objectFactory);
+			SourceSet sourceSet = (SourceSet) instantiator.newInstance(type, name,objectFactory,services);
 			sourceSets.add(sourceSet);
 			//TODO:configure classes or leave that to the SourceSet ????
 	        return sourceSet;
@@ -115,7 +119,7 @@ public class AbstractSourceSetPlugin implements Plugin<ProjectInternal> {
 		SourceSetContainer sourceSets = project.getExtensions()
 				.getByType(JavaPluginExtension.class).getSourceSets();
 		if(sourceSetName!=null) {
-			sourceSet = addSourceSet(sourceSets,project.getObjects(),sourceSetType,sourceSetName);
+			sourceSet = addSourceSet(sourceSets,project.getObjects(),sourceSetType,sourceSetName,project.getServices());
 		}
 		//TODO:how to register callbacks to add SourceDirectorySet(s) after all SourceSets are registered ???
 		if(sourceSet==null) {
