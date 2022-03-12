@@ -18,6 +18,7 @@ package setools.gradle.tasks;
 import org.gradle.api.Action;
 import org.gradle.api.internal.tasks.DefaultSourceSet;
 import org.gradle.api.tasks.SourceSet;
+import org.gradle.internal.service.ServiceRegistry;
 
 /**
  * TODO:
@@ -35,14 +36,21 @@ public class SourceSetExtensionConfigAction implements Action<SourceSet> {
 	protected final Class<?> type;
 
 	/**
+	 * {@link ServiceRegistry} for configuration.
+	 */
+	protected final ServiceRegistry services;
+
+	/**
 	 * Create and configure a new extension with name and type.
 	 * 
 	 * @param name - name for the extension
 	 * @param type - {@link Class} of extension to create
+	 * @param services 
 	 */
-	public SourceSetExtensionConfigAction(String name, Class<?> type) {
+	public SourceSetExtensionConfigAction(String name, Class<?> type, ServiceRegistry services) {
 		this.name = name;
 		this.type = type;
+		this.services = services;
 	}
 
 	@Override

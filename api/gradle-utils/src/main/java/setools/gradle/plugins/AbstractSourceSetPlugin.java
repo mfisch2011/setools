@@ -23,6 +23,7 @@ import javax.inject.Inject;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
+import org.gradle.api.internal.project.ProjectInternal;
 import org.gradle.api.internal.tasks.DefaultSourceSet;
 import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.plugins.JavaBasePlugin;
@@ -30,13 +31,14 @@ import org.gradle.api.plugins.JavaPluginExtension;
 import org.gradle.api.tasks.SourceSet;
 import org.gradle.api.tasks.SourceSetContainer;
 import org.gradle.internal.reflect.Instantiator;
+import org.gradle.internal.service.ServiceRegistry;
 
 import setools.gradle.tasks.SourceSetExtensionConfigAction;
 
 /**
  * TODO:
  */
-public class AbstractSourceSetPlugin implements Plugin<Project> {
+public class AbstractSourceSetPlugin implements Plugin<ProjectInternal> {
 	
 	/**
 	 * {@link Class} with type of source set to create.
@@ -108,34 +110,34 @@ public class AbstractSourceSetPlugin implements Plugin<Project> {
 	}
 
 	@Override
-	public void apply(Project project) {
+	public void apply(ProjectInternal project) {
 		project.getPluginManager().apply(JavaBasePlugin.class);
 		SourceSetContainer sourceSets = project.getExtensions()
 				.getByType(JavaPluginExtension.class).getSourceSets();
 		if(sourceSetName!=null) {
 			sourceSet = addSourceSet(sourceSets,project.getObjects(),sourceSetType,sourceSetName);
 		}
-		
 		//TODO:how to register callbacks to add SourceDirectorySet(s) after all SourceSets are registered ???
 		if(sourceSet==null) {
 			//add SourceDirectorySet(s) to all SourceSets
-			addSourceDirectorySets(sourceSets);
+			addSourceDirectorySets(sourceSets,project.getServices());
 		} else {
 			//add SourceDirectorySet(s) to only new sourceSet
-			addSourceDirectorySets(sourceSet);
+			addSourceDirectorySets(sourceSet,project.getServices());
 		}
 	}
 
 	/**
 	 * TODO:
 	 * @param sourceSet - {@link SourceSet} to add extensions to
+	 * @param services - {@link ServiceRegistry} for configuration 
 	 */
-	protected void addSourceDirectorySets(SourceSet sourceSet) {
+	protected void addSourceDirectorySets(SourceSet sourceSet, ServiceRegistry services) {
 		for(Entry<String, Class<?>> entry : extensions.entrySet()) {
 			String name = entry.getKey();
 			Class<?> extension = entry.getValue();
 			//TODO:do we want to use instantiator to create Action to enable injection ???
-			SourceSetExtensionConfigAction action = new SourceSetExtensionConfigAction(name,extension);
+			SourceSetExtensionConfigAction action = new SourceSetExtensionConfigAction(name,extension,services);
 			action.execute(sourceSet);
 		}
 	}
@@ -144,13 +146,14 @@ public class AbstractSourceSetPlugin implements Plugin<Project> {
 	 * TODO:
 	 * @param sourceSets - {@link SourceSetContainer} with 
 	 * {@link SourceSet}(s) to add extensions to
+	 * @param services - {@link ServiceRegistry} for configuration 
 	 */
-	protected void addSourceDirectorySets(SourceSetContainer sourceSets) {
+	protected void addSourceDirectorySets(SourceSetContainer sourceSets, ServiceRegistry services) {
 		for(Entry<String, Class<?>> entry : extensions.entrySet()) {
 			String name = entry.getKey();
 			Class<?> extension = entry.getValue();
 			//TODO:do we want to use instantiator to create Action to enable injection ???
-			sourceSets.all(new SourceSetExtensionConfigAction(name,extension));
+			sourceSets.all(new SourceSetExtensionConfigAction(name,extension,services));
 		}
 	}
 
