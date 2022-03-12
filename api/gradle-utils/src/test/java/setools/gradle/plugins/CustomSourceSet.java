@@ -17,7 +17,10 @@ package setools.gradle.plugins;
 
 import javax.inject.Inject;
 
+import org.gradle.api.internal.file.FileCollectionFactory;
+import org.gradle.api.internal.file.FileResolver;
 import org.gradle.api.internal.tasks.DefaultSourceSet;
+import org.gradle.api.internal.tasks.DefaultSourceSetOutput;
 import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.tasks.SourceSet;
 
@@ -31,10 +34,14 @@ public abstract class CustomSourceSet extends DefaultSourceSet implements Source
 	 * 
 	 * @param name - name of source set
 	 * @param objectFactory - {@link ObjectFactory} for creating objects
+	 * @param fileResolver - {@link FileResolver} for resolving files
+	 * @param fileCollectionFactory - {@link FileCollectionFactory} for creating {@link FileCollection}s
 	 */
 	@Inject
-	public CustomSourceSet(String name, ObjectFactory objectFactory) {
+	public CustomSourceSet(String name, ObjectFactory objectFactory,FileResolver fileResolver, FileCollectionFactory fileCollectionFactory) {
 		super(name, objectFactory);
+		DefaultSourceSetOutput output = new DefaultSourceSetOutput(name,fileResolver,fileCollectionFactory);
+		setClasses(output);
 	}
 
 }
