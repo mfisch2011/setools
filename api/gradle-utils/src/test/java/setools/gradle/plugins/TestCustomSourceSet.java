@@ -15,6 +15,8 @@
  */
 package setools.gradle.plugins;
 
+import javax.inject.Inject;
+
 import org.gradle.internal.reflect.Instantiator;
 
 /**
@@ -27,6 +29,7 @@ public class TestCustomSourceSet extends AbstractSourceSetPlugin {
 	 * {@link CustomSourceSet} named 'defaultTest' with no extensions.
 	 * @param instantiator - {@link Instantiator} to use
 	 */
+	@Inject
 	public TestCustomSourceSet(Instantiator instantiator) {
 		super(CustomSourceSet.class,"defaultTest", instantiator);
 		// TODO Auto-generated constructor stub

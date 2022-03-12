@@ -61,6 +61,13 @@ public class AbstractSourceSetPluginTest {
 				//TODO:configure project
 				.build();
 		project.getPluginManager().apply(TestCustomSourceSet.class);
+		SourceSet sourceSet = project.getExtensions().getByType(
+				JavaPluginExtension.class)
+				.getSourceSets()
+				.findByName("defaultTest");
+		assertNotNull(sourceSet);
+		assertThat(sourceSet,instanceOf(CustomSourceSet.class));
+
 		//TODO:validate plugin application...
 	}
 	
