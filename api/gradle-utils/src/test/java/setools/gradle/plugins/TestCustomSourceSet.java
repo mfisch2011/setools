@@ -18,6 +18,7 @@ package setools.gradle.plugins;
 import javax.inject.Inject;
 
 import org.gradle.internal.reflect.Instantiator;
+import org.gradle.internal.service.ServiceRegistry;
 
 /**
  * TODO:
@@ -27,11 +28,11 @@ public class TestCustomSourceSet extends AbstractSourceSetPlugin {
 	/**
 	 * Create a test {@link AbstractSourceSetPlugin} that creates a 
 	 * {@link CustomSourceSet} named 'defaultTest' with no extensions.
-	 * @param instantiator - {@link Instantiator} to use
+	 * @param services - {@link ServiceRegistry} for config
 	 */
 	@Inject
-	public TestCustomSourceSet(Instantiator instantiator) {
-		super(CustomSourceSet.class,"defaultTest", instantiator);
+	public TestCustomSourceSet(ServiceRegistry services) {
+		super(CustomSourceSet.class,"defaultTest", services);
 		// TODO Auto-generated constructor stub
 	}
 }

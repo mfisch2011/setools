@@ -65,6 +65,11 @@ public class AbstractSourceSetPlugin implements Plugin<ProjectInternal> {
 	 * inject parameters at construction.
 	 */
 	protected final Instantiator instantiator;
+
+	/**
+	 * TODO:
+	 */
+	protected final ServiceRegistry services;
 	
 	/**
 	 * Get the newly created SourceSet.
@@ -81,13 +86,14 @@ public class AbstractSourceSetPlugin implements Plugin<ProjectInternal> {
 	 * will create {@link DefaultSourceSet}.
 	 * 
 	 * @param name - {@link String} with name of the new {@link SourceSet}
-	 * @param instantiator - {@link Instantiator} used to create the new {@link SourceSet}
+	 * @param services - {@link ServiceRegistry} services for configuration
 	 */
 	@Inject
-	public AbstractSourceSetPlugin(Class<? extends SourceSet> type,String name,Instantiator instantiator) {
+	public AbstractSourceSetPlugin(Class<? extends SourceSet> type,String name,ServiceRegistry services) {
 		this.sourceSetType = type;
 		this.sourceSetName = name;
-		this.instantiator = instantiator;
+		this.instantiator = services.get(Instantiator.class);
+		this.services = services;
 	}
 	
 	/**

@@ -16,6 +16,7 @@
 package setools.gradle.plugins;
 
 import org.gradle.internal.reflect.Instantiator;
+import org.gradle.internal.service.ServiceRegistry;
 
 /**
  * TODO:
@@ -26,10 +27,10 @@ public class TestCustomWithExtensions extends AbstractSourceSetPlugin {
 	 * Create a test {@link AbstractSourceSetPlugin} that creates a 
 	 * {@link DefaultSourceSet} named 'defaultTest' with two extensions 
 	 * named 'test1' and 'test2' with types String and Integer respectively.
-	 * @param instantiator - {@link Instantiator} to use
+	 * @param services - {@link ServiceRegistry} for config
 	 */
-	public TestCustomWithExtensions(Instantiator instantiator) {
-		super(null,"defaultTest", instantiator);
+	public TestCustomWithExtensions(ServiceRegistry services) {
+		super(null,"defaultTest", services);
 		extensions.put("test1", String.class);
 		extensions.put("test2",Integer.class);
 	}
