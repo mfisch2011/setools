@@ -55,7 +55,6 @@ public class AbstractSourceSetPluginTest {
 	 * Test method for {@link setools.gradle.plugins.AbstractSourceSetPlugin#apply(org.gradle.api.Project)}.
 	 */
 	@Test
-	@Ignore
 	public void testApplyCustomSourceSet() {
 		Project project = ProjectBuilder.builder()
 				//TODO:configure project

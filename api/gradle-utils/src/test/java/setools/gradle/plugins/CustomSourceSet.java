@@ -23,12 +23,18 @@ import org.gradle.api.internal.tasks.DefaultSourceSet;
 import org.gradle.api.internal.tasks.DefaultSourceSetOutput;
 import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.tasks.SourceSet;
+import org.gradle.api.tasks.SourceSetOutput;
 import org.gradle.internal.service.ServiceRegistry;
 
 /**
  * TODO:
  */
 public abstract class CustomSourceSet extends DefaultSourceSet implements SourceSet {
+
+	/**
+	 * TODO:
+	 */
+	protected SourceSetOutput output;
 
 	/**
 	 * Custom {@link SourceSet} class to test creating custom SourceSets.
@@ -42,8 +48,12 @@ public abstract class CustomSourceSet extends DefaultSourceSet implements Source
 		super(name, objectFactory);
 		FileResolver fileResolver = services.get(FileResolver.class);
 		FileCollectionFactory fileCollectionFactory = services.get(FileCollectionFactory.class);
-		DefaultSourceSetOutput output = new DefaultSourceSetOutput(name,fileResolver,fileCollectionFactory);
-		setClasses(output);
+		output = new DefaultSourceSetOutput(name,fileResolver,fileCollectionFactory);
+	}
+	
+	@Override
+	public SourceSetOutput getOutput() {
+		return output;
 	}
 
 }
