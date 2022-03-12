@@ -66,8 +66,6 @@ public class AbstractSourceSetPluginTest {
 				.findByName("defaultTest");
 		assertNotNull(sourceSet);
 		assertThat(sourceSet,instanceOf(CustomSourceSet.class));
-
-		//TODO:validate plugin application...
 	}
 	
 	/**
@@ -80,6 +78,17 @@ public class AbstractSourceSetPluginTest {
 				//TODO:configure project
 				.build();
 		project.getPluginManager().apply(TestCustomWithExtensions.class);
-		fail("Not yet implemented");
+		SourceSet sourceSet = project.getExtensions().getByType(
+				JavaPluginExtension.class)
+				.getSourceSets()
+				.findByName("defaultTest");
+		assertNotNull(sourceSet);
+		assertThat(sourceSet,instanceOf(DefaultSourceSet.class));
+		Object extension = sourceSet.getExtensions().getByName("test1");
+		assertNotNull(extension);
+		assertThat(extension,instanceOf(String.class));
+		extension = sourceSet.getExtensions().getByName("test2");
+		assertNotNull(extension);
+		assertThat(extension,instanceOf(Integer.class));
 	}
 }
