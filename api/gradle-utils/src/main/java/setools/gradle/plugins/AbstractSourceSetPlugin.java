@@ -111,7 +111,7 @@ public class AbstractSourceSetPlugin implements Plugin<ProjectInternal> {
 		if(type==null) {
 			return sourceSets.create(name);
 		} else {
-			SourceSet sourceSet = (SourceSet) instantiator.newInstance(type, name,objectFactory,services);
+			SourceSet sourceSet = (SourceSet) instantiator.newInstance(type, name,objectFactory);
 			sourceSets.add(sourceSet);
 			//TODO:configure classes or leave that to the SourceSet ????
 	        return sourceSet;
