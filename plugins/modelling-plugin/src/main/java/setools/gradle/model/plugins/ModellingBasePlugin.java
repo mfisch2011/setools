@@ -15,18 +15,34 @@
  */
 package setools.gradle.model.plugins;
 
-import org.gradle.api.Plugin;
-import org.gradle.api.Project;
+import javax.inject.Inject;
+
+import org.gradle.api.model.ObjectFactory;
+import org.gradle.api.tasks.SourceSet;
+import org.gradle.internal.reflect.Instantiator;
+
+import setools.gradle.model.tasks.ModelSourceDirectorySet;
+import setools.gradle.model.tasks.internal.DefaultModelSourceDirectorySet;
 
 /**
  * TODO:
  */
-public class ModellingBasePlugin implements Plugin<Project> {
+public class ModellingBasePlugin extends AbstractSourceSetPlugin {
 
-	@Override
-	public void apply(Project project) {
-		// TODO Auto-generated method stub
-		
+	/**
+	 * TODO:
+	 * @param type
+	 * @param name
+	 * @param instantiator
+	 * @param objectFactory
+	 */
+	@Inject
+	public ModellingBasePlugin(Class<? super SourceSet> type,
+			String name, 
+			Instantiator instantiator,
+			ObjectFactory objectFactory) {
+		super(type, name, instantiator, objectFactory);
+		extensions.put("uml",DefaultModelSourceDirectorySet.class);
 	}
 	
 }
