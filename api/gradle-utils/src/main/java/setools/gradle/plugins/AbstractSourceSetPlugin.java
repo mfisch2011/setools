@@ -24,8 +24,8 @@ import javax.inject.Inject;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.internal.tasks.DefaultSourceSet;
+import org.gradle.api.plugins.JavaBasePlugin;
 import org.gradle.api.plugins.JavaPluginExtension;
-import org.gradle.api.plugins.JvmEcosystemPlugin;
 import org.gradle.api.tasks.SourceSet;
 import org.gradle.api.tasks.SourceSetContainer;
 import org.gradle.internal.reflect.Instantiator;
@@ -40,7 +40,7 @@ public class AbstractSourceSetPlugin implements Plugin<Project> {
 	/**
 	 * {@link Class} with type of source set to create.
 	 */
-	protected final Class<? super SourceSet> sourceSetType;
+	protected final Class<? extends SourceSet> sourceSetType;
 	
 	/**
 	 * Extensions to create for source set(s).
@@ -82,7 +82,7 @@ public class AbstractSourceSetPlugin implements Plugin<Project> {
 	 * @param instantiator - {@link Instantiator} used to create the new {@link SourceSet}
 	 */
 	@Inject
-	public AbstractSourceSetPlugin(Class<? super SourceSet> type,String name,Instantiator instantiator) {
+	public AbstractSourceSetPlugin(Class<? extends SourceSet> type,String name,Instantiator instantiator) {
 		this.sourceSetType = type;
 		this.sourceSetName = name;
 		this.instantiator = instantiator;
@@ -95,7 +95,7 @@ public class AbstractSourceSetPlugin implements Plugin<Project> {
 	 * @param name - {@link String} with name of new {@link SourceSet}
 	 * @return {@link SourceSet} created
 	 */
-	protected SourceSet addSourceSet(SourceSetContainer sourceSets, Class<? super SourceSet> type,String name) {
+	protected SourceSet addSourceSet(SourceSetContainer sourceSets, Class<? extends SourceSet> type,String name) {
 		if(type==null) {
 			return sourceSets.create(name);
 		} else {
@@ -108,7 +108,7 @@ public class AbstractSourceSetPlugin implements Plugin<Project> {
 
 	@Override
 	public void apply(Project project) {
-		project.getPluginManager().apply(JvmEcosystemPlugin.class);
+		project.getPluginManager().apply(JavaBasePlugin.class);
 		SourceSetContainer sourceSets = project.getExtensions()
 				.getByType(JavaPluginExtension.class).getSourceSets();
 		if(sourceSetName!=null) {
