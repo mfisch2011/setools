@@ -15,6 +15,8 @@
  */
 package setools.gradle.plugins;
 
+import javax.inject.Inject;
+
 import org.gradle.internal.reflect.Instantiator;
 import org.gradle.internal.service.ServiceRegistry;
 
@@ -29,6 +31,7 @@ public class TestCustomWithExtensions extends AbstractSourceSetPlugin {
 	 * named 'test1' and 'test2' with types String and Integer respectively.
 	 * @param services - {@link ServiceRegistry} for config
 	 */
+	@Inject
 	public TestCustomWithExtensions(ServiceRegistry services) {
 		super(null,"defaultTest", services);
 		extensions.put("test1", String.class);
