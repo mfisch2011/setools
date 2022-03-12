@@ -22,7 +22,6 @@ import java.util.Map.Entry;
 import javax.inject.Inject;
 
 import org.gradle.api.Plugin;
-import org.gradle.api.Project;
 import org.gradle.api.internal.project.ProjectInternal;
 import org.gradle.api.internal.tasks.DefaultSourceSet;
 import org.gradle.api.model.ObjectFactory;
