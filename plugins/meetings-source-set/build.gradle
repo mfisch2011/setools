@@ -19,5 +19,6 @@ plugins {
 
 dependencies {
     api gradleApi()
+    api project(":api:gradle-utils")
     testImplementation gradleTestKit()   
 }
