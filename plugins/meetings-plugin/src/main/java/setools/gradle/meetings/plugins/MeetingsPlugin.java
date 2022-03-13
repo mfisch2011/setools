@@ -20,7 +20,7 @@ import org.gradle.api.Project;
 
 import setools.gradle.meetings.api.MeetingsFactory;
 import setools.gradle.meetings.api.internal.DefaultMeetingFactory;
-import setools.gradle.meetings.plugins.internal.DefaultMeetingsFactory;
+import setools.gradle.meetings.plugins.internal.DefaultMeetingsFactoryService;
 import setools.gradle.meetings.plugins.internal.DefaultMeetingsPluginExt;
 
 /**
@@ -40,8 +40,8 @@ public class MeetingsPlugin implements Plugin<Project> {
 		//apply other plugins that we will use
 		project.getLogger().lifecycle("Applying {}.",MeetingsSourceSetPlugin.class);
 		project.getPluginManager().apply(MeetingsSourceSetPlugin.class);
-		project.getLogger().lifecycle("Applying {}.",DefaultMeetingsFactory.class);
-		project.getPluginManager().apply(DefaultMeetingsFactory.class);
+		project.getLogger().lifecycle("Applying {}.",DefaultMeetingsFactoryService.class);
+		project.getPluginManager().apply(DefaultMeetingsFactoryService.class);
 		
 		//create plugin extensions
 		project.getLogger().lifecycle("Createing {} as '{}'.",DefaultMeetingsPluginExt.class,MeetingsPluginExt.MEETINGS_EXT_NAME);

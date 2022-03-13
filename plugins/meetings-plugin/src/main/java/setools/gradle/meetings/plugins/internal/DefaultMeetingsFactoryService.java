@@ -15,7 +15,6 @@
  */
 package setools.gradle.meetings.plugins.internal;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
@@ -32,7 +31,7 @@ import setools.gradle.meetings.plugins.MeetingsPluginExt;
 /**
  * TODO:
  */
-public class DefaultMeetingsFactory implements MeetingsFactory,Plugin<Project> {
+public class DefaultMeetingsFactoryService implements MeetingsFactory,Plugin<Project> {
 	
 	/**
 	 * TODO:
@@ -129,11 +128,9 @@ public class DefaultMeetingsFactory implements MeetingsFactory,Plugin<Project> {
 			}
 		}
 		try {
-			Constructor<?> constructor = type.getConstructor();
-			Object object = constructor.newInstance();
+			Object object = project.getObjects().newInstance(type);
 			handlers.add(object);
-		} catch (NoSuchMethodException | SecurityException | InstantiationException |
-				IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+		} catch (SecurityException | IllegalArgumentException e) {
 			throw new IllegalArgumentException(e);
 		}
 		
