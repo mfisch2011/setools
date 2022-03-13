@@ -17,17 +17,10 @@ package setools.gradle.meetings.plugins;
 
 import javax.inject.Inject;
 
-import org.gradle.api.Plugin;
-import org.gradle.api.Project;
 import org.gradle.api.internal.file.FileCollectionFactory;
 import org.gradle.api.internal.file.FileResolver;
-import org.gradle.api.model.ObjectFactory;
-import org.gradle.api.plugins.JvmEcosystemPlugin;
-import org.gradle.api.tasks.SourceSet;
-import org.gradle.api.tasks.SourceSetContainer;
 import org.gradle.internal.reflect.Instantiator;
 
-import setools.gradle.meetings.tasks.MeetingsSourceSet;
 import setools.gradle.meetings.tasks.internal.DefaultMeetingsSourceSet;
 import setools.gradle.plugins.AbstractSourceSetPlugin;
 
