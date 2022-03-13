@@ -20,8 +20,14 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.gradle.api.internal.file.FileCollectionFactory;
+import org.gradle.api.internal.file.FileResolver;
 import org.gradle.api.internal.tasks.DefaultSourceSet;
+import org.gradle.api.internal.tasks.DefaultSourceSetOutput;
 import org.gradle.api.model.ObjectFactory;
+import org.gradle.api.tasks.SourceSetOutput;
+import org.gradle.internal.reflect.Instantiator;
+
 import setools.gradle.meetings.tasks.MeetingSourceDirectorySet;
 import setools.gradle.meetings.tasks.MeetingsSourceSet;
 
@@ -42,13 +48,28 @@ public abstract class DefaultMeetingsSourceSet extends DefaultSourceSet implemen
 
 	/**
 	 * TODO:
+	 */
+	protected final SourceSetOutput output;
+
+	/**
+	 * TODO:
 	 * @param name
 	 * @param objectFactory
 	 */
-	public DefaultMeetingsSourceSet(ObjectFactory objectFactory) {
+	public DefaultMeetingsSourceSet(Instantiator instantiator,
+			FileResolver fileResolver,
+			FileCollectionFactory fileCollectionFactory,
+			ObjectFactory objectFactory) {
 		super(MeetingsSourceSet.MEETINGS_SOURCE_SET_NAME,objectFactory);
+		output = instantiator.newInstance(DefaultSourceSetOutput.class, getDisplayName(),fileResolver, fileCollectionFactory);
+		setClasses((DefaultSourceSetOutput)output);
 		this.objectFactory = objectFactory;
 		this.meetings = new ConcurrentHashMap<String,MeetingSourceDirectorySet>();
+	}
+	
+	@Override
+	public SourceSetOutput getOutput() {
+		return output;
 	}
 
 	@Override
