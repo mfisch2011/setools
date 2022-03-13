@@ -17,6 +17,8 @@ package setools.gradle.model.plugins;
 
 import javax.inject.Inject;
 
+import org.gradle.api.internal.file.FileCollectionFactory;
+import org.gradle.api.internal.file.FileResolver;
 import org.gradle.internal.reflect.Instantiator;
 import org.gradle.internal.service.ServiceRegistry;
 
@@ -30,12 +32,13 @@ public class ModellingBasePlugin extends AbstractSourceSetPlugin {
 
 	/**
 	 * TODO:description
-	 * 
-	 * @param services - {@link ServiceRegistry} for configuration
+	 * @param instantiator - {@link Instantiator}
+	 * @param fileResolver - {@link FileResolver}
+	 * @param fileCollectionFactory - {@link FileCollectionFactory}
 	 */
 	@Inject
-	public ModellingBasePlugin(ServiceRegistry services) {
-		super(null,null, services);
+	public ModellingBasePlugin(Instantiator instantiator,FileResolver fileResolver,FileCollectionFactory fileCollectionFactory) {
+		super(null,null,instantiator,fileResolver,fileCollectionFactory);
 		extensions.put("uml",DefaultModelSourceDirectorySet.class);
 	}
 	
