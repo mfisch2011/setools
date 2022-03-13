@@ -50,6 +50,7 @@ public abstract class CustomSourceSet extends DefaultSourceSet implements Source
 		FileCollectionFactory fileCollectionFactory) {
 		super(name, objectFactory);
 		output = instantiator.newInstance(DefaultSourceSetOutput.class, getDisplayName(),fileResolver, fileCollectionFactory);
+		setClasses((DefaultSourceSetOutput)output);
 	}
 
 	@Override

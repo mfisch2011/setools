@@ -17,8 +17,8 @@ package setools.gradle.tasks;
 
 import org.gradle.api.Action;
 import org.gradle.api.internal.tasks.DefaultSourceSet;
+import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.tasks.SourceSet;
-import org.gradle.internal.service.ServiceRegistry;
 
 /**
  * TODO:
@@ -36,9 +36,9 @@ public class SourceSetExtensionConfigAction implements Action<SourceSet> {
 	protected final Class<?> type;
 
 	/**
-	 * {@link ServiceRegistry} for configuration.
+	 * TODO:
 	 */
-	protected final ServiceRegistry services;
+	protected final ObjectFactory objectFactory;
 
 	/**
 	 * Create and configure a new extension with name and type.
@@ -47,16 +47,17 @@ public class SourceSetExtensionConfigAction implements Action<SourceSet> {
 	 * @param type - {@link Class} of extension to create
 	 * @param services 
 	 */
-	public SourceSetExtensionConfigAction(String name, Class<?> type, ServiceRegistry services) {
+	public SourceSetExtensionConfigAction(String name, Class<?> type,ObjectFactory objectFactory) {
 		this.name = name;
 		this.type = type;
-		this.services = services;
+		this.objectFactory = objectFactory;
 	}
 
 	@Override
 	public void execute(SourceSet sourceSet) {
 		String displayName = ((DefaultSourceSet) sourceSet).getDisplayName();
-		sourceSet.getExtensions().create(name, type,displayName);
+		//TODO:implement something more extensible...
+		sourceSet.getExtensions().create(name, type,name,displayName,objectFactory);
 		//TODO:other configuration ???
 	}
 
