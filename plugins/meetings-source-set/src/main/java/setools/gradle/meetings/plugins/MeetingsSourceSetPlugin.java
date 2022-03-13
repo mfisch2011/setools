@@ -19,6 +19,8 @@ import javax.inject.Inject;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
+import org.gradle.api.internal.file.FileCollectionFactory;
+import org.gradle.api.internal.file.FileResolver;
 import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.plugins.JvmEcosystemPlugin;
 import org.gradle.api.tasks.SourceSet;
@@ -27,37 +29,28 @@ import org.gradle.internal.reflect.Instantiator;
 
 import setools.gradle.meetings.tasks.MeetingsSourceSet;
 import setools.gradle.meetings.tasks.internal.DefaultMeetingsSourceSet;
+import setools.gradle.plugins.AbstractSourceSetPlugin;
 
 /**
  * TODO:
  */
-public class MeetingsSourceSetPlugin implements Plugin<Project> {
-	
-	/**
-	 * TODO:
-	 */
-	protected final Instantiator instantiator;
+public class MeetingsSourceSetPlugin extends AbstractSourceSetPlugin {
 
 	/**
 	 * TODO:
-	 */
-	protected final ObjectFactory objectFactory;
-
-	/**
-	 * TODO:
-	 * @param sourceSets
+	 * @param type
+	 * @param name
+	 * @param instantiator
+	 * @param fileResolver
+	 * @param fileCollectionFactory
 	 */
 	@Inject
-	public MeetingsSourceSetPlugin(Instantiator instantiator,ObjectFactory objectFactory) {
-		this.instantiator = instantiator;
-		this.objectFactory = objectFactory;
-	}
-
-	@Override
-	public void apply(Project project) {
-		project.getPluginManager().apply(JvmEcosystemPlugin.class);
-		SourceSetContainer sourceSets = (SourceSetContainer) project.getExtensions().getByName("sourceSets");
-		sourceSets.add(instantiator.newInstance(DefaultMeetingsSourceSet.class,objectFactory));
+	public MeetingsSourceSetPlugin(Instantiator instantiator,
+			FileResolver fileResolver,
+			FileCollectionFactory fileCollectionFactory) {
+		super(DefaultMeetingsSourceSet.class,"meetings",
+				instantiator, fileResolver, fileCollectionFactory);
+		//TODO: other configuration ??? extensions ???
 	}
 	
 }
