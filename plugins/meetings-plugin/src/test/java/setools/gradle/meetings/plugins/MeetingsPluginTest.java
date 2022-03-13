@@ -87,6 +87,28 @@ public class MeetingsPluginTest {
 	 * @throws IOException
 	 */
 	@Test
+	public void testEmptyMeetings() throws IOException {
+		writeFile(settingsFile, "rootProject.name = 'test-project'");
+		String text = getPluginConfig();
+		text += "meetings {" + System.lineSeparator()
+			+ "}";
+		writeFile(buildFile,text);
+		BuildResult result = GradleRunner.create()
+				.withPluginClasspath()
+				.withProjectDir(folder.getRoot())
+				.withArguments("tasks")
+				.build();
+		assertNotNull(result);
+		assertEquals(SUCCESS,result.task(":tasks").getOutcome());
+		//TODO:verify tasks ???
+	}
+	
+	/**
+	 * TODO:
+	 * @throws IOException
+	 */
+	@Test
+	@Ignore
 	public void testEmptyDefaultMeeting() throws IOException {
 		writeFile(settingsFile, "rootProject.name = 'test-project'");
 		String text = getPluginConfig();
@@ -109,6 +131,7 @@ public class MeetingsPluginTest {
 	 * @throws IOException
 	 */
 	@Test
+	@Ignore
 	public void testBasicDefaultMeeting() throws IOException {
 		writeFile(settingsFile, "rootProject.name = 'test-project'");
 		String text = getPluginConfig();
@@ -133,6 +156,7 @@ public class MeetingsPluginTest {
 	 * @throws IOException
 	 */
 	@Test
+	@Ignore
 	public void testDefaultMeetingWithAction() throws IOException {
 		writeFile(settingsFile, "rootProject.name = 'test-project'");
 		String text = getPluginConfig();
