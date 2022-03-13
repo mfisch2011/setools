@@ -25,7 +25,6 @@ import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.tasks.SourceSet;
 import org.gradle.api.tasks.SourceSetOutput;
 import org.gradle.internal.reflect.Instantiator;
-import org.gradle.internal.service.ServiceRegistry;
 
 /**
  * TODO:
@@ -42,15 +41,19 @@ public abstract class CustomSourceSet extends DefaultSourceSet implements Source
 	 * 
 	 * @param name - name of source set
 	 * @param objectFactory - {@link ObjectFactory} for creating objects
-	 * @param services - {@link ServiceRegistry} for configuration
 	 */
 	@Inject
-	public CustomSourceSet(String name, ObjectFactory objectFactory,ServiceRegistry services) {
+	public CustomSourceSet(String name,
+		ObjectFactory objectFactory,
+		Instantiator instantiator,
+		FileResolver fileResolver,
+		FileCollectionFactory fileCollectionFactory) {
 		super(name, objectFactory);
-		FileResolver fileResolver = services.get(FileResolver.class);
-		FileCollectionFactory fileCollectionFactory = services.get(FileCollectionFactory.class);
-		Instantiator instantiator = services.get(Instantiator.class);
-		setClasses(instantiator.newInstance(DefaultSourceSetOutput.class, getDisplayName(),fileResolver, fileCollectionFactory));
+		output = instantiator.newInstance(DefaultSourceSetOutput.class, getDisplayName(),fileResolver, fileCollectionFactory);
 	}
 
+	@Override
+	public SourceSetOutput getOutput() {
+		return output;
+	}
 }

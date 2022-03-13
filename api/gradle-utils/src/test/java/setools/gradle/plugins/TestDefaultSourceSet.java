@@ -17,7 +17,9 @@ package setools.gradle.plugins;
 
 import javax.inject.Inject;
 
-import org.gradle.internal.service.ServiceRegistry;
+import org.gradle.api.internal.file.FileCollectionFactory;
+import org.gradle.api.internal.file.FileResolver;
+import org.gradle.internal.reflect.Instantiator;
 
 /**
  * TODO:
@@ -27,11 +29,13 @@ public class TestDefaultSourceSet extends AbstractSourceSetPlugin {
 	/**
 	 * Create a test {@link AbstractSourceSetPlugin} that creates a 
 	 * {@link DefaultSourceSet} named 'defaultTest' with no extensions.
-	 * @param services - {@link ServiceRegistry} to use
+	 * @param instantiator - {@link Instantiator}
+	 * @param fileResolver - {@link FileResolver}
+	 * @param fileCollectionFactory - {@link FileCollectionFactory}
 	 */
 	@Inject
-	public TestDefaultSourceSet(ServiceRegistry services) {
-		super(null,"defaultTest", services);
+	public TestDefaultSourceSet(Instantiator instantiator,FileResolver fileResolver,FileCollectionFactory fileCollectionFactory) {
+		super(null,"defaultTest",instantiator,fileResolver,fileCollectionFactory);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -17,7 +17,9 @@ package setools.gradle.plugins;
 
 import javax.inject.Inject;
 
-import org.gradle.internal.service.ServiceRegistry;
+import org.gradle.api.internal.file.FileCollectionFactory;
+import org.gradle.api.internal.file.FileResolver;
+import org.gradle.internal.reflect.Instantiator;
 
 /**
  * TODO:
@@ -28,11 +30,13 @@ public class TestCustomWithExtensions extends AbstractSourceSetPlugin {
 	 * Create a test {@link AbstractSourceSetPlugin} that creates a 
 	 * {@link DefaultSourceSet} named 'defaultTest' with two extensions 
 	 * named 'test1' and 'test2' with types String and Integer respectively.
-	 * @param services - {@link ServiceRegistry} for config
+	 * @param instantiator - {@link Instantiator}
+	 * @param fileResolver - {@link FileResolver}
+	 * @param fileCollectionFactory - {@link FileCollectionFactory}
 	 */
 	@Inject
-	public TestCustomWithExtensions(ServiceRegistry services) {
-		super(null,"defaultTest", services);
+	public TestCustomWithExtensions(Instantiator instantiator,FileResolver fileResolver,FileCollectionFactory fileCollectionFactory) {
+		super(null,"defaultTest",instantiator,fileResolver,fileCollectionFactory);
 		extensions.put("test1", TestExtension1.class);
 		extensions.put("test2",TestExtension2.class);
 	}

@@ -22,6 +22,8 @@ import java.util.Map.Entry;
 import javax.inject.Inject;
 
 import org.gradle.api.Plugin;
+import org.gradle.api.internal.file.FileCollectionFactory;
+import org.gradle.api.internal.file.FileResolver;
 import org.gradle.api.internal.project.ProjectInternal;
 import org.gradle.api.internal.tasks.DefaultSourceSet;
 import org.gradle.api.model.ObjectFactory;
@@ -69,7 +71,12 @@ public class AbstractSourceSetPlugin implements Plugin<ProjectInternal> {
 	/**
 	 * TODO:
 	 */
-	protected final ServiceRegistry services;
+	protected final FileResolver fileResolver;
+
+	/**
+	 * TODO:
+	 */
+	protected final FileCollectionFactory fileCollectionFactory;
 	
 	/**
 	 * Get the newly created SourceSet.
@@ -86,14 +93,17 @@ public class AbstractSourceSetPlugin implements Plugin<ProjectInternal> {
 	 * will create {@link DefaultSourceSet}.
 	 * 
 	 * @param name - {@link String} with name of the new {@link SourceSet}
-	 * @param services - {@link ServiceRegistry} services for configuration
+	 * @param instantiator - {@link Instantiator}
+	 * @param fileResolver - {@link FileResolver}
+	 * @param fileCollectionFactory - {@link FileCollectionFactory}
 	 */
 	@Inject
-	public AbstractSourceSetPlugin(Class<? extends SourceSet> type,String name,ServiceRegistry services) {
+	public AbstractSourceSetPlugin(Class<? extends SourceSet> type,String name,Instantiator instantiator,FileResolver fileResolver,FileCollectionFactory fileCollectionFactory) {
 		this.sourceSetType = type;
 		this.sourceSetName = name;
-		this.instantiator = services.get(Instantiator.class);
-		this.services = services;
+		this.instantiator = instantiator;
+		this.fileResolver = fileResolver;
+		this.fileCollectionFactory = fileCollectionFactory;
 	}
 	
 	/**
@@ -111,7 +121,7 @@ public class AbstractSourceSetPlugin implements Plugin<ProjectInternal> {
 		if(type==null) {
 			return sourceSets.create(name);
 		} else {
-			SourceSet sourceSet = (SourceSet) instantiator.newInstance(type, name,objectFactory);
+			SourceSet sourceSet = (SourceSet) instantiator.newInstance(type, name,objectFactory,instantiator,fileResolver,fileCollectionFactory);
 			sourceSets.add(sourceSet);
 			//TODO:configure classes or leave that to the SourceSet ????
 	        return sourceSet;
