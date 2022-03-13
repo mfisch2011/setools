@@ -18,5 +18,5 @@ plugins {
 }
 
 dependencies {
-    implementation project(":plugins:meetings-source-set")
+    api project(":plugins:meetings-source-set")
 }
