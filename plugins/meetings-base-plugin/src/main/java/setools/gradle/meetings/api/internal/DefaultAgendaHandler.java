@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 M. Fischer <mfisch2011@gmail.com>
+ * Copyright 2022 M. Fischer <mfisch2011@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,19 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-plugins {
-    id "setools.java-plugin-conventions"
-}
+package setools.gradle.meetings.api.internal;
 
-gradlePlugin {
-    plugins {
-        meetings {
-            id = "setools.meetings-plugin"
-            implementationClass = "setools.gradle.meetings.plugins.MeetingsPlugin"
-        }
-    }
-}
+import javax.inject.Inject;
 
-dependencies {
-    implementation project(":plugins:meetings-base-plugin")
+import org.gradle.api.Project;
+
+import setools.gradle.meetings.api.AgendaHandler;
+
+/**
+ * TODO:
+ */
+public class DefaultAgendaHandler implements AgendaHandler {
+
+	/**
+	 * TODO:
+	 */
+	protected final Project project;
+
+	/**
+	 * TODO:
+	 * @param project
+	 */
+	@Inject
+	public DefaultAgendaHandler(Project project) {
+		this.project = project;
+	}
+
 }

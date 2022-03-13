@@ -15,7 +15,10 @@
  */
 package setools.gradle.meetings.api.internal;
 
+import javax.inject.Inject;
+
 import org.gradle.api.Action;
+import org.gradle.api.Project;
 import org.gradle.util.internal.ConfigureUtil;
 
 import groovy.lang.Closure;
@@ -25,6 +28,20 @@ import setools.gradle.meetings.api.Meeting;
  * TODO:
  */
 public class DefaultMeetingFactory {
+	
+	/**
+	 * TODO:
+	 */
+	protected final Project project;
+
+	/**
+	 * TODO:
+	 * @param project
+	 */
+	@Inject
+	public DefaultMeetingFactory(Project project) {
+		this.project = project;
+	}
 
 	/**
 	 * Create a new {@link DefaultMeeting} instance.
@@ -32,7 +49,7 @@ public class DefaultMeetingFactory {
 	 * @return - new {@link Meeting} instance
 	 */
 	public Meeting meeting() {
-		return new DefaultMeeting();
+		return newInstance();
 	}
 	
 	/**
@@ -43,7 +60,7 @@ public class DefaultMeetingFactory {
 	 * @return - new {@link Meeting} instance
 	 */
 	public Meeting meeting(Action<? super Meeting> action) {
-		Meeting result = new DefaultMeeting();
+		Meeting result = newInstance();
 		action.execute(result);
 		return result;
 	}
@@ -57,8 +74,16 @@ public class DefaultMeetingFactory {
 	 */
 	@SuppressWarnings("rawtypes")
 	public Meeting meeting(Closure closure) {
-		Meeting result = new DefaultMeeting();
+		Meeting result = newInstance();
 		ConfigureUtil.configure(closure, result);
 		return result;
+	}
+	
+	/**
+	 * TODO:
+	 * @return
+	 */
+	protected Meeting newInstance() {
+		return project.getObjects().newInstance(DefaultMeeting.class);
 	}
 }

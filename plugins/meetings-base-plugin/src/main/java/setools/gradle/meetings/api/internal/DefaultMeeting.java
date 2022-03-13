@@ -17,6 +17,14 @@ package setools.gradle.meetings.api.internal;
 
 import java.util.Date;
 
+import javax.inject.Inject;
+
+import org.gradle.api.Action;
+import org.gradle.api.Project;
+import org.gradle.util.internal.ConfigureUtil;
+
+import groovy.lang.Closure;
+import setools.gradle.meetings.api.AgendaHandler;
 import setools.gradle.meetings.api.Meeting;
 
 /**
@@ -28,6 +36,26 @@ public class DefaultMeeting implements Meeting {
 	 * {@link String} to store the meeting name in
 	 */
 	protected String name = null;
+	
+	/**
+	 * TODO:
+	 */
+	protected final AgendaHandler agenda;
+
+	/**
+	 * TODO:
+	 */
+	protected final Project project;
+	
+	/**
+	 * TODO:
+	 * @param project
+	 */
+	@Inject
+	public DefaultMeeting(Project project) {
+		this.project = project;
+		this.agenda = new DefaultAgendaHandler(project);
+	}
 
 	@Override
 	public String getName() {
@@ -73,6 +101,23 @@ public class DefaultMeeting implements Meeting {
 			time = (Date)((Date)object).clone();
 		}
 		//TODO: how to robustly handle string parsing ???
+	}
+
+	@Override
+	public AgendaHandler agenda() {
+		return agenda;
+	}
+
+	@Override
+	public AgendaHandler agenda(Closure<?> closure) {
+		ConfigureUtil.configure(closure, agenda);
+		return agenda;
+	}
+
+	@Override
+	public AgendaHandler agenda(Action<? super AgendaHandler> action) {
+		action.execute(agenda);
+		return agenda;
 	}
 
 }

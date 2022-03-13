@@ -29,7 +29,7 @@ rootProject.name = "setools"
 
 include "plugins:meetings-source-set"
 include "plugins:meetings-plugin"
-include "api:meetings-api"
+include "plugins:meetings-base-plugin"
 include "plugins:model-based-meetings-plugin"
 include "plugins:modelling-plugin"
 include "api:gradle-utils"

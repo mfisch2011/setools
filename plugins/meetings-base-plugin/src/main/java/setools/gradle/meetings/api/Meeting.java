@@ -17,6 +17,10 @@ package setools.gradle.meetings.api;
 
 import java.util.Date;
 
+import org.gradle.api.Action;
+
+import groovy.lang.Closure;
+
 /**
  * TODO:
  */
@@ -63,6 +67,21 @@ public interface Meeting {
 	 * @param object - {@link Object} containing the date and time
 	 */
 	public void setTime(Object object);
+	
+	/**
+	 * TODO:
+	 * @return
+	 */
+	public AgendaHandler agenda();
+	
+	/**
+	 * TODO:
+	 * @param closure
+	 * @return
+	 */
+	public AgendaHandler agenda(Closure<?> closure);
+	
+	public AgendaHandler agenda(Action<? super AgendaHandler> action);
 	
 	//TODO:add agenda methods...
 	

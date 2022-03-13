@@ -28,9 +28,7 @@ gradlePlugin {
 
 dependencies {
     //TODO:how to handle transient dependencies ???
-    implementation project(":plugins:meetings-source-set")
     implementation project(":plugins:meetings-plugin")
-    implementation project(":api:meetings-api")
     implementation project(":plugins:modelling-plugin")
     implementation "org.eclipse.emf:org.eclipse.emf.ecore" //TODO:move to separate plugin ???
 }

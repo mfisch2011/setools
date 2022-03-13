@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 plugins {
-    id "setools.java-library-conventions"
+    id "setools.java-plugin-conventions"
 }
 
 dependencies {
-      
+    implementation project(":plugins:meetings-source-set")
 }
