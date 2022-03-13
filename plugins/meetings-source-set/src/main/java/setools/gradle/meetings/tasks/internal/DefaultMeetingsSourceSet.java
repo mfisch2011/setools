@@ -20,6 +20,8 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.inject.Inject;
+
 import org.gradle.api.internal.file.FileCollectionFactory;
 import org.gradle.api.internal.file.FileResolver;
 import org.gradle.api.internal.tasks.DefaultSourceSet;
@@ -56,10 +58,12 @@ public abstract class DefaultMeetingsSourceSet extends DefaultSourceSet implemen
 	 * @param name
 	 * @param objectFactory
 	 */
-	public DefaultMeetingsSourceSet(Instantiator instantiator,
-			FileResolver fileResolver,
-			FileCollectionFactory fileCollectionFactory,
-			ObjectFactory objectFactory) {
+	@Inject
+	public DefaultMeetingsSourceSet(String name,
+		ObjectFactory objectFactory,
+		Instantiator instantiator,
+		FileResolver fileResolver,
+		FileCollectionFactory fileCollectionFactory) {
 		super(MeetingsSourceSet.MEETINGS_SOURCE_SET_NAME,objectFactory);
 		output = instantiator.newInstance(DefaultSourceSetOutput.class, getDisplayName(),fileResolver, fileCollectionFactory);
 		setClasses((DefaultSourceSetOutput)output);
