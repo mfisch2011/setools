@@ -27,5 +27,5 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation project(":plugins:meetings-base-plugin")
+    api project(":plugins:meetings-base-plugin")
 }
