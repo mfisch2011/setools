@@ -15,9 +15,17 @@
  */
 package setools.gradle.plugins;
 
+import javax.inject.Inject;
+
+import org.gradle.api.model.ObjectFactory;
+
 /**
  * TODO:
  */
 public class TestExtension1 {
 
+	@Inject
+	public TestExtension1(String name,String displayName,ObjectFactory objectFactory) {
+		//TODO: Injection should be more robust, but the Gradle Dev team sucks...
+	}
 }
