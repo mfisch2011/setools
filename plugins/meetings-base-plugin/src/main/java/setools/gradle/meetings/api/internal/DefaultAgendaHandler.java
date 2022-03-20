@@ -22,18 +22,19 @@ import org.gradle.api.Project;
 import setools.gradle.meetings.api.AgendaHandler;
 
 /**
- * TODO:
+ * Default implementation of {@link AgendaHandler} for specifying 
+ * meeting agendas.
  */
 public class DefaultAgendaHandler implements AgendaHandler {
 
 	/**
-	 * TODO:
+	 * The {@link Project} for the parent meeting.
 	 */
 	protected final Project project;
 
 	/**
-	 * TODO:
-	 * @param project
+	 * Default constructor for {@link DefaultAgendaHandler}.
+	 * @param project - {@link Project} for resolving information
 	 */
 	@Inject
 	public DefaultAgendaHandler(Project project) {

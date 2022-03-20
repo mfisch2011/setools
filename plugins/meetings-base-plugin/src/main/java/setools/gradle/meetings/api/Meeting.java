@@ -22,7 +22,7 @@ import org.gradle.api.Action;
 import groovy.lang.Closure;
 
 /**
- * TODO:
+ * Object for specifying information common to most meetings.
  */
 public interface Meeting {
 
@@ -69,18 +69,25 @@ public interface Meeting {
 	public void setTime(Object object);
 	
 	/**
-	 * TODO:
-	 * @return
+	 * Get the agenda for the meeting.
+	 * @return {@link AgendaHandler}
 	 */
 	public AgendaHandler agenda();
 	
 	/**
-	 * TODO:
-	 * @param closure
-	 * @return
+	 * Configure the meeting agenda with closure.
+	 * 
+	 * @param closure - {@link Closure} for configuration
+	 * @return {@link AgendaHandler}
 	 */
 	public AgendaHandler agenda(Closure<?> closure);
 	
+	/**
+	 * Configure the meeting agenda with action.
+	 * 
+	 * @param action - {@link Action} for configuration
+	 * @return {@link AgendaHandler}
+	 */
 	public AgendaHandler agenda(Action<? super AgendaHandler> action);
 	
 	//TODO:add agenda methods...

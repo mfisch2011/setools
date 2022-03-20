@@ -28,7 +28,8 @@ import setools.gradle.meetings.api.AgendaHandler;
 import setools.gradle.meetings.api.Meeting;
 
 /**
- * TODO:
+ * Default implementation of {@link Meeting} for specifying meeting 
+ * information in Gradle build files.
  */
 public class DefaultMeeting implements Meeting {
 	
@@ -38,18 +39,18 @@ public class DefaultMeeting implements Meeting {
 	protected String name = null;
 	
 	/**
-	 * TODO:
+	 * {@link AgendaHandler} for storing the meeting agenda.
 	 */
 	protected final AgendaHandler agenda;
 
 	/**
-	 * TODO:
+	 * {@link Project} for resolving project information.
 	 */
 	protected final Project project;
 	
 	/**
-	 * TODO:
-	 * @param project
+	 * Default constructor for {@link DefaultMeeting}.
+	 * @param project - {@link Project} for resolving project information
 	 */
 	@Inject
 	public DefaultMeeting(Project project) {
