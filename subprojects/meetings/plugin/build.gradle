@@ -13,19 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenLocal() //TODO:move to setools repo...
-        
-        maven {
-            name = "ajoberstar-backup"
-            url = "https://ajoberstar.org/bintray-backup/"
+plugins {
+    id "setools.java-plugin-conventions"
+}
+
+gradlePlugin {
+    //TODO: why is this barfing ??? website = "https://github.com/mfisch2011/setools/wiki"
+    //TODO: why is this barfing ??? vcsUrl = "https://github.com/mfisch2011/setools.git"
+    plugins {
+        meetingsPlugin {
+            id = "setools.meetings-plugin"
+            implementationClass = "com.github.mfisch2011.setools.gradle.meetings.plugin.MeetingsPlugin"
         }
     }
 }
 
-rootProject.name = "setools"
+dependencies {
 
-include "sandbox"
-include "subprojects:meetings:plugin"
+}   
