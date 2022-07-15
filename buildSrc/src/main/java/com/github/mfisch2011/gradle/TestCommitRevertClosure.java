@@ -41,20 +41,16 @@ public class TestCommitRevertClosure extends Closure<Object> {
 		super(project,test);
 	}
 	
-	@Override
-	public Object call(Object...args) {
-		assert(args.length==2);
-		assert(args[0] instanceof TestDescriptor);
-		assert(args[1] instanceof TestResult);
+	public void doCall(TestDescriptor descriptor,TestResult results) {
 		//only the top-level summary has a null parent
-		if(((TestDescriptor)args[0]).getParent() != null) return null;
+		if(descriptor.getParent() != null) return;
 		
 		try {
-			if(((TestResult)args[1]).getFailedTestCount() > 0)
+			if(results.getFailedTestCount() > 0)
 				revert();
 			else
 				commit();
-			return null;
+			return;
 		} catch(Exception e) {
 			throw new RuntimeException(e);
 		}
@@ -70,6 +66,7 @@ public class TestCommitRevertClosure extends Closure<Object> {
 		RevWalk walker = new RevWalk(repo);
 		RevCommit head = walker.parseCommit(repo.resolve(Constants.HEAD));
 		git.revert().include(head).call();
+		getProject().getLogger().lifecycle("Reverted changes to {}.",head);
 	}
 	
 	/**
@@ -92,7 +89,8 @@ public class TestCommitRevertClosure extends Closure<Object> {
 		git.add().addFilepattern(".").setUpdate(true).call();
 		
 		// and then commit the changes.
-		git.commit().setMessage(commit_message()).call();
+		RevCommit commit = git.commit().setMessage(commit_message()).call();
+		getProject().getLogger().lifecycle("Commited changes.  New commit {}.",commit);
 	}
 	
 	/**
