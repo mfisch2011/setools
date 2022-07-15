@@ -19,9 +19,13 @@ import static org.junit.Assert.*;
 
 import org.gradle.api.Project;
 import org.gradle.api.plugins.JavaBasePlugin;
+import org.gradle.api.tasks.SourceSet;
+import org.gradle.api.tasks.SourceSetContainer;
 import org.gradle.testfixtures.ProjectBuilder;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import com.github.mfisch2011.setools.gradle.meetings.tasks.MeetingsSourceSet;
 
 /**
  * TODO:
@@ -41,6 +45,14 @@ public class MeetingsBasePluginTest {
 		//validate configuration...
 		assertNotNull(project.getPlugins().findPlugin(MeetingsBasePlugin.class));
 		assertNotNull(project.getPlugins().findPlugin(JavaBasePlugin.class)); //needed for sourceSets...
+		
+		//verify sourceSet configuration
+		Object object = project.getExtensions().findByName("sourceSets");
+		assertNotNull("Missing sourceSets.",object);
+		SourceSetContainer sourceSets = (SourceSetContainer)object;
+		SourceSet sourceSet = sourceSets.findByName("meetings");
+		assertNotNull("Missing 'meetings' SourceSet.",sourceSet);
+		MeetingsSourceSet meetingsSource = (MeetingsSourceSet)sourceSet;
 		
 		//TODO:verify other configuration data...
 	}
