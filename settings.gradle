@@ -27,9 +27,4 @@ pluginManagement {
 
 rootProject.name = "setools"
 
-include "plugins:meetings-source-set"
-include "plugins:meetings-plugin"
-include "plugins:meetings-base-plugin"
-include "plugins:model-based-meetings-plugin"
-include "plugins:modelling-plugin"
-include "api:gradle-utils"
+include "sandbox"

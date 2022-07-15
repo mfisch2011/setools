@@ -15,32 +15,22 @@
  */
 package com.github.mfisch2011.gradle;
 
+import org.gradle.api.Action;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.tasks.testing.Test;
 
-import groovy.lang.Closure;
-
-/**
- * TODO:
- */
 public class TestCommitRevertPlugin implements Plugin<Project> {
-	
+    
 	@Override
-	public void apply(Project project) {
-		project.getExtensions().create("testCommitRevert", TestCommitRevertExtension.class);
-		project.getTasks().withType(Test.class,configTest());
-	}
-	
-	/**
-	 * TODO:
-	 */
-	protected Action<Test> configTest() {
-		return new Action<Test>() {
+    public void apply(Project project) {
+		project.getTasks().withType(Test.class,new Action<Test>() {
+			
 			@Override
-			public void execute(Test task) {
-				task.afterSuite(new TestCommitRevertClosure(task));
+			public void execute(Test test) {
+				test.afterSuite(new TestCommitRevertClosure(project,test));
 			}
-		}
-	}
+		});
+    }
+	
 }

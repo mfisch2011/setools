@@ -16,67 +16,89 @@
 package com.github.mfisch2011.gradle;
 
 import java.io.File;
+import java.io.IOException;
 
-import org.eclipse.jgit.api.Git
-
+import org.gradle.api.Project;
 import org.gradle.api.tasks.testing.Test;
 import org.gradle.api.tasks.testing.TestDescriptor;
 import org.gradle.api.tasks.testing.TestResult;
 
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.revwalk.RevWalk;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.lib.Constants;
+
 import groovy.lang.Closure;
 
-/**
- * TODO:
- */
-public class TestCommitRevertClosure extends Closure {
+public class TestCommitRevertClosure extends Closure<Object> {
+	
+	/**
+	 * TODO:
+	 */
+	public TestCommitRevertClosure(Project project,Test test) {
+		super(project,test);
+	}
 	
 	@Override
-	public Object call(TestDescriptor description,TestResult result) {
-		if(descriptor.getParent() == null) return null;
-		if(result.getFailedTestCount() > 0)
-			revert();
-		else
-			commit();
-		return null;
+	public Object call(Object...args) {
+		assert(args.length==2);
+		assert(args[0] instanceof TestDescriptor);
+		assert(args[1] instanceof TestResult);
+		//only the top-level summary has a null parent
+		if(((TestDescriptor)args[0]).getParent() != null) return null;
+		
+		try {
+			if(((TestResult)args[1]).getFailedTestCount() > 0)
+				revert();
+			else
+				commit();
+			return null;
+		} catch(Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 	
 	/**
 	 * TODO:
 	 */
-	protected void commit() {
-		File gitDir = new File(getProject().getRootDir(),".git");
-		Git git = Git.open(gitDir);
-		// Stage all files in the repo including new files, excluding deleted files
-		git.add().addFilepattern(".").call();
-		// Stage all changed files, including deleted files, excluding new files
-		git.add().addFilepattern(".").setUpdate(true).call();
-		// and then commit the changes.
-		git.commit().setMessage("TCR").call();
+	protected void revert() throws IOException, GitAPIException {
+		File dir = new File(getProject().getRootDir(),".git");
+		Git git = Git.open(dir);
+		Repository repo = git.getRepository();
+		RevWalk walker = new RevWalk(repo);
+		RevCommit head = walker.parseCommit(repo.resolve(Constants.HEAD));
+		git.revert().include(head).call();
 	}
 	
 	/**
 	 * TODO:
 	 */
-	protected void revert() {
-		File gitDir = new File(getProject().getRootDir(),".git");
-		Git git = Git.open(gitDir);
-		head = git.getRepository().resolve(Constants.HEAD);
-		RevWalk walker = new RevWalk(git.getRepository(),100);
-		RevCommit headCommit = walker.parseCommit(head);
-		git.revert().include(headCommit).call();
-	}
-	
-	/**
-	 * TODO:
-	 */
-	protected Project getProject() {
+	public Project getProject() {
 		return (Project)getOwner();
 	}
 	
 	/**
 	 * TODO:
 	 */
-	protected Test getTest() {
-		return (Test)getThis();
+	protected void commit() throws IOException, GitAPIException {
+		File dir = new File(getProject().getRootDir(),".git");
+		Git git = Git.open(dir);
+		
+		// Stage all files in the repo including new files, excluding deleted files
+		git.add().addFilepattern(".").call();
+		// Stage all changed files, including deleted files, excluding new files
+		git.add().addFilepattern(".").setUpdate(true).call();
+		
+		// and then commit the changes.
+		git.commit().setMessage(commit_message()).call();
+	}
+	
+	/**
+	 * TODO:
+	 */
+	protected String commit_message() {
+		return "TCR"; //TODO:allow config and/or user input...
 	}
 }
