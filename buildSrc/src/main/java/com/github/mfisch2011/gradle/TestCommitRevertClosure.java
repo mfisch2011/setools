@@ -63,20 +63,12 @@ public class TestCommitRevertClosure extends Closure<Object> {
 	protected void revert() throws IOException, GitAPIException {
 		File dir = new File(getProject().getRootDir(),".git");
 		Git git = Git.open(dir);
-		String head = git.getRepository().getFullBranch();
-		git.checkout().addPath(head).call();
-		
-		/* use checkout instead, because this is taking us back too far...
+		//TODO: why does this revert two commits ???
 		Repository repo = git.getRepository();
 		RevWalk walker = new RevWalk(repo);
 		RevCommit head = walker.parseCommit(repo.resolve(Constants.HEAD));
 		git.revert().include(head).call();
-		*/
-		ObjectId objectId = git.getRepository().resolve(head);
-		RevWalk walker = new RevWalk(git.getRepository());
-		RevCommit commit = walker.parseCommit(objectId);
-		walker.dispose();
-		getProject().getLogger().lifecycle("Reverted changes to {}.",commit);
+		getProject().getLogger().lifecycle("Reverted changes to {}.",head);
 	}
 	
 	/**
