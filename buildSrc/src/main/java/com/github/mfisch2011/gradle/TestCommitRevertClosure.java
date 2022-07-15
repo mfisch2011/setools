@@ -68,6 +68,14 @@ public class TestCommitRevertClosure extends Closure<Object> {
 		RevCommit head = walker.parseCommit(repo.resolve(Constants.HEAD));
 		git.revert().include(head).call();
 		getProject().getLogger().lifecycle("Reverted changes to {}.",head);
+		TreeWalk tree = new TreeWalk(repo);
+		tree.addTree(head.getTree());
+		tree.setRecursive(true);
+		String msg = "Reverted: ";
+		while(tree.next()) {
+			msg += tree.getPathString() + System.lineSeparator();
+		}
+		getProject().getLogger().lifecycle(msg);
 	}
 	
 	/**
@@ -92,6 +100,15 @@ public class TestCommitRevertClosure extends Closure<Object> {
 		// and then commit the changes.
 		RevCommit commit = git.commit().setMessage(commit_message()).call();
 		getProject().getLogger().lifecycle("Commited changes.  New commit {}.",commit);
+		Repository repo = git.getRepository();
+		TreeWalk tree = new TreeWalk(repo);
+		tree.addTree(commit.getTree());
+		tree.setRecursive(true);
+		String msg = "Committed: ";
+		while(tree.next()) {
+			msg += tree.getPathString() + System.lineSeparator();
+		}
+		getProject().getLogger().lifecycle(msg);
 	}
 	
 	/**
