@@ -17,6 +17,8 @@ package com.github.mfisch2011.setools.gradle.meetings.plugin;
 
 import static org.junit.Assert.*;
 
+import org.gradle.api.Project;
+import org.gradle.testfixtures.ProjectBuilder;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -29,9 +31,17 @@ public class MeetingsPluginTest {
 	 * Test method for {@link com.github.mfisch2011.setools.gradle.meetings.plugin.MeetingsPlugin#apply(org.gradle.api.Project)}.
 	 */
 	@Test
-	@Ignore
 	public void testApply() {
-		fail("Not yet implemented");
+		Project project = ProjectBuilder.builder()
+				//TODO:configure builder...
+				.build();
+		assertNotNull(project);
+		MeetingsPlugin test = new MeetingsPlugin();
+		project.getPluginManager().apply(MeetingsPlugin.class);
+		//validate configuration...
+		assertNotNull(project.getPlugins().findPlugin(MeetingsPlugin.class));
+		assertNotNull(project.getPlugins().findPlugin(MeetingsBasePlugin.class));
+		//TODO:verify other configuration data...
 	}
 
 }
