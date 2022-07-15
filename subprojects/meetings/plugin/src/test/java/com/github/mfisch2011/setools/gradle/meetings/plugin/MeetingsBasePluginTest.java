@@ -50,9 +50,8 @@ public class MeetingsBasePluginTest {
 		Object object = project.getExtensions().findByName("sourceSets");
 		assertNotNull("Missing sourceSets.",object);
 		SourceSetContainer sourceSets = (SourceSetContainer)object;
-		SourceSet sourceSet = sourceSets.findByName("meetings");
+		MeetingsSourceSet sourceSet = (MeetingsSourceSet)sourceSets.findByName("meetings");
 		assertNotNull("Missing 'meetings' SourceSet.",sourceSet);
-		MeetingsSourceSet meetingsSource = (MeetingsSourceSet)sourceSet;
 		
 		//TODO:verify other configuration data...
 	}
