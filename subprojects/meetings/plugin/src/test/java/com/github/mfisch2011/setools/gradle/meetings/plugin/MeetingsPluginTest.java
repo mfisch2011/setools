@@ -36,7 +36,6 @@ public class MeetingsPluginTest {
 				//TODO:configure builder...
 				.build();
 		assertNotNull(project);
-		MeetingsPlugin test = new MeetingsPlugin();
 		project.getPluginManager().apply(MeetingsPlugin.class);
 		//validate configuration...
 		assertNotNull(project.getPlugins().findPlugin(MeetingsPlugin.class));
