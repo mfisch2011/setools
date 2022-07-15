@@ -18,9 +18,14 @@ package com.github.mfisch2011.setools.gradle.meetings.plugin;
 import static org.junit.Assert.*;
 
 import org.gradle.api.Project;
+import org.gradle.api.plugins.JavaBasePlugin;
+import org.gradle.api.tasks.SourceSet;
+import org.gradle.api.tasks.SourceSetContainer;
 import org.gradle.testfixtures.ProjectBuilder;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import com.github.mfisch2011.setools.gradle.meetings.tasks.MeetingsSourceSet;
 
 /**
  * TODO:
@@ -39,6 +44,17 @@ public class MeetingsBasePluginTest {
 		project.getPluginManager().apply(MeetingsBasePlugin.class);
 		//validate configuration...
 		assertNotNull(project.getPlugins().findPlugin(MeetingsBasePlugin.class));
+		assertNotNull(project.getPlugins().findPlugin(JavaBasePlugin.class)); //for sourceSets...
+		
+		//verify that the meetings source set was created
+		Object object = project.getExtensions().findByName("sourceSets");
+		assertNotNull(object);
+		assertTrue(object instanceof SourceSetContainer);
+		SourceSetContainer sourceSets = (SourceSetContainer)object;
+		SourceSet sourceSet = sourceSets.findByName("meetings");
+		assertNotNull(sourceSet);
+		assertTrue(sourceSet instanceof MeetingsSourceSet);
+		
 		//TODO:verify other configuration data...
 	}
 
