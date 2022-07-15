@@ -28,4 +28,3 @@ pluginManagement {
 rootProject.name = "setools"
 
 include "sandbox"
-include "subprojects:meetings:plugin"
