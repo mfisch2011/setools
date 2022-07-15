@@ -29,7 +29,7 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.lib.Constants;
-import org.eclipse.jgit.treewalk.TreeWalk;
+import org.eclipse.jgit.lib.ObjectId;
 
 import groovy.lang.Closure;
 
@@ -63,11 +63,20 @@ public class TestCommitRevertClosure extends Closure<Object> {
 	protected void revert() throws IOException, GitAPIException {
 		File dir = new File(getProject().getRootDir(),".git");
 		Git git = Git.open(dir);
+		String head = git.getRepository().getFullBranch();
+		git.checkout().addPath(head).call();
+		
+		/* use checkout instead, because this is taking us back too far...
 		Repository repo = git.getRepository();
 		RevWalk walker = new RevWalk(repo);
 		RevCommit head = walker.parseCommit(repo.resolve(Constants.HEAD));
 		git.revert().include(head).call();
-		getProject().getLogger().lifecycle("Reverted changes to {}.",head);
+		*/
+		ObjectId objectId = git.getRepository().resolve(head);
+		RevWalk walker = new RevWalk(git.getRepository());
+		RevCommit commit = walker.parseCommit(objectId);
+		walker.dispose();
+		getProject().getLogger().lifecycle("Reverted changes to {}.",commit);
 	}
 	
 	/**
