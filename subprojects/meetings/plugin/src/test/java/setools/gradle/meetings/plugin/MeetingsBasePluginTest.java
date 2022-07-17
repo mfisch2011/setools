@@ -23,6 +23,8 @@ import org.gradle.api.tasks.SourceSetContainer;
 import org.gradle.testfixtures.ProjectBuilder;
 import org.junit.Test;
 
+import setools.gradle.meetings.tasks.MeetingsSourceSet;
+
 /**
  * TODO:
  */
@@ -39,7 +41,9 @@ public class MeetingsBasePluginTest {
 		project.getPluginManager().apply(MeetingsBasePlugin.class);
 		assertNotNull(project.getPlugins().findPlugin(MeetingsBasePlugin.class));
 		assertNotNull(project.getPlugins().findPlugin(JavaBasePlugin.class)); //for sourceSets...
-		assertNotNull((SourceSetContainer)project.getExtensions().findByName("sourceSets"));
+		SourceSetContainer sourceSets = (SourceSetContainer)project.getExtensions().findByName("sourceSets");
+		assertNotNull(sourceSets);
+		assertNotNull((MeetingsSourceSet)sourceSets.findByName("meetings"));
 		
 		//TODO:other validation...
 	}
