@@ -17,6 +17,7 @@ package setools.gradle.meetings.plugin;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
+import org.gradle.api.plugins.JavaBasePlugin;
 
 /**
  * TODO:
@@ -25,6 +26,7 @@ public class MeetingsBasePlugin implements Plugin<Project> {
 
 	@Override
 	public void apply(Project project) {
+		project.getPluginManager().apply(JavaBasePlugin.class);
 		// TODO Auto-generated method stub
 		
 	}

@@ -18,6 +18,8 @@ package setools.gradle.meetings.plugin;
 import static org.junit.Assert.*;
 
 import org.gradle.api.Project;
+import org.gradle.api.plugins.JavaBasePlugin;
+import org.gradle.api.tasks.SourceSetContainer;
 import org.gradle.testfixtures.ProjectBuilder;
 import org.junit.Test;
 
@@ -37,6 +39,8 @@ public class MeetingsPluginTest {
 		project.getPluginManager().apply(MeetingsPlugin.class);
 		assertNotNull(project.getPlugins().findPlugin(MeetingsPlugin.class));
 		assertNotNull(project.getPlugins().findPlugin(MeetingsBasePlugin.class));
+		assertNotNull(project.getPlugins().findPlugin(JavaBasePlugin.class)); //for sourceSets...
+		assertNotNull((SourceSetContainer)project.getExtensions().findByName("sourceSets"));
 		
 		//TODO:other validation...
 	}
