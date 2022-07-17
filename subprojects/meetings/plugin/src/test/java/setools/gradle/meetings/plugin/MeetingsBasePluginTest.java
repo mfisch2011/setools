@@ -17,6 +17,10 @@ package setools.gradle.meetings.plugin;
 
 import static org.junit.Assert.*;
 
+import org.gradle.api.Project;
+import org.gradle.api.plugins.JavaBasePlugin;
+import org.gradle.api.tasks.SourceSetContainer;
+import org.gradle.testfixtures.ProjectBuilder;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -29,9 +33,16 @@ public class MeetingsBasePluginTest {
 	 * Test method for {@link setools.gradle.meetings.plugin.MeetingsBasePlugin#apply(org.gradle.api.Project)}.
 	 */
 	@Test
-	@Ignore
 	public void testApply() {
-		fail("Not yet implemented");
+		Project project = ProjectBuilder.builder()
+				//TODO:configure builder
+				.build();
+		project.getPluginManager().apply(MeetingsBasePlugin.class);
+		assertNotNull(project.getPlugins().findPlugin(MeetingsBasePlugin.class));
+		assertNotNull(project.getPlugins().findPlugin(JavaBasePlugin.class)); //for sourceSets...
+		assertNotNull((SourceSetContainer)project.getExtensions().findByName("sourceSets"));
+		
+		//TODO:other validation...
 	}
 
 }
