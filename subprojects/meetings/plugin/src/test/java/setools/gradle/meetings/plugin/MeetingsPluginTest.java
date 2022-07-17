@@ -36,6 +36,7 @@ public class MeetingsPluginTest {
 				.build();
 		project.getPluginManager().apply(MeetingsPlugin.class);
 		assertNotNull(project.getPlugins().findPlugin(MeetingsPlugin.class));
+		assertNotNull(project.getPlugins().findPlugin(MeetingsBasePlugin.class));
 		
 		//TODO:other validation...
 	}
