@@ -28,4 +28,7 @@ pluginManagement {
 rootProject.name = "setools"
 
 include "sandbox"
-include "subprojects:meetings:plugin"
+
+//TODO:there must be a better way...
+include("subprojects:meetings:plugin")
+project(":subprojects:meetings:plugin").name = "meetings-plugin"

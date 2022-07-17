@@ -18,16 +18,10 @@ plugins {
 }
 
 gradlePlugin {
-    //TODO: why is this barfing ??? website = "https://github.com/mfisch2011/setools/wiki"
-    //TODO: why is this barfing ??? vcsUrl = "https://github.com/mfisch2011/setools.git"
     plugins {
         meetingsPlugin {
             id = "setools.meetings-plugin"
-            implementationClass = "com.github.mfisch2011.setools.gradle.meetings.plugin.MeetingsPlugin"
+            implementationClass = "setools.gradle.meetings.plugin.MeetingsPlugin"
         }
     }
-}
-
-dependencies {
-
 }
