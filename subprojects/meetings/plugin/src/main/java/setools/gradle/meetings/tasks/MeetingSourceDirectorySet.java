@@ -15,15 +15,11 @@
  */
 package setools.gradle.meetings.tasks;
 
-import org.gradle.api.tasks.SourceSet;
+import org.gradle.api.file.SourceDirectorySet;
 
 /**
  * TODO:
  */
-public interface MeetingsSourceSet extends SourceSet {
+public interface MeetingSourceDirectorySet extends SourceDirectorySet {
 
-	public MeetingSourceDirectorySet addMeeting(String name);
-	
-	public MeetingSourceDirectorySet getMeeting(String name);
-	
 }

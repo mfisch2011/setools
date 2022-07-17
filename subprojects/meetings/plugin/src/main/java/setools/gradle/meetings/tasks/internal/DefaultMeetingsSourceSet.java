@@ -19,12 +19,16 @@ import javax.inject.Inject;
 
 import org.gradle.api.internal.tasks.DefaultSourceSet;
 import org.gradle.api.model.ObjectFactory;
+
+import setools.gradle.meetings.tasks.MeetingSourceDirectorySet;
 import setools.gradle.meetings.tasks.MeetingsSourceSet;
 
 /**
  * TODO:
  */
 public abstract class DefaultMeetingsSourceSet extends DefaultSourceSet implements MeetingsSourceSet {
+
+	protected final ObjectFactory objectFactory;
 
 	/**
 	 * TODO:
@@ -34,7 +38,18 @@ public abstract class DefaultMeetingsSourceSet extends DefaultSourceSet implemen
 	@Inject
 	public DefaultMeetingsSourceSet(String name, ObjectFactory objectFactory) {
 		super(name,objectFactory);
-		// TODO Auto-generated constructor stub
+		this.objectFactory = objectFactory;
 	}
 
+	@Override
+	public MeetingSourceDirectorySet addMeeting(String name) {
+		MeetingSourceDirectorySet dirSet = new DefaultMeetingSourceDirectorySet(name,objectFactory);
+		getExtensions().add(name, dirSet);
+		return dirSet;
+	}
+	
+	@Override
+	public MeetingSourceDirectorySet getMeeting(String name) {
+		return (MeetingSourceDirectorySet)getExtensions().findByName(name);
+	}
 }
