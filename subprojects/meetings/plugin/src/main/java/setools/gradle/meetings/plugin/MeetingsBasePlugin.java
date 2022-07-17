@@ -41,6 +41,13 @@ public class MeetingsBasePlugin implements Plugin<Project> {
 	private Instantiator instantiator;
 	private ObjectFactory objectFactory;
 
+	/**
+	 * TODO:
+	 * @param fileResolver - {@link FileResolver} for resolving files
+	 * @param fileCollectionFactory - {@link FileCollectionFactory} for creating FileCollection
+	 * @param instantiator - {@link Instantiator} for instantiating new dynamic objects
+	 * @param objectFactory - {@link ObjectFactory} for creating new objects
+	 */
 	@Inject
 	public MeetingsBasePlugin(FileResolver fileResolver, FileCollectionFactory fileCollectionFactory, Instantiator instantiator, ObjectFactory objectFactory) {
 		this.fileResolver = fileResolver;

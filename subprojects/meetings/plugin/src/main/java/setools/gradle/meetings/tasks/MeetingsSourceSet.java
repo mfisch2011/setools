@@ -22,8 +22,18 @@ import org.gradle.api.tasks.SourceSet;
  */
 public interface MeetingsSourceSet extends SourceSet {
 
+	/**
+	 * TODO:
+	 * @param name - name of the MeetingSourceDirectorySet to add
+	 * @return {@link MeetingSourceDirectorySet}
+	 */
 	public MeetingSourceDirectorySet addMeeting(String name);
 	
+	/**
+	 * TODO:
+	 * @param name - name of the MeetingSourceDirectorySet to get
+	 * @return {@link MeetingSourceDirectorySet}
+	 */
 	public MeetingSourceDirectorySet getMeeting(String name);
 	
 }

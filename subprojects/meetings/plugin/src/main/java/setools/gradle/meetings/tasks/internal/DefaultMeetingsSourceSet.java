@@ -32,8 +32,8 @@ public abstract class DefaultMeetingsSourceSet extends DefaultSourceSet implemen
 
 	/**
 	 * TODO:
-	 * @param name
-	 * @param objectFactory
+	 * @param name - name of the DefaultMeetingsSourceSet
+	 * @param objectFactory - {@link ObjectFactory} for creating objects
 	 */
 	@Inject
 	public DefaultMeetingsSourceSet(String name, ObjectFactory objectFactory) {
