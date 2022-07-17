@@ -21,7 +21,6 @@ import org.gradle.api.Project;
 import org.gradle.api.plugins.JavaBasePlugin;
 import org.gradle.api.tasks.SourceSetContainer;
 import org.gradle.testfixtures.ProjectBuilder;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
