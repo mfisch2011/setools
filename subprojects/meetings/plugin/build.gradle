@@ -31,11 +31,3 @@ gradlePlugin {
 dependencies {
 
 }
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            artifactId "meetings-plugin"
-        }
-    }
-}
