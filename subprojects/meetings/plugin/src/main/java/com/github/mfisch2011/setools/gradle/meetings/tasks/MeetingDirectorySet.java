@@ -15,25 +15,11 @@
  */
 package com.github.mfisch2011.setools.gradle.meetings.tasks;
 
-import org.gradle.api.tasks.SourceSet;
+import org.gradle.api.file.SourceDirectorySet;
 
 /**
  * TODO:
  */
-public interface MeetingsSourceSet extends SourceSet {
+public interface MeetingDirectorySet extends SourceDirectorySet {
 
-	/**
-	 * TODO:
-	 * @param name - TODO:
-	 * @return MeetingDirectorySet
-	 */
-	public MeetingDirectorySet addMeeting(String name);
-	
-	/**
-	 * TODO:
-	 * @param name - TODO:
-	 * @return MeetingDirectorySet
-	 */
-	public MeetingDirectorySet getMeeting(String name);
-	
 }

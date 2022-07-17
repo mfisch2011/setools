@@ -13,27 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.mfisch2011.setools.gradle.meetings.tasks;
+package com.github.mfisch2011.setools.gradle.meetings.tasks.internal;
 
-import org.gradle.api.tasks.SourceSet;
+import javax.inject.Inject;
+
+import org.gradle.api.internal.file.DefaultSourceDirectorySet;
+import org.gradle.api.model.ObjectFactory;
+import com.github.mfisch2011.setools.gradle.meetings.tasks.MeetingDirectorySet;
 
 /**
  * TODO:
  */
-public interface MeetingsSourceSet extends SourceSet {
+public class DefaultMeetingDirectorySet extends DefaultSourceDirectorySet implements MeetingDirectorySet {
 
 	/**
 	 * TODO:
 	 * @param name - TODO:
-	 * @return MeetingDirectorySet
+	 * @param displayName - TODO:
+	 * @param objectFactory - TODO:
 	 */
-	public MeetingDirectorySet addMeeting(String name);
-	
-	/**
-	 * TODO:
-	 * @param name - TODO:
-	 * @return MeetingDirectorySet
-	 */
-	public MeetingDirectorySet getMeeting(String name);
-	
+	@Inject
+	public DefaultMeetingDirectorySet(String name, String displayName, ObjectFactory objectFactory) {
+		super(objectFactory.sourceDirectorySet(name, displayName));
+		// TODO Auto-generated constructor stub
+	}
+
 }

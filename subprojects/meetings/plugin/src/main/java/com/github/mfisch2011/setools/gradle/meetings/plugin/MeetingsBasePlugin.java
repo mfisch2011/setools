@@ -21,50 +21,54 @@ import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.internal.file.FileCollectionFactory;
 import org.gradle.api.internal.file.FileResolver;
+import org.gradle.api.internal.project.ProjectInternal;
 import org.gradle.api.internal.tasks.DefaultSourceSetOutput;
 import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.plugins.JavaBasePlugin;
 import org.gradle.api.tasks.SourceSetContainer;
 import org.gradle.internal.reflect.Instantiator;
 
-import com.github.mfisch2011.setools.gradle.meetings.tasks.MeetingsSourceSet;
 import com.github.mfisch2011.setools.gradle.meetings.tasks.internal.DefaultMeetingsSourceSet;
 
 /**
  * TODO:
  */
-public class MeetingsBasePlugin implements Plugin<Project> {
+public class MeetingsBasePlugin implements Plugin<ProjectInternal> {
 	
 	/**
 	 * TODO:
 	 */
-	protected final Instantiator instantiator;
+	private Instantiator instantiator;
 	
 	/**
 	 * TODO:
 	 */
-	protected final ObjectFactory objectFactory;
+	private FileResolver fileResolver;
 
 	/**
 	 * TODO:
 	 */
-	protected final FileResolver fileResolver;
+	private FileCollectionFactory fileCollectionFactory;
+
+	private ObjectFactory objectFactory;
 
 	/**
 	 * TODO:
+	 * @param instantiator - TODO:
+	 * @param objectFactory - TODO:
+	 * @param fileResolver - TODO:
+	 * @param fileCollectionFactory - TODO:
 	 */
-	protected final FileCollectionFactory fileCollectionFactory;
-
 	@Inject
-	public MeetingsBasePlugin(FileResolver fileResolver, FileCollectionFactory fileCollectionFactory, Instantiator instantiator, ObjectFactory objectFactory) {
+	public MeetingsBasePlugin(Instantiator instantiator,ObjectFactory objectFactory,FileResolver fileResolver,FileCollectionFactory fileCollectionFactory) {
+		this.instantiator = instantiator;
 		this.fileResolver = fileResolver;
 		this.fileCollectionFactory = fileCollectionFactory;
-		this.instantiator = instantiator;
 		this.objectFactory = objectFactory;
 	}
 
 	@Override
-	public void apply(Project project) {
+	public void apply(ProjectInternal project) {
 		project.getPluginManager().apply(JavaBasePlugin.class);
 		SourceSetContainer sourceSets = getSourceSets(project);
 		DefaultMeetingsSourceSet meetingsSource = instantiator.newInstance(DefaultMeetingsSourceSet.class,"meetings",objectFactory);
@@ -74,8 +78,8 @@ public class MeetingsBasePlugin implements Plugin<Project> {
 
 	/**
 	 * TODO: move to utility library...
-	 * @param project
-	 * @return
+	 * @param project - TODO:
+	 * @return SourceSetContainer
 	 */
 	public static SourceSetContainer getSourceSets(Project project) {
 		Object object = project.getExtensions().getByName("sourceSets");
