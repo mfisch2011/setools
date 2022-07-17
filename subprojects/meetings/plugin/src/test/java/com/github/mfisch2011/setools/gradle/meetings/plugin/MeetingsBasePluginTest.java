@@ -53,6 +53,7 @@ public class MeetingsBasePluginTest {
 		SourceSet sourceSet = sourceSets.findByName("meetings");
 		assertNotNull("Missing 'meetings' SourceSet.",sourceSet);
 		MeetingsSourceSet meetingsSource = (MeetingsSourceSet)sourceSet;
+		assertNotNull(meetingsSource); //TODO:don't really need this, but SpotBugs sucks...
 		
 		//TODO:verify other configuration data...
 	}
